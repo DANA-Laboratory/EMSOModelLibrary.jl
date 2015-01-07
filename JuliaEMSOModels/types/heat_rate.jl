@@ -50,7 +50,7 @@ export heat_rate
 typealias Danaheat_rate DanaRealParametric
 type _heat_rate
 	function _heat_rate(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Heat Rate"
 		fields[:Default]=1000
 		fields[:Lower]=-1e9

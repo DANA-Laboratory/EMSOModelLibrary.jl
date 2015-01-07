@@ -26,7 +26,7 @@ export positive
 typealias Danapositive DanaRealParametric
 type _positive
 	function _positive(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Positive General Constant"
 		fields[:Default]=1.0
 		fields[:Lower]=-1e-6

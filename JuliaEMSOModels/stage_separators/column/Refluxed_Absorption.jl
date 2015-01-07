@@ -10,29 +10,29 @@ type Refluxed_Absorption
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
+			)),
 			DanaInteger(),
-			DanaInteger((Symbol=>Any)[
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of trays",
 				:Default=>2
-			]),
-			DanaInteger((Symbol=>Any)[
+			)),
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Trays counting (1=top-down, -1=bottom-up)",
 				:Default=>1
-			]),
-			DanaInteger((Symbol=>Any)[
+			)),
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of top tray"
-			]),
-			DanaInteger((Symbol=>Any)[
+			)),
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of bottom tray"
-			]),
-			DanaSwitcher((Symbol=>Any)[
+			)),
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["on", "off"],
 				:Default=>"on"
-			]),
+			)),
 			fill(tray()),
 			condenser(),
 			splitter(),
@@ -89,7 +89,7 @@ function setEquationFlow(in::Refluxed_Absorption)
 	end
 end
 function atributes(in::Refluxed_Absorption,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/RefluxedCond"
 	fields[:Brief]="Model of a refluxed absorption column with dynamic condenser."

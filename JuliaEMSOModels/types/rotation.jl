@@ -59,7 +59,7 @@ export rotation
 typealias Danarotation DanaRealParametric
 type _rotation
 	function _rotation(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Angular Velocity"
 		fields[:Default]=500
 		fields[:Lower]=-10000

@@ -22,70 +22,70 @@ type User_trayBasic
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin ((Symbol=>Any)[
+			DanaPlugin (Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
+			)),
 			DanaInteger(),
-			stream ((Symbol=>Any)[
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Feed stream",
 				:PosX=>0,
 				:PosY=>0.4932,
 				:Hidden=>true
-			]),
-			liquid_stream ((Symbol=>Any)[
+			)),
+			liquid_stream (Dict{Symbol,Any}(
 				:Brief=>"liquid Sidestream",
 				:Hidden=>true
-			]),
-			vapour_stream ((Symbol=>Any)[
+			)),
+			vapour_stream (Dict{Symbol,Any}(
 				:Brief=>"vapour Sidestream",
 				:Hidden=>true
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet liquid stream",
 				:PosX=>0.5195,
 				:PosY=>0,
 				:Symbol=>"_{inL}"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet vapour stream",
 				:PosX=>0.4994,
 				:PosY=>1,
 				:Symbol=>"_{inV}"
-			]),
-			liquid_stream ((Symbol=>Any)[
+			)),
+			liquid_stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet liquid stream",
 				:PosX=>0.8277,
 				:PosY=>1,
 				:Symbol=>"_{outL}"
-			]),
-			vapour_stream ((Symbol=>Any)[
+			)),
+			vapour_stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet vapour stream",
 				:PosX=>0.8043,
 				:PosY=>0,
 				:Symbol=>"_{outV}"
-			]),
-			fill(mol ((Symbol=>Any)[
+			)),
+			fill(mol (Dict{Symbol,Any}(
 				:Brief=>"Molar Holdup in the tray"
-			]),(NComp)),
-			mol ((Symbol=>Any)[
+			)),(NComp)),
+			mol (Dict{Symbol,Any}(
 				:Brief=>"Molar liquid holdup"
-			]),
-			mol ((Symbol=>Any)[
+			)),
+			mol (Dict{Symbol,Any}(
 				:Brief=>"Molar vapour holdup"
-			]),
-			energy ((Symbol=>Any)[
+			)),
+			energy (Dict{Symbol,Any}(
 				:Brief=>"Total Energy Holdup on tray"
-			]),
-			volume_mol ((Symbol=>Any)[
+			)),
+			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Volume"
-			]),
-			volume_mol ((Symbol=>Any)[
+			)),
+			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar volume"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Height of clear liquid on plate"
-			]),
+			)),
 			fill(fraction()),
 			[
 				:(diff(M)=Inlet.F*Inlet.z + InletL.F*InletL.z + InletV.F*InletV.z- OutletL.F*OutletL.z - OutletV.F*OutletV.z- LiquidSideStream.F*LiquidSideStream.z-VapourSideStream.F*VapourSideStream.z),
@@ -153,7 +153,7 @@ function setEquationFlow(in::User_trayBasic)
 	addEquation(15)
 end
 function atributes(in::User_trayBasic,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Icon]="icon/Tray"
 	fields[:Brief]="Basic description of a tray column model."

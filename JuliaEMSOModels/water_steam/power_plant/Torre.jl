@@ -55,7 +55,7 @@ function setEquationFlow(in::Torre)
 	
 end
 function atributes(in::Torre,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/torreresf"
 	drive!(fields,_)

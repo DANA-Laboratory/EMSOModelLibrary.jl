@@ -19,37 +19,37 @@ type Details_Main
 	Details_Main()=begin
 		N=outers.N
 		new(
-			DanaInteger ((Symbol=>Any)[
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of zones",
 				:Default=>2
-			]),
-			area ((Symbol=>Any)[
+			)),
+			area (Dict{Symbol,Any}(
 				:Brief=>"Total Exchange Surface Area"
-			]),
-			fill(power ((Symbol=>Any)[
+			)),
+			fill(power (Dict{Symbol,Any}(
 				:Brief=>"Incremental Duty",
 				:Default=>7000,
 				:Lower=>1e-6,
 				:Upper=>1e10
-			]),(N)),
-			power ((Symbol=>Any)[
+			)),(N)),
+			power (Dict{Symbol,Any}(
 				:Brief=>"Total Duty",
 				:Default=>7000,
 				:Lower=>1e-6,
 				:Upper=>1e10
-			]),
-			fill(heat_trans_coeff ((Symbol=>Any)[
+			)),
+			fill(heat_trans_coeff (Dict{Symbol,Any}(
 				:Brief=>"Incremental Overall Heat Transfer Coefficient Clean",
 				:Default=>1,
 				:Lower=>1e-6,
 				:Upper=>1e10
-			]),(N)),
-			fill(heat_trans_coeff ((Symbol=>Any)[
+			)),(N)),
+			fill(heat_trans_coeff (Dict{Symbol,Any}(
 				:Brief=>"Incremental Overall Heat Transfer Coefficient Dirty",
 				:Default=>1,
 				:Lower=>1e-6,
 				:Upper=>1e10
-			]),(N)),
+			)),(N)),
 			[:N,],
 			[:A,:Q,:Qtotal,:Uc,:Ud,]
 		)
@@ -66,7 +66,7 @@ type Details_Main
 end
 export Details_Main
 function atributes(in::Details_Main,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="to be documented"
 	fields[:Info]="to be documented"

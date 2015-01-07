@@ -20,18 +20,18 @@ type Indutor
 	Indutor()=begin
 		new(
 			indutance(),
-			wire ((Symbol=>Any)[
+			wire (Dict{Symbol,Any}(
 				:Brief=>"Inlet",
 				:PosX=>0.4638,
 				:PosY=>0,
 				:Symbol=>"_{in}"
-			]),
-			wire ((Symbol=>Any)[
+			)),
+			wire (Dict{Symbol,Any}(
 				:Brief=>"Outlet",
 				:PosX=>0.4638,
 				:PosY=>1,
 				:Symbol=>"_{out}"
-			]),
+			)),
 			[
 				:(inlet.V - outlet.V = L * diff(inlet.i)),
 				:(outlet.i = inlet.i),
@@ -58,7 +58,7 @@ function setEquationFlow(in::Indutor)
 	addEquation(2)
 end
 function atributes(in::Indutor,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Indutor"
 	fields[:Brief]="Electrical Indutor."

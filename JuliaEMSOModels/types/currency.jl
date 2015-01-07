@@ -31,7 +31,7 @@ export currency
 typealias Danacurrency DanaRealParametric
 type _currency
 	function _currency(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Currency"
 		fields[:Default]=0
 		fields[:finalUnit]="US\$"

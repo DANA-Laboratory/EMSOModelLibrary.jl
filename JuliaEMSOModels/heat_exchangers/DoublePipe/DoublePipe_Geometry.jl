@@ -20,58 +20,58 @@ type DoublePipe_Geometry
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin ((Symbol=>Any)[
+			DanaPlugin (Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of Components",
 				:Hidden=>true
-			]),
-			fill(molweight ((Symbol=>Any)[
+			)),
+			fill(molweight (Dict{Symbol,Any}(
 				:Brief=>"Component Mol Weight",
 				:Hidden=>true
-			]),(NComp)),
-			constant ((Symbol=>Any)[
+			)),(NComp)),
+			constant (Dict{Symbol,Any}(
 				:Brief=>"Pi Number",
 				:Default=>3.14159265,
 				:Symbol=>"\\pi",
 				:Hidden=>true
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Outside Diameter of Inner Pipe",
 				:Lower=>1e-6
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Inside Diameter of Inner Pipe",
 				:Lower=>1e-10
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Inside Diameter of Outer pipe",
 				:Lower=>1e-10
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Effective Tube Length of one segment of Pipe",
 				:Lower=>0.1,
 				:Symbol=>"L_{pipe}"
-			]),
-			conductivity ((Symbol=>Any)[
+			)),
+			conductivity (Dict{Symbol,Any}(
 				:Brief=>"Tube Wall Material Thermal Conductivity",
 				:Default=>1.0,
 				:Symbol=>"K_{wall}"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Inside Fouling Resistance",
 				:Unit=>"m^2*K/kW",
 				:Default=>1e-6,
 				:Lower=>0
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Outside Fouling Resistance",
 				:Unit=>"m^2*K/kW",
 				:Default=>1e-6,
 				:Lower=>0
-			]),
+			)),
 			[:PP,:NComp,:M,:Pi,:DoInner,:DiInner,:DiOuter,:Lpipe,:Kwall,:Rfi,:Rfo,],
 		)
 	end
@@ -97,7 +97,7 @@ function set(in::DoublePipe_Geometry)
 	Pi = 3.14159265
 end
 function atributes(in::DoublePipe_Geometry,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="double pipe geometrical parameters."
 	drive!(fields,_)

@@ -23,13 +23,13 @@ type streamPHS
 		PP=outers.PP
 		new(
 			streamPH(),
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
-			entr_mol ((Symbol=>Any)[
+			)),
+			entr_mol (Dict{Symbol,Any}(
 				:Brief=>"Stream Entropy"
-			]),
+			)),
 			[
 				:(s = (1-v)*_P1.PP.LiquidEntropy(T, P, x) + v*_P1.PP.VapourEntropy(T, P, y)),
 			],
@@ -54,7 +54,7 @@ function setEquationFlow(in::streamPHS)
 	addEquation(1)
 end
 function atributes(in::streamPHS,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Brief]="Stream with built-in flash calculation"
 	fields[:Info]="
 	This model should be used when the vaporization fraction

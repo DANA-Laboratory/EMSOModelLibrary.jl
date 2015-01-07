@@ -15,23 +15,23 @@ type User_Distillation_thermosyphon_subcooling
 	User_Distillation_thermosyphon_subcooling()=begin
 		new(
 			User_Section_ColumnBasic(),
-			DanaSwitcher((Symbol=>Any)[
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["on", "off"],
 				:Hidden=>true,
 				:Default=>"on"
-			]),
-			vapour_stream ((Symbol=>Any)[
+			)),
+			vapour_stream (Dict{Symbol,Any}(
 				:Brief=>"Vapour Outlet in the section",
 				:PosX=>1,
 				:PosY=>0.41,
 				:Protected=>true
-			]),
-			liquid_stream ((Symbol=>Any)[
+			)),
+			liquid_stream (Dict{Symbol,Any}(
 				:Brief=>"Liquid Outlet in the section",
 				:PosX=>1,
 				:PosY=>0.515,
 				:Protected=>true
-			]),
+			)),
 			condenserSteady(),
 			tank_cylindrical(),
 			splitter(),
@@ -40,40 +40,40 @@ type User_Distillation_thermosyphon_subcooling
 			tank(),
 			splitter(),
 			DanaReal(),
-			energy_stream ((Symbol=>Any)[
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Heat supplied to Condenser",
 				:Hidden=>true
-			]),
-			energy_stream ((Symbol=>Any)[
+			)),
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Heat supplied to Reboiler",
 				:Hidden=>true
-			]),
-			energy_stream ((Symbol=>Any)[
+			)),
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Heat supplied to Bottom Vessel",
 				:Hidden=>true
-			]),
-			energy_stream ((Symbol=>Any)[
+			)),
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Heat supplied to Top Vessel",
 				:Hidden=>true
-			]),
-			liquid_stream ((Symbol=>Any)[
+			)),
+			liquid_stream (Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream From Top Splitter",
 				:PosX=>1,
 				:PosY=>0.30
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Connector for Liquid outlet stream From Top Splitter",
 				:Hidden=>true
-			]),
-			liquid_stream ((Symbol=>Any)[
+			)),
+			liquid_stream (Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream From Bottom Splitter",
 				:PosX=>1,
 				:PosY=>1
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Connector for Liquid outlet stream From Reboiler",
 				:Hidden=>true
-			]),
+			)),
 			[
 				:(ConnectorSplitterTop.T = LiquidDistillate.T),
 				:(ConnectorSplitterTop.P = LiquidDistillate.P),
@@ -166,7 +166,7 @@ function setEquationFlow(in::User_Distillation_thermosyphon_subcooling)
 	end
 end
 function atributes(in::User_Distillation_thermosyphon_subcooling,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/DistillationThermosyphonSubcooling"
 	fields[:Brief]="Model of a distillation column with steady condenser and steady reboiler."

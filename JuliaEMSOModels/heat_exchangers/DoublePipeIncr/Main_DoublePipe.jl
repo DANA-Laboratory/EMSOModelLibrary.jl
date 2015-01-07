@@ -18,15 +18,15 @@
 type Main_DoublePipe
 	Main_DoublePipe()=begin
 		new(
-			DoublePipe_HeatTransfer ((Symbol=>Any)[
+			DoublePipe_HeatTransfer (Dict{Symbol,Any}(
 				:Brief=>"Double Pipe Heat Transfer"
-			]),
-			DoublePipe_PressureDrop ((Symbol=>Any)[
+			)),
+			DoublePipe_PressureDrop (Dict{Symbol,Any}(
 				:Brief=>"Double Pipe Pressure Drop"
-			]),
-			Physical_Properties ((Symbol=>Any)[
+			)),
+			Physical_Properties (Dict{Symbol,Any}(
 				:Brief=>"Double Pipe Properties"
-			]),
+			)),
 			[:HeatTransfer,:PressureDrop,:Properties,]
 		)
 	end
@@ -38,7 +38,7 @@ type Main_DoublePipe
 end
 export Main_DoublePipe
 function atributes(in::Main_DoublePipe,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="to be documented"
 	fields[:Info]="to be documented"

@@ -3,50 +3,50 @@ type Gerador_Vapor
 	Gerador_Vapor()=begin
 		propterm=outers.propterm
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"Steam tables",
 				:Type=>"water"
-			]),
-			Potencia ((Symbol=>Any)[
+			)),
+			Potencia (Dict{Symbol,Any}(
 				:Brief=>"Taxa de calor gerado na caldeira"
-			]),
-			Eficiencia ((Symbol=>Any)[
+			)),
+			Eficiencia (Dict{Symbol,Any}(
 				:Brief=>"Eficiencia do gerador de vapor"
-			]),
-			Potencia ((Symbol=>Any)[
+			)),
+			Potencia (Dict{Symbol,Any}(
 				:Brief=>"Taxa de calor nos reaquecedores"
-			]),
-			Potencia ((Symbol=>Any)[
+			)),
+			Potencia (Dict{Symbol,Any}(
 				:Brief=>"Taxa de calor nos superaquecedores"
-			]),
-			Potencia ((Symbol=>Any)[
+			)),
+			Potencia (Dict{Symbol,Any}(
 				:Brief=>"Taxa de calor no evaporador"
-			]),
-			Potencia ((Symbol=>Any)[
+			)),
+			Potencia (Dict{Symbol,Any}(
 				:Brief=>"Taxa de calor nos economizadores"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Brief=>"Agua de alimentacao",
 				:Symbol=>"_{in_a}"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Brief=>"Vapor a ser Reaquecido",
 				:Symbol=>"_{in_ra}"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Brief=>"Vapor Superaquecido",
 				:Symbol=>"_{out_sa}"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Brief=>"Vapor Reaquecido",
 				:Symbol=>"_{out_ra}"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Brief=>"Evaporador"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Brief=>"Economizadores"
-			]),
+			)),
 			[
 				:([Feco.S,Feco.H] = propterm.propPTv(Feco.P,Feco.T)),
 				:(Qec = Feco.F * (Feco.H - Fin_a.H)),
@@ -105,7 +105,7 @@ function setEquationFlow(in::Gerador_Vapor)
 	addEquation(12)
 end
 function atributes(in::Gerador_Vapor,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/caldeira"
 	drive!(fields,_)

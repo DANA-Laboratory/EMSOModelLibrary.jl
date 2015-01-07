@@ -31,7 +31,7 @@ export charge
 typealias Danacharge DanaRealParametric
 type _charge
 	function _charge(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Electrical Charge"
 		fields[:Default]=10
 		fields[:Lower]=-1e12

@@ -20,41 +20,41 @@ type Heatex_LMTD
 	Heatex_LMTD()=begin
 		new(
 			Heatex_Basic(),
-			DanaSwitcher ((Symbol=>Any)[
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Type of Heat Exchanger",
 				:Valid=>["Counter Flow","Cocurrent Flow", "Shell and Tube"],
 				:Default=>"Cocurrent Flow"
-			]),
-			DanaSwitcher ((Symbol=>Any)[
+			)),
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"LMTD Correction Factor Model",
 				:Valid=>["Bowmann","Fakheri"],
 				:Default=>"Bowmann"
-			]),
-			LMTD_Basic ((Symbol=>Any)[
+			)),
+			LMTD_Basic (Dict{Symbol,Any}(
 				:Brief=>"LMTD Method of Calculation",
 				:Symbol=>" "
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Capacity Ratio for LMTD Correction Fator",
 				:Lower=>1e-6,
 				:Hidden=>true
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Non - Dimensional Variable for LMTD Correction Fator ",
 				:Lower=>1e-6,
 				:Hidden=>true
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Non - Dimensional Variable for LMTD Correction Fator in Fakheri Equation",
 				:Lower=>1e-6,
 				:Hidden=>true
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Non - Dimensional Variable for LMTD Correction Fator in Fakheri Equation",
 				:Lower=>1e-6,
 				:Symbol=>"\\phi",
 				:Hidden=>true
-			]),
+			)),
 			[
 				:(Q = U*A*Method.LMTD*Method.Fc),
 				:(Method.DT0 = _P1.InletHot.T - _P1.InletCold.T),
@@ -157,7 +157,7 @@ function setEquationFlow(in::Heatex_LMTD)
 	end
 end
 function atributes(in::Heatex_LMTD,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/HeatExchanger_LMTD"
 	fields[:Brief]="Simplified model for Heat Exchangers"

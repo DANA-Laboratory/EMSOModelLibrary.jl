@@ -51,7 +51,7 @@ export energy_mol
 typealias Danaenergy_mol DanaRealParametric
 type _energy_mol
 	function _energy_mol(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Energy per mol"
 		fields[:Default]=10000
 		fields[:Lower]=-1e15

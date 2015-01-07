@@ -29,7 +29,7 @@ function setEquationFlow(in::tank_vap)
 	addEquation(4)
 end
 function atributes(in::tank_vap,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Brief]="Model of a generic vapour-phase tank"
 	drive!(fields,_)
 	return fields

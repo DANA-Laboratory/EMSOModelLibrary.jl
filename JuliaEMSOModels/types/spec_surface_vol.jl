@@ -70,7 +70,7 @@ export spec_surface_vol
 typealias Danaspec_surface_vol Danapositive
 type _spec_surface_vol
 	function _spec_surface_vol(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Specific Surface Volume"
 		fields[:Default]=1e5
 		fields[:Upper]=1e15

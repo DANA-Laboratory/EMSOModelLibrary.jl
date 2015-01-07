@@ -58,7 +58,7 @@ export flux_mass_delta
 typealias Danaflux_mass_delta Danaflux_mass
 type _flux_mass_delta
 	function _flux_mass_delta(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Difference of Mass Flux"
 		fields[:Lower]=-1e6
 		drive!(fields,_)

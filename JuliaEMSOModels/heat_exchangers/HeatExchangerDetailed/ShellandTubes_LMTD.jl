@@ -19,40 +19,40 @@ type ShellandTubes_LMTD
 	ShellandTubes_LMTD()=begin
 		new(
 			ShellandTubesBasic(),
-			DanaSwitcher ((Symbol=>Any)[
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"LMTD Correction Factor Model",
 				:Valid=>["Bowmann","Fakeri"],
 				:Default=>"Bowmann"
-			]),
+			)),
 			LMTD_Basic(),
-			positive ((Symbol=>Any)[
+			positive (Dict{Symbol,Any}(
 				:Brief=>" Capacity Ratio for LMTD Correction Fator",
 				:Lower=>1e-6
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Non - Dimensional Variable for LMTD Correction Fator ",
 				:Lower=>1e-6
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Non - Dimensional Variable for LMTD Correction Fator when 2 Pass Shell Side",
 				:Lower=>1e-6
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Non - Dimensional Variable for LMTD Correction Fator in Fakeri Equation",
 				:Lower=>1e-6
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Non - Dimensional Variable for LMTD Correction Fator in Fakeri Equation",
 				:Lower=>1e-6
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Non - Dimensional Variable for LMTD Correction Fator in Fakeri Equation when 2 Pass Shell Side",
 				:Lower=>1e-6
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Non - Dimensional Variable for LMTD Correction Fator in Fakeri Equationwhen 2 Pass Shell Side",
 				:Lower=>1e-6
-			]),
+			)),
 			[
 				:(_P1.Details.Q = _P1.Details.Ud*_P1.Pi*_P1.Tubes.TubeOD*_P1.Tubes.NumberOfTubes*_P1.Tubes.TubeLength*Method.LMTD*Method.Fc),
 				:(Phi*(2*((_P1.InletShell.T+ _P1.OutletShell.T)-(_P1.InletTube.T+ _P1.OutletTube.T))) = (sqrt(((_P1.InletShell.T- _P1.OutletShell.T)*(_P1.InletShell.T- _P1.OutletShell.T))+((_P1.OutletTube.T - _P1.InletTube.T)*(_P1.OutletTube.T - _P1.InletTube.T))))),
@@ -198,7 +198,7 @@ function setEquationFlow(in::ShellandTubes_LMTD)
 	end
 end
 function atributes(in::ShellandTubes_LMTD,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/ShellandTubes_LMTD"
 	fields[:Brief]="Shell and Tubes Heat Exchangers"

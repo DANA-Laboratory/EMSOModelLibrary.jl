@@ -26,7 +26,7 @@ export pressure
 typealias Danapressure DanaRealParametric
 type _pressure
 	function _pressure(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Pressure"
 		fields[:Default]=1
 		fields[:Lower]=1e-30

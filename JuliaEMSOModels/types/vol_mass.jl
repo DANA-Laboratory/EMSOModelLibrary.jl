@@ -70,7 +70,7 @@ export vol_mass
 typealias Danavol_mass Danavolume_mass
 type _vol_mass
 	function _vol_mass(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Specific Volume"
 		drive!(fields,_)
 		new(_volume_mass (fields).value)

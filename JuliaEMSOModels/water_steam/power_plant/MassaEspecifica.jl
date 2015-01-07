@@ -23,7 +23,7 @@ export MassaEspecifica
 typealias DanaMassaEspecifica DanaRealParametric
 type _MassaEspecifica
 	function _MassaEspecifica(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Default]=1e3
 		fields[:Lower]=1e-3
 		fields[:Upper]=1e6

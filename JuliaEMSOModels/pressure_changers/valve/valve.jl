@@ -21,60 +21,60 @@ type valve
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaSwitcher ((Symbol=>Any)[
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Valid=>["linear", "parabolic", "equal", "quick", "hyperbolic"],
 				:Default=>"linear"
-			]),
-			DanaPlugin ((Symbol=>Any)[
+			)),
+			DanaPlugin (Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
-			]),
+			)),
 			dens_mass(),
-			positive ((Symbol=>Any)[
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Pressure Ratio",
 				:Symbol=>"P_{ratio}"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop",
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P"
-			]),
-			flow_vol ((Symbol=>Any)[
+			)),
+			flow_vol (Dict{Symbol,Any}(
 				:Brief=>"Volumetric Flow"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Opening Function"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Valve Coefficient",
 				:Unit=>"m^3/h/kPa^0.5"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Specific Gravity"
-			]),
+			)),
 			dens_mass(),
-			vol_mol ((Symbol=>Any)[
+			vol_mol (Dict{Symbol,Any}(
 				:Brief=>"Mixture Molar Volume"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Opening"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0.7365,
 				:Symbol=>"_{in}"
-			]),
-			streamPH ((Symbol=>Any)[
+			)),
+			streamPH (Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>1,
 				:PosY=>0.7365,
 				:Symbol=>"_{out}"
-			]),
+			)),
 			[
 				:(Outlet.P = Inlet.P - Pdrop),
 				:(Outlet.P = Inlet.P * Pratio),
@@ -156,7 +156,7 @@ function setEquationFlow(in::valve)
 	end
 end
 function atributes(in::valve,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Valve"
 	fields[:Brief]="Model of a valve."

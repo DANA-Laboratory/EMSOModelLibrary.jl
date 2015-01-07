@@ -20,18 +20,18 @@ type Resistor
 	Resistor()=begin
 		new(
 			resistance(),
-			wire ((Symbol=>Any)[
+			wire (Dict{Symbol,Any}(
 				:Brief=>"Inlet",
 				:PosX=>0.3831,
 				:PosY=>0,
 				:Symbol=>"_{in}"
-			]),
-			wire ((Symbol=>Any)[
+			)),
+			wire (Dict{Symbol,Any}(
 				:Brief=>"Outlet",
 				:PosX=>0.3529,
 				:PosY=>1,
 				:Symbol=>"_{out}"
-			]),
+			)),
 			[
 				:(inlet.V - outlet.V = R * outlet.i),
 				:(outlet.i = inlet.i),
@@ -58,7 +58,7 @@ function setEquationFlow(in::Resistor)
 	addEquation(2)
 end
 function atributes(in::Resistor,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Resistor"
 	fields[:Brief]="Electrical Resistor."

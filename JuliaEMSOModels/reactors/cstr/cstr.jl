@@ -22,12 +22,12 @@ type cstr
 	cstr()=begin
 		new(
 			cstr_basic(),
-			fill(reaction_mol ((Symbol=>Any)[
+			fill(reaction_mol (Dict{Symbol,Any}(
 				:Brief=>"Molar Reaction Rate"
-			]),(NReac)),
-			fill(heat_reaction ((Symbol=>Any)[
+			)),(NReac)),
+			fill(heat_reaction (Dict{Symbol,Any}(
 				:Brief=>"Heat Reaction"
-			]),(NReac)),
+			)),(NReac)),
 			[
 				:(diff(_P1.Outlet.z*M) = (_P1.Inlet.F*_P1.Inlet.z - _P1.Outlet.F*_P1.Outlet.z) + sumt(_P1.stoic*r)*_P1.Vr),
 				:(diff(M*_P1.Outlet.h) = _P1.Inlet.F*_P1.Inlet.h - _P1.Outlet.F*_P1.Outlet.h +sum(Hr*sum(_P1.stoic*r))*_P1.Vr - q),
@@ -54,7 +54,7 @@ function setEquationFlow(in::cstr)
 	
 end
 function atributes(in::cstr,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/cstr"
 	fields[:Brief]="Model of a generic CSTR"

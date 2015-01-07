@@ -8,51 +8,51 @@ type tank_cylindrical
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
+			)),
 			DanaInteger(),
-			length((Symbol=>Any)[
+			length(Dict{Symbol,Any}(
 				:Brief=>"Tank radius"
-			]),
-			length((Symbol=>Any)[
+			)),
+			length(Dict{Symbol,Any}(
 				:Brief=>"Tank length"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0.1825,
 				:PosY=>0,
 				:Symbol=>"_{in}"
-			]),
-			liquid_stream ((Symbol=>Any)[
+			)),
+			liquid_stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet liquid stream",
 				:PosX=>1,
 				:PosY=>1,
 				:Symbol=>"_{out}"
-			]),
-			energy_stream ((Symbol=>Any)[
+			)),
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Rate of heat supply",
 				:PosX=>1,
 				:PosY=>0.6160,
 				:Symbol=>"_{in}"
-			]),
-			length((Symbol=>Any)[
+			)),
+			length(Dict{Symbol,Any}(
 				:Brief=>"Tank level"
-			]),
-			area ((Symbol=>Any)[
+			)),
+			area (Dict{Symbol,Any}(
 				:Brief=>"Tank cross section area",
 				:Default=>2
-			]),
-			fill(mol ((Symbol=>Any)[
+			)),
+			fill(mol (Dict{Symbol,Any}(
 				:Brief=>"Molar Holdup in the tank"
-			]),(NComp)),
-			energy ((Symbol=>Any)[
+			)),(NComp)),
+			energy (Dict{Symbol,Any}(
 				:Brief=>"Total Energy Holdup on tank"
-			]),
-			volume_mol ((Symbol=>Any)[
+			)),
+			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Volume"
-			]),
+			)),
 			[
 				:(diff(M) = Inlet.F*Inlet.z - Outlet.F*Outlet.z),
 				:(diff(E) = Inlet.F*Inlet.h - Outlet.F*Outlet.h + InletQ.Q),
@@ -100,7 +100,7 @@ function setEquationFlow(in::tank_cylindrical)
 	addEquation(8)
 end
 function atributes(in::tank_cylindrical,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/TankHorizontal"
 	fields[:Brief]="Model of a tank with a lain cylinder geometry."

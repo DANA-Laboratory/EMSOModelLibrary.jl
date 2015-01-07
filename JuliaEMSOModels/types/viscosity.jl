@@ -68,7 +68,7 @@ export viscosity
 typealias Danaviscosity DanaRealParametric
 type _viscosity
 	function _viscosity(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Viscosity"
 		fields[:Default]=1
 		fields[:Lower]=1e-30

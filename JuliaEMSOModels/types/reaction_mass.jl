@@ -41,7 +41,7 @@ export reaction_mass
 typealias Danareaction_mass DanaRealParametric
 type _reaction_mass
 	function _reaction_mass(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Mass Reaction Rate"
 		fields[:Default]=0
 		fields[:Lower]=-1e3

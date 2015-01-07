@@ -18,42 +18,42 @@
 type DoublePipe_PressureDrop
 	DoublePipe_PressureDrop()=begin
 		new(
-			length ((Symbol=>Any)[
+			length (Dict{Symbol,Any}(
 				:Brief=>"Hydraulic Diameter of Pipe for Pressure Drop",
 				:Lower=>1e-6
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Total Pressure Drop",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop for friction",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P_{fric}"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop due to return",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P_{return}"
-			]),
-			fricfactor ((Symbol=>Any)[
+			)),
+			fricfactor (Dict{Symbol,Any}(
 				:Brief=>"Friction Factor",
 				:Default=>0.05,
 				:Lower=>1e-10,
 				:Upper=>2000
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Reynolds Number",
 				:Default=>100,
 				:Lower=>1
-			]),
+			)),
 			[:Dh,],
 			[:Pdrop,:Pd_fric,:Pd_ret,:fi,:Re,]
 		)
@@ -70,7 +70,7 @@ type DoublePipe_PressureDrop
 end
 export DoublePipe_PressureDrop
 function atributes(in::DoublePipe_PressureDrop,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="to be documented"
 	fields[:Info]="to be documented"

@@ -5,37 +5,37 @@ type yield_liq
 	yield_liq()=begin
 		new(
 			tank_liq(),
-			DanaInteger ((Symbol=>Any)[
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of reactions",
 				:Default=>1
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Key component",
 				:Lower=>1,
 				:Default=>1
-			]),
-			liquid_stream((Symbol=>Any)[
+			)),
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>1,
 				:PosY=>1,
 				:Symbol=>"_{out}"
-			]),
-			fill(reaction_mol ((Symbol=>Any)[
+			)),
+			fill(reaction_mol (Dict{Symbol,Any}(
 				:Brief=>"Overall component rate of reaction"
-			]),(NComp)),
-			fill(DanaReal ((Symbol=>Any)[
+			)),(NComp)),
+			fill(DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Fractional conversion of component",
 				:Symbol=>"X",
 				:Default=>0
-			]),(NComp)),
-			fill(DanaReal ((Symbol=>Any)[
+			)),(NComp)),
+			fill(DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Molar component yield (global)",
 				:Symbol=>"Y_G"
-			]),(NComp)),
-			fill(DanaReal ((Symbol=>Any)[
+			)),(NComp)),
+			fill(DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Molar reaction yield (instantaneous)",
 				:Symbol=>"Y_I"
-			]),(NComp)),
+			)),(NComp)),
 			[
 				:(Outlet.F*Outlet.z = _P1._P1.Outletm.F*_P1._P1.Outletm.z + rate*_P1._P1.Tank.V),
 				:(rate*_P1._P1.Tank.V = _P1._P1.Outletm.F*(yield/(1 + yield(KComp))*_P1._P1.Outletm.z(KComp) - _P1._P1.Outletm.z)),
@@ -89,7 +89,7 @@ function setEquationFlow(in::yield_liq)
 	end
 end
 function atributes(in::yield_liq,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/cstr"
 	fields[:Brief]="Model of a generic liquid-phase yield CSTR"

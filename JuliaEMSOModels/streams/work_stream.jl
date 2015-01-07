@@ -21,9 +21,9 @@
 type work_stream
 	work_stream()=begin
 		new(
-			power((Symbol=>Any)[
+			power(Dict{Symbol,Any}(
 				:Brief=>"work"
-			]),
+			)),
 			[:Work,]
 		)
 	end
@@ -33,7 +33,7 @@ type work_stream
 end
 export work_stream
 function atributes(in::work_stream,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="General Work Stream"
 	drive!(fields,_)

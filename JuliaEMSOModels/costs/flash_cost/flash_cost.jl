@@ -46,45 +46,45 @@ type flash_cost
 	flash_cost()=begin
 		new(
 			flash(),
-			DanaSwitcher ((Symbol=>Any)[
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Valid=>["Stainless steell 304", "Stainless steel 316", "Carpenter 20CB_3", "Nickel 200", "Monel 400", "Inconel 600", "Incoloy 825", "Titanium"],
 				:Default=>"Stainless steel 304"
-			]),
+			)),
 			fill(DanaReal()),
-			length ((Symbol=>Any)[
+			length (Dict{Symbol,Any}(
 				:Brief=>"Flash Length"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Internal Diameter for vertical vases"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Internal Diameter for horizontal vases"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Thickness"
-			]),
-			dens_mass ((Symbol=>Any)[
+			)),
+			dens_mass (Dict{Symbol,Any}(
 				:Brief=>"Mass Density of the Material"
-			]),
-			constant ((Symbol=>Any)[
+			)),
+			constant (Dict{Symbol,Any}(
 				:Brief=>"Pi Number",
 				:Default=>3.14159265
-			]),
-			currency ((Symbol=>Any)[
+			)),
+			currency (Dict{Symbol,Any}(
 				:Brief=>"Capital Cost"
-			]),
-			currency ((Symbol=>Any)[
+			)),
+			currency (Dict{Symbol,Any}(
 				:Brief=>"Basic Cost"
-			]),
-			currency ((Symbol=>Any)[
+			)),
+			currency (Dict{Symbol,Any}(
 				:Brief=>"Cost for stairs, railing and platform"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Cost Factor based on the construction material"
-			]),
-			mass ((Symbol=>Any)[
+			)),
+			mass (Dict{Symbol,Any}(
 				:Brief=>"Equipment Weight"
-			]),
+			)),
 			[
 				:(Ce = Cb*Fm + Ca),
 				:(Cb = "US\$"*exp(Cost(2,1) - Cost(2,2)*ln(Ws/"kg") + Cost(2,3)*(ln(Ws/"kg"))^2)),
@@ -139,7 +139,7 @@ function setEquationFlow(in::flash_cost)
 	addEquation(8)
 end
 function atributes(in::flash_cost,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Flash"
 	drive!(fields,_)

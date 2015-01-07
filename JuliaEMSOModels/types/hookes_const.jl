@@ -60,7 +60,7 @@ export hookes_const
 typealias Danahookes_const DanaRealParametric
 type _hookes_const
 	function _hookes_const(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Hookes Constant"
 		fields[:Default]=1e5
 		fields[:Lower]=1

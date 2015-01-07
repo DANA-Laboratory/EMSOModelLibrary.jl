@@ -39,7 +39,7 @@ export dens_mass
 typealias Danadens_mass DanaRealParametric
 type _dens_mass
 	function _dens_mass(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Mass Density"
 		fields[:Default]=1000
 		fields[:Lower]=-1e-20

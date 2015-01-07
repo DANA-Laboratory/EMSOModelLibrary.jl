@@ -23,18 +23,18 @@ type streamPH
 		PP=outers.PP
 		new(
 			stream(),
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
-			fill(fraction ((Symbol=>Any)[
+			)),
+			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Fraction",
 				:Hidden=>true
-			]),(NComp)),
-			fill(fraction ((Symbol=>Any)[
+			)),(NComp)),
+			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar Fraction",
 				:Hidden=>true
-			]),(NComp)),
+			)),(NComp)),
 			[
 				:([v, x, y] = PP.FlashPH(P, h, z)),
 				:(h = (1-v)*PP.LiquidEnthalpy(T, P, x) + v*PP.VapourEnthalpy(T, P, y)),
@@ -62,7 +62,7 @@ function setEquationFlow(in::streamPH)
 	addEquation(2)
 end
 function atributes(in::streamPH,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Brief]="Stream with built-in flash calculation"
 	fields[:Info]="
 	This model should be used when the vaporization fraction

@@ -21,68 +21,68 @@ type Hidraulic_Turbine
 		NComp=outers.NComp
 		PP=outers.PP
 		new(
-			DanaInteger ((Symbol=>Any)[
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
-			]),
-			DanaPlugin ((Symbol=>Any)[
+			)),
+			DanaPlugin (Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
-			fill(molweight ((Symbol=>Any)[
+			)),
+			fill(molweight (Dict{Symbol,Any}(
 				:Brief=>"Molar Weight"
-			]),(NComp)),
-			efficiency ((Symbol=>Any)[
+			)),(NComp)),
+			efficiency (Dict{Symbol,Any}(
 				:Brief=>"Turbine efficiency"
-			]),
-			efficiency ((Symbol=>Any)[
+			)),
+			efficiency (Dict{Symbol,Any}(
 				:Brief=>"Brake efficiency"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Volumetric expansivity",
 				:Unit=>"1/K"
-			]),
-			head ((Symbol=>Any)[
+			)),
+			head (Dict{Symbol,Any}(
 				:Brief=>"Head Developed"
-			]),
-			power ((Symbol=>Any)[
+			)),
+			power (Dict{Symbol,Any}(
 				:Brief=>"Fluid Power"
-			]),
-			power ((Symbol=>Any)[
+			)),
+			power (Dict{Symbol,Any}(
 				:Brief=>"Brake Power"
-			]),
-			power ((Symbol=>Any)[
+			)),
+			power (Dict{Symbol,Any}(
 				:Brief=>"Eletrical Potency"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Pressure Ratio"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop",
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P"
-			]),
-			molweight ((Symbol=>Any)[
+			)),
+			molweight (Dict{Symbol,Any}(
 				:Brief=>"Mixture Molar Weight"
-			]),
-			dens_mass ((Symbol=>Any)[
+			)),
+			dens_mass (Dict{Symbol,Any}(
 				:Brief=>"Specific Mass"
-			]),
-			cp_mol ((Symbol=>Any)[
+			)),
+			cp_mol (Dict{Symbol,Any}(
 				:Brief=>"Heat Capacity"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0.5086,
 				:Symbol=>"_{in}"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>1,
 				:PosY=>0.5022,
 				:Symbol=>"_{out}"
-			]),
+			)),
 			[
 				:(Mwm = sum(Mw*Inlet.z)),
 				:(rho = PP.LiquidDensity(Inlet.T,Inlet.P,Inlet.z)),
@@ -152,7 +152,7 @@ function setEquationFlow(in::Hidraulic_Turbine)
 	addEquation(14)
 end
 function atributes(in::Hidraulic_Turbine,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/HidraulicTurbine"
 	fields[:Brief]="Model of a Hidraulic Turbine."

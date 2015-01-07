@@ -6,75 +6,75 @@ type condenserReact
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Type=>"PP"
-			]),
+			)),
 			DanaInteger(),
-			volume ((Symbol=>Any)[
+			volume (Dict{Symbol,Any}(
 				:Brief=>"Condenser total volume"
-			]),
-			area ((Symbol=>Any)[
+			)),
+			area (Dict{Symbol,Any}(
 				:Brief=>"Cross Section Area of reboiler"
-			]),
-			fill(DanaReal((Symbol=>Any)[
+			)),
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Stoichiometric matrix"
-			]),(NComp)),
+			)),(NComp)),
 			energy_mol(),
 			pressure(),
-			stream((Symbol=>Any)[
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Vapour inlet stream",
 				:PosX=>0.1164,
 				:PosY=>0,
 				:Symbol=>"_{inV}"
-			]),
-			liquid_stream((Symbol=>Any)[
+			)),
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream",
 				:PosX=>0.4513,
 				:PosY=>1,
 				:Symbol=>"_{outL}"
-			]),
-			vapour_stream((Symbol=>Any)[
+			)),
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"Vapour outlet stream",
 				:PosX=>0.4723,
 				:PosY=>0,
 				:Symbol=>"_{outV}"
-			]),
-			energy_stream ((Symbol=>Any)[
+			)),
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Cold supplied",
 				:PosX=>1,
 				:PosY=>0.6311,
 				:Symbol=>"_{in}"
-			]),
-			fill(mol ((Symbol=>Any)[
+			)),
+			fill(mol (Dict{Symbol,Any}(
 				:Brief=>"Molar Holdup in the tray"
-			]),(NComp)),
-			mol ((Symbol=>Any)[
+			)),(NComp)),
+			mol (Dict{Symbol,Any}(
 				:Brief=>"Molar liquid holdup"
-			]),
-			mol ((Symbol=>Any)[
+			)),
+			mol (Dict{Symbol,Any}(
 				:Brief=>"Molar vapour holdup"
-			]),
-			energy ((Symbol=>Any)[
+			)),
+			energy (Dict{Symbol,Any}(
 				:Brief=>"Total Energy Holdup on tray"
-			]),
-			volume_mol ((Symbol=>Any)[
+			)),
+			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Volume"
-			]),
-			volume_mol ((Symbol=>Any)[
+			)),
+			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar volume"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Level of liquid phase"
-			]),
+			)),
 			volume(),
-			reaction_mol ((Symbol=>Any)[
+			reaction_mol (Dict{Symbol,Any}(
 				:Brief=>"Reaction resulting ethyl acetate",
 				:DisplayUnit=>"mol/l/s"
-			]),
-			fill(conc_mol ((Symbol=>Any)[
+			)),
+			fill(conc_mol (Dict{Symbol,Any}(
 				:Brief=>"Molar concentration",
 				:Lower=>-1
-			]),(NComp)),
+			)),(NComp)),
 			[
 				:(OutletL.z = vL * C),
 				:(r3 = exp(-7150*"K"/OutletL.T)*(4.85e4*C(1)*C(2) - 1.23e4*C(3)*C(4)) * "l/mol/s"),
@@ -147,7 +147,7 @@ function setEquationFlow(in::condenserReact)
 	addEquation(16)
 end
 function atributes(in::condenserReact,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Condenser"
 	fields[:Brief]="Model of a Condenser with reaction in liquid phase."

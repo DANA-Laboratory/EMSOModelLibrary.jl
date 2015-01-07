@@ -7,79 +7,79 @@ type FlashPHSteadyA
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
+			)),
 			DanaInteger(),
-			DanaReal((Symbol=>Any)[
+			DanaReal(Dict{Symbol,Any}(
 				:Default=>1000,
 				:Brief=>"Regularization Factor"
-			]),
-			stream((Symbol=>Any)[
+			)),
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Feed Stream",
 				:PosX=>0,
 				:PosY=>0.5421,
 				:Symbol=>"_{in}"
-			]),
-			liquid_stream((Symbol=>Any)[
+			)),
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream",
 				:PosX=>0.4790,
 				:PosY=>1,
 				:Symbol=>"_{outL}"
-			]),
-			vapour_stream((Symbol=>Any)[
+			)),
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"Vapour outlet stream",
 				:PosX=>0.4877,
 				:PosY=>0,
 				:Symbol=>"_{outV}"
-			]),
-			energy_stream ((Symbol=>Any)[
+			)),
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Rate of heat supply",
 				:PosX=>1,
 				:PosY=>0.7559,
 				:Symbol=>"_{in}"
-			]),
-			fraction((Symbol=>Any)[
+			)),
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Vaporization fraction",
 				:Symbol=>"\\phi"
-			]),
-			DanaReal((Symbol=>Any)[
+			)),
+			DanaReal(Dict{Symbol,Any}(
 				:Lower=>-0.1,
 				:Upper=>1.1,
 				:Brief=>"Vaporization fraction if saturated",
 				:Symbol=>"\\phi_{sat}"
-			]),
-			temperature((Symbol=>Any)[
+			)),
+			temperature(Dict{Symbol,Any}(
 				:Lower=>173,
 				:Upper=>1473,
 				:Brief=>"Temperature if saturated"
-			]),
-			fill(DanaReal((Symbol=>Any)[
+			)),
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Lower=>0,
 				:Upper=>1,
 				:Brief=>"Liquid composition if saturated"
-			]),(NComp)),
-			fill(DanaReal((Symbol=>Any)[
+			)),(NComp)),
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Lower=>0,
 				:Upper=>1,
 				:Brief=>"Vapour composition if saturated"
-			]),(NComp)),
-			positive ((Symbol=>Any)[
+			)),(NComp)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Pressure Ratio",
 				:Symbol=>"P_{ratio}"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop",
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P"
-			]),
-			fraction((Symbol=>Any)[
+			)),
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Regularization Variable"
-			]),
-			fraction((Symbol=>Any)[
+			)),
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Regularization Variable"
-			]),
+			)),
 			[
 				:(PP.LiquidFugacityCoefficient(Tsat, OutletL.P, xsat)*xsat = PP.VapourFugacityCoefficient(Tsat, OutletV.P, ysat)*ysat),
 				:(Inlet.F = OutletV.F + OutletL.F),
@@ -148,7 +148,7 @@ function setEquationFlow(in::FlashPHSteadyA)
 	addEquation(16)
 end
 function atributes(in::FlashPHSteadyA,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Flash"
 	fields[:Brief]="Another model of a static PH flash."

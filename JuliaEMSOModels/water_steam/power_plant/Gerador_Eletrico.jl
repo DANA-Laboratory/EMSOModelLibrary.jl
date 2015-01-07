@@ -2,12 +2,12 @@
 type Gerador_Eletrico
 	Gerador_Eletrico()=begin
 		new(
-			Eficiencia((Symbol=>Any)[
+			Eficiencia(Dict{Symbol,Any}(
 				:Brief=>"Eficiencia do gerador eletrico"
-			]),
-			Potencia((Symbol=>Any)[
+			)),
+			Potencia(Dict{Symbol,Any}(
 				:Brief=>"Potencia do gerador eletrico"
-			]),
+			)),
 			[:EF_GE,],
 			[:POT_GE,]
 		)
@@ -20,7 +20,7 @@ type Gerador_Eletrico
 end
 export Gerador_Eletrico
 function atributes(in::Gerador_Eletrico,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/gerador"
 	drive!(fields,_)

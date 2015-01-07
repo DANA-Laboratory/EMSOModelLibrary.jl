@@ -27,7 +27,7 @@ export temperature
 typealias Danatemperature DanaRealParametric
 type _temperature
 	function _temperature(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Temperature"
 		fields[:Default]=300
 		fields[:Lower]=27

@@ -21,61 +21,61 @@ type pfr
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin ((Symbol=>Any)[
+			DanaPlugin (Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of components"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of reactions"
-			]),
-			fill(DanaReal ((Symbol=>Any)[
+			)),
+			fill(DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Stoichiometric Matrix"
-			]),(NComp, NReac)),
-			DanaInteger ((Symbol=>Any)[
+			)),(NComp, NReac)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of points of discretization",
 				:Default=>10
-			]),
-			fill(molweight ((Symbol=>Any)[
+			)),
+			fill(molweight (Dict{Symbol,Any}(
 				:Brief=>"Component Mol Weight"
-			]),(NComp)),
-			length ((Symbol=>Any)[
+			)),(NComp)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Reactor Length"
-			]),
-			area ((Symbol=>Any)[
+			)),
+			area (Dict{Symbol,Any}(
 				:Brief=>"Cross section area"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet Stream",
 				:PosX=>0,
 				:PosY=>0.5076,
 				:Symbol=>"_{in}"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet Stream",
 				:PosX=>1,
 				:PosY=>0.5236,
 				:Symbol=>"_{out}"
-			]),
+			)),
 			fill(vapour_stream()),
 			fill(vol_mol()),
 			fill(dens_mass()),
 			fill(heat_rate()),
-			fill(mol ((Symbol=>Any)[
+			fill(mol (Dict{Symbol,Any}(
 				:Brief=>"Molar holdup"
-			]),(NComp, NDisc)),
-			fill(mol ((Symbol=>Any)[
+			)),(NComp, NDisc)),
+			fill(mol (Dict{Symbol,Any}(
 				:Brief=>"Molar holdup"
-			]),(NDisc)),
-			fill(conc_mol ((Symbol=>Any)[
+			)),(NDisc)),
+			fill(conc_mol (Dict{Symbol,Any}(
 				:Brief=>"Components concentration",
 				:Lower=>-1e-6
-			]),(NComp, NDisc)),
-			fill(energy ((Symbol=>Any)[
+			)),(NComp, NDisc)),
+			fill(energy (Dict{Symbol,Any}(
 				:Brief=>"Total Energy Holdup on element"
-			]),(NDisc)),
+			)),(NDisc)),
 			fill(reaction_mol()),
 			fill(heat_reaction()),
 			[
@@ -161,7 +161,7 @@ function setEquationFlow(in::pfr)
 	addEquation(19)
 end
 function atributes(in::pfr,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Brief]="Model of a Generic PFR with constant mass holdup"
 	fields[:Icon]="icon/pfr"

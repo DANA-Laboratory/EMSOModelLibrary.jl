@@ -22,11 +22,11 @@
 type Sumidouro
 	Sumidouro()=begin
 		new(
-			Corrente((Symbol=>Any)[
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{in}",
 				:PosX=>0,
 				:PosY=>0.5 
-			]),
+			)),
 			[:Fin,]
 		)
 	end
@@ -36,7 +36,7 @@ type Sumidouro
 end
 export Sumidouro
 function atributes(in::Sumidouro,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/sumidouro"
 	fields[:Brief]="Sumidouro de corrente de processo"

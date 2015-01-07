@@ -3,18 +3,18 @@ type Gerador_Vapor_Simples
 	Gerador_Vapor_Simples()=begin
 		propterm=outers.propterm
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"Steam tables",
 				:Type=>"water"
-			]),
+			)),
 			Potencia(),
 			Eficiencia(),
-			Corrente ((Symbol=>Any)[
+			Corrente (Dict{Symbol,Any}(
 				:Symbol=>"_{in}"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Symbol=>"_{out}"
-			]),
+			)),
 			[
 				:(Fout.P = Fin.P),
 				:([Fout.S,Fout.H] = propterm.propPTv(Fout.P,Fout.T)),
@@ -47,7 +47,7 @@ function setEquationFlow(in::Gerador_Vapor_Simples)
 	
 end
 function atributes(in::Gerador_Vapor_Simples,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/caldeira"
 	drive!(fields,_)

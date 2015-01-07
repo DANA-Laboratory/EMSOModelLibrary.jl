@@ -20,63 +20,63 @@ type PHE
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin ((Symbol=>Any)[
+			DanaPlugin (Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of Chemical Components"
-			]),
-			DanaSwitcher ((Symbol=>Any)[
+			)),
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Chevron Corrugation Inclination Angle in Degrees ",
 				:Valid=>["A30_Deg","A45_Deg","A50_Deg","A60_Deg","A65_Deg"],
 				:Default=>"A30_Deg"
-			]),
-			DanaSwitcher ((Symbol=>Any)[
+			)),
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Fluid Alocation in the Side I - (The odd channels)",
 				:Valid=>["hot","cold"],
 				:Default=>"hot"
-			]),
-			PHE_Geometry ((Symbol=>Any)[
+			)),
+			PHE_Geometry (Dict{Symbol,Any}(
 				:Brief=>"Plate Heat Exchanger Geometrical Parameters",
 				:Symbol=>" "
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet Hot Stream",
 				:PosX=>0,
 				:PosY=>0.75,
 				:Symbol=>"^{inHot}"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet Cold Stream",
 				:PosX=>0,
 				:PosY=>0.25,
 				:Symbol=>"^{inCold}"
-			]),
-			streamPH ((Symbol=>Any)[
+			)),
+			streamPH (Dict{Symbol,Any}(
 				:Brief=>"Outlet Hot Stream",
 				:PosX=>1,
 				:PosY=>0.25,
 				:Symbol=>"^{outHot}"
-			]),
-			streamPH ((Symbol=>Any)[
+			)),
+			streamPH (Dict{Symbol,Any}(
 				:Brief=>"Outlet Cold Stream",
 				:PosX=>1,
 				:PosY=>0.75,
 				:Symbol=>"^{outCold}"
-			]),
-			Main_PHE ((Symbol=>Any)[
+			)),
+			Main_PHE (Dict{Symbol,Any}(
 				:Brief=>"Plate Heat Exchanger Hot Side",
 				:Symbol=>"_{hot}"
-			]),
-			Main_PHE ((Symbol=>Any)[
+			)),
+			Main_PHE (Dict{Symbol,Any}(
 				:Brief=>"Plate Heat Exchanger Cold Side",
 				:Symbol=>"_{cold}"
-			]),
-			Thermal_PHE ((Symbol=>Any)[
+			)),
+			Thermal_PHE (Dict{Symbol,Any}(
 				:Brief=>"Thermal Results",
 				:Symbol=>" "
-			]),
+			)),
 			[
 				:(HotSide.Properties.Average.T = 0.5*InletHot.T + 0.5*OutletHot.T),
 				:(ColdSide.Properties.Average.T = 0.5*InletCold.T + 0.5*OutletCold.T),
@@ -488,7 +488,7 @@ function setEquationFlow(in::PHE)
 	end
 end
 function atributes(in::PHE,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Icon]="icon/phe"
 	fields[:Pallete]=true
 	fields[:Brief]="Shortcut model  for Plate and Frame heat exchanger."

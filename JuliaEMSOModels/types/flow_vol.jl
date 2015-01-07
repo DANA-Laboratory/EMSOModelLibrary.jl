@@ -57,7 +57,7 @@ export flow_vol
 typealias Danaflow_vol Danapositive
 type _flow_vol
 	function _flow_vol(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Volumetric Flow"
 		fields[:Default]=1
 		fields[:Upper]=1e12

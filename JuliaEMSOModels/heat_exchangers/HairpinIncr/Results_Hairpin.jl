@@ -18,54 +18,54 @@
 type Results_Hairpin
 	Results_Hairpin()=begin
 		new(
-			press_delta ((Symbol=>Any)[
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Inlet Nozzle Pressure Drop",
 				:Default=>0.01,
 				:Lower=>1e-10,
 				:DisplayUnit=>"kPa"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Outlet Nozzle Pressure Drop",
 				:Default=>0.01,
 				:Lower=>1e-10,
 				:DisplayUnit=>"kPa"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Total Pressure Drop",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P"
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Inlet Nozzle Velocity",
 				:Default=>1,
 				:Upper=>1e5
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Outlet Nozzle Velocity",
 				:Default=>1,
 				:Upper=>1e5
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Inlet Nozzle rho-V^2",
 				:Default=>1,
 				:Upper=>1e6,
 				:Unit=>"kg/s^2/m"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Outlet Nozzle rho-V^2",
 				:Default=>1,
 				:Upper=>1e6,
 				:Unit=>"kg/s^2/m"
-			]),
-			heat_trans_coeff ((Symbol=>Any)[
+			)),
+			heat_trans_coeff (Dict{Symbol,Any}(
 				:Brief=>"Average Film Coefficient",
 				:Default=>1,
 				:Lower=>1e-12,
 				:Upper=>1e6,
 				:DisplayUnit=>"W/m^2/K"
-			]),
+			)),
 			[:Pdnozzle_in,:Pdnozzle_out,:Pdrop,:Vnozzle_in,:Vnozzle_out,:RVsquare_in,:RVsquare_out,:hcoeff,]
 		)
 	end
@@ -82,7 +82,7 @@ type Results_Hairpin
 end
 export Results_Hairpin
 function atributes(in::Results_Hairpin,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="to be documented"
 	fields[:Info]="to be documented"

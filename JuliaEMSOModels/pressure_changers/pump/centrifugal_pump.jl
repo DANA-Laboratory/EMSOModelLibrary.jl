@@ -21,136 +21,136 @@ type centrifugal_pump
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin ((Symbol=>Any)[
+			DanaPlugin (Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
-			]),
-			fill(molweight ((Symbol=>Any)[
+			)),
+			fill(molweight (Dict{Symbol,Any}(
 				:Brief=>"Molar Weight"
-			]),(NComp)),
-			positive ((Symbol=>Any)[
+			)),(NComp)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Pump Efficiency",
 				:Default=>0.75,
 				:Lower=>1E-3
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Mechanical efficiency",
 				:Default=>0.95,
 				:Lower=>1E-3
-			]),
-			DanaSwitcher ((Symbol=>Any)[
+			)),
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"NPSH Options",
 				:Valid=>["Default","Include Kinetic Head"],
 				:Default=>"Default"
-			]),
-			acceleration ((Symbol=>Any)[
+			)),
+			acceleration (Dict{Symbol,Any}(
 				:Brief=>"Gravity Acceleration",
 				:Default=>9.81,
 				:Hidden=>true
-			]),
-			area ((Symbol=>Any)[
+			)),
+			area (Dict{Symbol,Any}(
 				:Brief=>"Inlet Nozzle Suction Area",
 				:Default=>0.001
-			]),
-			flow_vol ((Symbol=>Any)[
+			)),
+			flow_vol (Dict{Symbol,Any}(
 				:Brief=>"Volumetric Flow Rate" ,
 				:Protected=>true
-			]),
-			flow_mass ((Symbol=>Any)[
+			)),
+			flow_mass (Dict{Symbol,Any}(
 				:Brief=>"Inlet Mass Flow Rate" ,
 				:Protected=>true
-			]),
-			flow_mass ((Symbol=>Any)[
+			)),
+			flow_mass (Dict{Symbol,Any}(
 				:Brief=>"Outlet Mass Flow Rate",
 				:Protected=>true
-			]),
-			dens_mass ((Symbol=>Any)[
+			)),
+			dens_mass (Dict{Symbol,Any}(
 				:Brief=>"Mass Density at inlet conditions",
 				:Lower=>1E-6,
 				:Protected=>true
-			]),
-			dens_mass ((Symbol=>Any)[
+			)),
+			dens_mass (Dict{Symbol,Any}(
 				:Brief=>"Mass Density at outlet conditions",
 				:Lower=>1E-6,
 				:Protected=>true
-			]),
-			molweight ((Symbol=>Any)[
+			)),
+			molweight (Dict{Symbol,Any}(
 				:Brief=>"Mixture Molar Weight" ,
 				:Protected=>true
-			]),
-			pressure ((Symbol=>Any)[
+			)),
+			pressure (Dict{Symbol,Any}(
 				:Brief=>"Mixture Vapour Pressure" ,
 				:Protected=>true
-			]),
-			power ((Symbol=>Any)[
+			)),
+			power (Dict{Symbol,Any}(
 				:Brief=>"Fluid Power"
-			]),
-			power ((Symbol=>Any)[
+			)),
+			power (Dict{Symbol,Any}(
 				:Brief=>"Brake Power"
-			]),
-			power ((Symbol=>Any)[
+			)),
+			power (Dict{Symbol,Any}(
 				:Brief=>"Eletrical Potency"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Pressure Ratio",
 				:Symbol=>"P_{ratio}"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop",
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Pressure Increase",
 				:Lower=>0,
 				:DisplayUnit=>"kPa",
 				:Symbol=>"P_{incr}"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Static Head"
-			]),
-			energy_mass ((Symbol=>Any)[
+			)),
+			energy_mass (Dict{Symbol,Any}(
 				:Brief=>"Actual Head",
 				:Protected=>true
-			]),
-			energy_mass ((Symbol=>Any)[
+			)),
+			energy_mass (Dict{Symbol,Any}(
 				:Brief=>"Isentropic Head",
 				:Protected=>true
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Available Net Positive Suction Head" ,
 				:Protected=>true
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Velocity Head",
 				:Protected=>true
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Velocity Inlet Nozzle",
 				:Hidden=>true
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0.4025,
 				:Symbol=>"_{in}"
-			]),
-			streamPH ((Symbol=>Any)[
+			)),
+			streamPH (Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>1,
 				:PosY=>0.20,
 				:Symbol=>"_{out}"
-			]),
-			work_stream ((Symbol=>Any)[
+			)),
+			work_stream (Dict{Symbol,Any}(
 				:Brief=>"Work Inlet",
 				:PosX=>0.5,
 				:PosY=>1,
 				:Protected=>true
-			]),
+			)),
 			[
 				:(Fvol = NozzleVelocity*SuctionArea),
 				:(VelocityHead = 0.5*NozzleVelocity^2/g),
@@ -256,7 +256,7 @@ function setEquationFlow(in::centrifugal_pump)
 	end
 end
 function atributes(in::centrifugal_pump,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Pump"
 	fields[:Brief]="Model of a centrifugal pump."

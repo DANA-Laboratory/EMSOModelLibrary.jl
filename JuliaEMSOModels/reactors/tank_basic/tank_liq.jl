@@ -29,7 +29,7 @@ function setEquationFlow(in::tank_liq)
 	addEquation(4)
 end
 function atributes(in::tank_liq,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Brief]="Model of a generic liquid-phase tank"
 	drive!(fields,_)
 	return fields

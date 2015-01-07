@@ -20,57 +20,57 @@ type heater_basic
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin ((Symbol=>Any)[
+			DanaPlugin (Dict{Symbol,Any}(
 				:Brief=>"Physical Properties",
 				:Type=>"PP"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of Components"
-			]),
-			DanaSwitcher ((Symbol=>Any)[
+			)),
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Option for Display Phase Equilibrium K-values",
 				:Valid=>["yes","no"],
 				:Default=>"yes"
-			]),
-			power ((Symbol=>Any)[
+			)),
+			power (Dict{Symbol,Any}(
 				:Brief=>"Actual Duty",
 				:Symbol=>"Q_{Duty}"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Vapor fraction Outlet Stream",
 				:Symbol=>"V_{frac}"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Liquid fraction Outlet Stream",
 				:Symbol=>"L_{frac}"
-			]),
-			fill(DanaReal ((Symbol=>Any)[
+			)),
+			fill(DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Phase Equilibrium K-values",
 				:Lower=>1E-30,
 				:Upper=>1E30,
 				:Symbol=>"K_{value}"
-			]),(NComp)),
-			positive ((Symbol=>Any)[
+			)),(NComp)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Pressure Ratio",
 				:Symbol=>"P_{ratio}"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop",
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet Stream",
 				:PosX=>0,
 				:PosY=>0.45,
 				:Symbol=>"^{in}"
-			]),
-			streamPH ((Symbol=>Any)[
+			)),
+			streamPH (Dict{Symbol,Any}(
 				:Brief=>"Outlet Stream",
 				:PosX=>1,
 				:PosY=>0.45,
 				:Symbol=>"^{out}"
-			]),
+			)),
 			[
 				:(Outlet.F = Inlet.F),
 				:(Outlet.F*Outlet.z([1 : NComp]) = Inlet.F*Inlet.z([1 : NComp])),
@@ -125,7 +125,7 @@ function setEquationFlow(in::heater_basic)
 	end
 end
 function atributes(in::heater_basic,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Basic model for Heater or Cooler Operation"
 	fields[:Info]="Determines thermal and phase conditions of an outlet stream.

@@ -6,60 +6,60 @@ type flash_steady_bd
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
+			)),
 			DanaInteger(),
-			stream((Symbol=>Any)[
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Feed Stream",
 				:PosX=>0,
 				:PosY=>0.5421,
 				:Symbol=>"_{in}"
-			]),
-			liquid_stream((Symbol=>Any)[
+			)),
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream",
 				:PosX=>0.4790,
 				:PosY=>1,
 				:Symbol=>"_{outL}"
-			]),
-			vapour_stream((Symbol=>Any)[
+			)),
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"Vapour outlet stream",
 				:PosX=>0.4877,
 				:PosY=>0,
 				:Symbol=>"_{outV}"
-			]),
-			energy_stream ((Symbol=>Any)[
+			)),
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Rate of heat supply",
 				:PosX=>1,
 				:PosY=>0.7559,
 				:Symbol=>"_{in}"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Vapourization fraction",
 				:Symbol=>"\\phi"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Pressure Ratio",
 				:Symbol=>"P_{ratio}"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop",
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P"
-			]),
-			temperature ((Symbol=>Any)[
+			)),
+			temperature (Dict{Symbol,Any}(
 				:Brief=>"Dew-point Temperature"
-			]),
-			temperature ((Symbol=>Any)[
+			)),
+			temperature (Dict{Symbol,Any}(
 				:Brief=>"Bubble-point Temperature"
-			]),
-			fill(fraction ((Symbol=>Any)[
+			)),
+			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Dew-point liquid composition"
-			]),(NComp)),
-			fill(fraction ((Symbol=>Any)[
+			)),(NComp)),
+			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Bubble-point Vapour composition"
-			]),(NComp)),
+			)),(NComp)),
 			[
 				:(PP.LiquidFugacityCoefficient(OutletL.T, OutletL.P, OutletL.z)*OutletL.z = PP.VapourFugacityCoefficient(OutletV.T, OutletV.P, OutletV.z)*OutletV.z),
 				:(sum(OutletL.z) = sum(OutletV.z)),
@@ -138,7 +138,7 @@ function setEquationFlow(in::flash_steady_bd)
 	addEquation(20)
 end
 function atributes(in::flash_steady_bd,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Flash"
 	fields[:Brief]="Model of a Steady State flash."

@@ -23,10 +23,10 @@ type liquid_stream
 		PP=outers.PP
 		new(
 			stream(),
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
+			)),
 			[
 				:(h = PP.LiquidEnthalpy(T, P, z)),
 				:(v = 0),
@@ -50,7 +50,7 @@ function setEquationFlow(in::liquid_stream)
 	addEquation(2)
 end
 function atributes(in::liquid_stream,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Liquid Material Stream"
 	fields[:Info]="Model for liquid material streams.

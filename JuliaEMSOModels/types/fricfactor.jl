@@ -59,7 +59,7 @@ export fricfactor
 typealias Danafricfactor DanaRealParametric
 type _fricfactor
 	function _fricfactor(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Friction Factor"
 		fields[:Default]=0.05
 		fields[:Lower]=1e-5

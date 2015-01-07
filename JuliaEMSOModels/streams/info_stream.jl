@@ -23,106 +23,106 @@ type info_stream
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin ((Symbol=>Any)[
+			DanaPlugin (Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
-			]),
-			fill(molweight ((Symbol=>Any)[
+			)),
+			fill(molweight (Dict{Symbol,Any}(
 				:Brief=>"Component Mol Weight"
-			]),(NComp)),
-			stream ((Symbol=>Any)[
+			)),(NComp)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet Stream",
 				:PosX=>0,
 				:PosY=>0.5308,
 				:Protected=>true ,
 				:Symbol=>"_{in}"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet Stream",
 				:PosX=>1,
 				:PosY=>0.5308,
 				:Protected=>true ,
 				:Symbol=>"_{out}"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Vapourization fraction",
 				:Hidden=>true
-			]),
-			fill(fraction ((Symbol=>Any)[
+			)),
+			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Fraction",
 				:Hidden=>true
-			]),(NComp)),
-			fill(fraction ((Symbol=>Any)[
+			)),(NComp)),
+			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar Fraction",
 				:Hidden=>true
-			]),(NComp)),
-			fill(flow_mol ((Symbol=>Any)[
+			)),(NComp)),
+			fill(flow_mol (Dict{Symbol,Any}(
 				:Brief=>"Component Molar Flow",
 				:Protected=>true
-			]),(NComp)),
-			flow_mass ((Symbol=>Any)[
+			)),(NComp)),
+			flow_mass (Dict{Symbol,Any}(
 				:Brief=>"Total Mass Flow",
 				:Protected=>true
-			]),
-			fill(flow_mass ((Symbol=>Any)[
+			)),
+			fill(flow_mass (Dict{Symbol,Any}(
 				:Brief=>"Component Mass Flow",
 				:Protected=>true
-			]),(NComp)),
-			flow_vol ((Symbol=>Any)[
+			)),(NComp)),
+			flow_vol (Dict{Symbol,Any}(
 				:Brief=>"Total Volumetric Flow",
 				:Protected=>true
-			]),
-			temperature ((Symbol=>Any)[
+			)),
+			temperature (Dict{Symbol,Any}(
 				:Brief=>"Temperature in �C",
 				:Lower=>-200,
 				:Protected=>true
-			]),
-			viscosity ((Symbol=>Any)[
+			)),
+			viscosity (Dict{Symbol,Any}(
 				:Brief=>"Stream Viscosity",
 				:Lower=>0.0001,
 				:Symbol=>"\\mu",
 				:Protected=>true
-			]),
-			cp_mol ((Symbol=>Any)[
+			)),
+			cp_mol (Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Heat Capacity",
 				:Upper=>1e10,
 				:Protected=>true
-			]),
-			conductivity ((Symbol=>Any)[
+			)),
+			conductivity (Dict{Symbol,Any}(
 				:Brief=>"Stream Thermal Conductivity",
 				:Default=>1.0,
 				:Lower=>1e-5,
 				:Upper=>500,
 				:Protected=>true
-			]),
-			molweight ((Symbol=>Any)[
+			)),
+			molweight (Dict{Symbol,Any}(
 				:Brief=>"Average Mol Weight",
 				:Protected=>true
-			]),
-			volume_mol ((Symbol=>Any)[
+			)),
+			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Molar Volume",
 				:Protected=>true
-			]),
-			dens_mass ((Symbol=>Any)[
+			)),
+			dens_mass (Dict{Symbol,Any}(
 				:Brief=>"Stream Mass Density",
 				:Protected=>true
-			]),
-			dens_mol ((Symbol=>Any)[
+			)),
+			dens_mol (Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Density",
 				:Protected=>true
-			]),
-			entr_mol ((Symbol=>Any)[
+			)),
+			entr_mol (Dict{Symbol,Any}(
 				:Brief=>"Stream Entropy",
 				:Protected=>true
-			]),
-			fill(fraction ((Symbol=>Any)[
+			)),
+			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Mass Fraction",
 				:Protected=>true
-			]),(NComp)),
+			)),(NComp)),
 			[
 				:([v, x, y] = PP.FlashPH(Inlet.P, Inlet.h, Inlet.z)),
 				:(Mw = sum(M*Inlet.z)),
@@ -210,7 +210,7 @@ function setEquationFlow(in::info_stream)
 	addEquation(21)
 end
 function atributes(in::info_stream,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Info_Stream"
 	fields[:Brief]="Material stream information"

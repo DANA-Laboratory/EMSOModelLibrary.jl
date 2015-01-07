@@ -27,7 +27,7 @@ export press_delta
 typealias Danapress_delta Danapressure
 type _press_delta
 	function _press_delta(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Pressure Difference"
 		fields[:Default]=0.01
 		fields[:Lower]=-5e6

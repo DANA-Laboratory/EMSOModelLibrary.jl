@@ -38,7 +38,7 @@ export dens_mol
 typealias Danadens_mol DanaRealParametric
 type _dens_mol
 	function _dens_mol(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Molar Density"
 		fields[:Default]=1
 		fields[:Lower]=-1e-20

@@ -2,19 +2,19 @@
 type Splitter
 	Splitter()=begin
 		new(
-			Fracao((Symbol=>Any)[
+			Fracao(Dict{Symbol,Any}(
 				:Brief=>"Fracao de massa para a segunda corrente"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Symbol=>"_{in}"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Symbol=>"_{out}"
-			]),
-			Corrente((Symbol=>Any)[
+			)),
+			Corrente(Dict{Symbol,Any}(
 				:Brief=>"Segunda corrente",
 				:Symbol=>"_{outx}"
-			]),
+			)),
 			[
 				:(Fout.P = Fin.P),
 				:(Fout.T = Fin.T),
@@ -56,7 +56,7 @@ function setEquationFlow(in::Splitter)
 	addEquation(10)
 end
 function atributes(in::Splitter,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/splitter"
 	drive!(fields,_)

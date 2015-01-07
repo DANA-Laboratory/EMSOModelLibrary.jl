@@ -31,7 +31,7 @@ export indutance
 typealias Danaindutance Danapositive
 type _indutance
 	function _indutance(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Electrical Indutance"
 		fields[:Default]=10
 		fields[:Upper]=1e12

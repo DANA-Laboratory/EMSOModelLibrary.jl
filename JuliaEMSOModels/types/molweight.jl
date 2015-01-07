@@ -38,7 +38,7 @@ export molweight
 typealias Danamolweight DanaRealParametric
 type _molweight
 	function _molweight(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Molar Weight"
 		fields[:Default]=75
 		fields[:Lower]=1

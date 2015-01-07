@@ -21,71 +21,71 @@ type reboiler
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
+			)),
 			DanaInteger(),
-			area ((Symbol=>Any)[
+			area (Dict{Symbol,Any}(
 				:Brief=>"Cross Section Area of reboiler"
-			]),
-			volume ((Symbol=>Any)[
+			)),
+			volume (Dict{Symbol,Any}(
 				:Brief=>"Total volume of reboiler"
-			]),
-			stream((Symbol=>Any)[
+			)),
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Feed Stream",
 				:PosX=>0.8127,
 				:PosY=>0,
 				:Symbol=>"_{in}"
-			]),
-			stream((Symbol=>Any)[
+			)),
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid inlet stream",
 				:PosX=>0,
 				:PosY=>0.5254,
 				:Symbol=>"_{inL}"
-			]),
-			liquid_stream((Symbol=>Any)[
+			)),
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream",
 				:PosX=>0.2413,
 				:PosY=>1,
 				:Symbol=>"_{outL}"
-			]),
-			vapour_stream((Symbol=>Any)[
+			)),
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"Vapour outlet stream",
 				:PosX=>0.5079,
 				:PosY=>0,
 				:Symbol=>"_{outV}"
-			]),
-			energy_stream ((Symbol=>Any)[
+			)),
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Heat supplied",
 				:PosX=>1,
 				:PosY=>0.6123,
 				:Symbol=>"_{in}"
-			]),
-			fill(mol ((Symbol=>Any)[
+			)),
+			fill(mol (Dict{Symbol,Any}(
 				:Brief=>"Molar Holdup in the tray"
-			]),(NComp)),
-			mol ((Symbol=>Any)[
+			)),(NComp)),
+			mol (Dict{Symbol,Any}(
 				:Brief=>"Molar liquid holdup"
-			]),
-			mol ((Symbol=>Any)[
+			)),
+			mol (Dict{Symbol,Any}(
 				:Brief=>"Molar vapour holdup"
-			]),
-			energy ((Symbol=>Any)[
+			)),
+			energy (Dict{Symbol,Any}(
 				:Brief=>"Total Energy Holdup on tray"
-			]),
-			volume_mol ((Symbol=>Any)[
+			)),
+			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Volume"
-			]),
-			volume_mol ((Symbol=>Any)[
+			)),
+			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar volume"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Level of liquid phase"
-			]),
-			dens_mass ((Symbol=>Any)[
+			)),
+			dens_mass (Dict{Symbol,Any}(
 				:Brief=>"Vapour Density"
-			]),
+			)),
 			[
 				:(diff(M)= Inlet.F*Inlet.z + InletL.F*InletL.z - OutletL.F*OutletL.z - OutletV.F*OutletV.z),
 				:(diff(E) = Inlet.F*Inlet.h + InletL.F*InletL.h - OutletL.F*OutletL.h - OutletV.F*OutletV.h + InletQ.Q),
@@ -150,7 +150,7 @@ function setEquationFlow(in::reboiler)
 	addEquation(14)
 end
 function atributes(in::reboiler,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Reboiler"
 	fields[:Brief]="Model of a dynamic reboiler - kettle."

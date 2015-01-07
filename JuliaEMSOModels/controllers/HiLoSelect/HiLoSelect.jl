@@ -18,20 +18,20 @@
 type HiLoSelect
 	HiLoSelect()=begin
 		new(
-			DanaSwitcher ((Symbol=>Any)[
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"HiLoSelect option",
 				:Valid=>["higher","lower"],
 				:Default=>"higher"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"input signal 1"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"input signal 2"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"output signal"
-			]),
+			)),
 			[
 				:(output = max([input1,input2])),
 				:(output = min([input1,input2])),
@@ -64,7 +64,7 @@ function setEquationFlow(in::HiLoSelect)
 	end
 end
 function atributes(in::HiLoSelect,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/HiLoSelect"
 	fields[:Brief]="Model HiLo Select."

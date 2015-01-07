@@ -29,7 +29,7 @@ export angle
 typealias Danaangle DanaRealParametric
 type _angle
 	function _angle(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Angle"
 		fields[:Default]=0
 		fields[:Lower]=-7

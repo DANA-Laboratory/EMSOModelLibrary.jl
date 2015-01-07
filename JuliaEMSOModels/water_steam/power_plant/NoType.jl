@@ -23,7 +23,7 @@ export NoType
 typealias DanaNoType DanaRealParametric
 type _NoType
 	function _NoType(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Default]=1
 		fields[:Lower]=-2
 		fields[:Upper]=2

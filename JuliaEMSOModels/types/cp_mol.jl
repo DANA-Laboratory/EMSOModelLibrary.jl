@@ -47,7 +47,7 @@ export cp_mol
 typealias Danacp_mol DanaRealParametric
 type _cp_mol
 	function _cp_mol(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Molar Heat Capacity"
 		fields[:Default]=100
 		fields[:Lower]=1

@@ -23,7 +23,7 @@ export VolumeEspecifico
 typealias DanaVolumeEspecifico DanaRealParametric
 type _VolumeEspecifico
 	function _VolumeEspecifico(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Default]=1e-3
 		fields[:Lower]=1e-6
 		fields[:Upper]=500

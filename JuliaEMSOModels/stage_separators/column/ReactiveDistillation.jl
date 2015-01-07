@@ -7,29 +7,29 @@ type ReactiveDistillation
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Type=>"PP"
-			]),
+			)),
 			DanaInteger(),
-			DanaInteger((Symbol=>Any)[
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of trays",
 				:Default=>2
-			]),
-			DanaInteger((Symbol=>Any)[
+			)),
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Trays counting (1=top-down, -1=bottom-up)",
 				:Default=>1
-			]),
-			DanaInteger((Symbol=>Any)[
+			)),
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of top tray"
-			]),
-			DanaInteger((Symbol=>Any)[
+			)),
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of bottom tray"
-			]),
+			)),
 			DanaReal(),
-			DanaSwitcher((Symbol=>Any)[
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["on", "off"],
 				:Default=>"off"
-			]),
+			)),
 			fill(trayReact()),
 			condenserReact(),
 			reboilerReact(),
@@ -87,7 +87,7 @@ function setEquationFlow(in::ReactiveDistillation)
 	end
 end
 function atributes(in::ReactiveDistillation,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/DistillationKettleCond"
 	fields[:Brief]="Model of a reactive distillation column with dynamic condenser and reboiler."

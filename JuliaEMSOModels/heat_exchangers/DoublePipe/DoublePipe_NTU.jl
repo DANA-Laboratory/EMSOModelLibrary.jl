@@ -19,19 +19,19 @@ type DoublePipe_NTU
 	DoublePipe_NTU()=begin
 		new(
 			DoublePipe_Basic(),
-			DanaSwitcher ((Symbol=>Any)[
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Flow Direction",
 				:Valid=>["counter","cocurrent"],
 				:Default=>"cocurrent"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Effectiveness estimate",
 				:Default=>0.5
-			]),
-			NTU_Basic ((Symbol=>Any)[
+			)),
+			NTU_Basic (Dict{Symbol,Any}(
 				:Brief=>"NTU Method of Calculation",
 				:Symbol=>" "
-			]),
+			)),
 			[
 				:(Method.Eft1 = 1),
 				:(Method.NTU*Method.Cmin = _P1.Details.Ud*_P1.Geometry.Pi*_P1.Geometry.DoInner*_P1.Geometry.Lpipe),
@@ -136,7 +136,7 @@ function setEquationFlow(in::DoublePipe_NTU)
 	end
 end
 function atributes(in::DoublePipe_NTU,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Icon]="icon/DoublePipe"
 	fields[:Pallete]=true
 	fields[:Brief]="Double Pipe Heat Exchanger - NTU Method"

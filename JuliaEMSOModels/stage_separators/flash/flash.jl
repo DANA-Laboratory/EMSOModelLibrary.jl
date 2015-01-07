@@ -20,90 +20,90 @@ type flash
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin ((Symbol=>Any)[
+			DanaPlugin (Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
-			]),
-			volume ((Symbol=>Any)[
+			)),
+			volume (Dict{Symbol,Any}(
 				:Brief=>"Total Volume of the flash"
-			]),
+			)),
 			fill(molweight()),
-			DanaSwitcher ((Symbol=>Any)[
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Valid=>["vertical","horizontal"],
 				:Default=>"vertical"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Vessel diameter"
-			]),
-			stream((Symbol=>Any)[
+			)),
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Feed Stream",
 				:PosX=>0,
 				:PosY=>0.5421,
 				:Symbol=>"_{in}"
-			]),
-			liquid_stream((Symbol=>Any)[
+			)),
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream",
 				:PosX=>0.4790,
 				:PosY=>1,
 				:Symbol=>"_{outL}"
-			]),
-			vapour_stream((Symbol=>Any)[
+			)),
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"Vapour outlet stream",
 				:PosX=>0.4877,
 				:PosY=>0,
 				:Symbol=>"_{outV}"
-			]),
-			energy_stream ((Symbol=>Any)[
+			)),
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Rate of heat supply",
 				:PosX=>1,
 				:PosY=>0.7559,
 				:Symbol=>"_{in}"
-			]),
-			fill(mol ((Symbol=>Any)[
+			)),
+			fill(mol (Dict{Symbol,Any}(
 				:Brief=>"Molar Holdup in the tray"
-			]),(NComp)),
-			mol ((Symbol=>Any)[
+			)),(NComp)),
+			mol (Dict{Symbol,Any}(
 				:Brief=>"Molar liquid holdup"
-			]),
-			mol ((Symbol=>Any)[
+			)),
+			mol (Dict{Symbol,Any}(
 				:Brief=>"Molar vapour holdup"
-			]),
-			energy ((Symbol=>Any)[
+			)),
+			energy (Dict{Symbol,Any}(
 				:Brief=>"Total Energy Holdup on tray"
-			]),
-			volume_mol ((Symbol=>Any)[
+			)),
+			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Volume"
-			]),
-			volume_mol ((Symbol=>Any)[
+			)),
+			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar volume"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"liquid height"
-			]),
-			area ((Symbol=>Any)[
+			)),
+			area (Dict{Symbol,Any}(
 				:Brief=>"Flash Cross section area"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar fraction",
 				:Symbol=>"\\ksi"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Vapourization fraction",
 				:Symbol=>"\\phi"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Pressure Ratio",
 				:Symbol=>"P_{ratio}"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop",
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P"
-			]),
+			)),
 			[
 				:(diff(M)=Inlet.F*Inlet.z - OutletL.F*OutletL.z - OutletV.F*OutletV.z),
 				:(diff(E) = Inlet.F*Inlet.h - OutletL.F*OutletL.h - OutletV.F*OutletV.h + InletQ.Q),
@@ -199,7 +199,7 @@ function setEquationFlow(in::flash)
 	end
 end
 function atributes(in::flash,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Flash"
 	fields[:Brief]="Model of a dynamic flash."

@@ -21,70 +21,70 @@ type Heatex_Basic
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin ((Symbol=>Any)[
+			DanaPlugin (Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of Components"
-			]),
-			fill(molweight ((Symbol=>Any)[
+			)),
+			fill(molweight (Dict{Symbol,Any}(
 				:Brief=>"Component Mol Weight",
 				:Hidden=>true
-			]),(NComp)),
-			stream ((Symbol=>Any)[
+			)),(NComp)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet Hot Stream",
 				:PosX=>0,
 				:PosY=>0.4915,
 				:Symbol=>"^{inHot}"
-			]),
-			streamPH ((Symbol=>Any)[
+			)),
+			streamPH (Dict{Symbol,Any}(
 				:Brief=>"Outlet Hot Stream",
 				:PosX=>1,
 				:PosY=>0.4915,
 				:Symbol=>"^{outHot}"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet Cold Stream",
 				:PosX=>0.5237,
 				:PosY=>1,
 				:Symbol=>"^{inCold}"
-			]),
-			streamPH ((Symbol=>Any)[
+			)),
+			streamPH (Dict{Symbol,Any}(
 				:Brief=>"Outlet Cold Stream",
 				:PosX=>0.5237,
 				:PosY=>0,
 				:Symbol=>"^{outCold}"
-			]),
-			area ((Symbol=>Any)[
+			)),
+			area (Dict{Symbol,Any}(
 				:Brief=>"Exchange Surface Area"
-			]),
-			power ((Symbol=>Any)[
+			)),
+			power (Dict{Symbol,Any}(
 				:Brief=>"Duty",
 				:Default=>7000,
 				:Lower=>1e-6,
 				:Upper=>1e10
-			]),
-			heat_trans_coeff ((Symbol=>Any)[
+			)),
+			heat_trans_coeff (Dict{Symbol,Any}(
 				:Brief=>"Overall Heat Transfer Coefficient",
 				:Default=>1,
 				:Lower=>1e-6,
 				:Upper=>1e10
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop Hot Side",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa" ,
 				:Symbol=>"\\Delta P_{hot}"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop Cold Side",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa" ,
 				:Symbol=>"\\Delta P_{cold}"
-			]),
+			)),
 			[
 				:(Q = InletHot.F*(InletHot.h-OutletHot.h)),
 				:(Q =-InletCold.F*(InletCold.h-OutletCold.h)),
@@ -137,7 +137,7 @@ function setEquationFlow(in::Heatex_Basic)
 	addEquation(8)
 end
 function atributes(in::Heatex_Basic,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Basic Model for Simplified Heat Exchangers"
 	fields[:Info]="Model of a simplified heat exchanger.

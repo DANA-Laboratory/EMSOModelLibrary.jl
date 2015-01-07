@@ -14,71 +14,71 @@ type Distillation_thermosyphon_cond_cost
 	Distillation_thermosyphon_cond_cost()=begin
 		new(
 			Distillation_thermosyphon_cond(),
-			DanaSwitcher ((Symbol=>Any)[
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Valid=>["Stainless steel 316", "Stainless steel 304", "Carpenter 20 CB_3", "Nickel 200", "Monel 400", "Inconel 600", "Incoloy 825", "Titanium"],
 				:Default=>"Stainless steel 304"
-			]),
-			DanaSwitcher ((Symbol=>Any)[
+			)),
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Valid=>["Valve", "Grid", "Bubble cap", "Sieve"],
 				:Default=>"Valve"
-			]),
-			DanaSwitcher ((Symbol=>Any)[
+			)),
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Valid=>["Stainless steel 304", "Stainless steel 316", "Carpenter 20 CB_3", "Monel"],
 				:Default=>"Stainless steel 304"
-			]),
+			)),
 			fill(DanaReal()),
-			length ((Symbol=>Any)[
+			length (Dict{Symbol,Any}(
 				:Brief=>"Internal Diameter for the hoof of the towers"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Hoof Length"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Bottom thickness"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Wall thickness"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Tower diameter"
-			]),
-			dens_mass ((Symbol=>Any)[
+			)),
+			dens_mass (Dict{Symbol,Any}(
 				:Brief=>"Mass Density of the Material"
-			]),
-			constant ((Symbol=>Any)[
+			)),
+			constant (Dict{Symbol,Any}(
 				:Brief=>"Pi Number",
 				:Default=>3.14159265
-			]),
-			currency ((Symbol=>Any)[
+			)),
+			currency (Dict{Symbol,Any}(
 				:Brief=>"Total Cost of the hoof of the towers"
-			]),
-			currency ((Symbol=>Any)[
+			)),
+			currency (Dict{Symbol,Any}(
 				:Brief=>"Base Cost for the hoof of the distillation tower"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Cost Factor based on the construction material"
-			]),
-			currency ((Symbol=>Any)[
+			)),
+			currency (Dict{Symbol,Any}(
 				:Brief=>"Cost for stairs and platform"
-			]),
-			currency ((Symbol=>Any)[
+			)),
+			currency (Dict{Symbol,Any}(
 				:Brief=>"Base Cost for the trays of the tower"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Cost Factor based on the construction material of the trays"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Cost Factor based on the number of trays in the tower"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Cost Factor based on the type of the tray"
-			]),
-			currency ((Symbol=>Any)[
+			)),
+			currency (Dict{Symbol,Any}(
 				:Brief=>"Total Cost"
-			]),
-			mass ((Symbol=>Any)[
+			)),
+			mass (Dict{Symbol,Any}(
 				:Brief=>"Equipment Weight"
-			]),
+			)),
 			[
 				:(Cs = Cb*Fm),
 				:(Cb = "US\$"*exp(Cost(1,1) + Cost(1,2)*ln(Ws/"kg") + Cost(1,3)*(ln(Ws/"kg"))^2 + Cost(1,4)*(Lt/Di)*(ln(Tb/Tp)))),
@@ -153,7 +153,7 @@ function setEquationFlow(in::Distillation_thermosyphon_cond_cost)
 	addEquation(13)
 end
 function atributes(in::Distillation_thermosyphon_cond_cost,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/DistillationThermosyphonCond"
 	fields[:Brief]="Model of a distillation column with dynamic condenser and steady reboiler."

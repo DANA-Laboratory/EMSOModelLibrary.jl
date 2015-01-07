@@ -18,34 +18,34 @@
 type Baffles_Main
 	Baffles_Main()=begin
 		new(
-			DanaInteger ((Symbol=>Any)[
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Baffle Cut",
 				:Default=>25,
 				:Lower=>25
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Number of Baffles",
 				:Symbol=>"N_{baffles}",
 				:Lower=>1
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Inlet Baffle Spacing",
 				:Lower=>1e-8,
 				:Symbol=>"L_{si}",
 				:DisplayUnit=>"mm" 
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Central Baffle Spacing",
 				:Lower=>1e-8,
 				:Symbol=>"L_s",
 				:DisplayUnit=>"mm" 
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Outlet Baffle Spacing",
 				:Lower=>1e-8,
 				:Symbol=>"L_{so}",
 				:DisplayUnit=>"mm" 
-			]),
+			)),
 			[:BaffleCut,:NumberOfBaffles,],
 			[:Inlet_Spacing,:Central_Spacing,:Outlet_Spacing,]
 		)
@@ -61,7 +61,7 @@ type Baffles_Main
 end
 export Baffles_Main
 function atributes(in::Baffles_Main,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Main variables in the Baffle section of a shell and tube heat exchanger."
 	drive!(fields,_)

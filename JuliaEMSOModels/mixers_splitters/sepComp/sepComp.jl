@@ -21,45 +21,45 @@ type sepComp
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin ((Symbol=>Any)[
+			DanaPlugin (Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Component specified",
 				:Default=>1,
 				:Lower=>1
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0.5001,
 				:Symbol=>"_{in}"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet stream 1",
 				:PosX=>1,
 				:PosY=>0.3027,
 				:Symbol=>"_{out1}"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet stream 2",
 				:PosX=>1,
 				:PosY=>0.7141,
 				:Symbol=>"_{out2}"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Fraction to Outlet 1",
 				:Symbol=>"\\phi"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Recovery of the component specified",
 				:Symbol=>"\\eta"
-			]),
+			)),
 			[
 				:(Outlet1.F = Inlet.F * frac),
 				:(Outlet1.F + Outlet2.F = Inlet.F),
@@ -113,7 +113,7 @@ function setEquationFlow(in::sepComp)
 	addEquation(13)
 end
 function atributes(in::sepComp,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/splitter"
 	fields[:Brief]="Model of a separator of components"

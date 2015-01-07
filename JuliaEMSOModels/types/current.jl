@@ -30,7 +30,7 @@ export current
 typealias Danacurrent Danapositive
 type _current
 	function _current(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Electrical Current"
 		fields[:Default]=10
 		fields[:Upper]=1e12

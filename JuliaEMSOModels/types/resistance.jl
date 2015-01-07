@@ -31,7 +31,7 @@ export resistance
 typealias Danaresistance Danapositive
 type _resistance
 	function _resistance(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Eletrical Resistance"
 		fields[:Default]=50
 		fields[:Upper]=800

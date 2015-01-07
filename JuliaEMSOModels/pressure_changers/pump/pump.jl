@@ -8,26 +8,26 @@ type pump
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin ((Symbol=>Any)[
+			DanaPlugin (Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
+			)),
 			DanaInteger(),
-			stream ((Symbol=>Any)[
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0.4727,
 				:Symbol=>"_{in}"
-			]),
-			streamPH ((Symbol=>Any)[
+			)),
+			streamPH (Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>1,
 				:PosY=>0.1859,
 				:Symbol=>"_{out}"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Pump head"
-			]),
+			)),
 			[
 				:(Inlet.F = Outlet.F),
 				:(Inlet.z = Outlet.z),
@@ -60,7 +60,7 @@ function setEquationFlow(in::pump)
 	addEquation(4)
 end
 function atributes(in::pump,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Pump"
 	fields[:Brief]="Model of a simplified pump, used in distillation column model."

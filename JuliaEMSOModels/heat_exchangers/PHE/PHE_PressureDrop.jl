@@ -18,47 +18,47 @@
 type PHE_PressureDrop
 	PHE_PressureDrop()=begin
 		new(
-			press_delta ((Symbol=>Any)[
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Channel Pressure Drop",
 				:Default=>0.01,
 				:Lower=>1E-10,
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P^{channel}"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Ports Pressure Drop",
 				:Default=>0.01,
 				:Lower=>1E-10,
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P^{ports}"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Total Pressure Drop",
 				:Default=>0.01,
 				:Lower=>1E-10,
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P"
-			]),
-			fricfactor ((Symbol=>Any)[
+			)),
+			fricfactor (Dict{Symbol,Any}(
 				:Brief=>"Friction Factor",
 				:Default=>0.05,
 				:Lower=>1E-10,
 				:Upper=>2000
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Stream Velocity in Channel",
 				:Lower=>1E-8,
 				:Symbol=>"V^{channel}"
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Stream Velocity in Ports",
 				:Lower=>1E-8,
 				:Symbol=>"V^{ports}"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of  Channels per Pass",
 				:Symbol=>"N^{passage}"
-			]),
+			)),
 			[:DPchannel,:DPports,:Pdrop,:fi,:Vchannel,:Vports,:Npassage,]
 		)
 	end
@@ -74,7 +74,7 @@ type PHE_PressureDrop
 end
 export PHE_PressureDrop
 function atributes(in::PHE_PressureDrop,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="to be documented"
 	fields[:Info]="to be documented"

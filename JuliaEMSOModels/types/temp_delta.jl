@@ -28,7 +28,7 @@ export temp_delta
 typealias Danatemp_delta Danatemperature
 type _temp_delta
 	function _temp_delta(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Temperature Difference"
 		fields[:Default]=30
 		fields[:Lower]=-1000

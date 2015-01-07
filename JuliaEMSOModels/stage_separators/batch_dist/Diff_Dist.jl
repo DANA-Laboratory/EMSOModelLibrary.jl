@@ -21,79 +21,79 @@ type Diff_Dist
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin ((Symbol=>Any)[
+			DanaPlugin (Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
-			]),
-			area ((Symbol=>Any)[
+			)),
+			area (Dict{Symbol,Any}(
 				:Brief=>"Cross Section Area"
-			]),
-			volume ((Symbol=>Any)[
+			)),
+			volume (Dict{Symbol,Any}(
 				:Brief=>"Total volume"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Feed stream",
 				:PosX=>0,
 				:PosY=>0.9385,
 				:Symbol=>"_{in}"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Liquid inlet stream",
 				:PosX=>0.5,
 				:PosY=>0.1984,
 				:Symbol=>"_{inL}"
-			]),
-			vapour_stream ((Symbol=>Any)[
+			)),
+			vapour_stream (Dict{Symbol,Any}(
 				:Brief=>"Vapour outlet stream",
 				:PosX=>1,
 				:PosY=>0.1984,
 				:Symbol=>"_{outV}"
-			]),
-			energy_stream ((Symbol=>Any)[
+			)),
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Heat supplied",
 				:PosX=>1,
 				:PosY=>0.9578,
 				:Symbol=>"_{in}"
-			]),
-			fill(mol ((Symbol=>Any)[
+			)),
+			fill(mol (Dict{Symbol,Any}(
 				:Brief=>"Molar Holdup in the distillator"
-			]),(NComp)),
-			mol ((Symbol=>Any)[
+			)),(NComp)),
+			mol (Dict{Symbol,Any}(
 				:Brief=>"Molar liquid holdup"
-			]),
-			mol ((Symbol=>Any)[
+			)),
+			mol (Dict{Symbol,Any}(
 				:Brief=>"Molar vapour holdup"
-			]),
-			energy ((Symbol=>Any)[
+			)),
+			energy (Dict{Symbol,Any}(
 				:Brief=>"Total Energy holdup on distillator"
-			]),
-			volume_mol ((Symbol=>Any)[
+			)),
+			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Volume"
-			]),
-			volume_mol ((Symbol=>Any)[
+			)),
+			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar volume"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Level of liquid phase",
 				:Default=>1,
 				:Lower=>0
-			]),
-			temperature ((Symbol=>Any)[
+			)),
+			temperature (Dict{Symbol,Any}(
 				:Brief=>"Temperature on distillator"
-			]),
-			pressure ((Symbol=>Any)[
+			)),
+			pressure (Dict{Symbol,Any}(
 				:Brief=>"Pressure on distillator"
-			]),
-			fill(fraction ((Symbol=>Any)[
+			)),
+			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Molar Fraction of the Liquid of the distillator"
-			]),(NComp)),
-			enth_mol ((Symbol=>Any)[
+			)),(NComp)),
+			enth_mol (Dict{Symbol,Any}(
 				:Brief=>"Molar Enthalpy of the liquid of the distillator"
-			]),
+			)),
 			[
 				:(diff(M)= Inlet.F*Inlet.z + InletL.F*InletL.z - OutletV.F*OutletV.z),
 				:(diff(E) = Inlet.F*Inlet.h + InletL.F*InletL.h - OutletV.F*OutletV.h + InletQ.Q),
@@ -160,7 +160,7 @@ function setEquationFlow(in::Diff_Dist)
 	addEquation(14)
 end
 function atributes(in::Diff_Dist,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/BatchDist"
 	fields[:Brief]="Model of a Batch Differential Distillation."

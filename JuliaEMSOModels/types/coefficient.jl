@@ -26,7 +26,7 @@ export coefficient
 typealias Danacoefficient DanaRealParametric
 type _coefficient
 	function _coefficient(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="General Coefficient"
 		fields[:Default]=1
 		fields[:Lower]=-50

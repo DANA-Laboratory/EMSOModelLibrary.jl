@@ -58,7 +58,7 @@ export flux_mol_delta
 typealias Danaflux_mol_delta Danaflux_mol
 type _flux_mol_delta
 	function _flux_mol_delta(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Difference of Molar Flux"
 		fields[:Lower]=-1e4
 		drive!(fields,_)

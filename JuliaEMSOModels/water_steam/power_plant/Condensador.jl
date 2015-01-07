@@ -3,22 +3,22 @@ type Condensador
 	Condensador()=begin
 		propterm=outers.propterm
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"Steam tables",
 				:Type=>"water"
-			]),
-			Potencia ((Symbol=>Any)[
+			)),
+			Potencia (Dict{Symbol,Any}(
 				:Brief=>"Taxa de calor removido"
-			]),
-			Dif_Temp ((Symbol=>Any)[
+			)),
+			Dif_Temp (Dict{Symbol,Any}(
 				:Brief=>"Grau de sub-resfriamento"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Symbol=>"_{in}"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Symbol=>"_{out}"
-			]),
+			)),
 			[
 				:(Fout.P = Fin.P),
 				:(Fout.T = propterm.Tsat(Fout.P) - G_S),
@@ -53,7 +53,7 @@ function setEquationFlow(in::Condensador)
 	addEquation(5)
 end
 function atributes(in::Condensador,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/condensador"
 	drive!(fields,_)

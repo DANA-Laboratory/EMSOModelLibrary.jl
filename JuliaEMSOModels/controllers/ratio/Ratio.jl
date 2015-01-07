@@ -18,15 +18,15 @@
 type Ratio
 	Ratio()=begin
 		new(
-			DanaReal ((Symbol=>Any)[
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"input signal 1"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"input signal 2"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"output signal"
-			]),
+			)),
 			[
 				:(input2*output=input1),
 				:(output=input1*1e5),
@@ -59,7 +59,7 @@ function setEquationFlow(in::Ratio)
 	end
 end
 function atributes(in::Ratio,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Ratio"
 	fields[:Brief]="Model Ratio."

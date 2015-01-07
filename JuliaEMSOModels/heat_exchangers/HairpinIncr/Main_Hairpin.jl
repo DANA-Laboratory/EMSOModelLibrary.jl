@@ -18,15 +18,15 @@
 type Main_Hairpin
 	Main_Hairpin()=begin
 		new(
-			Hairpin_HeatTransfer ((Symbol=>Any)[
+			Hairpin_HeatTransfer (Dict{Symbol,Any}(
 				:Brief=>"Double Pipe Heat Transfer"
-			]),
-			Hairpin_PressureDrop ((Symbol=>Any)[
+			)),
+			Hairpin_PressureDrop (Dict{Symbol,Any}(
 				:Brief=>"Double Pipe Pressure Drop"
-			]),
-			Physical_Properties ((Symbol=>Any)[
+			)),
+			Physical_Properties (Dict{Symbol,Any}(
 				:Brief=>"Double Pipe Properties"
-			]),
+			)),
 			[:HeatTransfer,:PressureDrop,:Properties,]
 		)
 	end
@@ -38,7 +38,7 @@ type Main_Hairpin
 end
 export Main_Hairpin
 function atributes(in::Main_Hairpin,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="to be documented"
 	fields[:Info]="to be documented"

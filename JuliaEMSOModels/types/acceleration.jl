@@ -59,7 +59,7 @@ export acceleration
 typealias Danaacceleration DanaRealParametric
 type _acceleration
 	function _acceleration(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="General Acceleration"
 		fields[:Default]=9.81
 		fields[:Lower]=-1e3

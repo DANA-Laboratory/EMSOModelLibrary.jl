@@ -57,7 +57,7 @@ export flow_mass_delta
 typealias Danaflow_mass_delta Danaflow_mass
 type _flow_mass_delta
 	function _flow_mass_delta(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Difference of Flow Mass"
 		fields[:Lower]=-1e10
 		drive!(fields,_)

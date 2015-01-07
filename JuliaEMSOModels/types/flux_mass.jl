@@ -58,7 +58,7 @@ export flux_mass
 typealias Danaflux_mass Danapositive
 type _flux_mass
 	function _flux_mass(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Mass Flux"
 		fields[:Default]=1
 		fields[:Upper]=1e6

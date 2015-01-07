@@ -9,50 +9,50 @@ type valve_simplified
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Type=>"PP"
-			]),
+			)),
 			DanaInteger(),
-			stream ((Symbol=>Any)[
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0.7365,
 				:Symbol=>"_{in}"
-			]),
-			streamPH ((Symbol=>Any)[
+			)),
+			streamPH (Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>1,
 				:PosY=>0.7365,
 				:Symbol=>"_{out}"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Plug Position"
-			]),
-			dens_mass ((Symbol=>Any)[
+			)),
+			dens_mass (Dict{Symbol,Any}(
 				:Brief=>"Fluid Density",
 				:Default=>1e3
-			]),
-			vol_mol ((Symbol=>Any)[
+			)),
+			vol_mol (Dict{Symbol,Any}(
 				:Brief=>"Specific volume",
 				:Default=>1e3
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop",
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Pressure Ratio",
 				:Symbol=>"P_{ratio}"
-			]),
-			dens_mass ((Symbol=>Any)[
+			)),
+			dens_mass (Dict{Symbol,Any}(
 				:Brief=>"Reference Density",
 				:Default=>1e4
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Valve Constant",
 				:Unit=>"gal/min/psi^0.5"
-			]),
+			)),
 			[
 				:(Inlet.F = Outlet.F),
 				:(Inlet.z = Outlet.z),
@@ -104,7 +104,7 @@ function setEquationFlow(in::valve_simplified)
 	end
 end
 function atributes(in::valve_simplified,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Valve"
 	fields[:Brief]="Model of a very simple valve - used in distillation column models."

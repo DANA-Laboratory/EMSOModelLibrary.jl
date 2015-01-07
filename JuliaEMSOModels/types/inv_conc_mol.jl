@@ -40,7 +40,7 @@ export inv_conc_mol
 typealias Danainv_conc_mol DanaRealParametric
 type _inv_conc_mol
 	function _inv_conc_mol(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Inverse of Molar Concentration"
 		fields[:Default]=0.05
 		fields[:Lower]=2e-4

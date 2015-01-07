@@ -6,116 +6,116 @@ type trayReact
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Type=>"PP"
-			]),
+			)),
 			DanaInteger(),
-			volume((Symbol=>Any)[
+			volume(Dict{Symbol,Any}(
 				:Brief=>"Total Volume of the tray"
-			]),
-			power ((Symbol=>Any)[
+			)),
+			power (Dict{Symbol,Any}(
 				:Brief=>"Rate of heat supply"
-			]),
-			area ((Symbol=>Any)[
+			)),
+			area (Dict{Symbol,Any}(
 				:Brief=>"Plate area = Atray - Adowncomer"
-			]),
-			area ((Symbol=>Any)[
+			)),
+			area (Dict{Symbol,Any}(
 				:Brief=>"Total holes area"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Weir length"
-			]),
-			acceleration ((Symbol=>Any)[
+			)),
+			acceleration (Dict{Symbol,Any}(
 				:Default=>9.81
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Weir height"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Aeration fraction"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Dry pressure drop coefficient"
-			]),
-			fill(DanaReal((Symbol=>Any)[
+			)),
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Stoichiometric matrix"
-			]),(NComp)),
+			)),(NComp)),
 			energy_mol(),
 			pressure(),
-			DanaSwitcher((Symbol=>Any)[
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["on", "off"],
 				:Default=>"off"
-			]),
-			DanaSwitcher((Symbol=>Any)[
+			)),
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["on", "off"],
 				:Default=>"off"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Feed stream",
 				:PosX=>0,
 				:PosY=>0.4932,
 				:Symbol=>"_{in}"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet liquid stream",
 				:PosX=>0.5195,
 				:PosY=>0,
 				:Symbol=>"_{inL}"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet vapour stream",
 				:PosX=>0.4994,
 				:PosY=>1,
 				:Symbol=>"_{inV}"
-			]),
-			liquid_stream ((Symbol=>Any)[
+			)),
+			liquid_stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet liquid stream",
 				:PosX=>0.8277,
 				:PosY=>1,
 				:Symbol=>"_{outL}"
-			]),
-			vapour_stream ((Symbol=>Any)[
+			)),
+			vapour_stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet vapour stream",
 				:PosX=>0.8043,
 				:PosY=>0,
 				:Symbol=>"_{outV}"
-			]),
+			)),
 			fill(fraction()),
-			DanaReal ((Symbol=>Any)[
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Murphree efficiency"
-			]),
-			fill(mol ((Symbol=>Any)[
+			)),
+			fill(mol (Dict{Symbol,Any}(
 				:Brief=>"Molar Holdup in the tray"
-			]),(NComp)),
-			mol ((Symbol=>Any)[
+			)),(NComp)),
+			mol (Dict{Symbol,Any}(
 				:Brief=>"Molar liquid holdup"
-			]),
-			mol ((Symbol=>Any)[
+			)),
+			mol (Dict{Symbol,Any}(
 				:Brief=>"Molar vapour holdup"
-			]),
-			energy ((Symbol=>Any)[
+			)),
+			energy (Dict{Symbol,Any}(
 				:Brief=>"Total Energy Holdup on tray"
-			]),
-			volume_mol ((Symbol=>Any)[
+			)),
+			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Volume"
-			]),
-			volume_mol ((Symbol=>Any)[
+			)),
+			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar volume"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Height of clear liquid on plate"
-			]),
+			)),
 			volume(),
 			dens_mass(),
 			dens_mass(),
-			reaction_mol ((Symbol=>Any)[
+			reaction_mol (Dict{Symbol,Any}(
 				:Brief=>"Reaction resulting ethyl acetate",
 				:DisplayUnit=>"mol/l/s"
-			]),
-			fill(conc_mol ((Symbol=>Any)[
+			)),
+			fill(conc_mol (Dict{Symbol,Any}(
 				:Brief=>"Molar concentration",
 				:Lower=>-1
-			]),(NComp)),
+			)),(NComp)),
 			[
 				:(OutletL.z = vL * C),
 				:(r3 = exp(-7150*"K"/OutletL.T)*(4.85e4*C(1)*C(2) - 1.23e4*C(3)*C(4))*"l/mol/s"),
@@ -241,7 +241,7 @@ function setEquationFlow(in::trayReact)
 	addEquation(23)
 end
 function atributes(in::trayReact,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Icon]="icon/Tray"
 	fields[:Brief]="Model of a tray with reaction."

@@ -51,7 +51,7 @@ export energy_mass
 typealias Danaenergy_mass DanaRealParametric
 type _energy_mass
 	function _energy_mass(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Energy per mass"
 		fields[:Default]=10000
 		fields[:Lower]=-1e15

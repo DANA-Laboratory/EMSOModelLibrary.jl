@@ -23,7 +23,7 @@ export Entropia
 typealias DanaEntropia DanaRealParametric
 type _Entropia
 	function _Entropia(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Default]=5
 		fields[:Lower]=1e-3
 		fields[:Upper]=8

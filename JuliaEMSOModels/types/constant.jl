@@ -26,7 +26,7 @@ export constant
 typealias Danaconstant DanaRealParametric
 type _constant
 	function _constant(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="General Constant"
 		fields[:Default]=10
 		fields[:Lower]=-5000

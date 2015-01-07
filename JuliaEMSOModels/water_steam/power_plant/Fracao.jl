@@ -23,7 +23,7 @@ export Fracao
 typealias DanaFracao DanaRealParametric
 type _Fracao
 	function _Fracao(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Default]=0.5
 		fields[:Lower]=0
 		fields[:Upper]=1

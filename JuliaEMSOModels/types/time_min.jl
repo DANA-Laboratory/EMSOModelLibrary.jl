@@ -29,7 +29,7 @@ export time_min
 typealias Danatime_min Danatime_h
 type _time_min
 	function _time_min(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Time in minutes"
 		fields[:DisplayUnit]="min"
 		drive!(fields,_)

@@ -18,55 +18,55 @@
 type Tube_Pdrop
 	Tube_Pdrop()=begin
 		new(
-			press_delta ((Symbol=>Any)[
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Tube Pressure Drop due to friction",
 				:Symbol=>"\\Delta P_{tube}",
 				:Default=>0.01,
 				:Lower=>1E-10,
 				:DisplayUnit=>"kPa"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Inlet Nozzle Pressure Drop",
 				:Symbol=>"\\Delta P_{Nozzle\\_In}",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Outlet Nozzle Pressure Drop",
 				:Symbol=>"\\Delta P_{Nozzle\\_Out}",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Total Pressure Drop",
 				:Symbol=>"\\Delta P_{total}",
 				:Default=>0.01,
 				:Lower=>1E-10,
 				:DisplayUnit=>"kPa"
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Inlet Nozzle Velocity",
 				:Symbol=>"V_{Nozzle\\_In}",
 				:Default=>1,
 				:Upper=>1e5,
 				:Lower=>0
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Outlet Nozzle Velocity",
 				:Symbol=>"V_{Nozzle\\_Out}",
 				:Default=>1,
 				:Upper=>1E5,
 				:Lower=>0
-			]),
-			fricfactor ((Symbol=>Any)[
+			)),
+			fricfactor (Dict{Symbol,Any}(
 				:Brief=>"Friction Factor",
 				:Symbol=>"f_i",
 				:Default=>0.05,
 				:Lower=>1e-10,
 				:Upper=>2000
-			]),
+			)),
 			[
 				:(Total = TubeFriction + InletNozzle + OutletNozzle),
 			],
@@ -93,7 +93,7 @@ function setEquationFlow(in::Tube_Pdrop)
 	addEquation(1)
 end
 function atributes(in::Tube_Pdrop,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Pressure drop and velocities in the tube side section of a shell and tube heat exchanger."
 	drive!(fields,_)

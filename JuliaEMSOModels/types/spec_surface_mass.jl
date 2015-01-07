@@ -71,7 +71,7 @@ export spec_surface_mass
 typealias Danaspec_surface_mass Danapositive
 type _spec_surface_mass
 	function _spec_surface_mass(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Specific Surface Mass"
 		fields[:Default]=100
 		fields[:Upper]=1e12

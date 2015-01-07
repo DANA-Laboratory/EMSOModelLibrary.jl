@@ -24,26 +24,26 @@ type Lead_lag
 			"",
 		],
 		new(
-			positive ((Symbol=>Any)[
+			positive (Dict{Symbol,Any}(
 				:Brief=>"model gain"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"lead time constant",
 				:Unit=>"s"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"lag time constant",
 				:Unit=>"s"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"input signal"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"output signal"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"internal variable"
-			]),
+			)),
 			[
 				:(alpha*diff(aux)=gain*input-aux),
 				:(output=beta*diff(aux) + aux),
@@ -78,7 +78,7 @@ function initial(in::Lead_lag)
 	addEquation(1)
 end
 function atributes(in::Lead_lag,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Lead_Lag"
 	fields[:Brief]="Model Lead lag."

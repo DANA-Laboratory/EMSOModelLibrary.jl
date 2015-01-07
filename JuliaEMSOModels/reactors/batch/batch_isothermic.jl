@@ -40,7 +40,7 @@ function setEquationFlow(in::batch_isothermic)
 	addEquation(2)
 end
 function atributes(in::batch_isothermic,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/batch"
 	fields[:Brief]="Model of a isothermal batch reactor"

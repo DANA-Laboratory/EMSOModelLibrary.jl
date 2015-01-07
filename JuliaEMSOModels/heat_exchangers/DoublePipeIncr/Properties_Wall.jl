@@ -19,21 +19,21 @@ type Properties_Wall
 	Properties_Wall()=begin
 		N=outers.N
 		new(
-			DanaInteger ((Symbol=>Any)[
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of zones",
 				:Default=>2
-			]),
-			fill(viscosity ((Symbol=>Any)[
+			)),
+			fill(viscosity (Dict{Symbol,Any}(
 				:Brief=>"Stream Incremental Viscosity",
 				:Default=>1,
 				:Lower=>1e-5,
 				:Upper=>1e5,
 				:Symbol=>"\\mu"
-			]),(N)),
-			fill(temperature ((Symbol=>Any)[
+			)),(N)),
+			fill(temperature (Dict{Symbol,Any}(
 				:Brief=>"Incremental Wall Temperature",
 				:Lower=>50
-			]),(N)),
+			)),(N)),
 			[:N,],
 			[:Mu,:Twall,]
 		)
@@ -47,7 +47,7 @@ type Properties_Wall
 end
 export Properties_Wall
 function atributes(in::Properties_Wall,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Incremental Physical properties of the streams at wall temperature."
 	fields[:Info]="to be documented."

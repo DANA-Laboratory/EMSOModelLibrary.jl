@@ -23,84 +23,84 @@ type sink
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin ((Symbol=>Any)[
+			DanaPlugin (Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
-			]),
-			fill(molweight ((Symbol=>Any)[
+			)),
+			fill(molweight (Dict{Symbol,Any}(
 				:Brief=>"Component Mol Weight"
-			]),(NComp)),
-			DanaSwitcher ((Symbol=>Any)[
+			)),(NComp)),
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Density model",
 				:Valid=>["volume", "correlation"],
 				:Default=>"volume"
-			]),
-			temperature ((Symbol=>Any)[
+			)),
+			temperature (Dict{Symbol,Any}(
 				:Brief=>"Standard temperature",
 				:Hidden=>true,
 				:Default=>298.15
-			]),
-			pressure ((Symbol=>Any)[
+			)),
+			pressure (Dict{Symbol,Any}(
 				:Brief=>"Standard pressure",
 				:Hidden=>true,
 				:Default=>1
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet Stream",
 				:PosX=>0,
 				:PosY=>0.5308,
 				:Symbol=>"_{in}"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Vapourization fraction"
-			]),
-			fill(fraction ((Symbol=>Any)[
+			)),
+			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Fraction",
 				:Hidden=>true
-			]),(NComp)),
-			fill(fraction ((Symbol=>Any)[
+			)),(NComp)),
+			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar Fraction",
 				:Hidden=>true
-			]),(NComp)),
-			fill(fraction ((Symbol=>Any)[
+			)),(NComp)),
+			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Mass Fraction"
-			]),(NComp)),
-			molweight ((Symbol=>Any)[
+			)),(NComp)),
+			molweight (Dict{Symbol,Any}(
 				:Brief=>"Average Mol Weight"
-			]),
-			volume_mol ((Symbol=>Any)[
+			)),
+			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Molar Volume"
-			]),
-			volume_mol ((Symbol=>Any)[
+			)),
+			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Standard Molar Volume",
 				:Protected=>true
-			]),
-			dens_mass ((Symbol=>Any)[
+			)),
+			dens_mass (Dict{Symbol,Any}(
 				:Brief=>"Stream Mass Density"
-			]),
-			dens_mol ((Symbol=>Any)[
+			)),
+			dens_mol (Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Density"
-			]),
-			flow_mass ((Symbol=>Any)[
+			)),
+			flow_mass (Dict{Symbol,Any}(
 				:Brief=>"Stream Mass Flow"
-			]),
-			flow_vol ((Symbol=>Any)[
+			)),
+			flow_vol (Dict{Symbol,Any}(
 				:Brief=>"Volumetric Flow"
-			]),
-			flow_vol ((Symbol=>Any)[
+			)),
+			flow_vol (Dict{Symbol,Any}(
 				:Brief=>"Standard Volumetric Flow (1 atm, 20 C)"
-			]),
-			entr_mol ((Symbol=>Any)[
+			)),
+			entr_mol (Dict{Symbol,Any}(
 				:Brief=>"Stream Entropy"
-			]),
-			temperature ((Symbol=>Any)[
+			)),
+			temperature (Dict{Symbol,Any}(
 				:Brief=>"Temperature in �C",
 				:Lower=>-200
-			]),
+			)),
 			[
 				:([v, x, y] = PP.FlashPH(Inlet.P, Inlet.h, Inlet.z)),
 				:(Mw = sum(M*Inlet.z)),
@@ -176,7 +176,7 @@ function setEquationFlow(in::sink)
 	addEquation(13)
 end
 function atributes(in::sink,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Sink"
 	fields[:Brief]="Material stream sink"

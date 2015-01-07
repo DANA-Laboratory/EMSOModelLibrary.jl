@@ -66,7 +66,7 @@ export diffusivity
 typealias Danadiffusivity Danapositive
 type _diffusivity
 	function _diffusivity(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Diffusivity"
 		fields[:Default]=1e-3
 		fields[:Upper]=1

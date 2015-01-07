@@ -21,12 +21,12 @@
 type work_sink
 	work_sink()=begin
 		new(
-			work_stream ((Symbol=>Any)[
+			work_stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet work stream",
 				:PosX=>0,
 				:PosY=>0.46,
 				:Symbol=>"_{in}"
-			]),
+			)),
 			[:InletWork,]
 		)
 	end
@@ -36,7 +36,7 @@ type work_sink
 end
 export work_sink
 function atributes(in::work_sink,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/work_sink"
 	fields[:Brief]="Work stream sink"

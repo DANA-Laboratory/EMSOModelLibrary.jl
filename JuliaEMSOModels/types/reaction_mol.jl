@@ -40,7 +40,7 @@ export reaction_mol
 typealias Danareaction_mol DanaRealParametric
 type _reaction_mol
 	function _reaction_mol(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Molar Reaction Rate"
 		fields[:Default]=0
 		fields[:Lower]=-1e6

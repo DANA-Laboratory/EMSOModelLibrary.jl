@@ -71,7 +71,7 @@ export surf_tens
 typealias Danasurf_tens Danapositive
 type _surf_tens
 	function _surf_tens(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Surface Tension"
 		fields[:Default]=0.05
 		fields[:Upper]=1

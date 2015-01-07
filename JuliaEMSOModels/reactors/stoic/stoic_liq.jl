@@ -5,28 +5,28 @@ type stoic_liq
 	stoic_liq()=begin
 		new(
 			tank_liq(),
-			DanaInteger ((Symbol=>Any)[
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of reactions",
 				:Default=>1
-			]),
-			fill(DanaReal ((Symbol=>Any)[
+			)),
+			fill(DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Stoichiometric matrix",
 				:Symbol=>"\\nu"
-			]),(NComp,NReac)),
-			liquid_stream((Symbol=>Any)[
+			)),(NComp,NReac)),
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>1,
 				:PosY=>1,
 				:Symbol=>"_{out}"
-			]),
-			fill(reaction_mol ((Symbol=>Any)[
+			)),
+			fill(reaction_mol (Dict{Symbol,Any}(
 				:Brief=>"Overall component rate of reaction"
-			]),(NComp)),
-			fill(DanaReal ((Symbol=>Any)[
+			)),(NComp)),
+			fill(DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Fractional conversion of component",
 				:Symbol=>"X",
 				:Default=>0
-			]),(NComp)),
+			)),(NComp)),
 			[
 				:(Outlet.F*Outlet.z = _P1._P1.Outletm.F*_P1._P1.Outletm.z + rate*_P1._P1.Tank.V),
 				:(Outlet.P = _P1._P1.Outletm.P),
@@ -76,7 +76,7 @@ function setEquationFlow(in::stoic_liq)
 	end
 end
 function atributes(in::stoic_liq,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Brief]="Basic model for a liquid-phase stoichiometric CSTR"
 	fields[:Info]="
 == Assumptions ==

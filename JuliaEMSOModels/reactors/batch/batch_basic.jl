@@ -22,30 +22,30 @@ type batch_basic
 		new(
 			DanaInteger(),
 			DanaInteger(),
-			fill(DanaReal ((Symbol=>Any)[
+			fill(DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Stoichiometric Matrix"
-			]),(NComp, NReac)),
-			stream ((Symbol=>Any)[
+			)),(NComp, NReac)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0,
 				:Symbol=>"_{in}"
-			]),
-			fill(conc_mol ((Symbol=>Any)[
+			)),
+			fill(conc_mol (Dict{Symbol,Any}(
 				:Brief=>"Components concentration"
-			]),(NComp)),
-			fill(reaction_mol ((Symbol=>Any)[
+			)),(NComp)),
+			fill(reaction_mol (Dict{Symbol,Any}(
 				:Brief=>"Reaction rates"
-			]),(NReac)),
-			temperature ((Symbol=>Any)[
+			)),(NReac)),
+			temperature (Dict{Symbol,Any}(
 				:Brief=>"Reactor temperature"
-			]),
-			pressure ((Symbol=>Any)[
+			)),
+			pressure (Dict{Symbol,Any}(
 				:Brief=>"Reactor pressure"
-			]),
-			volume ((Symbol=>Any)[
+			)),
+			volume (Dict{Symbol,Any}(
 				:Brief=>"Reacting Volume"
-			]),
+			)),
 			[
 				:(diff(C*Vr) = Inlet.F*Inlet.z + sumt(stoic*r)*Vr),
 			],
@@ -76,7 +76,7 @@ function setEquationFlow(in::batch_basic)
 	addEquation(1)
 end
 function atributes(in::batch_basic,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/batch"
 	fields[:Brief]="Model of a batch reactor"

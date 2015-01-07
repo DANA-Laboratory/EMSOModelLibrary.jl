@@ -21,12 +21,12 @@
 type work_source
 	work_source()=begin
 		new(
-			work_stream ((Symbol=>Any)[
+			work_stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet work stream",
 				:PosX=>1,
 				:PosY=>0.46,
 				:Symbol=>"_{out}"
-			]),
+			)),
 			[:OutletWork,]
 		)
 	end
@@ -36,7 +36,7 @@ type work_source
 end
 export work_source
 function atributes(in::work_source,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/work_source"
 	fields[:Brief]="Work stream source"

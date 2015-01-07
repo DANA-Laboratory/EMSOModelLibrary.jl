@@ -71,7 +71,7 @@ export act_coeff
 typealias Danaact_coeff Danapositive
 type _act_coeff
 	function _act_coeff(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Activity Coefficient for Liquid"
 		fields[:Default]=1
 		fields[:Upper]=30

@@ -14,11 +14,11 @@ type User_Distillation_thermosyphon_cond
 	User_Distillation_thermosyphon_cond()=begin
 		new(
 			User_Section_ColumnBasic(),
-			DanaSwitcher ((Symbol=>Any)[
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Valid=>["on", "off"],
 				:Default=>"on",
 				:Hidden=>true
-			]),
+			)),
 			condenser(),
 			splitter(),
 			pump(),
@@ -26,45 +26,45 @@ type User_Distillation_thermosyphon_cond
 			splitter(),
 			reboilerSteady(),
 			DanaReal(),
-			energy_stream ((Symbol=>Any)[
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Heat supplied to Condenser",
 				:Hidden=>true
-			]),
-			energy_stream ((Symbol=>Any)[
+			)),
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Heat supplied to Reboiler",
 				:Hidden=>true
-			]),
-			energy_stream ((Symbol=>Any)[
+			)),
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Heat supplied to Bottom Vessel",
 				:Hidden=>true
-			]),
-			vapour_stream ((Symbol=>Any)[
+			)),
+			vapour_stream (Dict{Symbol,Any}(
 				:Brief=>"Vapour outlet stream From Top Condenser",
 				:PosX=>0.73,
 				:PosY=>0
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Connector for Vapour outlet stream From Top Condenser",
 				:Hidden=>true
-			]),
-			liquid_stream ((Symbol=>Any)[
+			)),
+			liquid_stream (Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream From Top Splitter",
 				:PosX=>1,
 				:PosY=>0.45
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Connector for Liquid outlet stream From Top Splitter",
 				:Hidden=>true
-			]),
-			liquid_stream ((Symbol=>Any)[
+			)),
+			liquid_stream (Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream From Bottom Splitter",
 				:PosX=>1,
 				:PosY=>1
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Connector for Liquid outlet stream From Reboiler",
 				:Hidden=>true
-			]),
+			)),
 			[
 				:(ConnectorCondenserVout.T = VapourDistillate.T),
 				:(ConnectorCondenserVout.P = VapourDistillate.P),
@@ -144,7 +144,7 @@ function setEquationFlow(in::User_Distillation_thermosyphon_cond)
 	end
 end
 function atributes(in::User_Distillation_thermosyphon_cond,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/DistillationThermosyphonCond"
 	fields[:Brief]="Model of a distillation column with dynamic condenser and steady reboiler."

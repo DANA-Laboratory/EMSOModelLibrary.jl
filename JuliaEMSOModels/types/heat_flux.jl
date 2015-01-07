@@ -50,7 +50,7 @@ export heat_flux
 typealias Danaheat_flux DanaRealParametric
 type _heat_flux
 	function _heat_flux(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Heat Flux"
 		fields[:Default]=1
 		fields[:Lower]=-1e5

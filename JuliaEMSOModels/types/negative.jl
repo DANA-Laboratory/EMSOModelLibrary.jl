@@ -26,7 +26,7 @@ export negative
 typealias Dananegative DanaRealParametric
 type _negative
 	function _negative(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Negative General Constant"
 		fields[:Default]=-1.0
 		fields[:Upper]=1e-6

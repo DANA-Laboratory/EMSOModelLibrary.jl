@@ -31,7 +31,7 @@ export capacitance
 typealias Danacapacitance Danapositive
 type _capacitance
 	function _capacitance(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Electrical Capacitance"
 		fields[:Default]=10
 		fields[:Upper]=1e12

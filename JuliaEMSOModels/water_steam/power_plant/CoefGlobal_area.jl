@@ -23,7 +23,7 @@ export CoefGlobal_area
 typealias DanaCoefGlobal_area DanaRealParametric
 type _CoefGlobal_area
 	function _CoefGlobal_area(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Default]=10
 		fields[:Lower]=0
 		fields[:Upper]=1e3

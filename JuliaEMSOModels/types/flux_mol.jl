@@ -57,7 +57,7 @@ export flux_mol
 typealias Danaflux_mol Danapositive
 type _flux_mol
 	function _flux_mol(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Molar Flux"
 		fields[:Default]=1
 		fields[:Upper]=1e4

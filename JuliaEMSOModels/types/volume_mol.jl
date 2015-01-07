@@ -30,7 +30,7 @@ export volume_mol
 typealias Danavolume_mol Danapositive
 type _volume_mol
 	function _volume_mol(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Molar Volume"
 		fields[:Default]=10
 		fields[:Upper]=1E6

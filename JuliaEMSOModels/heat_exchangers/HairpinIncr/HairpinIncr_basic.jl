@@ -30,148 +30,148 @@ type HairpinIncr_basic
 		Rfi=outers.Rfi
 		Rfo=outers.Rfo
 		new(
-			DanaPlugin ((Symbol=>Any)[
+			DanaPlugin (Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of Components"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of zones",
 				:Default=>2
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of incremental points",
 				:Default=>3
-			]),
-			fill(molweight ((Symbol=>Any)[
+			)),
+			fill(molweight (Dict{Symbol,Any}(
 				:Brief=>"Component Mol Weight"
-			]),(NComp)),
-			DanaSwitcher ((Symbol=>Any)[
+			)),(NComp)),
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Flag for Fluid Alocation ",
 				:Valid=>["outer","inner"],
 				:Default=>"outer"
-			]),
-			DanaSwitcher ((Symbol=>Any)[
+			)),
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Inner Flow Regime ",
 				:Valid=>["laminar","transition","turbulent"],
 				:Default=>"laminar"
-			]),
-			DanaSwitcher ((Symbol=>Any)[
+			)),
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Outer Flow Regime ",
 				:Valid=>["laminar","transition","turbulent"],
 				:Default=>"laminar"
-			]),
-			DanaSwitcher ((Symbol=>Any)[
+			)),
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer Correlation in Laminar Flow for the Inner Side",
 				:Valid=>["Hausen","Schlunder"],
 				:Default=>"Hausen"
-			]),
-			DanaSwitcher ((Symbol=>Any)[
+			)),
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer Correlation in Transition Flow for the Inner Side",
 				:Valid=>["Gnielinski","Hausen"],
 				:Default=>"Gnielinski"
-			]),
-			DanaSwitcher ((Symbol=>Any)[
+			)),
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer Correlation in Turbulent Flow for the Inner Side",
 				:Valid=>["Petukhov","SiederTate"],
 				:Default=>"Petukhov"
-			]),
-			DanaSwitcher ((Symbol=>Any)[
+			)),
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer Correlation in Laminar Flow for the Outer Side",
 				:Valid=>["Hausen","Schlunder"],
 				:Default=>"Hausen"
-			]),
-			DanaSwitcher ((Symbol=>Any)[
+			)),
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer Correlation in Transition Flow for the OuterSide",
 				:Valid=>["Gnielinski","Hausen"],
 				:Default=>"Gnielinski"
-			]),
-			DanaSwitcher ((Symbol=>Any)[
+			)),
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer Correlation in Turbulent Flow for the Outer Side",
 				:Valid=>["Petukhov","SiederTate"],
 				:Default=>"Petukhov"
-			]),
-			constant ((Symbol=>Any)[
+			)),
+			constant (Dict{Symbol,Any}(
 				:Brief=>"Pi Number",
 				:Default=>3.14159265,
 				:Symbol=>"\\pi"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Outside Diameter of Inner Pipe",
 				:Lower=>1e-6
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Inside Diameter of Inner Pipe",
 				:Lower=>1e-10
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Inside Diameter of Outer pipe",
 				:Lower=>1e-10
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Effective Tube Length of one segment of Pipe",
 				:Lower=>0.1,
 				:Symbol=>"L_{pipe}"
-			]),
-			conductivity ((Symbol=>Any)[
+			)),
+			conductivity (Dict{Symbol,Any}(
 				:Brief=>"Tube Wall Material Thermal Conductivity",
 				:Default=>1.0,
 				:Symbol=>"K_{wall}"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Inside Fouling Resistance",
 				:Unit=>"m^2*K/kW",
 				:Default=>1e-6,
 				:Lower=>0
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Outside Fouling Resistance",
 				:Unit=>"m^2*K/kW",
 				:Default=>1e-6,
 				:Lower=>0
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet Inner Stream",
 				:PosX=>0,
 				:PosY=>0.5225,
 				:Symbol=>"_{inInner}"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet Outer Stream",
 				:PosX=>0.2805,
 				:PosY=>0,
 				:Symbol=>"_{inOuter}"
-			]),
-			streamPH ((Symbol=>Any)[
+			)),
+			streamPH (Dict{Symbol,Any}(
 				:Brief=>"Outlet Inner Stream",
 				:PosX=>1,
 				:PosY=>0.5225,
 				:Symbol=>"_{outInner}"
-			]),
-			streamPH ((Symbol=>Any)[
+			)),
+			streamPH (Dict{Symbol,Any}(
 				:Brief=>"Outlet Outer Stream",
 				:PosX=>0.7264,
 				:PosY=>1,
 				:Symbol=>"_{outOuter}"
-			]),
-			Details_Main ((Symbol=>Any)[
+			)),
+			Details_Main (Dict{Symbol,Any}(
 				:Brief=>"Some Details in the Heat Exchanger",
 				:Symbol=>" "
-			]),
-			Main_Hairpin ((Symbol=>Any)[
+			)),
+			Main_Hairpin (Dict{Symbol,Any}(
 				:Brief=>"Inner Side of the Heat Exchanger",
 				:Symbol=>"_{Inner}"
-			]),
-			Main_Hairpin ((Symbol=>Any)[
+			)),
+			Main_Hairpin (Dict{Symbol,Any}(
 				:Brief=>"Outer Side of the Heat Exchanger",
 				:Symbol=>"_{Outer}"
-			]),
-			fill(length ((Symbol=>Any)[
+			)),
+			fill(length (Dict{Symbol,Any}(
 				:Brief=>"Incremental Tube Length",
 				:Symbol=>"L_{incr}"
-			]),(Npoints)),
+			)),(Npoints)),
 			[
 				:(Outer.Properties.Average.T(1:N) = 0.5*Outer.HeatTransfer.Tlocal(1:N) + 0.5*Outer.HeatTransfer.Tlocal(2:Npoints)),
 				:(Inner.Properties.Average.T(1:N) = 0.5*Inner.HeatTransfer.Tlocal(1:N) + 0.5*Inner.HeatTransfer.Tlocal(2:Npoints)),
@@ -534,7 +534,7 @@ function setEquationFlow(in::HairpinIncr_basic)
 	addEquation(91)
 end
 function atributes(in::HairpinIncr_basic,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Incremental Hairpin Heat Exchanger. "
 	fields[:Info]="Incremental approach for Hairpin heat exchanger. "

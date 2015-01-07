@@ -34,40 +34,40 @@
 type vol_tank
 	vol_tank()=begin
 		new(
-			positive ((Symbol=>Any)[
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Pi value",
 				:Default=>3.141593,
 				:Symbol=>"\\pi",
 				:Hidden=>true
-			]),
-			DanaSwitcher ((Symbol=>Any)[
+			)),
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Tank head type",
 				:Valid=>["flat","spherical"],
 				:Default=>"flat"
-			]),
-			DanaSwitcher((Symbol=>Any)[
+			)),
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Tank orientation",
 				:Valid=>["vertical","horizontal"],
 				:Default=>"vertical"
-			]),
-			volume ((Symbol=>Any)[
+			)),
+			volume (Dict{Symbol,Any}(
 				:Brief=>"Level tank volume"
-			]),
-			volume ((Symbol=>Any)[
+			)),
+			volume (Dict{Symbol,Any}(
 				:Brief=>"Tank volume"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Tank length"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Tank level"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Tank diameter"
-			]),
-			area ((Symbol=>Any)[
+			)),
+			area (Dict{Symbol,Any}(
 				:Brief=>"Tank cross section area"
-			]),
+			)),
 			[
 				:(V = Across*Level),
 				:(Vt = pi/4*(D^2)*L),
@@ -129,7 +129,7 @@ function setEquationFlow(in::vol_tank)
 	end
 end
 function atributes(in::vol_tank,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Routine to calculate tank volume"
 	fields[:Info]="

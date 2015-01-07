@@ -67,7 +67,7 @@ export fugacity
 typealias Danafugacity Danapositive
 type _fugacity
 	function _fugacity(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Fugacity Coefficient"
 		fields[:Default]=0.5
 		fields[:Upper]=10

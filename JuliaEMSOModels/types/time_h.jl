@@ -28,7 +28,7 @@ export time_h
 typealias Danatime_h Danapositive
 type _time_h
 	function _time_h(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Time in hours"
 		fields[:Default]=1
 		fields[:Upper]=1e4

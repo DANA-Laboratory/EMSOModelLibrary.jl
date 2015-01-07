@@ -8,385 +8,385 @@ type trayEffFund
 		iHK=outers.iHK
 		new(
 			tray(),
-			length ((Symbol=>Any)[
+			length (Dict{Symbol,Any}(
 				:Brief=>"Tray Diameter"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Hole Diameter"
-			]),
-			area ((Symbol=>Any)[
+			)),
+			area (Dict{Symbol,Any}(
 				:Brief=>"Case Downcomer: Active Area or Bubbling Area = Atray - 2*Adowncomer. Case dualflow: total tray area"
-			]),
-			area ((Symbol=>Any)[
+			)),
+			area (Dict{Symbol,Any}(
 				:Brief=>"Area of Holes"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Fractional perforated tray area(hole area/ bubbling area)"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Tray spacing"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Tray thickness"
-			]),
-			DanaSwitcher ((Symbol=>Any)[
+			)),
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Valid=>["Dualflow", "Downcomer"],
 				:Default=>"Downcomer"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Pseudo-binary ligth key index"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Pseudo-binary heavy key index"
-			]),
-			flow_vol ((Symbol=>Any)[
+			)),
+			flow_vol (Dict{Symbol,Any}(
 				:Brief=>"Vapour volumetric flow"
-			]),
-			flow_vol ((Symbol=>Any)[
+			)),
+			flow_vol (Dict{Symbol,Any}(
 				:Brief=>"Liquid volumetric flow"
-			]),
-			flow_mass ((Symbol=>Any)[
+			)),
+			flow_mass (Dict{Symbol,Any}(
 				:Brief=>"Vapour mass flow"
-			]),
-			flow_mass ((Symbol=>Any)[
+			)),
+			flow_mass (Dict{Symbol,Any}(
 				:Brief=>"Liquid mass flow"
-			]),
-			viscosity ((Symbol=>Any)[
+			)),
+			viscosity (Dict{Symbol,Any}(
 				:Brief=>"Vapour viscosity"
-			]),
-			viscosity ((Symbol=>Any)[
+			)),
+			viscosity (Dict{Symbol,Any}(
 				:Brief=>"Liquid viscosity"
-			]),
-			diffusivity ((Symbol=>Any)[
+			)),
+			diffusivity (Dict{Symbol,Any}(
 				:Brief=>"Diffusivity on Liquid Phase"
-			]),
-			diffusivity ((Symbol=>Any)[
+			)),
+			diffusivity (Dict{Symbol,Any}(
 				:Brief=>"Diffusivity on Vapour Phase"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Stripping factor or ratio of slope of equilibrium line to slope of operating line"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Slope of equilibrium line"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Pseudo-binary key "
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Pseudo-binary key"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Pseudo-binary key"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Pseudo-binary key"
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Superficial velocity based on Ap"
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Superficial velocity based on Aa"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Superficial factor",
 				:Unit=>"kg^.5/m^.5/s"
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Vapour velocity through holes"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Flow Parameter"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Clear Liquid Height"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Dynamic liquid head at tray floor"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Froth Height"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Porosity"
-			]),
-			positive((Symbol=>Any)[
+			)),
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Capacity Factor"
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Flood velocity"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Flood factor"
-			]),
-			surf_tens ((Symbol=>Any)[
+			)),
+			surf_tens (Dict{Symbol,Any}(
 				:Brief=>"Surface Tension"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"General Factor in equations of Units of Mass Transfer",
 				:Unit=>"cm/s^.5"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Fraction of holes with vapour flow"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Jet Diameter"
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Jet velocity"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Reynolds number for vapour flow through hole"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Jet lenght"
-			]),
-			time_sec ((Symbol=>Any)[
+			)),
+			time_sec (Dict{Symbol,Any}(
 				:Brief=>"Residence time in Zone One"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of liquid phase transfer units in Zone One"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Small bubble diameter"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Large bubble diameter"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Surface tension correction"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Liquid viscosity correction"
-			]),
+			)),
 			positive(),
-			length ((Symbol=>Any)[
+			length (Dict{Symbol,Any}(
 				:Brief=>"Small bubble Sauter diameter"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Large bubble Sauterdiameter"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Etvos number"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Morton number"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Constant h"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Constant j"
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Terminal velocity of small bubbles"
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Terminal velocity of small bubbles using Sauter diameter"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Fraction of small bubbles in froth"
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Terminal velocity of large bubbles"
-			]),
-			time_sec ((Symbol=>Any)[
+			)),
+			time_sec (Dict{Symbol,Any}(
 				:Brief=>"Residence time of small bubbles in Zone Two"
-			]),
-			time_sec ((Symbol=>Any)[
+			)),
+			time_sec (Dict{Symbol,Any}(
 				:Brief=>"Residence time of large bubbles in Zone Two"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of liquid phase transfer units of small bubbles in Zone Two"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of liquid phase transfer units of large bubbles in Zone Two"
-			]),
-			time_sec ((Symbol=>Any)[
+			)),
+			time_sec (Dict{Symbol,Any}(
 				:Brief=>"Residence time in Zone Three"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of liquid phase transfer units in Zone Three"
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Terminal velocity of large bubbles in Zone Three"
-			]),
-			time_sec ((Symbol=>Any)[
+			)),
+			time_sec (Dict{Symbol,Any}(
 				:Brief=>"Residence time of small bubbles in Zone Four"
-			]),
-			time_sec ((Symbol=>Any)[
+			)),
+			time_sec (Dict{Symbol,Any}(
 				:Brief=>"Residence time of large bubbles in Zone Four"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of liquid phase transfer units of small bubbles in Zone Four"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of liquid phase transfer units of large bubbles in Zone Four"
-			]),
-			time_sec ((Symbol=>Any)[
+			)),
+			time_sec (Dict{Symbol,Any}(
 				:Brief=>"Residence time in Zone Five"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of liquid phase transfer units in Zone Five"
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Superficial velocity based on Aa in the transition point of froth regime to spay regime"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Fraction of active holes that are in jetting"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Fraction of active holes that are producing small bubbles"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Fraction of active holes that are producing large bubbles"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"General Factor in equations of Units of Mass Transfer"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Reynolds number of jet"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Schmidt number of vapour phase"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Liquid phase mass transfer coefficient in Zone One"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Vapour phase mass transfer coefficient in Zone One"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of vapour phase transfer units in Zone One"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Peclet number of small bubbles in Zone Two"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Peclet number of large bubbles in Zone Two"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Peclet number in Zone Three"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Peclet number of small bubbles in Zone Four"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Peclet number of large bubbles in Zone Four"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Peclet number in Zone Five"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Sherwood number of small bubbles in Zone Two"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Sherwood number of large bubbles in Zone Two"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Sherwood number in Zone Three"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Sherwood number of small bubbles in Zone Four"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Sherwood number of large bubbles in Zone Four"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Sherwood number in Zone Five"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Vapour phase mass transfer coefficient of small bubbles in Zone Two"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Vapour phase mass transfer coefficient of large bubbles in Zone Two"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Vapour phase mass transfer coefficient in Zone Three"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Vapour phase mass transfer coefficient of small bubbles in Zone Four"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Vapour phase mass transfer coefficient of large bubbles in Zone Four"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Vapour phase mass transfer coefficient in Zone Five"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Liquid phase mass transfer coefficient of small bubbles in Zone Two"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Liquid phase mass transfer coefficient of large bubbles in Zone Two"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Liquid phase mass transfer coefficient in Zone Three"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Liquid phase mass transfer coefficient of small bubbles in Zone Four"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Liquid phase mass transfer coefficient of large bubbles in Zone Four"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Liquid phase mass transfer coefficient in Zone Five"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of Vapour phase transfer units of small bubbles in Zone Two"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of Vapour phase transfer units of large bubbles in Zone Two"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of Vapour phase transfer units in Zone Three"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of Vapour phase transfer units of small bubbles in Zone Four"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of Vapour phase transfer units of large bubbles in Zone Four"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of Vapour phase transfer units in Zone Five"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of Vapour phase transfer units of jetting"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of Vapour phase transfer units of large bubbles"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Point Efficiency"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Eddy diffusivity for liquid mixing"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Peclet Number"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Constant"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Murphree tray efficiency"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Correction factor of liquid entrainment in dualflow trays"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Correction factor of weeping in dualflow trays"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Height on spray regime"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Fraction of entrained liquid"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Apparent Murphree tray efficiency"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Apparent Murphree tray efficiency"
-			]),
+			)),
 			[
 				:(Qv=_P1._P1.OutletV.F*_P1._P1.vV),
 				:(Ql=_P1._P1.OutletL.F*_P1._P1.vL),
@@ -890,7 +890,7 @@ function setEquationFlow(in::trayEffFund)
 	addEquation(136)
 end
 function atributes(in::trayEffFund,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Icon]="icon/Tray"
 	fields[:Brief]="Tray with Efficiency Prediction - Fundamental Model"

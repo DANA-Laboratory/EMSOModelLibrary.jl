@@ -20,21 +20,21 @@ type Supply
 	Supply()=begin
 		new(
 			voltage(),
-			voltage((Symbol=>Any)[
+			voltage(Dict{Symbol,Any}(
 				:Default=>0
-			]),
-			wire ((Symbol=>Any)[
+			)),
+			wire (Dict{Symbol,Any}(
 				:Brief=>"Inlet",
 				:PosX=>0.3923,
 				:PosY=>0,
 				:Symbol=>"_{in}"
-			]),
-			wire ((Symbol=>Any)[
+			)),
+			wire (Dict{Symbol,Any}(
 				:Brief=>"Outlet",
 				:PosX=>0.3984,
 				:PosY=>1,
 				:Symbol=>"_{out}"
-			]),
+			)),
 			[
 				:(outlet.V = V0),
 				:(inlet.V - outlet.V = V),
@@ -62,7 +62,7 @@ function setEquationFlow(in::Supply)
 	addEquation(2)
 end
 function atributes(in::Supply,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Supply"
 	fields[:Brief]="Electrical Supply."

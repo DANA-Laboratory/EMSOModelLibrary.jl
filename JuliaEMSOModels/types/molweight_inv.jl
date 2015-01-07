@@ -38,7 +38,7 @@ export molweight_inv
 typealias Danamolweight_inv DanaRealParametric
 type _molweight_inv
 	function _molweight_inv(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Moles Per Mass"
 		fields[:Default]=1
 		fields[:Lower]=0

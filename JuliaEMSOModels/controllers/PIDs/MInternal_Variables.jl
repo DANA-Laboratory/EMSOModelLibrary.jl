@@ -18,44 +18,44 @@
 type MInternal_Variables
 	MInternal_Variables()=begin
 		new(
-			control_signal ((Symbol=>Any)[
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Derivative term",
 				:Default=>0
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Derivative term filtered",
 				:Default=>0.5
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Error definition for proportional term"
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Error definition for derivative term"
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Error definition for integral term"
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Filtered input"
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Integral term",
 				:Default=>0
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Sum of proportional, integral and derivative terms"
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Variable outp scaled between -1 and 1"
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Proportional term",
 				:Default=>0
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Filtered setPoint",
 				:Default=>0
-			]),
+			)),
 			[:derivTerm,:dFilt,:error,:errorD,:errorI,:inputFilt,:intTerm,:outp,:outps,:propTerm,:setPointFilt,]
 		)
 	end
@@ -75,7 +75,7 @@ type MInternal_Variables
 end
 export MInternal_Variables
 function atributes(in::MInternal_Variables,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Model of Internal Variables to be used with PIDs."
 	drive!(fields,_)

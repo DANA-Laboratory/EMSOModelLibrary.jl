@@ -48,7 +48,7 @@ export enth_mol
 typealias Danaenth_mol DanaRealParametric
 type _enth_mol
 	function _enth_mol(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Molar Enthalpy"
 		fields[:Default]=500
 		fields[:Lower]=-1e16

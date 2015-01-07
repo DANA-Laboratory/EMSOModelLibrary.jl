@@ -5,10 +5,10 @@ type stoic_extent_liq
 	stoic_extent_liq()=begin
 		new(
 			stoic_liq(),
-			fill(flow_mol ((Symbol=>Any)[
+			fill(flow_mol (Dict{Symbol,Any}(
 				:Brief=>"Extent of reaction",
 				:Symbol=>"\\xi"
-			]),(NReac)),
+			)),(NReac)),
 			[
 				:(_P1.rate*_P1._P1._P1.Tank.V = sumt(_P1.stoic*extent)),
 			],
@@ -30,7 +30,7 @@ function setEquationFlow(in::stoic_extent_liq)
 	addEquation(1)
 end
 function atributes(in::stoic_extent_liq,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/cstr"
 	fields[:Brief]="Model of a generic liquid-phase stoichiometric CSTR based on extent of reaction"

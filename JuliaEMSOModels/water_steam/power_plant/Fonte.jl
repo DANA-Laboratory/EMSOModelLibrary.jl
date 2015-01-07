@@ -23,14 +23,14 @@ type Fonte
 	Fonte()=begin
 		PP=outers.PP
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"Steam tables"
-			]),
-			Corrente((Symbol=>Any)[
+			)),
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{out}",
 				:PosX=>1,
 				:PosY=>0.5
-			]),
+			)),
 			[
 				:([Fout.S,Fout.H] = PP.propPTl(Fout.P,Fout.T)),
 			],
@@ -54,7 +54,7 @@ function setEquationFlow(in::Fonte)
 	addEquation(1)
 end
 function atributes(in::Fonte,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/fonte2"
 	fields[:Brief]="Corrente de sa죡da"

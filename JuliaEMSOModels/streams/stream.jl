@@ -22,28 +22,28 @@ type stream
 	stream()=begin
 		NComp=outers.NComp
 		new(
-			DanaInteger ((Symbol=>Any)[
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
-			]),
-			flow_mol ((Symbol=>Any)[
+			)),
+			flow_mol (Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Flow Rate"
-			]),
-			temperature ((Symbol=>Any)[
+			)),
+			temperature (Dict{Symbol,Any}(
 				:Brief=>"Stream Temperature"
-			]),
-			pressure ((Symbol=>Any)[
+			)),
+			pressure (Dict{Symbol,Any}(
 				:Brief=>"Stream Pressure"
-			]),
-			enth_mol ((Symbol=>Any)[
+			)),
+			enth_mol (Dict{Symbol,Any}(
 				:Brief=>"Stream Enthalpy"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Vapourization fraction"
-			]),
-			fill(fraction ((Symbol=>Any)[
+			)),
+			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Fraction"
-			]),(NComp)),
+			)),(NComp)),
 			[:NComp,],
 			[:F,:T,:P,:h,:v,:z,]
 		)
@@ -61,7 +61,7 @@ type stream
 end
 export stream
 function atributes(in::stream,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="General Material Stream"
 	fields[:Info]="This is the basic building block for the EML models.

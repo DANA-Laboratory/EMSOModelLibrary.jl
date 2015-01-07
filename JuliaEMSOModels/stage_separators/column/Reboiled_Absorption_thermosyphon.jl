@@ -12,25 +12,25 @@ type Reboiled_Absorption_thermosyphon
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
+			)),
 			DanaInteger(),
-			DanaInteger((Symbol=>Any)[
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of trays",
 				:Default=>2
-			]),
-			DanaInteger((Symbol=>Any)[
+			)),
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Trays counting (1=top-down, -1=bottom-up)",
 				:Default=>1
-			]),
-			DanaInteger((Symbol=>Any)[
+			)),
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of top tray"
-			]),
-			DanaInteger((Symbol=>Any)[
+			)),
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of bottom tray"
-			]),
+			)),
 			fill(tray()),
 			reboilerSteady(),
 			splitter(),
@@ -60,7 +60,7 @@ function set(in::Reboiled_Absorption_thermosyphon)
 	 
 end
 function atributes(in::Reboiled_Absorption_thermosyphon,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/ReboiledThermosyphon"
 	fields[:Brief]="Model of a reboiled absorption column with steady reboiler."

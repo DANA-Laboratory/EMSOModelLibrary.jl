@@ -22,9 +22,9 @@ type cstr_yield
 	cstr_yield()=begin
 		new(
 			cstr_basic(),
-			fill(fraction ((Symbol=>Any)[
+			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Yield"
-			]),(NReac)),
+			)),(NReac)),
 			[
 				:(_P1.Outlet.z*_P1.Outlet.F = _P1.Inlet.z*_P1.Inlet.F * sumt(_P1.stoic*(1-yield))),
 				:(diff(M*_P1.Outlet.h) = _P1.Inlet.F*_P1.Inlet.h - _P1.Outlet.F*_P1.Outlet.h - q),
@@ -48,7 +48,7 @@ function setEquationFlow(in::cstr_yield)
 	addEquation(2)
 end
 function atributes(in::cstr_yield,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/cstr"
 	fields[:Brief]="Model of a CSTR with given yield"

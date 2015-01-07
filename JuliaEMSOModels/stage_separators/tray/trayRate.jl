@@ -5,32 +5,32 @@ type trayRate
 	trayRate()=begin
 		new(
 			trayRateBasic(),
-			area ((Symbol=>Any)[
+			area (Dict{Symbol,Any}(
 				:Brief=>"Total holes area"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Weir length"
-			]),
-			acceleration ((Symbol=>Any)[
+			)),
+			acceleration (Dict{Symbol,Any}(
 				:Default=>9.81
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Weir height"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Aeration fraction"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Dry pressure drop coefficient"
-			]),
-			DanaSwitcher((Symbol=>Any)[
+			)),
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["on", "off"],
 				:Default=>"on"
-			]),
-			DanaSwitcher((Symbol=>Any)[
+			)),
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["on", "off"],
 				:Default=>"on"
-			]),
+			)),
 			dens_mass(),
 			dens_mass(),
 			[
@@ -98,7 +98,7 @@ function setEquationFlow(in::trayRate)
 	end
 end
 function atributes(in::trayRate,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Icon]="icon/Tray"
 	fields[:Brief]="Complete rate model of a column tray."

@@ -26,7 +26,7 @@ export percent
 typealias Danapercent DanaRealParametric
 type _percent
 	function _percent(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Percent"
 		fields[:Default]=50
 		fields[:finalLower]=0

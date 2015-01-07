@@ -18,27 +18,27 @@
 type Details_Main
 	Details_Main()=begin
 		new(
-			area ((Symbol=>Any)[
+			area (Dict{Symbol,Any}(
 				:Brief=>"Exchange Surface Area"
-			]),
-			power ((Symbol=>Any)[
+			)),
+			power (Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer",
 				:Default=>7000,
 				:Lower=>1e-6,
 				:Upper=>1e10
-			]),
-			heat_trans_coeff ((Symbol=>Any)[
+			)),
+			heat_trans_coeff (Dict{Symbol,Any}(
 				:Brief=>"Overall Heat Transfer Coefficient Clean",
 				:Default=>1,
 				:Lower=>1e-6,
 				:Upper=>1e10
-			]),
-			heat_trans_coeff ((Symbol=>Any)[
+			)),
+			heat_trans_coeff (Dict{Symbol,Any}(
 				:Brief=>"Overall Heat Transfer Coefficient Dirty",
 				:Default=>1,
 				:Lower=>1e-6,
 				:Upper=>1e10
-			]),
+			)),
 			[:A,:Q,:Uc,:Ud,]
 		)
 	end
@@ -51,7 +51,7 @@ type Details_Main
 end
 export Details_Main
 function atributes(in::Details_Main,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="to be documented"
 	fields[:Info]="to be documented"

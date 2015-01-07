@@ -19,9 +19,9 @@
 type wire
 	wire()=begin
 		new(
-			current((Symbol=>Any)[
+			current(Dict{Symbol,Any}(
 				:Lower=>-100
-			]),
+			)),
 			voltage(),
 			[:i,:V,]
 		)
@@ -33,7 +33,7 @@ type wire
 end
 export wire
 function atributes(in::wire,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Wire."
 	fields[:Info]="This model holds a current and voltage."

@@ -38,7 +38,7 @@ export mol
 typealias Danamol Danapositive
 type _mol
 	function _mol(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Moles"
 		fields[:Default]=2.5
 		fields[:Upper]=1e6

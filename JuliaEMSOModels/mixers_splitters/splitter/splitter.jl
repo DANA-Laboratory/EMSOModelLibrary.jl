@@ -19,28 +19,28 @@
 type splitter
 	splitter()=begin
 		new(
-			stream ((Symbol=>Any)[
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0.5069,
 				:Symbol=>"_{in}"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet stream 1",
 				:PosX=>1,
 				:PosY=>0.3027,
 				:Symbol=>"_{out1}"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet stream 2",
 				:PosX=>1,
 				:PosY=>0.7141,
 				:Symbol=>"_{out2}"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Fraction to Outlet 1",
 				:Symbol=>"\\phi"
-			]),
+			)),
 			[
 				:(Outlet1.F = Inlet.F * frac),
 				:(Outlet1.F + Outlet2.F = Inlet.F),
@@ -86,7 +86,7 @@ function setEquationFlow(in::splitter)
 	addEquation(12)
 end
 function atributes(in::splitter,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/splitter"
 	fields[:Brief]="Splitter with 2 outlet streams"

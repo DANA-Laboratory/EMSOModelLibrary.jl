@@ -57,7 +57,7 @@ export flow_vol_delta
 typealias Danaflow_vol_delta Danaflow_vol
 type _flow_vol_delta
 	function _flow_vol_delta(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Difference of Volumetric Flow"
 		fields[:Lower]=-1e12
 		drive!(fields,_)

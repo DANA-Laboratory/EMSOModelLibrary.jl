@@ -18,36 +18,36 @@
 type MParameters
 	MParameters()=begin
 		new(
-			positive ((Symbol=>Any)[
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Derivative term filter constant",
 				:Default=>1
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Proportional term setPoint change filter"
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Previous scaled bias",
 				:Default=>0.5
-			]),
-			time_sec ((Symbol=>Any)[
+			)),
+			time_sec (Dict{Symbol,Any}(
 				:Brief=>"Derivative time constant"
-			]),
-			time_sec ((Symbol=>Any)[
+			)),
+			time_sec (Dict{Symbol,Any}(
 				:Brief=>"Integral time constant"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Controller gain",
 				:Default=>0.5
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Derivative term SP change filter"
-			]),
-			time_sec ((Symbol=>Any)[
+			)),
+			time_sec (Dict{Symbol,Any}(
 				:Brief=>"Input filter time constant"
-			]),
-			time_sec ((Symbol=>Any)[
+			)),
+			time_sec (Dict{Symbol,Any}(
 				:Brief=>"Input filter time constant"
-			]),
+			)),
 			[:alpha,:beta,:bias,:derivTime,:intTime,:gain,:gamma,:tau,:tauSet,]
 		)
 	end
@@ -65,7 +65,7 @@ type MParameters
 end
 export MParameters
 function atributes(in::MParameters,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Model of Parameters to be used with PIDs."
 	drive!(fields,_)

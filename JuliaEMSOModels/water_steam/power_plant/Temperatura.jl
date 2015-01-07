@@ -23,7 +23,7 @@ export Temperatura
 typealias DanaTemperatura DanaRealParametric
 type _Temperatura
 	function _Temperatura(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Default]=600
 		fields[:Lower]=273.16
 		fields[:Upper]=900

@@ -6,28 +6,28 @@
 type tank_simplified
 	tank_simplified()=begin
 		new(
-			DanaReal ((Symbol=>Any)[
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Valve Constant",
 				:Unit=>"m^2.5/h",
 				:Default=>4
-			]),
-			area ((Symbol=>Any)[
+			)),
+			area (Dict{Symbol,Any}(
 				:Brief=>"Tank area",
 				:Default=>2
-			]),
-			length((Symbol=>Any)[
+			)),
+			length(Dict{Symbol,Any}(
 				:Brief=>"Tank level"
-			]),
-			flow_vol((Symbol=>Any)[
+			)),
+			flow_vol(Dict{Symbol,Any}(
 				:Brief=>"Input flow",
 				:PosX=>0.3037,
 				:PosY=>0
-			]),
-			flow_vol((Symbol=>Any)[
+			)),
+			flow_vol(Dict{Symbol,Any}(
 				:Brief=>"Output flow",
 				:PosX=>1,
 				:PosY=>1
-			]),
+			)),
 			[
 				:(diff(A*Level) = Fin - Fout),
 				:(Fout = k*sqrt(Level)),
@@ -56,7 +56,7 @@ function setEquationFlow(in::tank_simplified)
 	addEquation(2)
 end
 function atributes(in::tank_simplified,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Tank"
 	fields[:Brief]="Model of a simplified tank."

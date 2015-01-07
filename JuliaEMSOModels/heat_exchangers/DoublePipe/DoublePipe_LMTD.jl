@@ -19,15 +19,15 @@ type DoublePipe_LMTD
 	DoublePipe_LMTD()=begin
 		new(
 			DoublePipe_Basic(),
-			DanaSwitcher ((Symbol=>Any)[
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Flow Direction",
 				:Valid=>["counter","cocurrent"],
 				:Default=>"cocurrent"
-			]),
-			LMTD_Basic ((Symbol=>Any)[
+			)),
+			LMTD_Basic (Dict{Symbol,Any}(
 				:Brief=>"LMTD Method of Calculation",
 				:Symbol=>" "
-			]),
+			)),
 			[
 				:(_P1.Details.Q = _P1.Details.Ud*_P1.Geometry.Pi*_P1.Geometry.DoInner*_P1.Geometry.Lpipe*Method.LMTD),
 				:(_P1.Details.Q = _P1.Qestimated),
@@ -98,7 +98,7 @@ function setEquationFlow(in::DoublePipe_LMTD)
 	end
 end
 function atributes(in::DoublePipe_LMTD,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Icon]="icon/DoublePipe"
 	fields[:Pallete]=true
 	fields[:Brief]="Double Pipe Heat Exchanger - LMTD Method"

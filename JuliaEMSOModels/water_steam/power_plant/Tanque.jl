@@ -3,22 +3,22 @@ type Tanque
 	Tanque()=begin
 		propterm=outers.propterm
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"Steam tables",
 				:Type=>"water"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Symbol=>"_{in1}"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Symbol=>"_{in2}"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Symbol=>"_{in3}"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Symbol=>"_{out}"
-			]),
+			)),
 			[
 				:(Fout.F = Fin1.F + Fin2.F + Fin3.F),
 				:(Fout.F * Fout.H = Fin1.F * Fin1.H + Fin2.F * Fin2.H + Fin3.F * Fin3.H),
@@ -49,7 +49,7 @@ function setEquationFlow(in::Tanque)
 	addEquation(3)
 end
 function atributes(in::Tanque,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/tanque2"
 	drive!(fields,_)

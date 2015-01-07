@@ -49,7 +49,7 @@ export heat_reaction
 typealias Danaheat_reaction DanaRealParametric
 type _heat_reaction
 	function _heat_reaction(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Heat Of Reaction"
 		fields[:Default]=1000
 		fields[:Lower]=-1e8

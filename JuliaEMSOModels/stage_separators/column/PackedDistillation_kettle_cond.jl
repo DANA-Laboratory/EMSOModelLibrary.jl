@@ -38,7 +38,7 @@ function setEquationFlow(in::PackedDistillation_kettle_cond)
 	addEquation(1)
 end
 function atributes(in::PackedDistillation_kettle_cond,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/PackedDistillationKettleCond"
 	fields[:Brief]="Model of a distillation column with dynamic condenser and dynamic reboiler."

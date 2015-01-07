@@ -24,19 +24,19 @@ type IAE
 			"",
 		],
 		new(
-			DanaReal ((Symbol=>Any)[
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"input signal"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"output signal",
 				:Unit=>"s"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"setpoint"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"absolute error"
-			]),
+			)),
 			[
 				:(absError = abs(setPoint-input)),
 				:(diff(output)=absError),
@@ -67,7 +67,7 @@ function initial(in::IAE)
 	addEquation(1)
 end
 function atributes(in::IAE,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/IAE"
 	fields[:Brief]="Model IAE."

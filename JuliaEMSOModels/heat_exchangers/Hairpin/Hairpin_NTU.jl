@@ -19,19 +19,19 @@ type Hairpin_NTU
 	Hairpin_NTU()=begin
 		new(
 			Hairpin_Basic(),
-			DanaSwitcher ((Symbol=>Any)[
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Flow Direction",
 				:Valid=>["counter","cocurrent"],
 				:Default=>"cocurrent"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Effectiveness estimate",
 				:Default=>0.5
-			]),
-			NTU_Basic ((Symbol=>Any)[
+			)),
+			NTU_Basic (Dict{Symbol,Any}(
 				:Brief=>"NTU Method of Calculation",
 				:Symbol=>" "
-			]),
+			)),
 			[
 				:(Method.Eft1 = 1),
 				:(Method.NTU*Method.Cmin = _P1.Details.Ud*_P1.Pi*_P1.DoInner*(2*_P1.Lpipe)),
@@ -136,7 +136,7 @@ function setEquationFlow(in::Hairpin_NTU)
 	end
 end
 function atributes(in::Hairpin_NTU,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Icon]="icon/hairpin"
 	fields[:Pallete]=true
 	fields[:Brief]="Hairpin Heat Exchanger - NTU Method"

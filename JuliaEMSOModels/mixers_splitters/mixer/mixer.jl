@@ -20,27 +20,27 @@ type mixer
 	mixer()=begin
 		NComp=outers.NComp
 		new(
-			DanaInteger ((Symbol=>Any)[
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of Inlet Streams",
 				:Lower=>1,
 				:Default=>2
-			]),
-			fill(stream ((Symbol=>Any)[
+			)),
+			fill(stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet streams",
 				:PosX=>0,
 				:PosY=>0.5,
 				:Symbol=>"_{inMix}"
-			]),(Ninlet)),
-			streamPH ((Symbol=>Any)[
+			)),(Ninlet)),
+			streamPH (Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>1,
 				:PosY=>0.5059,
 				:Symbol=>"_{out}"
-			]),
+			)),
 			[
 				:(Outlet.F = sum(Inlet.F)),
 				:(Outlet.F*Outlet.z([1:NComp]) = sum(Inlet.F*Inlet.z([1:NComp]))),
@@ -72,7 +72,7 @@ function setEquationFlow(in::mixer)
 	addEquation(4)
 end
 function atributes(in::mixer,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/mixer"
 	fields[:Brief]="Model of a mixer"

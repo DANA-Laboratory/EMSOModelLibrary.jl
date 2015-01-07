@@ -29,7 +29,7 @@ export frequency
 typealias Danafrequency Danapositive
 type _frequency
 	function _frequency(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Frequency"
 		fields[:Default]=1
 		fields[:Upper]=100

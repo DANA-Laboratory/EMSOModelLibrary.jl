@@ -18,24 +18,24 @@
 type LMTD_Basic
 	LMTD_Basic()=begin
 		new(
-			temp_delta ((Symbol=>Any)[
+			temp_delta (Dict{Symbol,Any}(
 				:Brief=>"Temperature Difference at Inlet",
 				:Lower=>1e-6,
 				:Symbol=>"\\Delta T_0"
-			]),
-			temp_delta ((Symbol=>Any)[
+			)),
+			temp_delta (Dict{Symbol,Any}(
 				:Brief=>"Temperature Difference at Outlet",
 				:Lower=>1e-6,
 				:Symbol=>"\\Delta T_L"
-			]),
-			temp_delta ((Symbol=>Any)[
+			)),
+			temp_delta (Dict{Symbol,Any}(
 				:Brief=>"Logarithmic Mean Temperature Difference",
 				:Lower=>1e-6
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"LMTD Correction Factor",
 				:Lower=>0.1
-			]),
+			)),
 			[
 				:(LMTD= (DT0-DTL)/ln(DT0/DTL)),
 				:(LMTD = 0.5*(DT0+DTL)),
@@ -69,7 +69,7 @@ function setEquationFlow(in::LMTD_Basic)
 	end
 end
 function atributes(in::LMTD_Basic,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Log Mean Temperature Difference Method."
 	fields[:Info]="to be documented"

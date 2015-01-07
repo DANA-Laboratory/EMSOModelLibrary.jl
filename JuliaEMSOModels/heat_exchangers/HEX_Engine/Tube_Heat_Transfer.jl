@@ -18,42 +18,42 @@
 type Tube_Heat_Transfer
 	Tube_Heat_Transfer()=begin
 		new(
-			positive ((Symbol=>Any)[
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Tube Side Reynolds Number",
 				:Default=>1000,
 				:Lower=>1
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Nusselt Number",
 				:Default=>0.5,
 				:Lower=>1e-8
-			]),
-			heat_trans_coeff ((Symbol=>Any)[
+			)),
+			heat_trans_coeff (Dict{Symbol,Any}(
 				:Brief=>"Tube Side Film Coefficient",
 				:Default=>1,
 				:Lower=>1e-12,
 				:Upper=>1e6
-			]),
-			fricfactor ((Symbol=>Any)[
+			)),
+			fricfactor (Dict{Symbol,Any}(
 				:Brief=>"Friction Factor",
 				:Default=>0.05,
 				:Lower=>1e-10,
 				:Upper=>2000
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Tube Side Prandtl Number",
 				:Default=>0.5,
 				:Lower=>1e-8
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Phi Correction",
 				:Default=>1,
 				:Lower=>1e-3
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Tube Side Velocity",
 				:Lower=>1e-8
-			]),
+			)),
 			[:Re,:Nu,:htube,:fi,:PR,:Phi,:Vtube,]
 		)
 	end
@@ -69,7 +69,7 @@ type Tube_Heat_Transfer
 end
 export Tube_Heat_Transfer
 function atributes(in::Tube_Heat_Transfer,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="to be documented"
 	fields[:Info]="to be documented"

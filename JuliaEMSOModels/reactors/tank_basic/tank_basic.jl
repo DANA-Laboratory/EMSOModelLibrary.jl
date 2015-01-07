@@ -32,45 +32,45 @@ type tank_basic
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin ((Symbol=>Any)[
+			DanaPlugin (Dict{Symbol,Any}(
 				:Brief=>"External physical properties",
 				:Type=>"PP"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of components",
 				:Default=>1
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0,
 				:Symbol=>"_{in}"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Intermediary outlet stream",
 				:Symbol=>"_{outm}",
 				:Hidden=>true
-			]),
-			vol_tank ((Symbol=>Any)[
+			)),
+			vol_tank (Dict{Symbol,Any}(
 				:Brief=>"Routine to volume tank calculation",
 				:Symbol=>"_{tank}"
-			]),
-			fill(mol ((Symbol=>Any)[
+			)),
+			fill(mol (Dict{Symbol,Any}(
 				:Brief=>"Component molar holdup",
 				:Protected=>true
-			]),(NComp)),
-			mol ((Symbol=>Any)[
+			)),(NComp)),
+			mol (Dict{Symbol,Any}(
 				:Brief=>"Total component molar holdup",
 				:Protected=>true
-			]),
-			energy ((Symbol=>Any)[
+			)),
+			energy (Dict{Symbol,Any}(
 				:Brief=>"Internal energy",
 				:Protected=>true
-			]),
-			heat_rate((Symbol=>Any)[
+			)),
+			heat_rate(Dict{Symbol,Any}(
 				:Brief=>"Reactor duty",
 				:Default=>0
-			]),
+			)),
 			[
 				:(diff(M) = Inlet.F*Inlet.z - Outletm.F*Outletm.z),
 				:(M = Mt*Outletm.z),
@@ -107,7 +107,7 @@ function setEquationFlow(in::tank_basic)
 	addEquation(4)
 end
 function atributes(in::tank_basic,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Brief]="Basic model for a dynamic tank"
 	drive!(fields,_)
 	return fields

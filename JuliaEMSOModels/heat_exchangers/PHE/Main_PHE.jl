@@ -18,18 +18,18 @@
 type Main_PHE
 	Main_PHE()=begin
 		new(
-			PHE_HeatTransfer ((Symbol=>Any)[
+			PHE_HeatTransfer (Dict{Symbol,Any}(
 				:Brief=>"PHE Heat Transfer",
 				:Symbol=>" "
-			]),
-			PHE_PressureDrop ((Symbol=>Any)[
+			)),
+			PHE_PressureDrop (Dict{Symbol,Any}(
 				:Brief=>"PHE Pressure Drop",
 				:Symbol=>" "
-			]),
-			Physical_Properties ((Symbol=>Any)[
+			)),
+			Physical_Properties (Dict{Symbol,Any}(
 				:Brief=>"PHE Properties",
 				:Symbol=>" "
-			]),
+			)),
 			[:HeatTransfer,:PressureDrop,:Properties,]
 		)
 	end
@@ -41,7 +41,7 @@ type Main_PHE
 end
 export Main_PHE
 function atributes(in::Main_PHE,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="to be documented"
 	fields[:Info]="to be documented"

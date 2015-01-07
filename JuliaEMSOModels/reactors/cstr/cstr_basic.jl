@@ -22,39 +22,39 @@ type cstr_basic
 	cstr_basic()=begin
 		NComp=outers.NComp
 		new(
-			DanaInteger ((Symbol=>Any)[
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number Of Components"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number Of Reactions"
-			]),
-			fill(DanaReal ((Symbol=>Any)[
+			)),
+			fill(DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Stoichiometric Matrix"
-			]),(NComp, NReac)),
-			stream ((Symbol=>Any)[
+			)),(NComp, NReac)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet Stream",
 				:PosX=>0,
 				:PosY=>0,
 				:Symbol=>"_{in}"
-			]),
-			streamPH ((Symbol=>Any)[
+			)),
+			streamPH (Dict{Symbol,Any}(
 				:Brief=>"Outlet Stream",
 				:PosX=>1,
 				:PosY=>1,
 				:Symbol=>"_{out}"
-			]),
-			heat_rate ((Symbol=>Any)[
+			)),
+			heat_rate (Dict{Symbol,Any}(
 				:Brief=>"Heat"
-			]),
-			volume ((Symbol=>Any)[
+			)),
+			volume (Dict{Symbol,Any}(
 				:Brief=>"Reacting Volume"
-			]),
-			mol ((Symbol=>Any)[
+			)),
+			mol (Dict{Symbol,Any}(
 				:Brief=>"Molar total amount"
-			]),
-			fill(conc_mol ((Symbol=>Any)[
+			)),
+			fill(conc_mol (Dict{Symbol,Any}(
 				:Brief=>"Components concentration"
-			]),(NComp)),
+			)),(NComp)),
 			[
 				:(Outlet.z * M = C * Vr),
 				:(sum(Outlet.z) = 1),
@@ -87,7 +87,7 @@ function setEquationFlow(in::cstr_basic)
 	addEquation(2)
 end
 function atributes(in::cstr_basic,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Basic model for a CSTR reactor"
 	drive!(fields,_)

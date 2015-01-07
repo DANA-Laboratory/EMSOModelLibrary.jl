@@ -6,57 +6,57 @@ type tank_liqvap
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External physical properties",
 				:Type=>"PP"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of components",
 				:Default=>1
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0,
 				:Symbol=>"_{in}"
-			]),
-			liquid_stream ((Symbol=>Any)[
+			)),
+			liquid_stream (Dict{Symbol,Any}(
 				:Brief=>"Intermediary liquid outlet stream",
 				:Symbol=>"_{outmL}",
 				:Hidden=>true
-			]),
-			vapour_stream ((Symbol=>Any)[
+			)),
+			vapour_stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet vapour stream",
 				:Symbol=>"_{outV}"
-			]),
-			vol_tank ((Symbol=>Any)[
+			)),
+			vol_tank (Dict{Symbol,Any}(
 				:Brief=>"Routine to volume tank calculation",
 				:Symbol=>"_{tank}"
-			]),
-			fill(mol ((Symbol=>Any)[
+			)),
+			fill(mol (Dict{Symbol,Any}(
 				:Brief=>"Component molar holdup",
 				:Protected=>true
-			]),(NComp)),
-			mol ((Symbol=>Any)[
+			)),(NComp)),
+			mol (Dict{Symbol,Any}(
 				:Brief=>"Molar liquid holdup",
 				:Protected=>true
-			]),
-			mol ((Symbol=>Any)[
+			)),
+			mol (Dict{Symbol,Any}(
 				:Brief=>"Molar vapour holdup",
 				:Protected=>true
-			]),
-			energy ((Symbol=>Any)[
+			)),
+			energy (Dict{Symbol,Any}(
 				:Brief=>"Internal energy",
 				:Protected=>true
-			]),
-			heat_rate ((Symbol=>Any)[
+			)),
+			heat_rate (Dict{Symbol,Any}(
 				:Brief=>"Reactor duty",
 				:Default=>0
-			]),
-			volume_mol ((Symbol=>Any)[
+			)),
+			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Volume",
 				:Protected=>true
-			]),
+			)),
 			[
 				:(diff(M) = Inlet.F*Inlet.z - (OutletmL.F*OutletmL.z + OutletV.F*OutletV.z)),
 				:(M = ML*OutletmL.z + MV*OutletV.z),
@@ -116,7 +116,7 @@ function setEquationFlow(in::tank_liqvap)
 	addEquation(14)
 end
 function atributes(in::tank_liqvap,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Brief]="Model of a generic two-phase tank"
 	drive!(fields,_)
 	return fields

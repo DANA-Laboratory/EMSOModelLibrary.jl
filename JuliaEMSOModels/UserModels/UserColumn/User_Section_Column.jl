@@ -39,50 +39,50 @@ type User_Section_Column
 	User_Section_Column()=begin
 		new(
 			User_Section_ColumnBasic(),
-			vapour_stream ((Symbol=>Any)[
+			vapour_stream (Dict{Symbol,Any}(
 				:Brief=>"Vapour Outlet in the section",
 				:PosX=>1,
 				:PosY=>0.35,
 				:Protected=>true
-			]),
-			liquid_stream ((Symbol=>Any)[
+			)),
+			liquid_stream (Dict{Symbol,Any}(
 				:Brief=>"Liquid Outlet in the section",
 				:PosX=>1,
 				:PosY=>0.65,
 				:Protected=>true
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Liquid Inlet in the section",
 				:PosX=>0.80,
 				:PosY=>0
-			]),
-			vapour_stream ((Symbol=>Any)[
+			)),
+			vapour_stream (Dict{Symbol,Any}(
 				:Brief=>"Vapour Outlet in the section",
 				:PosX=>0.30,
 				:PosY=>0
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Vapour Inlet in the section",
 				:PosX=>0.30,
 				:PosY=>1
-			]),
-			liquid_stream ((Symbol=>Any)[
+			)),
+			liquid_stream (Dict{Symbol,Any}(
 				:Brief=>"Liquid Outlet in the section",
 				:PosX=>0.80,
 				:PosY=>1
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Liquid connection at the middle trays",
 				:PosX=>0.75,
 				:PosY=>1,
 				:Hidden=>true
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Vapour connection at the middle trays",
 				:PosX=>0.55,
 				:PosY=>0,
 				:Hidden=>true
-			]),
+			)),
 			[
 				:(LiquidConnector.F= LiquidInlet.F),
 				:(LiquidConnector.T = LiquidInlet.T),
@@ -169,7 +169,7 @@ function setEquationFlow(in::User_Section_Column)
 	addEquation(30)
 end
 function atributes(in::User_Section_Column,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/SectionColumn"
 	fields[:Brief]="Model of a column section."

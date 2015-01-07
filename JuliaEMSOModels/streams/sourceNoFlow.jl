@@ -23,21 +23,21 @@ type sourceNoFlow
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin ((Symbol=>Any)[
+			DanaPlugin (Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>1,
 				:PosY=>0.5256,
 				:Symbol=>"_{out}",
 				:Protected=>true
-			]),
+			)),
 			[
 				:(Outlet.z = 1/NComp),
 				:(Outlet.h = 0 * "J/mol"),
@@ -72,7 +72,7 @@ function setEquationFlow(in::sourceNoFlow)
 	addEquation(6)
 end
 function atributes(in::sourceNoFlow,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/SourceNoFlow"
 	fields[:Brief]="Simple Material stream source with no flow."

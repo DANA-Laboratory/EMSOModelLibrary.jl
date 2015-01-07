@@ -23,7 +23,7 @@ export Pressao
 typealias DanaPressao DanaRealParametric
 type _Pressao
 	function _Pressao(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Default]=1
 		fields[:Lower]=5e-4
 		fields[:Upper]=20

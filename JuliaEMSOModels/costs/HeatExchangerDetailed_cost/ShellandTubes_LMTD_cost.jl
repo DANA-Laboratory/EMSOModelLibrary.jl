@@ -20,29 +20,29 @@ type ShellandTubes_LMTD_cost
 	ShellandTubes_LMTD_cost()=begin
 		new(
 			ShellandTubes_LMTD(),
-			DanaSwitcher ((Symbol=>Any)[
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Valid=>["Stainless steel 316", "Stainless steel 304", "Stainless steel 347", "Nickel 200", "Monel 400", "Inconel 600", "Incoloy 825", "Titanium", "Hastelloy"],
 				:Default=>"Stainless steel 316"
-			]),
+			)),
 			fill(DanaReal()),
-			currency ((Symbol=>Any)[
+			currency (Dict{Symbol,Any}(
 				:Brief=>"Capital Cost"
-			]),
-			currency ((Symbol=>Any)[
+			)),
+			currency (Dict{Symbol,Any}(
 				:Brief=>"Basic Cost"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Cost Factor based on the type of the heat exchanger"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Cost Factor based on the project pressure"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Cost Factor based on the construction material"
-			]),
-			pressure ((Symbol=>Any)[
+			)),
+			pressure (Dict{Symbol,Any}(
 				:Brief=>"Average  Pressure"
-			]),
+			)),
 			[
 				:(Pmax = max( [_P1._P1.Tubes.Properties.Average.P , _P1._P1.Shell.Properties.Average.P] )),
 				:(Ce = Cb*Fd*Fp*Fm),
@@ -106,7 +106,7 @@ function setEquationFlow(in::ShellandTubes_LMTD_cost)
 	addEquation(10)
 end
 function atributes(in::ShellandTubes_LMTD_cost,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/ShellandTubes_LMTD"
 	fields[:Brief]="Shell and Tubes Heat Exchangers"

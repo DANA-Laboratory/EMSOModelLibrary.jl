@@ -23,9 +23,9 @@ type User_tray
 			User_trayBasic(),
 			dens_mass(),
 			dens_mass(),
-			DanaReal ((Symbol=>Any)[
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Temporary variable of Roffels liquid flow equation"
-			]),
+			)),
 			[
 				:(rhoL = _P1.PP.LiquidDensity(_P1.OutletL.T, _P1.OutletL.P, _P1.OutletL.z)),
 				:(rhoV = _P1.PP.VapourDensity(_P1.InletV.T, _P1.InletV.P, _P1.InletV.z)),
@@ -51,7 +51,7 @@ function setEquationFlow(in::User_tray)
 	addEquation(2)
 end
 function atributes(in::User_tray,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Icon]="icon/Tray"
 	fields[:Brief]="Description of a column tray."

@@ -6,84 +6,84 @@ type trayRateBasic
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
+			)),
 			DanaInteger(),
 			DanaInteger(),
-			volume((Symbol=>Any)[
+			volume(Dict{Symbol,Any}(
 				:Brief=>"Total Volume of the tray"
-			]),
-			heat_rate ((Symbol=>Any)[
+			)),
+			heat_rate (Dict{Symbol,Any}(
 				:Brief=>"Rate of heat supply"
-			]),
-			area ((Symbol=>Any)[
+			)),
+			area (Dict{Symbol,Any}(
 				:Brief=>"Plate area = Atray - Adowncomer"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Feed stream",
 				:PosX=>0,
 				:PosY=>0.4932,
 				:Symbol=>"_{in}"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Feed stream",
 				:PosX=>0,
 				:PosY=>0.4932,
 				:Symbol=>"_{in}"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet liquid stream",
 				:PosX=>0.5195,
 				:PosY=>0,
 				:Symbol=>"_{inL}"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet vapour stream",
 				:PosX=>0.4994,
 				:PosY=>1,
 				:Symbol=>"_{inV}"
-			]),
-			liquid_stream ((Symbol=>Any)[
+			)),
+			liquid_stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet liquid stream",
 				:PosX=>0.8277,
 				:PosY=>1,
 				:Symbol=>"_{outL}"
-			]),
-			vapour_stream ((Symbol=>Any)[
+			)),
+			vapour_stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet vapour stream",
 				:PosX=>0.8043,
 				:PosY=>0,
 				:Symbol=>"_{outV}"
-			]),
-			fill(mol ((Symbol=>Any)[
+			)),
+			fill(mol (Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Holdup in the tray"
-			]),(NComp)),
-			fill(mol ((Symbol=>Any)[
+			)),(NComp)),
+			fill(mol (Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar Holdup in the tray"
-			]),(NComp)),
-			mol ((Symbol=>Any)[
+			)),(NComp)),
+			mol (Dict{Symbol,Any}(
 				:Brief=>"Molar liquid holdup"
-			]),
-			mol ((Symbol=>Any)[
+			)),
+			mol (Dict{Symbol,Any}(
 				:Brief=>"Molar vapour holdup"
-			]),
-			energy ((Symbol=>Any)[
+			)),
+			energy (Dict{Symbol,Any}(
 				:Brief=>"Total Liquid Energy Holdup on tray"
-			]),
-			energy ((Symbol=>Any)[
+			)),
+			energy (Dict{Symbol,Any}(
 				:Brief=>"Total Vapour Energy Holdup on tray"
-			]),
-			volume_mol ((Symbol=>Any)[
+			)),
+			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Volume"
-			]),
-			volume_mol ((Symbol=>Any)[
+			)),
+			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar volume"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Height of clear liquid on plate"
-			]),
+			)),
 			interface(),
 			[
 				:(diff(M_liq)=Inlet.F*Inlet.z + InletL.F*InletL.z - OutletL.F*OutletL.z + interf.NL),
@@ -181,7 +181,7 @@ function setEquationFlow(in::trayRateBasic)
 	addEquation(25)
 end
 function atributes(in::trayRateBasic,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Icon]="icon/Tray"
 	fields[:Brief]="Basic equations of a tray rate column model."

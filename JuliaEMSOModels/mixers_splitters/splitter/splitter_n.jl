@@ -19,27 +19,27 @@
 type splitter_n
 	splitter_n()=begin
 		new(
-			DanaInteger ((Symbol=>Any)[
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of Outlet Streams",
 				:Lower=>1
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0.5001,
 				:Symbol=>"_{in}"
-			]),
-			fill(stream ((Symbol=>Any)[
+			)),
+			fill(stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet streams",
 				:PosX=>1,
 				:PosY=>0.5,
 				:Symbol=>"_{out}"
-			]),(NOutlet)),
-			fill(fraction ((Symbol=>Any)[
+			)),(NOutlet)),
+			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Distribution of Outlets",
 				:Default=>0.5,
 				:Symbol=>"\\phi"
-			]),(NOutlet)),
+			)),(NOutlet)),
 			[
 				:(sum(frac) = 1),
 				:(Outlet([1:NOutlet]).F = Inlet.F*frac([1:NOutlet])),
@@ -77,7 +77,7 @@ function setEquationFlow(in::splitter_n)
 	addEquation(7)
 end
 function atributes(in::splitter_n,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/splitter_n"
 	fields[:Brief]="Model of a splitter"

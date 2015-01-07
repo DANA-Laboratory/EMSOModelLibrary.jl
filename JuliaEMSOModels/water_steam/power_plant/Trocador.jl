@@ -3,18 +3,18 @@ type Trocador
 	Trocador()=begin
 		propterm=outers.propterm
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"Steam tables",
 				:Type=>"water"
-			]),
+			)),
 			Potencia(),
 			Dif_Pres(),
-			Corrente ((Symbol=>Any)[
+			Corrente (Dict{Symbol,Any}(
 				:Symbol=>"_{in}"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Symbol=>"_{out}"
-			]),
+			)),
 			[
 				:(Fout.F = Fin.F),
 				:(Fout.P = Fin.P - DP),

@@ -21,12 +21,12 @@
 type energy_source
 	energy_source()=begin
 		new(
-			energy_stream ((Symbol=>Any)[
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet energy stream",
 				:PosX=>1,
 				:PosY=>0.46,
 				:Symbol=>"_{out}"
-			]),
+			)),
 			[:OutletQ,]
 		)
 	end
@@ -36,7 +36,7 @@ type energy_source
 end
 export energy_source
 function atributes(in::energy_source,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/energy_source"
 	fields[:Brief]="Enegry stream source"

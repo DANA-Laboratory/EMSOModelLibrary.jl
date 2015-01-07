@@ -36,26 +36,26 @@ type tank_cost
 	tank_cost()=begin
 		new(
 			tank(),
-			DanaSwitcher ((Symbol=>Any)[
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Valid=>["Stainless steel 316", "Stainless steel 304", "Stainless steel 347", "Nickel", "Monel", "Inconel", "Zirconium", "Titanium", "Brick_and_rubber", "Brick_and_polyester_lined steel", "Rubber", "Lead_lined steel", "Polyester" ,"Fiberglass_strengthened", "Aluminum", "Copper", "Concrete"],
 				:Default=>"Stainless steel 316"
-			]),
+			)),
 			fill(DanaReal()),
-			length((Symbol=>Any)[
+			length(Dict{Symbol,Any}(
 				:Brief=>"Tank height"
-			]),
-			currency ((Symbol=>Any)[
+			)),
+			currency (Dict{Symbol,Any}(
 				:Brief=>"Capital Cost"
-			]),
-			currency ((Symbol=>Any)[
+			)),
+			currency (Dict{Symbol,Any}(
 				:Brief=>"Basic Cost"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Cost Factor based on the construction material"
-			]),
-			volume ((Symbol=>Any)[
+			)),
+			volume (Dict{Symbol,Any}(
 				:Brief=>"Total Volume"
-			]),
+			)),
 			[
 				:(V = _P1.Across * Height),
 				:(Ce = Cb*Fm),
@@ -110,7 +110,7 @@ function setEquationFlow(in::tank_cost)
 	addEquation(7)
 end
 function atributes(in::tank_cost,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Tank"
 	drive!(fields,_)

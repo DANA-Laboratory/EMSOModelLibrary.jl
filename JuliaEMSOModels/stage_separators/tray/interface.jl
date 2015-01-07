@@ -7,57 +7,57 @@ type interface
 		NComp=outers.NComp
 		NC1=outers.NC1
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
+			)),
 			DanaInteger(),
 			DanaInteger(),
-			fill(flow_mol_delta ((Symbol=>Any)[
+			fill(flow_mol_delta (Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Rate on Liquid Phase"
-			]),(NComp)),
-			fill(flow_mol_delta ((Symbol=>Any)[
+			)),(NComp)),
+			fill(flow_mol_delta (Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Rate on Vapour Phase"
-			]),(NComp)),
-			temperature ((Symbol=>Any)[
+			)),(NComp)),
+			temperature (Dict{Symbol,Any}(
 				:Brief=>"Stream Temperature"
-			]),
-			pressure ((Symbol=>Any)[
+			)),
+			pressure (Dict{Symbol,Any}(
 				:Brief=>"Stream Pressure"
-			]),
-			fill(fraction ((Symbol=>Any)[
+			)),
+			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Fraction on Liquid Phase"
-			]),(NComp)),
-			fill(fraction ((Symbol=>Any)[
+			)),(NComp)),
+			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Fraction on Vapour Phase"
-			]),(NComp)),
-			area ((Symbol=>Any)[
+			)),(NComp)),
+			area (Dict{Symbol,Any}(
 				:Brief=>"Interface Area"
-			]),
-			heat_trans_coeff ((Symbol=>Any)[
+			)),
+			heat_trans_coeff (Dict{Symbol,Any}(
 				:Brief=>"Heat Transference Coefficient on Liquid Phase"
-			]),
-			heat_trans_coeff ((Symbol=>Any)[
+			)),
+			heat_trans_coeff (Dict{Symbol,Any}(
 				:Brief=>"Heat Transference Coefficient on Vapour Phase"
-			]),
-			heat_rate ((Symbol=>Any)[
+			)),
+			heat_rate (Dict{Symbol,Any}(
 				:Brief=>"Liquid Energy Rate at interface"
-			]),
-			heat_rate ((Symbol=>Any)[
+			)),
+			heat_rate (Dict{Symbol,Any}(
 				:Brief=>"Vapour Energy Rate at interface"
-			]),
-			enth_mol ((Symbol=>Any)[
+			)),
+			enth_mol (Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Enthalpy"
-			]),
-			enth_mol ((Symbol=>Any)[
+			)),
+			enth_mol (Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar Enthalpy"
-			]),
-			fill(velocity ((Symbol=>Any)[
+			)),
+			fill(velocity (Dict{Symbol,Any}(
 				:Brief=>"Mass Transfer Coefficients"
-			]),(NC1,NC1)),
-			fill(velocity ((Symbol=>Any)[
+			)),(NC1,NC1)),
+			fill(velocity (Dict{Symbol,Any}(
 				:Brief=>"Mass Transfer Coefficients"
-			]),(NC1,NC1)),
+			)),(NC1,NC1)),
 			[
 				:(hL = PP.LiquidEnthalpy(T, P, x)),
 				:(hV = PP.VapourEnthalpy(T, P, y)),
@@ -99,7 +99,7 @@ function setEquationFlow(in::interface)
 	addEquation(2)
 end
 function atributes(in::interface,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Icon]="icon/Tray"
 	fields[:Brief]="Descrition of variables of the equilibrium interface."

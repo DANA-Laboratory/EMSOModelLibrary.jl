@@ -21,18 +21,18 @@ type Capacitor
 		new(
 			capacitance(),
 			charge(),
-			wire ((Symbol=>Any)[
+			wire (Dict{Symbol,Any}(
 				:Brief=>"Inlet",
 				:PosX=>0.3978,
 				:PosY=>0,
 				:Symbol=>"_{in}"
-			]),
-			wire ((Symbol=>Any)[
+			)),
+			wire (Dict{Symbol,Any}(
 				:Brief=>"Outlet",
 				:PosX=>0.3965,
 				:PosY=>1,
 				:Symbol=>"_{out}"
-			]),
+			)),
 			[
 				:(diff(q) = inlet.i),
 				:(inlet.V - outlet.V = (1/C) * q),
@@ -62,7 +62,7 @@ function setEquationFlow(in::Capacitor)
 	addEquation(3)
 end
 function atributes(in::Capacitor,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Capacitor"
 	fields[:Brief]="Electrical Capacitor."

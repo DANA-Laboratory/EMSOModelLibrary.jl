@@ -47,7 +47,7 @@ export enth_mass
 typealias Danaenth_mass DanaRealParametric
 type _enth_mass
 	function _enth_mass(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Mass Enthalpy"
 		fields[:Default]=500
 		fields[:Lower]=-1e14

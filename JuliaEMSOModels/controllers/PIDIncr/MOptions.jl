@@ -18,18 +18,18 @@
 type MOptions
 	MOptions()=begin
 		new(
-			DanaReal ((Symbol=>Any)[
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Controller action: (-1) Direct,(1) Reverse",
 				:Default=>-1
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Controller option: (0) Automatic, (1) Manual",
 				:Default=>0
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Controller option: (1) output clipped, (0) output unclipped",
 				:Default=>1
-			]),
+			)),
 			[:action,:autoMan,:clip,]
 		)
 	end
@@ -41,7 +41,7 @@ type MOptions
 end
 export MOptions
 function atributes(in::MOptions,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Model of Options to be used with incremental PIDs."
 	drive!(fields,_)

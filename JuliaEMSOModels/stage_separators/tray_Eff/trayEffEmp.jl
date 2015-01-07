@@ -8,141 +8,141 @@ type trayEffEmp
 		iHK=outers.iHK
 		new(
 			tray(),
-			length ((Symbol=>Any)[
+			length (Dict{Symbol,Any}(
 				:Brief=>"Liquid flow path length"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Plate Diameter"
-			]),
-			area ((Symbol=>Any)[
+			)),
+			area (Dict{Symbol,Any}(
 				:Brief=>"Active Area or Bubbling Area = Atray - 2*Adowncomer"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Fractional perforated tray area(hole area/ bubbling area)"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Tray spacing"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Pseudo-binary ligth key index"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Pseudo-binary heavy key index"
-			]),
-			flow_vol ((Symbol=>Any)[
+			)),
+			flow_vol (Dict{Symbol,Any}(
 				:Brief=>"Vapour volumetric flow"
-			]),
-			flow_vol ((Symbol=>Any)[
+			)),
+			flow_vol (Dict{Symbol,Any}(
 				:Brief=>"Liquid volumetric flow"
-			]),
-			flow_mass ((Symbol=>Any)[
+			)),
+			flow_mass (Dict{Symbol,Any}(
 				:Brief=>"Vapour mass flow",
 				:Lower=>0
-			]),
-			flow_mass ((Symbol=>Any)[
+			)),
+			flow_mass (Dict{Symbol,Any}(
 				:Brief=>"Liquid mass flow",
 				:Lower=>0
-			]),
-			diffusivity ((Symbol=>Any)[
+			)),
+			diffusivity (Dict{Symbol,Any}(
 				:Brief=>"Diffusivity on Vapour Phase"
-			]),
-			diffusivity ((Symbol=>Any)[
+			)),
+			diffusivity (Dict{Symbol,Any}(
 				:Brief=>"Diffusivity on Liquid Phase"
-			]),
-			surf_tens ((Symbol=>Any)[
+			)),
+			surf_tens (Dict{Symbol,Any}(
 				:Brief=>"Surface Tension"
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Superficial velocity based on Aa"
-			]),
-			positive((Symbol=>Any)[
+			)),
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Superficial factor",
 				:Unit=>"kg^.5/m^.5/s"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Constant in eq. of Clear Liquid Height"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Effective liquid volume fraction"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Clear Liquid Height"
-			]),
-			time_sec ((Symbol=>Any)[
+			)),
+			time_sec (Dict{Symbol,Any}(
 				:Brief=>"Mean residence time of vapour in dispersion"
-			]),
-			time_sec ((Symbol=>Any)[
+			)),
+			time_sec (Dict{Symbol,Any}(
 				:Brief=>"Mean residence time of liquid on tray"
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Superficial velocity based on Ap"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Flow Parameter"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Capacity Factor"
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Flood velocity"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Flood factor"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Stripping factor or ratio of slope of equilibrium line to slope of operating line"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Slope of equilibrium line"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Pseudo-binary key "
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Pseudo-binary key"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Pseudo-binary key"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Pseudo-binary key"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of vapour phase transfer units"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of liquid phase transfer units"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of overall vapour phase transfer units"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Point Efficiency"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Eddy diffusivity for liquid mixing"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Peclet Number"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Constant"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Murphree tray efficiency"
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Height on spray regime"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Fraction of entrained liquid"
-			]),
-			velocity ((Symbol=>Any)[
+			)),
+			velocity (Dict{Symbol,Any}(
 				:Brief=>"Gas velocity through holes"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Apparent Murphree tray efficiency"
-			]),
+			)),
 			[
 				:(Qv=_P1._P1.OutletV.F*_P1._P1.vV),
 				:(Ql=_P1._P1.OutletL.F*_P1._P1.vL),
@@ -299,7 +299,7 @@ function setEquationFlow(in::trayEffEmp)
 	addEquation(40)
 end
 function atributes(in::trayEffEmp,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Icon]="icon/Tray"
 	fields[:Brief]="Tray with Efficiency Prediction - Empiric Model"

@@ -30,7 +30,7 @@ export volume_mass
 typealias Danavolume_mass Danapositive
 type _volume_mass
 	function _volume_mass(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Specific Volume"
 		fields[:Default]=10
 		fields[:Upper]=1E30

@@ -23,7 +23,7 @@ export Dif_Temp
 typealias DanaDif_Temp DanaRealParametric
 type _Dif_Temp
 	function _Dif_Temp(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Default]=0
 		fields[:Lower]=-300
 		fields[:Upper]=300

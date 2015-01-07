@@ -23,7 +23,7 @@ export Dif_Pres
 typealias DanaDif_Pres DanaRealParametric
 type _Dif_Pres
 	function _Dif_Pres(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Default]=0
 		fields[:Lower]=-50
 		fields[:Upper]=50

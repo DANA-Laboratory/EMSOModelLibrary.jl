@@ -3,26 +3,26 @@ type Condensador_2alim
 	Condensador_2alim()=begin
 		propterm=outers.propterm
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"Steam tables",
 				:Type=>"water"
-			]),
-			Potencia ((Symbol=>Any)[
+			)),
+			Potencia (Dict{Symbol,Any}(
 				:Brief=>"Taxa de calor removido"
-			]),
-			Dif_Temp ((Symbol=>Any)[
+			)),
+			Dif_Temp (Dict{Symbol,Any}(
 				:Brief=>"Grau de sub-resfriamento"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Brief=>"Corrente com pressao igual a saida",
 				:Symbol=>"_{in1}"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Symbol=>"_{in2}"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Symbol=>"_{out}"
-			]),
+			)),
 			[
 				:(Fout.P = Fin1.P),
 				:(Fout.T = propterm.Tsat(Fout.P) - G_S),
@@ -58,7 +58,7 @@ function setEquationFlow(in::Condensador_2alim)
 	addEquation(5)
 end
 function atributes(in::Condensador_2alim,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/condensador"
 	drive!(fields,_)

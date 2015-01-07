@@ -60,7 +60,7 @@ export conductivity
 typealias Danaconductivity DanaRealParametric
 type _conductivity
 	function _conductivity(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Thermal Conductivity"
 		fields[:Default]=1.0
 		fields[:Lower]=0.001

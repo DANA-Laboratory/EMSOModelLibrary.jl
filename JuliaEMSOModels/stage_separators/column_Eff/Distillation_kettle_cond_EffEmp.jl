@@ -9,44 +9,44 @@ type Distillation_kettle_cond_EffEmp
 		iLK=outers.iLK
 		iHK=outers.iHK
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
+			)),
 			DanaInteger(),
-			DanaInteger((Symbol=>Any)[
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of trays",
 				:Default=>2
-			]),
-			DanaInteger((Symbol=>Any)[
+			)),
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Trays counting (1=top-down, -1=bottom-up)",
 				:Default=>1
-			]),
-			DanaInteger((Symbol=>Any)[
+			)),
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of top tray"
-			]),
-			DanaInteger((Symbol=>Any)[
+			)),
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of bottom tray"
-			]),
-			DanaSwitcher((Symbol=>Any)[
+			)),
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["on", "off"],
 				:Default=>"on"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Pseudo-binary ligth key index"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Pseudo-binary heavy key index"
-			]),
+			)),
 			fill(trayEffEmp()),
 			condenser(),
 			reboiler(),
 			splitter(),
 			pump(),
 			DanaReal(),
-			positive ((Symbol=>Any)[
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Pseudo-binary approach"
-			]),
+			)),
 			[
 				:(cond.InletV.F*trays(top).vV = alfaTopo * trays(top).Ah * sqrt(2*(trays(top).OutletV.P - cond.OutletL.P + 1e-8 * "atm") / (trays(top).alfa*trays(top).rhoV))),
 				:(cond.InletV.F = 0 * "mol/s"),
@@ -124,7 +124,7 @@ function setEquationFlow(in::Distillation_kettle_cond_EffEmp)
 	end
 end
 function atributes(in::Distillation_kettle_cond_EffEmp,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/DistillationKettleCond"
 	fields[:Brief]="Model of a distillation column with dynamic condenser and dynamic reboiler-Tray Efficiency Prediction"

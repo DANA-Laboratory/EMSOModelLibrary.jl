@@ -41,7 +41,7 @@ export cp_mass
 typealias Danacp_mass DanaRealParametric
 type _cp_mass
 	function _cp_mass(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Mass Heat Capacity"
 		fields[:Default]=1.0
 		fields[:Lower]=0.1

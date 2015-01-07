@@ -3,29 +3,29 @@ type Turbina_sangra
 	Turbina_sangra()=begin
 		propterm=outers.propterm
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"Steam tables",
 				:Type=>"water"
-			]),
+			)),
 			Entalpia(),
-			Eficiencia((Symbol=>Any)[
+			Eficiencia(Dict{Symbol,Any}(
 				:Brief=>"Eficiencia da turbina"
-			]),
-			Potencia((Symbol=>Any)[
+			)),
+			Potencia(Dict{Symbol,Any}(
 				:Brief=>"Potencia da turbina"
-			]),
-			Fracao((Symbol=>Any)[
+			)),
+			Fracao(Dict{Symbol,Any}(
 				:Brief=>"Fracao massica da sangria"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Symbol=>"_{in}"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Symbol=>"_{out}"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Symbol=>"_{outx}"
-			]),
+			)),
 			[
 				:(H_IS = propterm.propPS(Fout.P,Fin.S)),
 				:(Fout.H = (H_IS - Fin.H) * EF_T + Fin.H),
@@ -73,7 +73,7 @@ function setEquationFlow(in::Turbina_sangra)
 	addEquation(10)
 end
 function atributes(in::Turbina_sangra,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/turbina_sa"
 	drive!(fields,_)

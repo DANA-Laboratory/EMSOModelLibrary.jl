@@ -21,12 +21,12 @@
 type simple_sink
 	simple_sink()=begin
 		new(
-			stream ((Symbol=>Any)[
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet Stream",
 				:PosX=>0,
 				:PosY=>0.5308,
 				:Symbol=>"_{in}"
-			]),
+			)),
 			[:Inlet,]
 		)
 	end
@@ -36,7 +36,7 @@ type simple_sink
 end
 export simple_sink
 function atributes(in::simple_sink,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Sink"
 	fields[:Brief]="Simple material stream sink"

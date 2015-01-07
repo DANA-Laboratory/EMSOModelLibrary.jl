@@ -23,7 +23,7 @@ export Entalpia
 typealias DanaEntalpia DanaRealParametric
 type _Entalpia
 	function _Entalpia(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Default]=3
 		fields[:Lower]=1e-3
 		fields[:Upper]=7

@@ -21,9 +21,9 @@
 type energy_stream
 	energy_stream()=begin
 		new(
-			heat_rate((Symbol=>Any)[
+			heat_rate(Dict{Symbol,Any}(
 				:Brief=>"Energy rate"
-			]),
+			)),
 			[:Q,]
 		)
 	end
@@ -33,7 +33,7 @@ type energy_stream
 end
 export energy_stream
 function atributes(in::energy_stream,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="General Energy Stream"
 	fields[:Info]="This is the basic building block for the EML models.

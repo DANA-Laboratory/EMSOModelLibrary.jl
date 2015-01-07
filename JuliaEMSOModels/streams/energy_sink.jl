@@ -21,12 +21,12 @@
 type energy_sink
 	energy_sink()=begin
 		new(
-			energy_stream ((Symbol=>Any)[
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet energy stream",
 				:PosX=>0,
 				:PosY=>0.46,
 				:Symbol=>"_{in}"
-			]),
+			)),
 			[:InletQ,]
 		)
 	end
@@ -36,7 +36,7 @@ type energy_sink
 end
 export energy_sink
 function atributes(in::energy_sink,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/energy_sink"
 	fields[:Brief]="Enegry stream sink"

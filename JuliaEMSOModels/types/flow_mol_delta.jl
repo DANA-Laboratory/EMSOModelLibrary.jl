@@ -57,7 +57,7 @@ export flow_mol_delta
 typealias Danaflow_mol_delta Danaflow_mol
 type _flow_mol_delta
 	function _flow_mol_delta(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Difference of Mole Flow"
 		fields[:Lower]=-1e8
 		drive!(fields,_)

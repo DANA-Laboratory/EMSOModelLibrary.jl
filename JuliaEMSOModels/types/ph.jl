@@ -71,7 +71,7 @@ export ph
 typealias Danaph DanaRealParametric
 type _ph
 	function _ph(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="pH"
 		fields[:Default]=7
 		fields[:Lower]=-5

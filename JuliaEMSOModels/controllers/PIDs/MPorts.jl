@@ -18,18 +18,18 @@
 type MPorts
 	MPorts()=begin
 		new(
-			control_signal ((Symbol=>Any)[
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Previous scaled input signal",
 				:Default=>0.5
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Scaled output signal",
 				:Default=>0.5
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Scaled setPoint",
 				:Default=>0.5
-			]),
+			)),
 			[:input,:output,:setPoint,]
 		)
 	end
@@ -41,7 +41,7 @@ type MPorts
 end
 export MPorts
 function atributes(in::MPorts,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Model of Ports to be used with PIDs."
 	drive!(fields,_)

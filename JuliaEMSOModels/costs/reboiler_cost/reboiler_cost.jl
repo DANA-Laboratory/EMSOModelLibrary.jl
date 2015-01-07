@@ -47,29 +47,29 @@ type reboiler_cost
 	reboiler_cost()=begin
 		new(
 			reboiler(),
-			DanaSwitcher ((Symbol=>Any)[
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Valid=>["Stainless steel 316", "Stainless steel 304", "Stainless steel 347", "Nickel 200", "Monel 400", "Inconel 600", "Incoloy 825", "Titanium", "Hastelloy"],
 				:Default=>"Stainless steel 316"
-			]),
+			)),
 			fill(DanaReal()),
-			currency ((Symbol=>Any)[
+			currency (Dict{Symbol,Any}(
 				:Brief=>"Capital Cost"
-			]),
-			currency ((Symbol=>Any)[
+			)),
+			currency (Dict{Symbol,Any}(
 				:Brief=>"Basic Cost"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Cost Factor based on the type of the heat exchanger"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Cost Factor based on the project pressure"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Cost Factor based on the construction material"
-			]),
-			pressure ((Symbol=>Any)[
+			)),
+			pressure (Dict{Symbol,Any}(
 				:Brief=>"Average pressure"
-			]),
+			)),
 			[
 				:(P = 0.5*(_P1.InletL.P + _P1.OutletL.P)),
 				:(Ce = Cb*Fd*Fp*Fm),
@@ -133,7 +133,7 @@ function setEquationFlow(in::reboiler_cost)
 	addEquation(10)
 end
 function atributes(in::reboiler_cost,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Reboiler"
 	drive!(fields,_)

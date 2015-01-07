@@ -19,12 +19,12 @@ type heater
 	heater()=begin
 		new(
 			heater_basic(),
-			energy_stream ((Symbol=>Any)[
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet Heat Stream",
 				:PosX=>0.5,
 				:PosY=>1,
 				:Symbol=>"_{out}"
-			]),
+			)),
 			[
 				:(InletQ.Q = _P1.Duty),
 			],
@@ -46,7 +46,7 @@ function setEquationFlow(in::heater)
 	addEquation(1)
 end
 function atributes(in::heater,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/heater"
 	fields[:Brief]="Heater"

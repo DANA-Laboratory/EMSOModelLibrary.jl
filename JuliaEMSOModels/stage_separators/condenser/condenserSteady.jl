@@ -6,32 +6,32 @@ type condenserSteady
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
+			)),
 			DanaInteger(),
-			stream((Symbol=>Any)[
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Vapour inlet stream",
 				:PosX=>0.3431,
 				:PosY=>0,
 				:Symbol=>"_{inV}"
-			]),
-			liquid_stream((Symbol=>Any)[
+			)),
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream",
 				:PosX=>0.34375,
 				:PosY=>1,
 				:Symbol=>"_{outL}"
-			]),
-			energy_stream ((Symbol=>Any)[
+			)),
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Cold supplied",
 				:PosX=>1,
 				:PosY=>0.5974,
 				:Symbol=>"_{in}"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop in the condenser"
-			]),
+			)),
 			[
 				:(InletV.F = OutletL.F),
 				:(InletV.z = OutletL.z),
@@ -65,7 +65,7 @@ function setEquationFlow(in::condenserSteady)
 	addEquation(4)
 end
 function atributes(in::condenserSteady,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/CondenserSteady"
 	fields[:Brief]="Model of a  Steady State condenser with no thermodynamics equilibrium."

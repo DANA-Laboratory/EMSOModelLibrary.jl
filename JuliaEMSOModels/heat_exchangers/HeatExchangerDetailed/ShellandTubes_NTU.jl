@@ -19,9 +19,9 @@ type ShellandTubes_NTU
 	ShellandTubes_NTU()=begin
 		new(
 			ShellandTubesBasic(),
-			NTU_Basic ((Symbol=>Any)[
+			NTU_Basic (Dict{Symbol,Any}(
 				:Brief=>"NTU Method"
-			]),
+			)),
 			[
 				:(Method.NTU*Method.Cmin = _P1.Details.Ud*_P1.Pi*_P1.Tubes.TubeOD*_P1.Tubes.NumberOfTubes*_P1.Tubes.TubeLength),
 				:(Method.Cmin = min([Method.Ch,Method.Cc])),
@@ -86,7 +86,7 @@ function setEquationFlow(in::ShellandTubes_NTU)
 	end
 end
 function atributes(in::ShellandTubes_NTU,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/ShellandTubes_NTU"
 	fields[:Brief]="Shell and Tubes Heat Exchangers"

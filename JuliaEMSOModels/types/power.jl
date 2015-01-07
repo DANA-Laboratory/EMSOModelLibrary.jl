@@ -51,7 +51,7 @@ export power
 typealias Danapower DanaRealParametric
 type _power
 	function _power(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Power"
 		fields[:Default]=10
 		fields[:Lower]=-1e8

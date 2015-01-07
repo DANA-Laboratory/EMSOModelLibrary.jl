@@ -24,19 +24,19 @@ type ISE
 			"",
 		],
 		new(
-			DanaReal ((Symbol=>Any)[
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"input signal"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"output signal",
 				:Unit=>"s"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"setpoint"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"error^2"
-			]),
+			)),
 			[
 				:(sqError = (setPoint-input)^2),
 				:(diff(output)=sqError),
@@ -67,7 +67,7 @@ function initial(in::ISE)
 	addEquation(1)
 end
 function atributes(in::ISE,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/ISE"
 	fields[:Brief]="Model ISE."

@@ -40,7 +40,7 @@ export inv_conc_mass
 typealias Danainv_conc_mass DanaRealParametric
 type _inv_conc_mass
 	function _inv_conc_mass(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Inverse of Mass Concentration"
 		fields[:Default]=0.001
 		fields[:Lower]=2e-6

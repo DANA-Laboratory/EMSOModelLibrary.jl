@@ -69,7 +69,7 @@ export vol_mol
 typealias Danavol_mol Danavolume_mol
 type _vol_mol
 	function _vol_mol(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Molar Volume"
 		drive!(fields,_)
 		new(_volume_mol (fields).value)

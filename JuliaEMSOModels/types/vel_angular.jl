@@ -58,7 +58,7 @@ export vel_angular
 typealias Danavel_angular DanaRealParametric
 type _vel_angular
 	function _vel_angular(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Angular Velocity RPM"
 		fields[:Default]=1000
 		fields[:Lower]=-100000

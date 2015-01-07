@@ -18,17 +18,17 @@
 type Properties_Wall
 	Properties_Wall()=begin
 		new(
-			viscosity ((Symbol=>Any)[
+			viscosity (Dict{Symbol,Any}(
 				:Brief=>"Stream Viscosity",
 				:Default=>1,
 				:Lower=>1e-5,
 				:Upper=>1e5,
 				:Symbol=>"\\mu"
-			]),
-			temperature ((Symbol=>Any)[
+			)),
+			temperature (Dict{Symbol,Any}(
 				:Brief=>"Wall Temperature",
 				:Lower=>50
-			]),
+			)),
 			[:Mu,:Twall,]
 		)
 	end
@@ -39,7 +39,7 @@ type Properties_Wall
 end
 export Properties_Wall
 function atributes(in::Properties_Wall,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Physical properties of the streams at wall temperature."
 	fields[:Info]="to be documented."

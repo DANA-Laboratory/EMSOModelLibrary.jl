@@ -49,7 +49,7 @@ export entr_mass
 typealias Danaentr_mass DanaRealParametric
 type _entr_mass
 	function _entr_mass(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Mass Entropy"
 		fields[:Default]=0
 		fields[:Lower]=-1e4

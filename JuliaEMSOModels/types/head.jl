@@ -27,7 +27,7 @@ export head
 typealias Danahead DanaRealParametric
 type _head
 	function _head(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Head"
 		fields[:Default]=50
 		fields[:Lower]=-1e6

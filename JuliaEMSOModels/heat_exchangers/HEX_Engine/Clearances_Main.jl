@@ -18,33 +18,33 @@
 type Clearances_Main
 	Clearances_Main()=begin
 		new(
-			DanaInteger ((Symbol=>Any)[
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of Sealing Strips pairs",
 				:Lower=>1
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Height Under Shell Inlet Nozzle",
 				:Lower=>1E-6
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Height Under Shell Outlet Nozzle",
 				:Lower=>1E-6
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Bundle-to-Shell Clearance",
 				:Symbol=>"L_{cf}",
 				:Lower=>1E-8
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Baffle-to-Shell Clearance",
 				:Symbol=>"L_{cd}",
 				:Lower=>1E-8
-			]),
-			length ((Symbol=>Any)[
+			)),
+			length (Dict{Symbol,Any}(
 				:Brief=>"Tube-to-Baffle Clearance",
 				:Symbol=>"L_{td}",
 				:Lower=>1E-8
-			]),
+			)),
 			[:SealStrip,:Hinozzle_Shell,:Honozzle_Shell,:BundleToShell,:BaffleToShell,:TubeToBaffle,],
 		)
 	end
@@ -59,7 +59,7 @@ type Clearances_Main
 end
 export Clearances_Main
 function atributes(in::Clearances_Main,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Main parameters for diametral clearances in a shell and tube heat exchanger."
 	drive!(fields,_)

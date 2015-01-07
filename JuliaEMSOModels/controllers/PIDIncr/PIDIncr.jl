@@ -27,18 +27,18 @@ type PIDIncr
 			"","","","",
 		],
 		new(
-			DanaSwitcher ((Symbol=>Any)[
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Type of PID Incremental",
 				:Valid=>["Ideal","Parallel","Series","Ideal_AWBT","Parallel_AWBT","Series_AWBT","Ideal_AW","Parallel_AW","Series_AW"],
 				:Default=>"Ideal"
-			]),
+			)),
 			MParameters(),
 			MOptions(),
 			MInternal_Variables(),
 			MPorts(),
-			DanaReal ((Symbol=>Any)[
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Integral term multiplier used in anti-reset windup"
-			]),
+			)),
 			[
 				:((Parameters.tau + 1e-3*"s")*diff(Internal.inputFilt)= Ports.input - Internal.inputFilt),
 				:(Parameters.tau*diff(Internal.inputFilt)= Ports.input - Internal.inputFilt),
@@ -209,7 +209,7 @@ function initial(in::PIDIncr)
 	addEquation(4)
 end
 function atributes(in::PIDIncr,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/PIDIncr"
 	fields[:Brief]="Model of incremental PIDs."

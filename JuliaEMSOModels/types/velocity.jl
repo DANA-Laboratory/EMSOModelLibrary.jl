@@ -59,7 +59,7 @@ export velocity
 typealias Danavelocity DanaRealParametric
 type _velocity
 	function _velocity(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Velocity"
 		fields[:Default]=1
 		fields[:Lower]=-1E5

@@ -10,67 +10,67 @@ type User_Distillation_kettle_cond
 	User_Distillation_kettle_cond()=begin
 		new(
 			User_Section_ColumnBasic(),
-			DanaSwitcher ((Symbol=>Any)[
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Valid=>["on", "off"],
 				:Default=>"on",
 				:Hidden=>true
-			]),
-			vapour_stream ((Symbol=>Any)[
+			)),
+			vapour_stream (Dict{Symbol,Any}(
 				:Brief=>"Vapour Outlet in the section",
 				:PosX=>1,
 				:PosY=>0.46,
 				:Protected=>true
-			]),
-			liquid_stream ((Symbol=>Any)[
+			)),
+			liquid_stream (Dict{Symbol,Any}(
 				:Brief=>"Liquid Outlet in the section",
 				:PosX=>1,
 				:PosY=>0.58,
 				:Protected=>true
-			]),
+			)),
 			condenser(),
 			reboiler(),
 			splitter(),
 			pump(),
 			DanaReal(),
-			energy_stream ((Symbol=>Any)[
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Heat supplied to Reboiler",
 				:Hidden=>true
-			]),
-			energy_stream ((Symbol=>Any)[
+			)),
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Heat supplied to Condenser",
 				:Hidden=>true
-			]),
-			sourceNoFlow ((Symbol=>Any)[
+			)),
+			sourceNoFlow (Dict{Symbol,Any}(
 				:Brief=>"No Inlet Flow to Reboiler",
 				:Hidden=>true
-			]),
-			vapour_stream ((Symbol=>Any)[
+			)),
+			vapour_stream (Dict{Symbol,Any}(
 				:Brief=>"Vapour outlet stream From Top Condenser",
 				:PosX=>0.67,
 				:PosY=>0
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Connector for Vapour outlet stream From Top Condenser",
 				:Hidden=>true
-			]),
-			liquid_stream ((Symbol=>Any)[
+			)),
+			liquid_stream (Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream From Top Splitter",
 				:PosX=>1,
 				:PosY=>0.33
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Connector for Liquid outlet stream From Top Splitter",
 				:Hidden=>true
-			]),
-			liquid_stream ((Symbol=>Any)[
+			)),
+			liquid_stream (Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream From Reboiler",
 				:PosX=>1,
 				:PosY=>1
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Connector for Liquid outlet stream From Reboiler",
 				:Hidden=>true
-			]),
+			)),
 			[
 				:(CondenserUnity.InletV.F*trays(1).vV = alfaTopo *_P1.Ah * sqrt(2*(trays(1).OutletV.P - CondenserUnity.OutletL.P + 1e-8 * "atm") / (_P1.alfa*trays(1).rhoV))),
 				:(CondenserUnity.InletV.F = 0 * "mol/s"),
@@ -170,7 +170,7 @@ function setEquationFlow(in::User_Distillation_kettle_cond)
 	addEquation(24)
 end
 function atributes(in::User_Distillation_kettle_cond,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/DistillationKettleCond"
 	fields[:Brief]="Model of a distillation column with dynamic condenser and dynamic reboiler."

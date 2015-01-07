@@ -18,15 +18,15 @@
 type Sum
 	Sum()=begin
 		new(
-			DanaReal ((Symbol=>Any)[
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"input signal 1"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"input signal 2"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"output signal"
-			]),
+			)),
 			[
 				:(output = input1+input2),
 			],
@@ -49,7 +49,7 @@ function setEquationFlow(in::Sum)
 	addEquation(1)
 end
 function atributes(in::Sum,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Sum"
 	fields[:Brief]="Model Sum."

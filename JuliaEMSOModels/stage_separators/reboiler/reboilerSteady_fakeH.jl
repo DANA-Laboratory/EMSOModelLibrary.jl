@@ -8,36 +8,36 @@ type reboilerSteady_fakeH
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
+			)),
 			DanaInteger(),
-			press_delta ((Symbol=>Any)[
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop in the reboiler"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Flow Constant",
 				:Unit=>"mol/J"
-			]),
-			stream((Symbol=>Any)[
+			)),
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid inlet stream",
 				:PosX=>0.3345,
 				:PosY=>1,
 				:Symbol=>"_{inL}"
-			]),
-			vapour_stream((Symbol=>Any)[
+			)),
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"Vapour outlet stream",
 				:PosX=>0.3369,
 				:PosY=>0,
 				:Symbol=>"_{outV}"
-			]),
-			energy_stream ((Symbol=>Any)[
+			)),
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Heat supplied",
 				:PosX=>1,
 				:PosY=>0.6111,
 				:Symbol=>"_{in}"
-			]),
+			)),
 			[
 				:(InletL.F = OutletV.F),
 				:(InletL.z = OutletV.z),
@@ -78,7 +78,7 @@ function setEquationFlow(in::reboilerSteady_fakeH)
 	addEquation(7)
 end
 function atributes(in::reboilerSteady_fakeH,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/ReboilerSteady"
 	fields[:Brief]="Model of a  Steady State reboiler with fake calculation of outlet conditions."

@@ -42,63 +42,63 @@ type gibbs_vap
 	gibbs_vap()=begin
 		new(
 			tank_vap(),
-			DanaInteger ((Symbol=>Any)[
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of elements",
 				:Default=>1
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Universal gas constant",
 				:Unit=>"J/mol/K",
 				:Default=>8.314,
 				:Hidden=>true
-			]),
-			fill(DanaReal ((Symbol=>Any)[
+			)),
+			fill(DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Number of elements per component"
-			]),(NElem,NComp)),
-			fill(pressure ((Symbol=>Any)[
+			)),(NElem,NComp)),
+			fill(pressure (Dict{Symbol,Any}(
 				:Brief=>"Fugacity in standard state",
 				:Default=>1,
 				:DisplayUnit=>"atm",
 				:Hidden=>true
-			]),(NComp)),
-			temperature ((Symbol=>Any)[
+			)),(NComp)),
+			temperature (Dict{Symbol,Any}(
 				:Brief=>"Reference temperature",
 				:Default=>298.15,
 				:Hidden=>true
-			]),
-			vapour_stream((Symbol=>Any)[
+			)),
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>1,
 				:PosY=>1,
 				:Symbol=>"_{out}"
-			]),
-			fill(energy_mol ((Symbol=>Any)[
+			)),
+			fill(energy_mol (Dict{Symbol,Any}(
 				:Brief=>"Gibbs free-energy change of formation",
 				:Protected=>true
-			]),(NComp)),
-			fill(energy_mol ((Symbol=>Any)[
+			)),(NComp)),
+			fill(energy_mol (Dict{Symbol,Any}(
 				:Brief=>"Lagrangian multiplier",
 				:Symbol=>"\\lambda",
 				:Hidden=>true
-			]),(NElem)),
-			fill(DanaReal ((Symbol=>Any)[
+			)),(NElem)),
+			fill(DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Activity",
 				:Symbol=>"\\hat{a}",
 				:Lower=>0,
 				:Protected=>true
-			]),(NComp)),
-			fill(reaction_mol ((Symbol=>Any)[
+			)),(NComp)),
+			fill(reaction_mol (Dict{Symbol,Any}(
 				:Brief=>"Overall component rate of reaction"
-			]),(NComp)),
-			fill(DanaReal ((Symbol=>Any)[
+			)),(NComp)),
+			fill(DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Fractional conversion of component",
 				:Symbol=>"X",
 				:Default=>0
-			]),(NComp)),
-			fill(flow_mol ((Symbol=>Any)[
+			)),(NComp)),
+			fill(flow_mol (Dict{Symbol,Any}(
 				:Brief=>"Component molar flow rate",
 				:Hidden=>true
-			]),(NComp)),
+			)),(NComp)),
 			[
 				:(Outlet.F*Outlet.z = _P1._P1.Outletm.F*_P1._P1.Outletm.z + rate*_P1._P1.Tank.V),
 				:(Outlet.P = _P1._P1.Outletm.P),
@@ -168,7 +168,7 @@ function setEquationFlow(in::gibbs_vap)
 	addEquation(12)
 end
 function atributes(in::gibbs_vap,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/cstr"
 	fields[:Brief]="Model of a generic vapour-phase Gibbs CSTR"

@@ -24,19 +24,19 @@ type Lag_1
 			"",
 		],
 		new(
-			positive ((Symbol=>Any)[
+			positive (Dict{Symbol,Any}(
 				:Brief=>"model gain"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"model time constant",
 				:Unit=>"s"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"input signal"
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"output signal"
-			]),
+			)),
 			[
 				:(gain*input= tau*diff(output) + output),
 			],
@@ -67,7 +67,7 @@ function initial(in::Lag_1)
 	addEquation(1)
 end
 function atributes(in::Lag_1,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Lag_1"
 	fields[:Brief]="Model Lag."

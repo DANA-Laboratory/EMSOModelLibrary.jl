@@ -6,38 +6,38 @@ type reboilerSteady
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
+			)),
 			DanaInteger(),
-			press_delta ((Symbol=>Any)[
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop in the reboiler"
-			]),
-			stream((Symbol=>Any)[
+			)),
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid inlet stream",
 				:PosX=>0.3345,
 				:PosY=>1,
 				:Symbol=>"_{inL}"
-			]),
-			vapour_stream((Symbol=>Any)[
+			)),
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"Vapour outlet stream",
 				:PosX=>0.3369,
 				:PosY=>0,
 				:Symbol=>"_{outV}"
-			]),
-			energy_stream ((Symbol=>Any)[
+			)),
+			energy_stream (Dict{Symbol,Any}(
 				:Brief=>"Heat supplied",
 				:PosX=>1,
 				:PosY=>0.6111,
 				:Symbol=>"_{in}"
-			]),
-			volume_mol ((Symbol=>Any)[
+			)),
+			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar volume"
-			]),
-			dens_mass ((Symbol=>Any)[
+			)),
+			dens_mass (Dict{Symbol,Any}(
 				:Brief=>"Vapour Density"
-			]),
+			)),
 			[
 				:(InletL.F = OutletV.F),
 				:(InletL.z = OutletV.z),
@@ -77,7 +77,7 @@ function setEquationFlow(in::reboilerSteady)
 	addEquation(6)
 end
 function atributes(in::reboilerSteady,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/ReboilerSteady"
 	fields[:Brief]="Model of a  Steady State reboiler with no thermodynamics equilibrium - thermosyphon."

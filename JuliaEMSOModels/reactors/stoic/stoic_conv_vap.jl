@@ -5,15 +5,15 @@ type stoic_conv_vap
 	stoic_conv_vap()=begin
 		new(
 			stoic_vap(),
-			DanaInteger((Symbol=>Any)[
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Key component",
 				:Lower=>1,
 				:Default=>1
-			]),
-			DanaReal ((Symbol=>Any)[
+			)),
+			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Molar conversion of key component",
 				:Symbol=>"X_k"
-			]),
+			)),
 			[
 				:(_P1.rate*_P1._P1._P1.Tank.V = sumt(_P1.stoic)/abs(sumt(_P1.stoic(KComp,:)))*_P1._P1._P1.Outletm.F*_P1._P1._P1.Outletm.z(KComp)*kconv),
 			],
@@ -38,7 +38,7 @@ function setEquationFlow(in::stoic_conv_vap)
 	addEquation(1)
 end
 function atributes(in::stoic_conv_vap,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/cstr"
 	fields[:Brief]="Model of a generic vapour-phase stoichiometric CSTR based on conversion of a key component"

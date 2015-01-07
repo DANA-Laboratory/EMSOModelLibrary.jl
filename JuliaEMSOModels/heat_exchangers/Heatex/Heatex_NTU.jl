@@ -20,39 +20,39 @@ type Heatex_NTU
 	Heatex_NTU()=begin
 		new(
 			Heatex_Basic(),
-			DanaSwitcher ((Symbol=>Any)[
+			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Type of Heat Exchanger",
 				:Valid=>["Counter Flow","Cocurrent Flow", "Shell and Tube"],
 				:Default=>"Cocurrent Flow"
-			]),
-			NTU_Basic ((Symbol=>Any)[
+			)),
+			NTU_Basic (Dict{Symbol,Any}(
 				:Brief=>"NTU Method of Calculation",
 				:Symbol=>" "
-			]),
-			fill(fraction ((Symbol=>Any)[
+			)),
+			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Fraction in Hot Side",
 				:Hidden=>true
-			]),(NComp)),
-			fill(fraction ((Symbol=>Any)[
+			)),(NComp)),
+			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar Fraction in Hot Side",
 				:Hidden=>true
-			]),(NComp)),
-			fraction ((Symbol=>Any)[
+			)),(NComp)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Vapour Fraction in Hot Side",
 				:Hidden=>true
-			]),
-			fill(fraction ((Symbol=>Any)[
+			)),
+			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Fraction in Cold Side",
 				:Hidden=>true
-			]),(NComp)),
-			fill(fraction ((Symbol=>Any)[
+			)),(NComp)),
+			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar Fraction in Cold Side",
 				:Hidden=>true
-			]),(NComp)),
-			fraction ((Symbol=>Any)[
+			)),(NComp)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Vapour Fraction in Cold Side",
 				:Hidden=>true
-			]),
+			)),
 			[
 				:([vh, xh, yh] = _P1.PP.Flash(_P1.InletHot.T, _P1.InletHot.P, _P1.InletHot.z)),
 				:([vc, xc, yc] = _P1.PP.Flash(_P1.InletCold.T, _P1.InletCold.P, _P1.InletCold.z)),
@@ -123,7 +123,7 @@ function setEquationFlow(in::Heatex_NTU)
 	end
 end
 function atributes(in::Heatex_NTU,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/HeatExchanger_NTU"
 	fields[:Brief]="Simplified model for Heat Exchangers"

@@ -60,7 +60,7 @@ export moment_inertia
 typealias Danamoment_inertia DanaRealParametric
 type _moment_inertia
 	function _moment_inertia(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Moment Of Inertia"
 		fields[:Default]=100
 		fields[:Lower]=1E-3

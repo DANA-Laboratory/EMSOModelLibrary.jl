@@ -47,7 +47,7 @@ export cv_mol
 typealias Danacv_mol DanaRealParametric
 type _cv_mol
 	function _cv_mol(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Molar Heat Capacity"
 		fields[:Default]=100
 		fields[:Lower]=1

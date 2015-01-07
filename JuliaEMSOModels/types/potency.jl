@@ -31,7 +31,7 @@ export potency
 typealias Danapotency DanaRealParametric
 type _potency
 	function _potency(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Potency"
 		fields[:Default]=10
 		fields[:Lower]=-1e3

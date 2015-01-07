@@ -31,7 +31,7 @@ export voltage
 typealias Danavoltage Danapositive
 type _voltage
 	function _voltage(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Electrical Voltage"
 		fields[:Default]=100
 		fields[:Upper]=1e9

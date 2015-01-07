@@ -26,7 +26,7 @@ export control_signal
 typealias Danacontrol_signal DanaRealParametric
 type _control_signal
 	function _control_signal(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Control Signal"
 		fields[:Default]=1
 		fields[:Lower]=-1e9

@@ -19,49 +19,49 @@ type Properties_Average
 	Properties_Average()=begin
 		N=outers.N
 		new(
-			DanaInteger ((Symbol=>Any)[
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of zones",
 				:Default=>2
-			]),
-			molweight ((Symbol=>Any)[
+			)),
+			molweight (Dict{Symbol,Any}(
 				:Brief=>"Average Mol Weight",
 				:Default=>75,
 				:Lower=>1,
 				:Upper=>1e8
-			]),
-			fill(temperature ((Symbol=>Any)[
+			)),
+			fill(temperature (Dict{Symbol,Any}(
 				:Brief=>"Average  Incremental Temperature",
 				:Lower=>50
-			]),(N)),
-			fill(pressure ((Symbol=>Any)[
+			)),(N)),
+			fill(pressure (Dict{Symbol,Any}(
 				:Brief=>"Average  Incremental Pressure",
 				:Default=>1,
 				:Lower=>1e-10,
 				:Upper=>2e4,
 				:DisplayUnit=>"kPa"
-			]),(N)),
-			fill(dens_mass ((Symbol=>Any)[
+			)),(N)),
+			fill(dens_mass (Dict{Symbol,Any}(
 				:Brief=>"Stream Incremental Density" ,
 				:Default=>1000,
 				:Lower=>1e-3,
 				:Upper=>5e5,
 				:Symbol=>"\\rho"
-			]),(N)),
-			fill(viscosity ((Symbol=>Any)[
+			)),(N)),
+			fill(viscosity (Dict{Symbol,Any}(
 				:Brief=>"Stream Incremental Viscosity",
 				:Lower=>0.0001,
 				:Symbol=>"\\mu"
-			]),(N)),
-			fill(cp_mol ((Symbol=>Any)[
+			)),(N)),
+			fill(cp_mol (Dict{Symbol,Any}(
 				:Brief=>"Stream Incremental Molar Heat Capacity",
 				:Upper=>1e10
-			]),(N)),
-			fill(conductivity ((Symbol=>Any)[
+			)),(N)),
+			fill(conductivity (Dict{Symbol,Any}(
 				:Brief=>"Stream Incremental Thermal Conductivity",
 				:Default=>1.0,
 				:Lower=>1e-5,
 				:Upper=>500
-			]),(N)),
+			)),(N)),
 			[:N,],
 			[:Mw,:T,:P,:rho,:Mu,:Cp,:K,]
 		)
@@ -80,7 +80,7 @@ type Properties_Average
 end
 export Properties_Average
 function atributes(in::Properties_Average,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Average incremental physical properties of the streams."
 	fields[:Info]="to be documented."

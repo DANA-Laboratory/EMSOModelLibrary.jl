@@ -48,7 +48,7 @@ export entr_mol
 typealias Danaentr_mol DanaRealParametric
 type _entr_mol
 	function _entr_mol(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Molar Entropy"
 		fields[:Default]=0
 		fields[:Lower]=-1e4

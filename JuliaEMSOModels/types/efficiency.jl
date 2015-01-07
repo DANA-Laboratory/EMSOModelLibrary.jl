@@ -26,7 +26,7 @@ export efficiency
 typealias Danaefficiency DanaRealParametric
 type _efficiency
 	function _efficiency(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Efficiency"
 		fields[:Default]=0.5
 		fields[:finalLower]=0

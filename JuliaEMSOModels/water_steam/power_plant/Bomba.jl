@@ -3,27 +3,27 @@ type Bomba
 	Bomba()=begin
 		propterm=outers.propterm
 		new(
-			DanaPlugin((Symbol=>Any)[
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"Steam tables",
 				:Type=>"water"
-			]),
+			)),
 			VolumeEspecifico(),
 			Entalpia(),
-			Potencia((Symbol=>Any)[
+			Potencia(Dict{Symbol,Any}(
 				:Brief=>"Potencia do motor da bomba"
-			]),
-			Potencia((Symbol=>Any)[
+			)),
+			Potencia(Dict{Symbol,Any}(
 				:Brief=>"Potencia injetada pela bomba"
-			]),
-			Eficiencia((Symbol=>Any)[
+			)),
+			Eficiencia(Dict{Symbol,Any}(
 				:Brief=>"Eficiencia da bomba"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Symbol=>"_{in}"
-			]),
-			Corrente ((Symbol=>Any)[
+			)),
+			Corrente (Dict{Symbol,Any}(
 				:Symbol=>"_{out}"
-			]),
+			)),
 			[
 				:(H_IS = propterm.propPS(Fout.P,Fin.S)),
 				:((Fout.H - Fin.H) * EF_B = H_IS - Fin.H),
@@ -64,7 +64,7 @@ function setEquationFlow(in::Bomba)
 	addEquation(6)
 end
 function atributes(in::Bomba,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/bomba1"
 	drive!(fields,_)

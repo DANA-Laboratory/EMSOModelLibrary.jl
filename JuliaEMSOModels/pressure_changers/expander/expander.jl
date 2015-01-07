@@ -22,96 +22,96 @@ type expander
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin ((Symbol=>Any)[
+			DanaPlugin (Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
-			]),
-			DanaInteger ((Symbol=>Any)[
+			)),
+			DanaInteger (Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Constant of Gases",
 				:Unit=>"kJ/kmol/K",
 				:Default=>8.31451,
 				:Hidden=>true
-			]),
-			fill(molweight ((Symbol=>Any)[
+			)),
+			fill(molweight (Dict{Symbol,Any}(
 				:Brief=>"Molar Weight"
-			]),(NComp)),
-			positive ((Symbol=>Any)[
+			)),(NComp)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Isentropic Coefficient",
 				:Lower=>0.2
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Pressure Ratio",
 				:Symbol=>"P_{ratio}"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop",
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P"
-			]),
-			press_delta ((Symbol=>Any)[
+			)),
+			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Pressure Decrease",
 				:DisplayUnit=>"kPa",
 				:Symbol=>"P_{decr}"
-			]),
-			energy_mass ((Symbol=>Any)[
+			)),
+			energy_mass (Dict{Symbol,Any}(
 				:Brief=>"Head",
 				:Hidden=>true
-			]),
-			energy_mass ((Symbol=>Any)[
+			)),
+			energy_mass (Dict{Symbol,Any}(
 				:Brief=>"Isentropic Head"
-			]),
-			temperature ((Symbol=>Any)[
+			)),
+			temperature (Dict{Symbol,Any}(
 				:Brief=>"Isentropic Temperature"
-			]),
-			efficiency ((Symbol=>Any)[
+			)),
+			efficiency (Dict{Symbol,Any}(
 				:Brief=>"Isentropic efficiency"
-			]),
-			efficiency ((Symbol=>Any)[
+			)),
+			efficiency (Dict{Symbol,Any}(
 				:Brief=>"Mechanical efficiency"
-			]),
-			power ((Symbol=>Any)[
+			)),
+			power (Dict{Symbol,Any}(
 				:Brief=>"Fluid Power"
-			]),
-			power ((Symbol=>Any)[
+			)),
+			power (Dict{Symbol,Any}(
 				:Brief=>"Brake Power"
-			]),
-			power ((Symbol=>Any)[
+			)),
+			power (Dict{Symbol,Any}(
 				:Brief=>"Power Losses",
 				:Lower=>0
-			]),
-			molweight ((Symbol=>Any)[
+			)),
+			molweight (Dict{Symbol,Any}(
 				:Brief=>"Mixture Molar Weight"
-			]),
-			dens_mass ((Symbol=>Any)[
+			)),
+			dens_mass (Dict{Symbol,Any}(
 				:Brief=>"Mass Density"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Compressibility factor at inlet"
-			]),
-			fraction ((Symbol=>Any)[
+			)),
+			fraction (Dict{Symbol,Any}(
 				:Brief=>"Compressibility factor at outlet"
-			]),
-			stream ((Symbol=>Any)[
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0.05,
 				:PosY=>0.0,
 				:Symbol=>"_{in}"
-			]),
-			streamPH ((Symbol=>Any)[
+			)),
+			streamPH (Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>0.65,
 				:PosY=>1,
 				:Symbol=>"_{out}"
-			]),
-			work_stream ((Symbol=>Any)[
+			)),
+			work_stream (Dict{Symbol,Any}(
 				:Brief=>"Work Outlet",
 				:PosX=>1,
 				:PosY=>0.46
-			]),
+			)),
 			[
 				:(Outlet.F = Inlet.F),
 				:(Outlet.z = Inlet.z),
@@ -200,7 +200,7 @@ function setEquationFlow(in::expander)
 	addEquation(19)
 end
 function atributes(in::expander,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/expander"
 	fields[:Brief]="Model of an expansor."

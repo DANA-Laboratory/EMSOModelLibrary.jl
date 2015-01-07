@@ -26,7 +26,7 @@ export fraction
 typealias Danafraction DanaRealParametric
 type _fraction
 	function _fraction(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Fraction"
 		fields[:Default]=0.5
 		fields[:Lower]=-1e-6

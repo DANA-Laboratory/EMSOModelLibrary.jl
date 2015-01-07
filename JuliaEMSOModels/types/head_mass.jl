@@ -27,7 +27,7 @@ export head_mass
 typealias Danahead_mass DanaRealParametric
 type _head_mass
 	function _head_mass(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Head"
 		fields[:Default]=50
 		fields[:Lower]=-1e6

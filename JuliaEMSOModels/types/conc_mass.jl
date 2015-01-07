@@ -40,7 +40,7 @@ export conc_mass
 typealias Danaconc_mass Danadens_mass
 type _conc_mass
 	function _conc_mass(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Mass Concentration"
 		drive!(fields,_)
 		new(_dens_mass (fields).value)

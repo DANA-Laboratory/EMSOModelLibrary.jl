@@ -39,7 +39,7 @@ export conc_mol
 typealias Danaconc_mol Danadens_mol
 type _conc_mol
 	function _conc_mol(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Molar Concentration"
 		fields[:Default]=1e-3
 		drive!(fields,_)

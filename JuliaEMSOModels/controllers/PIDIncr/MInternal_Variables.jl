@@ -18,55 +18,55 @@
 type MInternal_Variables
 	MInternal_Variables()=begin
 		new(
-			control_signal ((Symbol=>Any)[
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Derivative term",
 				:Unit=>"1/s",
 				:Default=>0
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Derivative term filtered",
 				:Default=>0.5,
 				:Unit=>"1/s"
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Error definition for proportional term",
 				:Unit=>"1/s"
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Error definition for derivative term",
 				:Unit=>"1/s"
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Error definition for integral term"
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Filtered input"
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Integral term",
 				:Default=>0,
 				:Unit=>"1/s"
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Sum of proportional, integral and derivative terms",
 				:Unit=>"1/s"
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Variable outp scaled between -1 and 1",
 				:Default=>0.5
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Variable outp"
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Proportional term",
 				:Default=>0,
 				:Unit=>"1/s"
-			]),
-			control_signal ((Symbol=>Any)[
+			)),
+			control_signal (Dict{Symbol,Any}(
 				:Brief=>"Filtered setPoint",
 				:Default=>0
-			]),
+			)),
 			[:dderivTerm,:dFilt,:error,:errorD,:errorI,:inputFilt,:dintTerm,:doutp,:outps,:outp,:dpropTerm,:setPointFilt,]
 		)
 	end
@@ -87,7 +87,7 @@ type MInternal_Variables
 end
 export MInternal_Variables
 function atributes(in::MInternal_Variables,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Model of Internal Variables to be used with incremental PIDs."
 	drive!(fields,_)

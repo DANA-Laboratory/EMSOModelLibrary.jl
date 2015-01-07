@@ -50,7 +50,7 @@ export energy
 typealias Danaenergy DanaRealParametric
 type _energy
 	function _energy(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Energy"
 		fields[:Default]=10000
 		fields[:Lower]=-1e11

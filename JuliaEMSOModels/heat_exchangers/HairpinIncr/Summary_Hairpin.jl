@@ -18,21 +18,21 @@
 type Summary_Hairpin
 	Summary_Hairpin()=begin
 		new(
-			area ((Symbol=>Any)[
+			area (Dict{Symbol,Any}(
 				:Brief=>"Total Exchange Surface Area"
-			]),
-			power ((Symbol=>Any)[
+			)),
+			power (Dict{Symbol,Any}(
 				:Brief=>"Total Duty",
 				:Default=>7000,
 				:Lower=>1e-8,
 				:Upper=>1e10
-			]),
-			Results_Hairpin ((Symbol=>Any)[
+			)),
+			Results_Hairpin (Dict{Symbol,Any}(
 				:Brief=>"Inner Side Summary"
-			]),
-			Results_Hairpin ((Symbol=>Any)[
+			)),
+			Results_Hairpin (Dict{Symbol,Any}(
 				:Brief=>"Outer Side Summary"
-			]),
+			)),
 			[:A,:Qtotal,:Inner,:Outer,]
 		)
 	end
@@ -45,7 +45,7 @@ type Summary_Hairpin
 end
 export Summary_Hairpin
 function atributes(in::Summary_Hairpin,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="to be documented"
 	fields[:Info]="to be documented"

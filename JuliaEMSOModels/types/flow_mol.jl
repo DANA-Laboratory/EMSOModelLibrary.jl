@@ -57,7 +57,7 @@ export flow_mol
 typealias Danaflow_mol Danapositive
 type _flow_mol
 	function _flow_mol(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Mole Flow"
 		fields[:Default]=10
 		fields[:Upper]=1e8

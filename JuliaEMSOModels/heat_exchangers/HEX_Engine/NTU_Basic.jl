@@ -18,53 +18,53 @@
 type NTU_Basic
 	NTU_Basic()=begin
 		new(
-			positive ((Symbol=>Any)[
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Hot Stream Heat Capacity",
 				:Lower=>1e-3,
 				:Default=>1e3,
 				:Unit=>"W/K"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Cold Stream Heat Capacity",
 				:Lower=>1e-3,
 				:Default=>1e3,
 				:Unit=>"W/K"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Heat Capacity Ratio",
 				:Default=>0.5,
 				:Lower=>1e-6
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Minimum Heat Capacity",
 				:Lower=>1e-10,
 				:Default=>1e3,
 				:Unit=>"W/K"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Maximum Heat Capacity",
 				:Lower=>1e-10,
 				:Default=>1e3,
 				:Unit=>"W/K"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of Units Transference",
 				:Default=>0.05,
 				:Lower=>1e-10
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Effectiveness",
 				:Default=>0.5,
 				:Lower=>1e-8,
 				:Upper=>1,
 				:Symbol=>"\\varepsilon"
-			]),
-			positive ((Symbol=>Any)[
+			)),
+			positive (Dict{Symbol,Any}(
 				:Brief=>"Effectiveness Correction",
 				:Lower=>1e-8,
 				:Default=>0.5,
 				:Symbol=>"\\hat {\\varepsilon}"
-			]),
+			)),
 			[:Ch,:Cc,:Cr,:Cmin,:Cmax,:NTU,:Eft,:Eft1,]
 		)
 	end
@@ -81,7 +81,7 @@ type NTU_Basic
 end
 export NTU_Basic
 function atributes(in::NTU_Basic,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Number of Units Transference Method."
 	fields[:Info]="to be documented"

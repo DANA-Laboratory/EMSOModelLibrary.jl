@@ -30,7 +30,7 @@ export volume
 typealias Danavolume Danapositive
 type _volume
 	function _volume(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Volume"
 		fields[:Default]=10
 		fields[:Upper]=1000

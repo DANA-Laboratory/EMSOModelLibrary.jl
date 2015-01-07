@@ -51,7 +51,7 @@ export flow_mass
 typealias Danaflow_mass Danapositive
 type _flow_mass
 	function _flow_mass(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Mass Flow"
 		fields[:Default]=1000
 		fields[:Upper]=1e10

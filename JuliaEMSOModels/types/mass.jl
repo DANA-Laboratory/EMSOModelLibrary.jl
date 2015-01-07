@@ -32,7 +32,7 @@ export mass
 typealias Danamass Danapositive
 type _mass
 	function _mass(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Mass"
 		fields[:Default]=2.5
 		fields[:Upper]=1e6

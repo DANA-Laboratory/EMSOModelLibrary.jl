@@ -30,7 +30,7 @@ export length_delta
 typealias Danalength_delta Danalength
 type _length_delta
 	function _length_delta(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Difference of Length"
 		fields[:Lower]=-1000
 		drive!(fields,_)

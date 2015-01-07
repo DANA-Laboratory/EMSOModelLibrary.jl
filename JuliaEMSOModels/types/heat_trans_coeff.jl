@@ -50,7 +50,7 @@ export heat_trans_coeff
 typealias Danaheat_trans_coeff Danapositive
 type _heat_trans_coeff
 	function _heat_trans_coeff(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Heat Transference Coefficient"
 		fields[:Default]=1
 		fields[:Upper]=1e3

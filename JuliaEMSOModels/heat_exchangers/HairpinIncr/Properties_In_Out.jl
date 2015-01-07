@@ -18,16 +18,16 @@
 type Properties_In_Out
 	Properties_In_Out()=begin
 		new(
-			flow_mass ((Symbol=>Any)[
+			flow_mass (Dict{Symbol,Any}(
 				:Brief=>"Stream Mass Flow"
-			]),
-			dens_mass ((Symbol=>Any)[
+			)),
+			dens_mass (Dict{Symbol,Any}(
 				:Brief=>"Stream Density" ,
 				:Default=>1000,
 				:Lower=>1e-3,
 				:Upper=>5e5,
 				:Symbol=>"\\rho"
-			]),
+			)),
 			[:Fw,:rho,]
 		)
 	end
@@ -38,7 +38,7 @@ type Properties_In_Out
 end
 export Properties_In_Out
 function atributes(in::Properties_In_Out,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=false
 	fields[:Brief]="Inlet and outlet physical properties of the streams."
 	fields[:Info]="to be documented."

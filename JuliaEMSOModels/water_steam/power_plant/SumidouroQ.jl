@@ -22,11 +22,11 @@
 type SumidouroQ
 	SumidouroQ()=begin
 		new(
-			Potencia((Symbol=>Any)[
+			Potencia(Dict{Symbol,Any}(
 				:Symbol=>"_{in}",
 				:PosX=>0,
 				:PosY=>0.5
-			]),
+			)),
 			[:Qin,]
 		)
 	end
@@ -36,7 +36,7 @@ type SumidouroQ
 end
 export SumidouroQ
 function atributes(in::SumidouroQ,_::Dict{Symbol,Any})
-	fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/sumidouroQ"
 	fields[:Brief]="Sumidouro de calor"

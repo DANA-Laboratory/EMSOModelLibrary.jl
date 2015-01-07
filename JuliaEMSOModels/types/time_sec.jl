@@ -29,7 +29,7 @@ export time_sec
 typealias Danatime_sec Danatime_h
 type _time_sec
 	function _time_sec(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Time in seconds"
 		fields[:DisplayUnit]="s"
 		drive!(fields,_)

@@ -30,7 +30,7 @@ export area
 typealias Danaarea Danapositive
 type _area
 	function _area(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Area"
 		fields[:Default]=1
 		fields[:Upper]=1E6

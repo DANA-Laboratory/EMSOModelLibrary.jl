@@ -30,7 +30,7 @@ export length
 typealias Danalength Danapositive
 type _length
 	function _length(_::Dict{Symbol,Any})
-		fields::Dict{Symbol,Any}=(Symbol=>Any)[]
+		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Length"
 		fields[:Default]=1
 		fields[:Upper]=5e6
