@@ -45,7 +45,7 @@ type HeatExchanger_NTU_cost
 				:Brief=>"Average  Pressure"
 			)),
 			[
-				:(Pmax = max( [_P1._P1.OutletHot.P , _P1._P1.OutletCold.P] )),
+				:(Pmax = max( [_base_1._base_1.OutletHot.P , _base_1._base_1.OutletCold.P] )),
 				:(Ce = Cb*Fd*Fp*Fm),
 				:(Cb = "US\$"*exp(Cost(1,1) + Cost(1,2)*ln(A/"m^2") + Cost(1,3)*(ln(A/"m^2"))^2)),
 				:(Fd = exp(Cost(2,1) + Cost(2,2)*ln(A/"m^2") + Cost(2,3)*ln(A/"m^2"))),
@@ -63,7 +63,7 @@ type HeatExchanger_NTU_cost
 			[:Ce,:Cb,:Fd,:Fp,:Fm,:Pmax,]
 		)
 	end
-	_P1::Heatex_NTU
+	_base_1::Heatex_NTU
 	Material::DanaSwitcher 
 	Cost::Array{DanaReal}
 	Ce::currency 
@@ -120,4 +120,3 @@ HeatExchanger_NTU_cost(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(HeatExchanger_NTU_cost)

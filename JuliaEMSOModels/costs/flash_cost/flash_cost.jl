@@ -102,7 +102,7 @@ type flash_cost
 			[:Ce,:Cb,:Ca,:Fm,:Ws,]
 		)
 	end
-	_P1::flash
+	_base_1::flash
 	Material::DanaSwitcher 
 	Cost::Array{DanaReal}
 	flash_length::length 
@@ -150,4 +150,3 @@ flash_cost(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(flash_cost)

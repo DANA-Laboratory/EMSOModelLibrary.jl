@@ -26,8 +26,8 @@ type cstr_yield
 				:Brief=>"Yield"
 			)),(NReac)),
 			[
-				:(_P1.Outlet.z*_P1.Outlet.F = _P1.Inlet.z*_P1.Inlet.F * sumt(_P1.stoic*(1-yield))),
-				:(diff(M*_P1.Outlet.h) = _P1.Inlet.F*_P1.Inlet.h - _P1.Outlet.F*_P1.Outlet.h - q),
+				:(_base_1.Outlet.z*_base_1.Outlet.F = _base_1.Inlet.z*_base_1.Inlet.F * sumt(_base_1.stoic*(1-yield))),
+				:(diff(M*_base_1.Outlet.h) = _base_1.Inlet.F*_base_1.Inlet.h - _base_1.Outlet.F*_base_1.Outlet.h - q),
 			],
 			[
 				"","Reactor Energy Balance",
@@ -35,7 +35,7 @@ type cstr_yield
 			[:yield,],
 		)
 	end
-	_P1::cstr_basic
+	_base_1::cstr_basic
 	yield::Array{fraction }
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
@@ -60,4 +60,3 @@ cstr_yield(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(cstr_yield)

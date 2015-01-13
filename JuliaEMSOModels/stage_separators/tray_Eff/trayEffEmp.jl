@@ -144,46 +144,46 @@ type trayEffEmp
 				:Brief=>"Apparent Murphree tray efficiency"
 			)),
 			[
-				:(Qv=_P1._P1.OutletV.F*_P1._P1.vV),
-				:(Ql=_P1._P1.OutletL.F*_P1._P1.vL),
+				:(Qv=_base_1._base_1.OutletV.F*_base_1._base_1.vV),
+				:(Ql=_base_1._base_1.OutletL.F*_base_1._base_1.vL),
 				:(Mv=Qv*rhoV),
 				:(Ml=Ql*rhoL),
 				:(ua=Qv/Aa),
 				:(fs=ua*rhoV^.5),
-				:(c=.5+0.438*exp(-137.8*"1/m"*_P1.hw)),
+				:(c=.5+0.438*exp(-137.8*"1/m"*_base_1.hw)),
 				:(ae=exp(-12.55*(ua*"s/m"*(rhoV/(rhoL-rhoV))^0.5)^0.91)),
-				:(hcl=ae*(_P1.hw*"1/m"+c*((Ql*"s/m^3")/(_P1.lw*"1/m"*ae))^.67)*"m"),
+				:(hcl=ae*(_base_1.hw*"1/m"+c*((Ql*"s/m^3")/(_base_1.lw*"1/m"*ae))^.67)*"m"),
 				:(tv=(1-ae)*hcl/(ae*ua)),
-				:(tl=hcl*z*_P1.lw/Ql),
-				:(us*_P1._P1.Ap=Qv),
+				:(tl=hcl*z*_base_1.lw/Ql),
+				:(us*_base_1._base_1.Ap=Qv),
 				:((fp*Mv)^2*rhoL=Ml^2*rhoV),
 				:(csb=(0.0744*Ts*"1/m"+0.0117)*(log(abs(1/fp)))+0.0304*Ts*"1/m"+0.0153),
 				:(uf = csb*(sigma*"1/(N/m)"/0.02)^.2*(abs((rhoL-rhoV)/rhoV))^.5*(fi/.1)^.44*"m/s"),
 				:(ff*uf=us),
-				:(VinLK=_P1._P1.InletV.z(iLK)/(_P1._P1.InletV.z(iLK)+_P1._P1.InletV.z(iHK))),
-				:(VoutLk=_P1._P1.OutletV.z(iLK)/(_P1._P1.OutletV.z(iLK)+_P1._P1.OutletV.z(iHK))),
-				:(LinLK=_P1._P1.InletL.z(iLK)/(_P1._P1.InletL.z(iLK)+_P1._P1.InletL.z(iHK))),
-				:(LoutLk=_P1._P1.OutletL.z(iLK)/(_P1._P1.OutletL.z(iLK)+_P1._P1.OutletL.z(iHK))),
+				:(VinLK=_base_1._base_1.InletV.z(iLK)/(_base_1._base_1.InletV.z(iLK)+_base_1._base_1.InletV.z(iHK))),
+				:(VoutLk=_base_1._base_1.OutletV.z(iLK)/(_base_1._base_1.OutletV.z(iLK)+_base_1._base_1.OutletV.z(iHK))),
+				:(LinLK=_base_1._base_1.InletL.z(iLK)/(_base_1._base_1.InletL.z(iLK)+_base_1._base_1.InletL.z(iHK))),
+				:(LoutLk=_base_1._base_1.OutletL.z(iLK)/(_base_1._base_1.OutletL.z(iLK)+_base_1._base_1.OutletL.z(iHK))),
 				:(VinLK=1),
 				:(VoutLk=1),
 				:(LinLK=1),
 				:(LoutLk=1),
-				:(lambda=m*(_P1._P1.OutletV.F/_P1._P1.OutletL.F)),
+				:(lambda=m*(_base_1._base_1.OutletV.F/_base_1._base_1.OutletL.F)),
 				:(NV*(abs(hcl)*"1/m")^.5=(10300-8670*ff)*ff*(Dv*"s/m^2")^0.5*tv*"1/s"),
 				:(NL=19700*((Dl*"s/m^2")^.5)*(.4*fs*"1/(kg^.5/m^.5/s)"+.17)*tl*"1/s"),
 				:(NV*NL=NOG*(NL+lambda*NV)),
 				:(EOG=1-exp(-NOG)),
-				:(De=(0.0005+0.01285*ua*"s/m"+6.32*(Ql*"s/m^3"/(_P1.lw*"1/m"))+0.312*_P1.hw*"1/m")^2),
-				:(Pe=(_P1._P1.OutletL.F*d)/(_P1.lw*hcl*(1/_P1._P1.vL)*De*"m^2/s")),
+				:(De=(0.0005+0.01285*ua*"s/m"+6.32*(Ql*"s/m^3"/(_base_1.lw*"1/m"))+0.312*_base_1.hw*"1/m")^2),
+				:(Pe=(_base_1._base_1.OutletL.F*d)/(_base_1.lw*hcl*(1/_base_1._base_1.vL)*De*"m^2/s")),
 				:(n=Pe/2*((1+4*lambda*EOG/Pe)^.5-1)),
 				:(Emv1=EOG),
 				:(Emv1/EOG=(1-exp(-(n+Pe)))/((n+Pe)*(1+(n+Pe)/n))+(exp(n)-1)/(n*(1+n/(n+Pe)))),
 				:(lambda*Emv1=(exp(lambda*EOG)-1)),
 				:(hb=hcl*(265*((ua/(g*hcl)^.5)*(rhoV/rhoL)^.5)^1.7+1)),
-				:(uh=Qv/_P1.Ah),
+				:(uh=Qv/_base_1.Ah),
 				:(l=1e-8*(hb/Ts)^3*(uh/(Ql/Aa))^2),
 				:(Emv1=Emv2*(1+l*Emv1)),
-				:(_P1._P1.Emv=Emv2),
+				:(_base_1._base_1.Emv=Emv2),
 			],
 			[
 				"Vapour Volumetric Flow","Liquid Volumetric Flow","Vapour Mass Flow","Liquid Mass Flow","Superficial Velocity","Superficial Factor","Constant c","Effective liquid volume fraction","Clear Liquid Height","Mean residence time of vapour in dispersion","Mean residence time of liquid on tray","Superficial velocity based on Ap","Flow Parameter","Capacity Factor","Flood velocity","Flood Factor","Pseudo-binary Approach","","","","","","","","Stripping factor or ratio of slope of equilibrium line to slope of operating line","Number of vapour phase transfer units","Number of liquid phase transfer units","Number of overall vapour phase transfer units","Point Efficiency","Eddy diffusivity for liquid mixing","Peclet Number","Constant n","","","","Height on spray regime","Gas velocity through hole","Fraction of entrained liquid","Apparent Murphree tray efficiency","",
@@ -192,7 +192,7 @@ type trayEffEmp
 			[:Qv,:Ql,:Mv,:Ml,:Dv,:Dl,:sigma,:ua,:fs,:c,:ae,:hcl,:tv,:tl,:us,:fp,:csb,:uf,:ff,:lambda,:m,:VinLK,:VoutLk,:LinLK,:LoutLk,:NV,:NL,:NOG,:EOG,:De,:Pe,:n,:Emv1,:hb,:l,:uh,:Emv2,]
 		)
 	end
-	_P1::tray
+	_base_1::tray
 	z::length 
 	d::length 
 	Aa::area 
@@ -328,4 +328,3 @@ trayEffEmp(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(trayEffEmp)

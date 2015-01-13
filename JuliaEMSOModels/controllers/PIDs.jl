@@ -1,6 +1,6 @@
 module EMLPIDs
 	using DanaTypes
-	using NamesOfTypes
+	using TypeInheritance
 	require("EMSOModelLibrary.jl/JuliaEMSOModels/types.jl")
 	using EMLtypes
 	include("PIDs/MParameters.jl")

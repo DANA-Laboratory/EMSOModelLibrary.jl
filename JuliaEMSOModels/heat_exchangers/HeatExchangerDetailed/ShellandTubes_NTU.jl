@@ -23,16 +23,16 @@ type ShellandTubes_NTU
 				:Brief=>"NTU Method"
 			)),
 			[
-				:(Method.NTU*Method.Cmin = _P1.Details.Ud*_P1.Pi*_P1.Tubes.TubeOD*_P1.Tubes.NumberOfTubes*_P1.Tubes.TubeLength),
+				:(Method.NTU*Method.Cmin = _base_1.Details.Ud*_base_1.Pi*_base_1.Tubes.TubeOD*_base_1.Tubes.NumberOfTubes*_base_1.Tubes.TubeLength),
 				:(Method.Cmin = min([Method.Ch,Method.Cc])),
 				:(Method.Cmax = max([Method.Ch,Method.Cc])),
 				:(Method.Cr = Method.Cmin/Method.Cmax),
-				:(_P1.Details.Q = Method.Eft*Method.Cmin*(_P1.InletShell.T-_P1.InletTube.T)),
-				:(Method.Ch = _P1.InletShell.F*_P1.Shell.Properties.Average.Cp),
-				:(Method.Cc = _P1.InletTube.F*_P1.Tubes.Properties.Average.Cp),
-				:(_P1.Details.Q = Method.Eft*Method.Cmin*(_P1.InletTube.T-_P1.InletShell.T)),
-				:(Method.Cc = _P1.InletShell.F*_P1.Shell.Properties.Average.Cp),
-				:(Method.Ch = _P1.InletTube.F*_P1.Tubes.Properties.Average.Cp),
+				:(_base_1.Details.Q = Method.Eft*Method.Cmin*(_base_1.InletShell.T-_base_1.InletTube.T)),
+				:(Method.Ch = _base_1.InletShell.F*_base_1.Shell.Properties.Average.Cp),
+				:(Method.Cc = _base_1.InletTube.F*_base_1.Tubes.Properties.Average.Cp),
+				:(_base_1.Details.Q = Method.Eft*Method.Cmin*(_base_1.InletTube.T-_base_1.InletShell.T)),
+				:(Method.Cc = _base_1.InletShell.F*_base_1.Shell.Properties.Average.Cp),
+				:(Method.Ch = _base_1.InletTube.F*_base_1.Tubes.Properties.Average.Cp),
 				:(Method.Eft1 = 2*(1+Method.Cr+sqrt(1+Method.Cr^2)*((1+exp(-Method.NTU*sqrt(1+Method.Cr^2)))/(1-exp(-Method.NTU*sqrt(1+Method.Cr^2)))) )^-1),
 				:(Method.Eft = ( ((1-Method.Eft1*Method.Cr)/(1-Method.Eft1))^2 -1 )*( ((1-Method.Eft1*Method.Cr)/(1-Method.Eft1))^2 - Method.Cr )^-1),
 				:(Method.Eft = 2*(1+Method.Cr+sqrt(1+Method.Cr^2)*((1+exp(-Method.NTU*sqrt(1+Method.Cr^2)))/(1-exp(-Method.NTU*sqrt(1+Method.Cr^2)))) )^-1),
@@ -44,7 +44,7 @@ type ShellandTubes_NTU
 			[:Method,]
 		)
 	end
-	_P1::ShellandTubesBasic
+	_base_1::ShellandTubesBasic
 	Method::NTU_Basic 
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
@@ -99,4 +99,3 @@ ShellandTubes_NTU(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(ShellandTubes_NTU)

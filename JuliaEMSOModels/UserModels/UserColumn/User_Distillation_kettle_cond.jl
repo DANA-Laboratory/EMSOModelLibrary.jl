@@ -72,7 +72,7 @@ type User_Distillation_kettle_cond
 				:Hidden=>true
 			)),
 			[
-				:(CondenserUnity.InletV.F*trays(1).vV = alfaTopo *_P1.Ah * sqrt(2*(trays(1).OutletV.P - CondenserUnity.OutletL.P + 1e-8 * "atm") / (_P1.alfa*trays(1).rhoV))),
+				:(CondenserUnity.InletV.F*trays(1).vV = alfaTopo *_base_1.Ah * sqrt(2*(trays(1).OutletV.P - CondenserUnity.OutletL.P + 1e-8 * "atm") / (_base_1.alfa*trays(1).rhoV))),
 				:(CondenserUnity.InletV.F = 0 * "mol/s"),
 				:(ConnectorCondenserVout.T = VapourDistillate.T),
 				:(ConnectorCondenserVout.P = VapourDistillate.P),
@@ -86,14 +86,14 @@ type User_Distillation_kettle_cond
 				:(ConnectorReboilerLout.P = BottomProduct.P),
 				:(ConnectorReboilerLout.F = BottomProduct.F),
 				:(ConnectorReboilerLout.z = BottomProduct.z),
-				:(VapourDrawOff.F*_P1.VapSideTrayIndex= trays.VapourSideStream.F),
-				:(VapourDrawOff.T = trays(_P1.VapourSideStreamLocation).VapourSideStream.T),
-				:(VapourDrawOff.P = trays(_P1.VapourSideStreamLocation).VapourSideStream.P),
-				:(VapourDrawOff.z = trays(_P1.VapourSideStreamLocation).VapourSideStream.z),
-				:(LiquidDrawOff.F*_P1.LiqSideTrayIndex= trays.LiquidSideStream.F),
-				:(LiquidDrawOff.T = trays(_P1.LiquidSideStreamLocation).LiquidSideStream.T),
-				:(LiquidDrawOff.P = trays(_P1.LiquidSideStreamLocation).LiquidSideStream.P),
-				:(LiquidDrawOff.z = trays(_P1.LiquidSideStreamLocation).LiquidSideStream.z),
+				:(VapourDrawOff.F*_base_1.VapSideTrayIndex= trays.VapourSideStream.F),
+				:(VapourDrawOff.T = trays(_base_1.VapourSideStreamLocation).VapourSideStream.T),
+				:(VapourDrawOff.P = trays(_base_1.VapourSideStreamLocation).VapourSideStream.P),
+				:(VapourDrawOff.z = trays(_base_1.VapourSideStreamLocation).VapourSideStream.z),
+				:(LiquidDrawOff.F*_base_1.LiqSideTrayIndex= trays.LiquidSideStream.F),
+				:(LiquidDrawOff.T = trays(_base_1.LiquidSideStreamLocation).LiquidSideStream.T),
+				:(LiquidDrawOff.P = trays(_base_1.LiquidSideStreamLocation).LiquidSideStream.P),
+				:(LiquidDrawOff.z = trays(_base_1.LiquidSideStreamLocation).LiquidSideStream.z),
 				:(VapourDrawOffFlow = VapourDrawOff.F),
 				:(LiquidDrawOffFlow = LiquidDrawOff.F),
 			],
@@ -104,7 +104,7 @@ type User_Distillation_kettle_cond
 			[:VapourDrawOff,:LiquidDrawOff,:CondenserUnity,:ReboilerUnity,:SplitterTop,:PumpUnity,:alfaTopo,:HeatToReboiler,:HeatToCondenser,:RebNoFlow,:VapourDistillate,:ConnectorCondenserVout,:LiquidDistillate,:ConnectorSplitterOut,:BottomProduct,:ConnectorReboilerLout,]
 		)
 	end
-	_P1::User_Section_ColumnBasic
+	_base_1::User_Section_ColumnBasic
 	CondenserVapourFlow::DanaSwitcher 
 	VapourDrawOff::vapour_stream 
 	LiquidDrawOff::liquid_stream 
@@ -204,4 +204,3 @@ User_Distillation_kettle_cond(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(User_Distillation_kettle_cond)

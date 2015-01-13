@@ -21,15 +21,15 @@ type batch_isothermic
 		new(
 			batch_basic(),
 			[
-				:(T = _P1.Inlet.T),
-				:(P = _P1.Inlet.P),
+				:(T = _base_1.Inlet.T),
+				:(P = _base_1.Inlet.P),
 			],
 			[
 				"Isotermic","Isobaric",
 			],
 		)
 	end
-	_P1::batch_basic
+	_base_1::batch_basic
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	attributes::Dict{Symbol,Any}
@@ -56,4 +56,3 @@ batch_isothermic(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(batch_isothermic)

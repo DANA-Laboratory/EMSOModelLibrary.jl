@@ -44,16 +44,16 @@ type ShellandTubes_NTU_cost
 				:Brief=>"Average  Pressure"
 			)),
 			[
-				:(Pmax = max( [_P1._P1.Tubes.Properties.Average.P , _P1._P1.Shell.Properties.Average.P] )),
+				:(Pmax = max( [_base_1._base_1.Tubes.Properties.Average.P , _base_1._base_1.Shell.Properties.Average.P] )),
 				:(Ce = Cb*Fd*Fp*Fm),
-				:(Cb = "US\$"*exp(Cost(1,1) + Cost(1,2)*ln(_P1._P1.Details.A/"m^2") + Cost(1,3)*(ln(_P1._P1.Details.A/"m^2"))^2)),
-				:(Fd = exp(Cost(2,1) + Cost(2,2)*ln(_P1._P1.Details.A/"m^2") + Cost(2,3)*ln(_P1._P1.Details.A/"m^2"))),
-				:(Fp = Cost(5,1) + Cost(5,2)*ln(_P1._P1.Details.A/"m^2")),
-				:(Fp = Cost(5,1) + Cost(5,2)*ln(_P1._P1.Details.A/"m^2")),
-				:(Fp = Cost(6,1) + Cost(6,2)*ln(_P1._P1.Details.A/"m^2")),
-				:(Fp = Cost(7,1) + Cost(7,2)*ln(_P1._P1.Details.A/"m^2")),
-				:(Fp = Cost(7,1) + Cost(7,2)*ln(_P1._P1.Details.A/"m^2")),
-				:(Fm = Cost(8,1) + Cost(8,2)*ln(_P1._P1.Details.A/"m^2")),
+				:(Cb = "US\$"*exp(Cost(1,1) + Cost(1,2)*ln(_base_1._base_1.Details.A/"m^2") + Cost(1,3)*(ln(_base_1._base_1.Details.A/"m^2"))^2)),
+				:(Fd = exp(Cost(2,1) + Cost(2,2)*ln(_base_1._base_1.Details.A/"m^2") + Cost(2,3)*ln(_base_1._base_1.Details.A/"m^2"))),
+				:(Fp = Cost(5,1) + Cost(5,2)*ln(_base_1._base_1.Details.A/"m^2")),
+				:(Fp = Cost(5,1) + Cost(5,2)*ln(_base_1._base_1.Details.A/"m^2")),
+				:(Fp = Cost(6,1) + Cost(6,2)*ln(_base_1._base_1.Details.A/"m^2")),
+				:(Fp = Cost(7,1) + Cost(7,2)*ln(_base_1._base_1.Details.A/"m^2")),
+				:(Fp = Cost(7,1) + Cost(7,2)*ln(_base_1._base_1.Details.A/"m^2")),
+				:(Fm = Cost(8,1) + Cost(8,2)*ln(_base_1._base_1.Details.A/"m^2")),
 			],
 			[
 				"Average pressure","Capital Cost","Basic Cost","Cost Factor based on the type of the heat exchanger","Cost Factor based on the project pressure","","","","","Cost Factor based on the construction material",
@@ -62,7 +62,7 @@ type ShellandTubes_NTU_cost
 			[:Ce,:Cb,:Fd,:Fp,:Fm,:Pmax,]
 		)
 	end
-	_P1::ShellandTubes_NTU
+	_base_1::ShellandTubes_NTU
 	Material::DanaSwitcher 
 	Cost::Array{DanaReal}
 	Ce::currency 
@@ -119,4 +119,3 @@ ShellandTubes_NTU_cost(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(ShellandTubes_NTU_cost)

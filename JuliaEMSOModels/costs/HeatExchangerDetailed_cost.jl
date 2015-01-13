@@ -1,6 +1,6 @@
 module EMLHeatExchangerDetailed_cost
 	using DanaTypes
-	using NamesOfTypes
+	using TypeInheritance
 	require("EMSOModelLibrary.jl/JuliaEMSOModels/heat_exchangers/HeatExchangerDetailed.jl")
 	using EMLHeatExchangerDetailed
 	using EMLtypes

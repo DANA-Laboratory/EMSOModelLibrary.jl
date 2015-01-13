@@ -34,12 +34,12 @@ type trayRate
 			dens_mass(),
 			dens_mass(),
 			[
-				:(rhoL = _P1.PP.LiquidDensity(_P1.OutletL.T, _P1.OutletL.P, _P1.OutletL.z)),
-				:(rhoV = _P1.PP.VapourDensity(_P1.InletV.T, _P1.InletV.P, _P1.InletV.z)),
-				:(_P1.OutletL.F*_P1.vL = 1.84*"1/s"*lw*((_P1.Level-(beta*hw))/(beta))^2),
-				:(_P1.OutletL.F = 0 * "mol/h"),
-				:(_P1.InletV.F*_P1.vV = sqrt((_P1.InletV.P - _P1.OutletV.P)/(rhoV*alfa))*Ah),
-				:(_P1.InletV.F = 0 * "mol/s"),
+				:(rhoL = _base_1.PP.LiquidDensity(_base_1.OutletL.T, _base_1.OutletL.P, _base_1.OutletL.z)),
+				:(rhoV = _base_1.PP.VapourDensity(_base_1.InletV.T, _base_1.InletV.P, _base_1.InletV.z)),
+				:(_base_1.OutletL.F*_base_1.vL = 1.84*"1/s"*lw*((_base_1.Level-(beta*hw))/(beta))^2),
+				:(_base_1.OutletL.F = 0 * "mol/h"),
+				:(_base_1.InletV.F*_base_1.vV = sqrt((_base_1.InletV.P - _base_1.OutletV.P)/(rhoV*alfa))*Ah),
+				:(_base_1.InletV.F = 0 * "mol/s"),
 			],
 			[
 				"Liquid Density","Vapour Density","Francis Equation","Low level","","",
@@ -48,7 +48,7 @@ type trayRate
 			[:rhoL,:rhoV,]
 		)
 	end
-	_P1::trayRateBasic
+	_base_1::trayRateBasic
 	Ah::area 
 	lw::length 
 	g::acceleration 
@@ -122,4 +122,3 @@ trayRate(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(trayRate)

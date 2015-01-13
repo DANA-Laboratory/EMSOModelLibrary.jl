@@ -1,6 +1,6 @@
 module EMLcolumn_cost
 	using DanaTypes
-	using NamesOfTypes
+	using TypeInheritance
 	require("EMSOModelLibrary.jl/JuliaEMSOModels/stage_separators/column.jl")
 	using EMLcolumn
 	using EMLpump

@@ -63,18 +63,18 @@ type gibbs_liq
 				:Hidden=>true
 			)),(NComp)),
 			[
-				:(Outlet.F*Outlet.z = _P1._P1.Outletm.F*_P1._P1.Outletm.z + rate*_P1._P1.Tank.V),
-				:(Outlet.P = _P1._P1.Outletm.P),
+				:(Outlet.F*Outlet.z = _base_1._base_1.Outletm.F*_base_1._base_1.Outletm.z + rate*_base_1._base_1.Tank.V),
+				:(Outlet.P = _base_1._base_1.Outletm.P),
 				:(Outlet.F = sum(Fi)),
 				:(Fi = Outlet.F*Outlet.z),
-				:(Outlet.F*Outlet.h = _P1._P1.Outletm.F*_P1._P1.Outletm.h),
-				:(sumt(Fi*na) = sumt(_P1._P1.Outletm.F*_P1._P1.Outletm.z*na)),
-				:(G = _P1._P1.PP.IdealGasGibbsOfFormation(Outlet.T)),
-				:(G([1:_P1._P1.NComp]) + sumt(lambda*na(:,[1:_P1._P1.NComp])) = -Rg*Outlet.T*ln(activ([1:_P1._P1.NComp]))),
-				:(Fi([1:_P1._P1.NComp]) = _P1._P1.Outletm.F*_P1._P1.Outletm.z([1:_P1._P1.NComp])*(1 - conv([1:_P1._P1.NComp]))),
-				:(conv([1:_P1._P1.NComp]) = 1),
-				:(conv([1:_P1._P1.NComp]) = 0),
-				:(activ = _P1._P1.PP.LiquidFugacityCoefficient(Outlet.T,Outlet.P,Outlet.z)*Outlet.z *exp(_P1._P1.PP.LiquidVolume(Outlet.T,Outlet.P,Outlet.z)*(Outlet.P - Ps)/Rg/Outlet.T)),
+				:(Outlet.F*Outlet.h = _base_1._base_1.Outletm.F*_base_1._base_1.Outletm.h),
+				:(sumt(Fi*na) = sumt(_base_1._base_1.Outletm.F*_base_1._base_1.Outletm.z*na)),
+				:(G = _base_1._base_1.PP.IdealGasGibbsOfFormation(Outlet.T)),
+				:(G([1:_base_1._base_1.NComp]) + sumt(lambda*na(:,[1:_base_1._base_1.NComp])) = -Rg*Outlet.T*ln(activ([1:_base_1._base_1.NComp]))),
+				:(Fi([1:_base_1._base_1.NComp]) = _base_1._base_1.Outletm.F*_base_1._base_1.Outletm.z([1:_base_1._base_1.NComp])*(1 - conv([1:_base_1._base_1.NComp]))),
+				:(conv([1:_base_1._base_1.NComp]) = 1),
+				:(conv([1:_base_1._base_1.NComp]) = 0),
+				:(activ = _base_1._base_1.PP.LiquidFugacityCoefficient(Outlet.T,Outlet.P,Outlet.z)*Outlet.z *exp(_base_1._base_1.PP.LiquidVolume(Outlet.T,Outlet.P,Outlet.z)*(Outlet.P - Ps)/Rg/Outlet.T)),
 			],
 			[
 				"Outlet stream","Mechanical equilibrium","Steady-state","Component molar flow rate","Energy balance","Element balance","Gibbs free-energy of formation","Lagrangian multiplier","Molar conversion","Molar conversion","Molar conversion","Activity",
@@ -83,7 +83,7 @@ type gibbs_liq
 			[:Outlet,:G,:lambda,:activ,:rate,:conv,:Fi,]
 		)
 	end
-	_P1::tank_liq
+	_base_1::tank_liq
 	NElem::DanaInteger 
 	Rg::DanaReal 
 	na::Array{DanaReal }
@@ -154,4 +154,3 @@ gibbs_liq(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(gibbs_liq)

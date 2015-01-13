@@ -83,17 +83,17 @@ type User_Distillation_thermosyphon_subcooling
 				:(ConnectorSplitterBottom.P = BottomProduct.P),
 				:(ConnectorSplitterBottom.F = BottomProduct.F),
 				:(ConnectorSplitterBottom.z = BottomProduct.z),
-				:(VapourDrawOff.F*_P1.VapSideTrayIndex= trays.VapourSideStream.F),
-				:(VapourDrawOff.T = trays(_P1.VapourSideStreamLocation).VapourSideStream.T),
-				:(VapourDrawOff.P = trays(_P1.VapourSideStreamLocation).VapourSideStream.P),
-				:(VapourDrawOff.z = trays(_P1.VapourSideStreamLocation).VapourSideStream.z),
-				:(LiquidDrawOff.F*_P1.LiqSideTrayIndex= trays.LiquidSideStream.F),
-				:(LiquidDrawOff.T = trays(_P1.LiquidSideStreamLocation).LiquidSideStream.T),
-				:(LiquidDrawOff.P = trays(_P1.LiquidSideStreamLocation).LiquidSideStream.P),
-				:(LiquidDrawOff.z = trays(_P1.LiquidSideStreamLocation).LiquidSideStream.z),
+				:(VapourDrawOff.F*_base_1.VapSideTrayIndex= trays.VapourSideStream.F),
+				:(VapourDrawOff.T = trays(_base_1.VapourSideStreamLocation).VapourSideStream.T),
+				:(VapourDrawOff.P = trays(_base_1.VapourSideStreamLocation).VapourSideStream.P),
+				:(VapourDrawOff.z = trays(_base_1.VapourSideStreamLocation).VapourSideStream.z),
+				:(LiquidDrawOff.F*_base_1.LiqSideTrayIndex= trays.LiquidSideStream.F),
+				:(LiquidDrawOff.T = trays(_base_1.LiquidSideStreamLocation).LiquidSideStream.T),
+				:(LiquidDrawOff.P = trays(_base_1.LiquidSideStreamLocation).LiquidSideStream.P),
+				:(LiquidDrawOff.z = trays(_base_1.LiquidSideStreamLocation).LiquidSideStream.z),
 				:(VapourDrawOffFlow = VapourDrawOff.F),
 				:(LiquidDrawOffFlow = LiquidDrawOff.F),
-				:(CondenserUnity.InletV.F*trays(1).vV = alfaTopo * _P1.Ah * sqrt(2*(trays(1).OutletV.P - CondenserUnity.OutletL.P + 1e-8 * "atm") / (_P1.alfa*trays(1).rhoV))),
+				:(CondenserUnity.InletV.F*trays(1).vV = alfaTopo * _base_1.Ah * sqrt(2*(trays(1).OutletV.P - CondenserUnity.OutletL.P + 1e-8 * "atm") / (_base_1.alfa*trays(1).rhoV))),
 				:(CondenserUnity.InletV.F = 0 * "mol/s"),
 			],
 			[
@@ -103,7 +103,7 @@ type User_Distillation_thermosyphon_subcooling
 			[:VapourDrawOff,:LiquidDrawOff,:CondenserUnity,:TopVessel,:TopSplitter,:PumpUnity,:ReboilerUnity,:BottomVessel,:BottomSplitter,:alfaTopo,:HeatToCondenser,:HeatToReboiler,:HeatToBottomVessel,:HeatToTopVessel,:LiquidDistillate,:ConnectorSplitterTop,:BottomProduct,:ConnectorSplitterBottom,]
 		)
 	end
-	_P1::User_Section_ColumnBasic
+	_base_1::User_Section_ColumnBasic
 	CondenserVapourFlow::DanaSwitcher
 	VapourDrawOff::vapour_stream 
 	LiquidDrawOff::liquid_stream 
@@ -201,4 +201,3 @@ User_Distillation_thermosyphon_subcooling(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(User_Distillation_thermosyphon_subcooling)

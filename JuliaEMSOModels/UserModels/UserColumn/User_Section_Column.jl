@@ -96,22 +96,22 @@ type User_Section_Column
 				:(VapourConnector.z = VapourInlet.z),
 				:(VapourConnector.v = VapourInlet.v),
 				:(VapourConnector.h = VapourInlet.h),
-				:(LiquidOutlet.F= trays(_P1.NumberOfTrays).OutletL.F),
-				:(LiquidOutlet.T = trays(_P1.NumberOfTrays).OutletL.T),
-				:(LiquidOutlet.P = trays(_P1.NumberOfTrays).OutletL.P),
-				:(LiquidOutlet.z = trays(_P1.NumberOfTrays).OutletL.z),
+				:(LiquidOutlet.F= trays(_base_1.NumberOfTrays).OutletL.F),
+				:(LiquidOutlet.T = trays(_base_1.NumberOfTrays).OutletL.T),
+				:(LiquidOutlet.P = trays(_base_1.NumberOfTrays).OutletL.P),
+				:(LiquidOutlet.z = trays(_base_1.NumberOfTrays).OutletL.z),
 				:(VapourOutlet.F= trays(1).OutletV.F),
 				:(VapourOutlet.T = trays(1).OutletV.T),
 				:(VapourOutlet.P = trays(1).OutletV.P),
 				:(VapourOutlet.z = trays(1).OutletV.z),
-				:(VapourDrawOff.F*_P1.VapSideTrayIndex= trays.VapourSideStream.F),
-				:(VapourDrawOff.T = trays(_P1.VapourSideStreamLocation).VapourSideStream.T),
-				:(VapourDrawOff.P = trays(_P1.VapourSideStreamLocation).VapourSideStream.P),
-				:(VapourDrawOff.z = trays(_P1.VapourSideStreamLocation).VapourSideStream.z),
-				:(LiquidDrawOff.F*_P1.LiqSideTrayIndex= trays.LiquidSideStream.F),
-				:(LiquidDrawOff.T = trays(_P1.LiquidSideStreamLocation).LiquidSideStream.T),
-				:(LiquidDrawOff.P = trays(_P1.LiquidSideStreamLocation).LiquidSideStream.P),
-				:(LiquidDrawOff.z = trays(_P1.LiquidSideStreamLocation).LiquidSideStream.z),
+				:(VapourDrawOff.F*_base_1.VapSideTrayIndex= trays.VapourSideStream.F),
+				:(VapourDrawOff.T = trays(_base_1.VapourSideStreamLocation).VapourSideStream.T),
+				:(VapourDrawOff.P = trays(_base_1.VapourSideStreamLocation).VapourSideStream.P),
+				:(VapourDrawOff.z = trays(_base_1.VapourSideStreamLocation).VapourSideStream.z),
+				:(LiquidDrawOff.F*_base_1.LiqSideTrayIndex= trays.LiquidSideStream.F),
+				:(LiquidDrawOff.T = trays(_base_1.LiquidSideStreamLocation).LiquidSideStream.T),
+				:(LiquidDrawOff.P = trays(_base_1.LiquidSideStreamLocation).LiquidSideStream.P),
+				:(LiquidDrawOff.z = trays(_base_1.LiquidSideStreamLocation).LiquidSideStream.z),
 				:(VapourDrawOffFlow = VapourDrawOff.F),
 				:(LiquidDrawOffFlow = LiquidDrawOff.F),
 			],
@@ -121,7 +121,7 @@ type User_Section_Column
 			[:VapourDrawOff,:LiquidDrawOff,:LiquidInlet,:VapourOutlet,:VapourInlet,:LiquidOutlet,:LiquidConnector,:VapourConnector,]
 		)
 	end
-	_P1::User_Section_ColumnBasic
+	_base_1::User_Section_ColumnBasic
 	VapourDrawOff::vapour_stream 
 	LiquidDrawOff::liquid_stream 
 	LiquidInlet::stream 
@@ -195,4 +195,3 @@ User_Section_Column(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(User_Section_Column)

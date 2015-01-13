@@ -37,14 +37,14 @@ type yield_liq
 				:Symbol=>"Y_I"
 			)),(NComp)),
 			[
-				:(Outlet.F*Outlet.z = _P1._P1.Outletm.F*_P1._P1.Outletm.z + rate*_P1._P1.Tank.V),
-				:(rate*_P1._P1.Tank.V = _P1._P1.Outletm.F*(yield/(1 + yield(KComp))*_P1._P1.Outletm.z(KComp) - _P1._P1.Outletm.z)),
+				:(Outlet.F*Outlet.z = _base_1._base_1.Outletm.F*_base_1._base_1.Outletm.z + rate*_base_1._base_1.Tank.V),
+				:(rate*_base_1._base_1.Tank.V = _base_1._base_1.Outletm.F*(yield/(1 + yield(KComp))*_base_1._base_1.Outletm.z(KComp) - _base_1._base_1.Outletm.z)),
 				:(rate = yield_*rate(KComp)),
-				:(Outlet.P = _P1._P1.Outletm.P),
-				:(Outlet.F*Outlet.h = _P1._P1.Outletm.F*_P1._P1.Outletm.h),
-				:(Outlet.F*Outlet.z([1:_P1._P1.NComp]) = _P1._P1.Outletm.F*_P1._P1.Outletm.z([1:_P1._P1.NComp])*(1 - conv([1:_P1._P1.NComp]))),
-				:(conv([1:_P1._P1.NComp]) = 1),
-				:(conv([1:_P1._P1.NComp]) = 0),
+				:(Outlet.P = _base_1._base_1.Outletm.P),
+				:(Outlet.F*Outlet.h = _base_1._base_1.Outletm.F*_base_1._base_1.Outletm.h),
+				:(Outlet.F*Outlet.z([1:_base_1._base_1.NComp]) = _base_1._base_1.Outletm.F*_base_1._base_1.Outletm.z([1:_base_1._base_1.NComp])*(1 - conv([1:_base_1._base_1.NComp]))),
+				:(conv([1:_base_1._base_1.NComp]) = 1),
+				:(conv([1:_base_1._base_1.NComp]) = 0),
 			],
 			[
 				"Outlet stream","Rate of reaction","Molar reaction yield","Mechanical equilibrium","Energy balance","Molar conversion","Molar conversion","Molar conversion",
@@ -53,7 +53,7 @@ type yield_liq
 			[:Outlet,:rate,:conv,:yield,:yield_,]
 		)
 	end
-	_P1::tank_liq
+	_base_1::tank_liq
 	NReac::DanaInteger 
 	KComp::DanaInteger 
 	Outlet::liquid_stream
@@ -111,4 +111,3 @@ yield_liq(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(yield_liq)

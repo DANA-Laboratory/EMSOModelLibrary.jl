@@ -1,6 +1,6 @@
 module EMLPIDIncr
 	using DanaTypes
-	using NamesOfTypes
+	using TypeInheritance
 	require("EMSOModelLibrary.jl/JuliaEMSOModels/types.jl")
 	using EMLtypes
 	include("PIDIncr/MParameters.jl")

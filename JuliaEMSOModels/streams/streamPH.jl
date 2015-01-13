@@ -46,7 +46,7 @@ type streamPH
 			[:x,:y,]
 		)
 	end
-	_P1::stream
+	_base_1::stream
 	PP::DanaPlugin
 	x::Array{fraction }
 	y::Array{fraction }
@@ -84,4 +84,3 @@ streamPH(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(streamPH)

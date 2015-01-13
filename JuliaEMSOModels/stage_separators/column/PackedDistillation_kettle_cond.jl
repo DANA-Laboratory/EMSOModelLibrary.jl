@@ -15,7 +15,7 @@ type PackedDistillation_kettle_cond
 			splitter(),
 			pump(),
 			[
-				:(_P1.stage(_P1.top).InletV.F = _P1.stage(_P1.top).OutletV.F + _P1.stage(_P1.top).Inlet.F*_P1.stage(_P1.top).Inlet.v),
+				:(_base_1.stage(_base_1.top).InletV.F = _base_1.stage(_base_1.top).OutletV.F + _base_1.stage(_base_1.top).Inlet.F*_base_1.stage(_base_1.top).Inlet.v),
 			],
 			[
 				"",
@@ -23,7 +23,7 @@ type PackedDistillation_kettle_cond
 			[:cond,:reb,:sptop,:pump1,]
 		)
 	end
-	_P1::Packed_Section_Column
+	_base_1::Packed_Section_Column
 	cond::condenser
 	reb::reboiler
 	sptop::splitter
@@ -72,4 +72,3 @@ PackedDistillation_kettle_cond(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(PackedDistillation_kettle_cond)

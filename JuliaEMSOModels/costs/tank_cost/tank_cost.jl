@@ -57,7 +57,7 @@ type tank_cost
 				:Brief=>"Total Volume"
 			)),
 			[
-				:(V = _P1.Across * Height),
+				:(V = _base_1.Across * Height),
 				:(Ce = Cb*Fm),
 				:(Cb = "US\$"*exp(Cost(1,1) + Cost(1,2)*ln(V/"m^3") + Cost(1,3)*(ln(V/"m^3"))^2)),
 				:(Cb = "US\$"*exp(Cost(1,1) + Cost(1,2)*ln(V/"m^3") + Cost(1,3)*(ln(V/"m^3"))^2)),
@@ -72,7 +72,7 @@ type tank_cost
 			[:Ce,:Cb,:Fm,:V,]
 		)
 	end
-	_P1::tank
+	_base_1::tank
 	Material::DanaSwitcher 
 	Cost::Array{DanaReal}
 	Height::length
@@ -121,4 +121,3 @@ tank_cost(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(tank_cost)

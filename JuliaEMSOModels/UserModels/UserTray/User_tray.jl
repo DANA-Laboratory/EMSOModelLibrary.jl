@@ -27,8 +27,8 @@ type User_tray
 				:Brief=>"Temporary variable of Roffels liquid flow equation"
 			)),
 			[
-				:(rhoL = _P1.PP.LiquidDensity(_P1.OutletL.T, _P1.OutletL.P, _P1.OutletL.z)),
-				:(rhoV = _P1.PP.VapourDensity(_P1.InletV.T, _P1.InletV.P, _P1.InletV.z)),
+				:(rhoL = _base_1.PP.LiquidDensity(_base_1.OutletL.T, _base_1.OutletL.P, _base_1.OutletL.z)),
+				:(rhoV = _base_1.PP.VapourDensity(_base_1.InletV.T, _base_1.InletV.P, _base_1.InletV.z)),
 			],
 			[
 				"Liquid Density","Vapour Density",
@@ -36,7 +36,7 @@ type User_tray
 			[:rhoL,:rhoV,:btemp,]
 		)
 	end
-	_P1::User_trayBasic
+	_base_1::User_trayBasic
 	rhoL::dens_mass
 	rhoV::dens_mass
 	btemp::DanaReal 
@@ -64,4 +64,3 @@ User_tray(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(User_tray)

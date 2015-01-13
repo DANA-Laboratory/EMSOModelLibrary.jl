@@ -1,6 +1,6 @@
 module EMLflash_cost
 	using DanaTypes
-	using NamesOfTypes
+	using TypeInheritance
 	require("EMSOModelLibrary.jl/JuliaEMSOModels/stage_separators/flash.jl")
 	using EMLflash
 	using EMLtypes

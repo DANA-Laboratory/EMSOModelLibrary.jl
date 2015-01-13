@@ -31,7 +31,7 @@ type streamPHS
 				:Brief=>"Stream Entropy"
 			)),
 			[
-				:(s = (1-v)*_P1.PP.LiquidEntropy(T, P, x) + v*_P1.PP.VapourEntropy(T, P, y)),
+				:(s = (1-v)*_base_1.PP.LiquidEntropy(T, P, x) + v*_base_1.PP.VapourEntropy(T, P, y)),
 			],
 			[
 				"Entropy",
@@ -40,7 +40,7 @@ type streamPHS
 			[:s,]
 		)
 	end
-	_P1::streamPH
+	_base_1::streamPH
 	PP::DanaPlugin
 	s::entr_mol 
 	equations::Array{Expr,1}
@@ -76,4 +76,3 @@ streamPHS(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(streamPHS)

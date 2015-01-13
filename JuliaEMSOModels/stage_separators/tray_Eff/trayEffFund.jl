@@ -388,27 +388,27 @@ type trayEffFund
 				:Brief=>"Apparent Murphree tray efficiency"
 			)),
 			[
-				:(Qv=_P1._P1.OutletV.F*_P1._P1.vV),
-				:(Ql=_P1._P1.OutletL.F*_P1._P1.vL),
+				:(Qv=_base_1._base_1.OutletV.F*_base_1._base_1.vV),
+				:(Ql=_base_1._base_1.OutletL.F*_base_1._base_1.vL),
 				:(Mv=Qv*rhoV),
 				:(Ml=Ql*rhoL),
-				:(Miv=_P1._P1.PP.VapourViscosity(_P1._P1.OutletL.T, _P1._P1.OutletL.P, _P1._P1.OutletL.z)),
-				:(Mil=_P1._P1.PP.LiquidViscosity(_P1._P1.OutletL.T, _P1._P1.OutletL.P, _P1._P1.OutletL.z)),
-				:(VinLK=_P1._P1.InletV.z(iLK)/(_P1._P1.InletV.z(iLK)+_P1._P1.InletV.z(iHK))),
-				:(VoutLk=_P1._P1.OutletV.z(iLK)/(_P1._P1.OutletV.z(iLK)+_P1._P1.OutletV.z(iHK))),
-				:(LinLK=_P1._P1.InletL.z(iLK)/(_P1._P1.InletL.z(iLK)+_P1._P1.InletL.z(iHK))),
-				:(LoutLk=_P1._P1.OutletL.z(iLK)/(_P1._P1.OutletL.z(iLK)+_P1._P1.OutletL.z(iHK))),
+				:(Miv=_base_1._base_1.PP.VapourViscosity(_base_1._base_1.OutletL.T, _base_1._base_1.OutletL.P, _base_1._base_1.OutletL.z)),
+				:(Mil=_base_1._base_1.PP.LiquidViscosity(_base_1._base_1.OutletL.T, _base_1._base_1.OutletL.P, _base_1._base_1.OutletL.z)),
+				:(VinLK=_base_1._base_1.InletV.z(iLK)/(_base_1._base_1.InletV.z(iLK)+_base_1._base_1.InletV.z(iHK))),
+				:(VoutLk=_base_1._base_1.OutletV.z(iLK)/(_base_1._base_1.OutletV.z(iLK)+_base_1._base_1.OutletV.z(iHK))),
+				:(LinLK=_base_1._base_1.InletL.z(iLK)/(_base_1._base_1.InletL.z(iLK)+_base_1._base_1.InletL.z(iHK))),
+				:(LoutLk=_base_1._base_1.OutletL.z(iLK)/(_base_1._base_1.OutletL.z(iLK)+_base_1._base_1.OutletL.z(iHK))),
 				:(VinLK=1),
 				:(VoutLk=1),
 				:(LinLK=1),
 				:(LoutLk=1),
-				:(lambda=m*(_P1._P1.OutletV.F/_P1._P1.OutletL.F)),
-				:(us=Qv/_P1._P1.Ap),
+				:(lambda=m*(_base_1._base_1.OutletV.F/_base_1._base_1.OutletL.F)),
+				:(us=Qv/_base_1._base_1.Ap),
 				:(ua=Qv/Aa),
 				:(fs=ua*rhoV^.5),
-				:(uh=Qv/_P1.Ah),
+				:(uh=Qv/_base_1.Ah),
 				:((fp*Mv)^2*rhoL=Ml^2*rhoV),
-				:(hcl=0.42*(Ql*"1/m"/(_P1.lw*ua)*(rhoL/rhoV)^.5)^.33*(_P1.hw*"1/m")^.67*"m"),
+				:(hcl=0.42*(Ql*"1/m"/(_base_1.lw*ua)*(rhoL/rhoV)^.5)^.33*(_base_1.hw*"1/m")^.67*"m"),
 				:(hcl=(0.01728*((Ml*"1/(kg/s)")^(4.3*(fi^1.5))*(ua*"1/(m/s)"*(rhoV/rhoL)^.5)^1))/(rhoL*"1/(kg/m^3)"*fi^1.5*(T/(dh*1000*1000))^.42)*"m"),
 				:(hcld=hcl-ua*rhoV*(uh-ua)/(rhoL*g)),
 				:(hf=0.076*"m"+32.6*"m"*(fs*"1/(kg^.5/m^.5/s)")^2/((rhoL-rhoV)*"m^3/kg")+0.82*hcld),
@@ -434,8 +434,8 @@ type trayEffFund
 				:(MilCSB=4.13*(Mil*"1/cP")^1.5),
 				:(MilCSB=1),
 				:(fi3=1*MilCSB*sigCSB),
-				:(dbls=fi3*.605*(dh*"1/m")^.84*(uh*"s/m")^.18/((Ql*"s/m^3")/(_P1.lw*"1/m")^.07)*"m"),
-				:(dbss=fi3*.660*(dh*"1/m")^.84*(uh*"s/m")^.085/((Ql*"s/m^3")/(_P1.lw*"1/m")^.08)*"m"),
+				:(dbls=fi3*.605*(dh*"1/m")^.84*(uh*"s/m")^.18/((Ql*"s/m^3")/(_base_1.lw*"1/m")^.07)*"m"),
+				:(dbss=fi3*.660*(dh*"1/m")^.84*(uh*"s/m")^.085/((Ql*"s/m^3")/(_base_1.lw*"1/m")^.08)*"m"),
 				:(eo=g*(rhoL-rhoV)*dbs^2/sigma),
 				:(mo=g*Mil^4*(rhoL-rhoV)/(rhoL^2*sigma^3)),
 				:(h=4/3*eo*mo^-0.149*((Mil*"1/cP")/9.12e-4)^-.14),
@@ -462,7 +462,7 @@ type trayEffFund
 				:(NL4L=12*ftm*tg4l^0.5/dbl),
 				:(tg5=hf/ulb3),
 				:(NL5=12*ftm*tg5^0.5/dbss),
-				:(uatp=((0.04302*(rhoV*"m^3/kg")^(-0.5)*(rhoL*"m^3/kg")^0.692*(sigma*"m/N")^0.06*fi^0.25*((Ql*"s/m^3")/(_P1.lw*"1/m"))^.05*(dh*"1/m")^(-0.1))*(2.58717*(_P1.hw*"1/m")+0.86))*"m/s"),
+				:(uatp=((0.04302*(rhoV*"m^3/kg")^(-0.5)*(rhoL*"m^3/kg")^0.692*(sigma*"m/N")^0.06*fi^0.25*((Ql*"s/m^3")/(_base_1.lw*"1/m"))^.05*(dh*"1/m")^(-0.1))*(2.58717*(_base_1.hw*"1/m")+0.86))*"m/s"),
 				:(fj=ua*0.6/uatp),
 				:(fsb=165.65*(dh*"1/m")^1.32*fi^1.33),
 				:(flb=1-fj-fsb),
@@ -511,8 +511,8 @@ type trayEffFund
 				:(NGFJ=NG1-ln(1e-8+abs(1-(aj*(1-exp(-NG2S))+(1-aj)*(1-exp(-NG2L)))))),
 				:(NGFLB= NG3-ln(1e-8+abs(1-(aj*(1-exp(-NG4S))+(1-aj)*(1-exp(-NG4L)))))),
 				:(EOG=fj*(1-exp(-NGFJ))+flb*(1-exp(-NGFLB))+fsb*(1-exp(-NG5))),
-				:(De=(0.0005+0.01285*ua*"s/m"+6.32*(Ql*"s/m^3"/(_P1.lw*"1/m"))+0.312*_P1.hw*"1/m")^2),
-				:(Pe=(_P1._P1.OutletL.F*d)/(_P1.lw*hcl*(1/_P1._P1.vL)*De*"m^2/s")),
+				:(De=(0.0005+0.01285*ua*"s/m"+6.32*(Ql*"s/m^3"/(_base_1.lw*"1/m"))+0.312*_base_1.hw*"1/m")^2),
+				:(Pe=(_base_1._base_1.OutletL.F*d)/(_base_1.lw*hcl*(1/_base_1._base_1.vL)*De*"m^2/s")),
 				:(n=Pe/2*((1+4*lambda*EOG/Pe)^.5-1)),
 				:(Emv1=EOG),
 				:(Emv1/EOG=(1-exp(-(n+Pe)))/((n+Pe)*(1+(n+Pe)/n))+(exp(n)-1)/(n*(1+n/(n+Pe)))),
@@ -523,7 +523,7 @@ type trayEffFund
 				:(Emv1=Emv2*(1+Emv1*psi/(1-psi))),
 				:(Emv2=Emv3),
 				:(Emv2=Emv3*(1+Emv2*psi1/(1-psi1))),
-				:(_P1._P1.Emv=Emv3),
+				:(_base_1._base_1.Emv=Emv3),
 			],
 			[
 				"Vapour volumetric flow","Liquid volumetric flow","Vapour mass flow","Liquid mass flow","Vapour viscosity","Liquid viscosity","Pseudo-binary Approach","","","","","","","","Stripping factor or ratio of slope of equilibrium line to slope of operating line","Superficial velocity based on Ap","Superficial velocity based on Aa","Superficial factor","Vapour velocity through holes","Flow parameter","Clear Liquid Height","Clear Liquid Height","Dynamic liquid head at tray floor","Froth Height","Porosity","Capacity factor","Capacity factor","Flood velocity","Flood Factor","Flood Factor","General Factor in equations of Units of Mass Transfer","Fraction of holes with vapour flow","Fraction of holes with vapour flow","Jet diameter","Jet velocity","Reynolds number for vapour flow through hole","Jet Height","Residence time in Zone One","Number of vapour phase transfer units in Zone One","Small Bubble Diameter","Large Bubble Diameter","","","","","","Sauter diameters","","Eotvos Number","Morton Number","Constant h","","","Terminal velocity of small bubbles","Terminal velocity of small bubbles using Sauter diameter","Fraction of small bubbles in froth","Terminal velocity of large bubbles","","","","","Number of liquid phase transfer units in Zone Two","","Terminal velocity of large bubbles in Zone Three","Residence time in Zone Three","Number of liquid phase transfer units in Zone Three","","","","","Number of liquid phase transfer units in Zone Four","","Residence time in Zone Five","Number of liquid phase transfer units in Zone Five","Superficial velocity based on Aa in the transition point of froth regime to spay regime","Fraction of active holes that are in jetting","Fraction of active holes that are producing small bubbles","Fraction of active holes that are producing large bubbles","General Factor in equations of Units of Mass Transfer","Reynolds number of jet","Schimdt number on vapour phase","Vapour phase mass transfer coefficient in Zone One","Liquid phase mass transfer coefficient in Zone One","Number of vapour phase transfer units in Zone One","Peclet number","","","","","","","","","","","","","","","","","","Vapour phase mass transfer coefficient","","","","","","Liquid phase mass transfer coefficient","","","","","","Number of vapour phase transfer units","","","","","","Number of Vapour phase transfer units of jetting","Number of Vapour phase transfer units of large bubbles","Point Efficiency","Eddy diffusivity for liquid mixing","Peclet Number","Constant n","","","","Height on spray regime","Fraction of entrained liquid","Apparent Murphree tray efficiency","Apparent Murphree tray efficiency","Apparent Murphree tray efficiency","Apparent Murphree tray efficiency","",
@@ -532,7 +532,7 @@ type trayEffFund
 			[:Qv,:Ql,:Mv,:Ml,:Miv,:Mil,:Dl,:Dv,:lambda,:m,:VinLK,:VoutLk,:LinLK,:LoutLk,:us,:ua,:fs,:uh,:fp,:hcl,:hcld,:hf,:e,:csb,:uf,:ff,:sigma,:ftm,:xf,:dj,:uj,:Reh,:hj,:tg1,:NL1,:dbs,:dbl,:sigCSB,:MilCSB,:fi3,:dbss,:dbls,:eo,:mo,:h,:j,:usb,:ubss,:aj,:ulb,:tg2s,:tg2l,:NL2S,:NL2L,:tg3,:NL3,:ulb3,:tg4s,:tg4l,:NL4S,:NL4L,:tg5,:NL5,:uatp,:fj,:flb,:fsb,:ftmg,:Rej,:Scg,:kl1,:kg1,:NG1,:Peg2s,:Peg2l,:Peg3,:Peg4s,:Peg4l,:Peg5,:Sh2s,:Sh2l,:Sh3,:Sh4s,:Sh4l,:Sh5,:kg2s,:kg2l,:kg3,:kg4s,:kg4l,:kg5,:kl2s,:kl2l,:kl3,:kl4s,:kl4l,:kl5,:NG2S,:NG2L,:NG3,:NG4S,:NG4L,:NG5,:NGFJ,:NGFLB,:EOG,:De,:Pe,:n,:Emv1,:psi,:psi1,:hb,:l,:Emv2,:Emv3,]
 		)
 	end
-	_P1::tray
+	_base_1::tray
 	d::length 
 	dh::length 
 	Aa::area 
@@ -931,4 +931,3 @@ trayEffFund(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(trayEffFund)

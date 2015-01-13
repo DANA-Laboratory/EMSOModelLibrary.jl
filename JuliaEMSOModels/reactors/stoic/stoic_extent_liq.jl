@@ -10,7 +10,7 @@ type stoic_extent_liq
 				:Symbol=>"\\xi"
 			)),(NReac)),
 			[
-				:(_P1.rate*_P1._P1._P1.Tank.V = sumt(_P1.stoic*extent)),
+				:(_base_1.rate*_base_1._base_1._base_1.Tank.V = sumt(_base_1.stoic*extent)),
 			],
 			[
 				"Rate of reaction",
@@ -18,7 +18,7 @@ type stoic_extent_liq
 			[:extent,]
 		)
 	end
-	_P1::stoic_liq
+	_base_1::stoic_liq
 	extent::Array{flow_mol }
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
@@ -47,4 +47,3 @@ stoic_extent_liq(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(stoic_extent_liq)

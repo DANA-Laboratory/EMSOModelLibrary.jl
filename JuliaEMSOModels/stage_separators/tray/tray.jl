@@ -78,21 +78,21 @@ type tray
 			dens_mass(),
 			dens_mass(),
 			[
-				:(rhoL = _P1.PP.LiquidDensity(_P1.OutletL.T, _P1.OutletL.P, _P1.OutletL.z)),
-				:(rhoV = _P1.PP.VapourDensity(_P1.InletV.T, _P1.InletV.P, _P1.InletV.z)),
-				:(_P1.OutletL.F*_P1.vL = 1.84*"1/s"*lw*((_P1.Level-(beta*hw))/(beta))^2),
-				:(_P1.OutletL.F*_P1.vL = 1.84*"m^0.5/s"*lw*((_P1.Level-(beta*hw))/(beta))^1.5),
-				:(_P1.OutletL.F / "mol/s"= lw*Np*rhoL/sum(Mw*_P1.OutletV.z)/(0.665*fw)^1.5 * ((_P1.ML*sum(Mw*_P1.OutletL.z)/rhoL/_P1.Ap)-hw)^1.5 * "m^0.5/mol"),
-				:(_P1.OutletL.F = lw*rhoL/sum(Mw*_P1.OutletL.z) * ((_P1.Level-hw)/750/"mm")^1.5 * "m^2/s"),
-				:(_P1.OutletL.F = 2/3*rhoL/sum(Mw*_P1.OutletL.z)*lw*(_P1.ML*sum(Mw*_P1.OutletL.z)/(_P1.Ap*1.3)/rhoL)^1.5*sqrt(2*g/ (2*(1 - 0.3593/"Pa^0.0888545"*(_P1.OutletV.F*sum(Mw*_P1.OutletV.z)/(_P1.Ap*1.3)/sqrt(rhoV))^0.177709)-1))),
-				:(_P1.OutletL.F = 0 * "mol/h"),
-				:(_P1.InletV.F*_P1.vV = sqrt((_P1.InletV.P - _P1.OutletV.P)/(rhoV*alfa))*Ah),
-				:(_P1.InletV.F = rhoV/_P1.Ap/w/sum(Mw*_P1.OutletV.z) * sqrt(((_P1.InletV.P - _P1.OutletV.P)-(rhoV*g*_P1.ML*_P1.vL/_P1.Ap))/rhoV)),
-				:(_P1.InletV.F^1.08 * 0.0013 * "kg/m/mol^1.08/s^0.92*1e5" = (_P1.InletV.P - _P1.OutletV.P)*1e5 - (beta*sum(M*Mw)/(_P1.Ap*1.3)*g*1e5) * (rhoV*Ah/sum(Mw*_P1.OutletV.z))^1.08 * "m^1.08/mol^1.08"),
-				:(_P1.InletV.F * _P1.vV = _P1.Ap * sqrt(((_P1.InletV.P - _P1.OutletV.P)-rhoL*g*_P1.Level)/rhoV)),
-				:(_P1.InletV.F * _P1.vV = _P1.Ap * sqrt(((_P1.InletV.P - _P1.OutletV.P)-rhoL*g*_P1.Level)/rhoV*alfa)),
-				:(_P1.InletV.F = sqrt((_P1.InletV.P - _P1.OutletV.P)/btray)),
-				:(_P1.InletV.F = 0 * "mol/s"),
+				:(rhoL = _base_1.PP.LiquidDensity(_base_1.OutletL.T, _base_1.OutletL.P, _base_1.OutletL.z)),
+				:(rhoV = _base_1.PP.VapourDensity(_base_1.InletV.T, _base_1.InletV.P, _base_1.InletV.z)),
+				:(_base_1.OutletL.F*_base_1.vL = 1.84*"1/s"*lw*((_base_1.Level-(beta*hw))/(beta))^2),
+				:(_base_1.OutletL.F*_base_1.vL = 1.84*"m^0.5/s"*lw*((_base_1.Level-(beta*hw))/(beta))^1.5),
+				:(_base_1.OutletL.F / "mol/s"= lw*Np*rhoL/sum(Mw*_base_1.OutletV.z)/(0.665*fw)^1.5 * ((_base_1.ML*sum(Mw*_base_1.OutletL.z)/rhoL/_base_1.Ap)-hw)^1.5 * "m^0.5/mol"),
+				:(_base_1.OutletL.F = lw*rhoL/sum(Mw*_base_1.OutletL.z) * ((_base_1.Level-hw)/750/"mm")^1.5 * "m^2/s"),
+				:(_base_1.OutletL.F = 2/3*rhoL/sum(Mw*_base_1.OutletL.z)*lw*(_base_1.ML*sum(Mw*_base_1.OutletL.z)/(_base_1.Ap*1.3)/rhoL)^1.5*sqrt(2*g/ (2*(1 - 0.3593/"Pa^0.0888545"*(_base_1.OutletV.F*sum(Mw*_base_1.OutletV.z)/(_base_1.Ap*1.3)/sqrt(rhoV))^0.177709)-1))),
+				:(_base_1.OutletL.F = 0 * "mol/h"),
+				:(_base_1.InletV.F*_base_1.vV = sqrt((_base_1.InletV.P - _base_1.OutletV.P)/(rhoV*alfa))*Ah),
+				:(_base_1.InletV.F = rhoV/_base_1.Ap/w/sum(Mw*_base_1.OutletV.z) * sqrt(((_base_1.InletV.P - _base_1.OutletV.P)-(rhoV*g*_base_1.ML*_base_1.vL/_base_1.Ap))/rhoV)),
+				:(_base_1.InletV.F^1.08 * 0.0013 * "kg/m/mol^1.08/s^0.92*1e5" = (_base_1.InletV.P - _base_1.OutletV.P)*1e5 - (beta*sum(M*Mw)/(_base_1.Ap*1.3)*g*1e5) * (rhoV*Ah/sum(Mw*_base_1.OutletV.z))^1.08 * "m^1.08/mol^1.08"),
+				:(_base_1.InletV.F * _base_1.vV = _base_1.Ap * sqrt(((_base_1.InletV.P - _base_1.OutletV.P)-rhoL*g*_base_1.Level)/rhoV)),
+				:(_base_1.InletV.F * _base_1.vV = _base_1.Ap * sqrt(((_base_1.InletV.P - _base_1.OutletV.P)-rhoL*g*_base_1.Level)/rhoV*alfa)),
+				:(_base_1.InletV.F = sqrt((_base_1.InletV.P - _base_1.OutletV.P)/btray)),
+				:(_base_1.InletV.F = 0 * "mol/s"),
 			],
 			[
 				"Liquid Density","Vapour Density","Francis Equation","","","","","Low level","","","","","","","",
@@ -101,7 +101,7 @@ type tray
 			[:rhoL,:rhoV,]
 		)
 	end
-	_P1::trayBasic
+	_base_1::trayBasic
 	Ah::area 
 	lw::length 
 	g::acceleration 
@@ -127,7 +127,7 @@ type tray
 end
 export tray
 function set(in::tray)
-	Mw = _P1.PP.MolecularWeight()
+	Mw = _base_1.PP.MolecularWeight()
 	 
 end
 function setEquationFlow(in::tray)
@@ -224,4 +224,3 @@ tray(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(tray)

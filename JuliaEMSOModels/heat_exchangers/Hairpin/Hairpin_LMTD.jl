@@ -29,17 +29,17 @@ type Hairpin_LMTD
 				:Symbol=>" "
 			)),
 			[
-				:(_P1.Details.Q = _P1.Details.Ud*_P1.Pi*_P1.DoInner*(2*_P1.Lpipe)*Method.LMTD),
-				:(_P1.Details.Q = _P1.Qestimated),
+				:(_base_1.Details.Q = _base_1.Details.Ud*_base_1.Pi*_base_1.DoInner*(2*_base_1.Lpipe)*Method.LMTD),
+				:(_base_1.Details.Q = _base_1.Qestimated),
 				:(Method.Fc = 1),
-				:(Method.DT0 = _P1.InletOuter.T - _P1.InletInner.T),
-				:(Method.DTL = _P1.OutletOuter.T - _P1.OutletInner.T),
-				:(Method.DT0 = _P1.InletOuter.T - _P1.OutletInner.T),
-				:(Method.DTL = _P1.OutletOuter.T - _P1.InletInner.T),
-				:(Method.DT0 = _P1.InletInner.T - _P1.InletOuter.T),
-				:(Method.DTL = _P1.OutletInner.T - _P1.OutletOuter.T),
-				:(Method.DT0 = _P1.InletInner.T - _P1.OutletOuter.T),
-				:(Method.DTL = _P1.OutletInner.T - _P1.InletOuter.T),
+				:(Method.DT0 = _base_1.InletOuter.T - _base_1.InletInner.T),
+				:(Method.DTL = _base_1.OutletOuter.T - _base_1.OutletInner.T),
+				:(Method.DT0 = _base_1.InletOuter.T - _base_1.OutletInner.T),
+				:(Method.DTL = _base_1.OutletOuter.T - _base_1.InletInner.T),
+				:(Method.DT0 = _base_1.InletInner.T - _base_1.InletOuter.T),
+				:(Method.DTL = _base_1.OutletInner.T - _base_1.OutletOuter.T),
+				:(Method.DT0 = _base_1.InletInner.T - _base_1.OutletOuter.T),
+				:(Method.DTL = _base_1.OutletInner.T - _base_1.InletOuter.T),
 			],
 			[
 				"Duty","Duty  Estimated","LMTD Correction Factor - True counter ou cocurrent flow","Temperature Difference at Inlet - Cocurrent Flow","Temperature Difference at Outlet - Cocurrent Flow","Temperature Difference at Inlet - Counter Flow","Temperature Difference at Outlet - Counter Flow","Temperature Difference at Inlet - Cocurrent Flow","Temperature Difference at Outlet - Cocurrent Flow","Temperature Difference at Inlet - Counter Flow","Temperature Difference at Outlet - Counter Flow",
@@ -48,7 +48,7 @@ type Hairpin_LMTD
 			[:Method,]
 		)
 	end
-	_P1::Hairpin_Basic
+	_base_1::Hairpin_Basic
 	FlowDirection::DanaSwitcher 
 	Method::LMTD_Basic 
 	equations::Array{Expr,1}
@@ -111,4 +111,3 @@ Hairpin_LMTD(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(Hairpin_LMTD)

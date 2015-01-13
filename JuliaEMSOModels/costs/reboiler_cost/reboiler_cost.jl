@@ -71,16 +71,16 @@ type reboiler_cost
 				:Brief=>"Average pressure"
 			)),
 			[
-				:(P = 0.5*(_P1.InletL.P + _P1.OutletL.P)),
+				:(P = 0.5*(_base_1.InletL.P + _base_1.OutletL.P)),
 				:(Ce = Cb*Fd*Fp*Fm),
-				:(Cb = "US\$"*exp(Cost(1,1) + Cost(1,2)*ln(_P1.Across/"m^2") + Cost(1,3)*(ln(_P1.Across/"m^2"))^2)),
-				:(Fd = exp(Cost(3,1) + Cost(3,2)*ln(_P1.Across/"m^2") + Cost(3,3)*ln(_P1.Across/"m^2"))),
-				:(Fp = Cost(5,1) + Cost(5,2)*ln(_P1.Across/"m^2")),
-				:(Fp = Cost(5,1) + Cost(5,2)*ln(_P1.Across/"m^2")),
-				:(Fp = Cost(6,1) + Cost(6,2)*ln(_P1.Across/"m^2")),
-				:(Fp = Cost(7,1) + Cost(7,2)*ln(_P1.Across/"m^2")),
-				:(Fp = Cost(7,1) + Cost(7,2)*ln(_P1.Across/"m^2")),
-				:(Fm = Cost(8,1) + Cost(8,2)*ln(_P1.Across/"m^2")),
+				:(Cb = "US\$"*exp(Cost(1,1) + Cost(1,2)*ln(_base_1.Across/"m^2") + Cost(1,3)*(ln(_base_1.Across/"m^2"))^2)),
+				:(Fd = exp(Cost(3,1) + Cost(3,2)*ln(_base_1.Across/"m^2") + Cost(3,3)*ln(_base_1.Across/"m^2"))),
+				:(Fp = Cost(5,1) + Cost(5,2)*ln(_base_1.Across/"m^2")),
+				:(Fp = Cost(5,1) + Cost(5,2)*ln(_base_1.Across/"m^2")),
+				:(Fp = Cost(6,1) + Cost(6,2)*ln(_base_1.Across/"m^2")),
+				:(Fp = Cost(7,1) + Cost(7,2)*ln(_base_1.Across/"m^2")),
+				:(Fp = Cost(7,1) + Cost(7,2)*ln(_base_1.Across/"m^2")),
+				:(Fm = Cost(8,1) + Cost(8,2)*ln(_base_1.Across/"m^2")),
 			],
 			[
 				"Average pressure","Capital Cost","Basic Cost","Cost Factor based on the type of the heat exchanger","Cost Factor based on the project pressure","","","","","Cost Factor based on the construction material",
@@ -89,7 +89,7 @@ type reboiler_cost
 			[:Ce,:Cb,:Fd,:Fp,:Fm,:P,]
 		)
 	end
-	_P1::reboiler
+	_base_1::reboiler
 	Material::DanaSwitcher 
 	Cost::Array{DanaReal}
 	Ce::currency 
@@ -144,4 +144,3 @@ reboiler_cost(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(reboiler_cost)

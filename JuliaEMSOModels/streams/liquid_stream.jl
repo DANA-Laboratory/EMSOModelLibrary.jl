@@ -37,7 +37,7 @@ type liquid_stream
 			[:PP,],
 		)
 	end
-	_P1::stream
+	_base_1::stream
 	PP::DanaPlugin
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
@@ -64,4 +64,3 @@ liquid_stream(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(liquid_stream)

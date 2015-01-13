@@ -26,7 +26,7 @@ type heater
 				:Symbol=>"_{out}"
 			)),
 			[
-				:(InletQ.Q = _P1.Duty),
+				:(InletQ.Q = _base_1.Duty),
 			],
 			[
 				"Duty Specification",
@@ -34,7 +34,7 @@ type heater
 			[:InletQ,]
 		)
 	end
-	_P1::heater_basic
+	_base_1::heater_basic
 	InletQ::energy_stream 
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
@@ -67,4 +67,3 @@ heater(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(heater)

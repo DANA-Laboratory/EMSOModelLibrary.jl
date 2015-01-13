@@ -54,15 +54,15 @@ type Heatex_NTU
 				:Hidden=>true
 			)),
 			[
-				:([vh, xh, yh] = _P1.PP.Flash(_P1.InletHot.T, _P1.InletHot.P, _P1.InletHot.z)),
-				:([vc, xc, yc] = _P1.PP.Flash(_P1.InletCold.T, _P1.InletCold.P, _P1.InletCold.z)),
+				:([vh, xh, yh] = _base_1.PP.Flash(_base_1.InletHot.T, _base_1.InletHot.P, _base_1.InletHot.z)),
+				:([vc, xc, yc] = _base_1.PP.Flash(_base_1.InletCold.T, _base_1.InletCold.P, _base_1.InletCold.z)),
 				:(Method.NTU*Method.Cmin = U*A),
 				:(Method.Cmin = min([Method.Ch,Method.Cc])),
 				:(Method.Cmax = max([Method.Ch,Method.Cc])),
 				:(Method.Cr = Method.Cmin/Method.Cmax),
-				:(Q = Method.Eft*Method.Cmin*(_P1.InletHot.T-_P1.InletCold.T)),
-				:(Method.Ch = _P1.InletHot.F*((1-_P1.InletHot.v)*_P1.PP.LiquidCp(0.5*_P1.InletHot.T+0.5*_P1.OutletHot.T,0.5*_P1.InletHot.P+0.5*_P1.OutletHot.P,xh)+ _P1.InletHot.v*_P1.PP.VapourCp(0.5*_P1.InletHot.T+0.5*_P1.OutletHot.T,0.5*_P1.InletHot.P+0.5*_P1.OutletHot.P,yh))),
-				:(Method.Cc = _P1.InletCold.F*((1-_P1.InletCold.v)*_P1.PP.LiquidCp(0.5*_P1.InletCold.T+0.5*_P1.OutletCold.T,0.5*_P1.InletCold.P+0.5*_P1.OutletCold.P,xc)+ _P1.InletCold.v*_P1.PP.VapourCp(0.5*_P1.InletCold.T+0.5*_P1.OutletCold.T,0.5*_P1.InletCold.P+0.5*_P1.OutletCold.P,yc))),
+				:(Q = Method.Eft*Method.Cmin*(_base_1.InletHot.T-_base_1.InletCold.T)),
+				:(Method.Ch = _base_1.InletHot.F*((1-_base_1.InletHot.v)*_base_1.PP.LiquidCp(0.5*_base_1.InletHot.T+0.5*_base_1.OutletHot.T,0.5*_base_1.InletHot.P+0.5*_base_1.OutletHot.P,xh)+ _base_1.InletHot.v*_base_1.PP.VapourCp(0.5*_base_1.InletHot.T+0.5*_base_1.OutletHot.T,0.5*_base_1.InletHot.P+0.5*_base_1.OutletHot.P,yh))),
+				:(Method.Cc = _base_1.InletCold.F*((1-_base_1.InletCold.v)*_base_1.PP.LiquidCp(0.5*_base_1.InletCold.T+0.5*_base_1.OutletCold.T,0.5*_base_1.InletCold.P+0.5*_base_1.OutletCold.P,xc)+ _base_1.InletCold.v*_base_1.PP.VapourCp(0.5*_base_1.InletCold.T+0.5*_base_1.OutletCold.T,0.5*_base_1.InletCold.P+0.5*_base_1.OutletCold.P,yc))),
 				:(Method.Eft1 = 1),
 				:(Method.Eft = 1-exp(-Method.NTU)),
 				:(Method.Eft = (1-exp(-Method.NTU*(1+Method.Cr)))/(1+Method.Cr)),
@@ -77,7 +77,7 @@ type Heatex_NTU
 			[:Method,:xh,:yh,:vh,:xc,:yc,:vc,]
 		)
 	end
-	_P1::Heatex_Basic
+	_base_1::Heatex_Basic
 	ExchangerType::DanaSwitcher 
 	Method::NTU_Basic 
 	xh::Array{fraction }
@@ -150,4 +150,3 @@ Heatex_NTU(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(Heatex_NTU)

@@ -1,6 +1,6 @@
 module EMLHEX_Engine
 	using DanaTypes
-	using NamesOfTypes
+	using TypeInheritance
 	require("EMSOModelLibrary.jl/JuliaEMSOModels/streams.jl")
 	using EMLstreams
 	using EMLtypes

@@ -6,17 +6,17 @@ type tank_vap
 		new(
 			tank_basic(),
 			[
-				:(_P1.Outletm.v = 1),
-				:(_P1.Outletm.h = _P1.PP.VapourEnthalpy(_P1.Outletm.T,_P1.Outletm.P,_P1.Outletm.z)),
-				:(_P1.Tank.V = _P1.Mt*_P1.PP.VapourVolume(_P1.Outletm.T,_P1.Outletm.P,_P1.Outletm.z)),
-				:(E = _P1.Mt*_P1.Outletm.h),
+				:(_base_1.Outletm.v = 1),
+				:(_base_1.Outletm.h = _base_1.PP.VapourEnthalpy(_base_1.Outletm.T,_base_1.Outletm.P,_base_1.Outletm.z)),
+				:(_base_1.Tank.V = _base_1.Mt*_base_1.PP.VapourVolume(_base_1.Outletm.T,_base_1.Outletm.P,_base_1.Outletm.z)),
+				:(E = _base_1.Mt*_base_1.Outletm.h),
 			],
 			[
 				"Vapourisation fraction","Vapour Enthalpy","Volume constraint","Total internal energy",
 			],
 		)
 	end
-	_P1::tank_basic
+	_base_1::tank_basic
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	attributes::Dict{Symbol,Any}
@@ -39,4 +39,3 @@ tank_vap(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(tank_vap)

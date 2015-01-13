@@ -45,7 +45,7 @@ type Shell_and_tubes_LMTD_cost
 				:Brief=>"Average  Pressure"
 			)),
 			[
-				:(Pmax = max( [_P1._P1.OutletHot.P , _P1._P1.OutletCold.P] )),
+				:(Pmax = max( [_base_1._base_1.OutletHot.P , _base_1._base_1.OutletCold.P] )),
 				:(Ce = Cb*Fd*Fp*Fm),
 				:(Cb = "US\$"*exp(Cost(1,1) + Cost(1,2)*ln(A/"m^2") + Cost(1,3)*(ln(A/"m^2"))^2)),
 				:(Fd = exp(Cost(2,1) + Cost(2,2)*ln(A/"m^2") + Cost(2,3)*ln(A/"m^2"))),
@@ -63,7 +63,7 @@ type Shell_and_tubes_LMTD_cost
 			[:Ce,:Cb,:Fd,:Fp,:Fm,:Pmax,]
 		)
 	end
-	_P1::Heatex_LMTD
+	_base_1::Heatex_LMTD
 	Material::DanaSwitcher 
 	Cost::Array{DanaReal}
 	Ce::currency 
@@ -80,7 +80,7 @@ type Shell_and_tubes_LMTD_cost
 end
 export Shell_and_tubes_LMTD_cost
 function set(in::Shell_and_tubes_LMTD_cost)
-	_P1.ExchangerType = "Shell and Tube"
+	_base_1.ExchangerType = "Shell and Tube"
 	 
 end
 function setEquationFlow(in::Shell_and_tubes_LMTD_cost)
@@ -124,4 +124,3 @@ Shell_and_tubes_LMTD_cost(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(Shell_and_tubes_LMTD_cost)

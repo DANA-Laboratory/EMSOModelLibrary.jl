@@ -1,6 +1,6 @@
 module EMLUserColumn
 	using DanaTypes
-	using NamesOfTypes
+	using TypeInheritance
 	require("EMSOModelLibrary.jl/JuliaEMSOModels/UserModels/UserTray.jl")
 	using EMLUserTray
 	using EMLtypes

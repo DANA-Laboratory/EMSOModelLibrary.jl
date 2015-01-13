@@ -1,6 +1,6 @@
 module EMLelectrical
 	using DanaTypes
-	using NamesOfTypes
+	using TypeInheritance
 	require("EMSOModelLibrary.jl/JuliaEMSOModels/types.jl")
 	using EMLtypes
 	include("electrical/wire.jl")

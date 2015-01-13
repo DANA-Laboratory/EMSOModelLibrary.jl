@@ -29,8 +29,8 @@ type cstr
 				:Brief=>"Heat Reaction"
 			)),(NReac)),
 			[
-				:(diff(_P1.Outlet.z*M) = (_P1.Inlet.F*_P1.Inlet.z - _P1.Outlet.F*_P1.Outlet.z) + sumt(_P1.stoic*r)*_P1.Vr),
-				:(diff(M*_P1.Outlet.h) = _P1.Inlet.F*_P1.Inlet.h - _P1.Outlet.F*_P1.Outlet.h +sum(Hr*sum(_P1.stoic*r))*_P1.Vr - q),
+				:(diff(_base_1.Outlet.z*M) = (_base_1.Inlet.F*_base_1.Inlet.z - _base_1.Outlet.F*_base_1.Outlet.z) + sumt(_base_1.stoic*r)*_base_1.Vr),
+				:(diff(M*_base_1.Outlet.h) = _base_1.Inlet.F*_base_1.Inlet.h - _base_1.Outlet.F*_base_1.Outlet.h +sum(Hr*sum(_base_1.stoic*r))*_base_1.Vr - q),
 			],
 			[
 				"Component Molar Balance","Reactor Energy Balance",
@@ -38,7 +38,7 @@ type cstr
 			[:r,:Hr,]
 		)
 	end
-	_P1::cstr_basic
+	_base_1::cstr_basic
 	r::Array{reaction_mol }
 	Hr::Array{heat_reaction }
 	equations::Array{Expr,1}
@@ -71,4 +71,3 @@ cstr(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(cstr)

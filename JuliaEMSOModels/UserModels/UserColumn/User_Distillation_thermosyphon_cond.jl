@@ -78,7 +78,7 @@ type User_Distillation_thermosyphon_cond
 				:(ConnectorSplitterBottom.P = BottomProduct.P),
 				:(ConnectorSplitterBottom.F = BottomProduct.F),
 				:(ConnectorSplitterBottom.z = BottomProduct.z),
-				:(CondenserUnity.InletV.F*trays(1).vV = alfaTopo * _P1.Ah * sqrt(2*(trays(1).OutletV.P - CondenserUnity.OutletL.P + 1e-8 * "atm") / (_P1.alfa*trays(1).rhoV))),
+				:(CondenserUnity.InletV.F*trays(1).vV = alfaTopo * _base_1.Ah * sqrt(2*(trays(1).OutletV.P - CondenserUnity.OutletL.P + 1e-8 * "atm") / (_base_1.alfa*trays(1).rhoV))),
 				:(CondenserUnity.InletV.F = 0 * "mol/s"),
 			],
 			[
@@ -88,7 +88,7 @@ type User_Distillation_thermosyphon_cond
 			[:CondenserUnity,:SplitterTop,:PumpUnity,:BottomVessel,:SplitterBottom,:ReboilerUnity,:alfaTopo,:HeatToCondenser,:HeatToReboiler,:HeatToBottomVessel,:VapourDistillate,:ConnectorCondenserVout,:LiquidDistillate,:ConnectorSplitterTop,:BottomProduct,:ConnectorSplitterBottom,]
 		)
 	end
-	_P1::User_Section_ColumnBasic
+	_base_1::User_Section_ColumnBasic
 	CondenserVapourFlow::DanaSwitcher 
 	CondenserUnity::condenser
 	SplitterTop::splitter
@@ -178,4 +178,3 @@ User_Distillation_thermosyphon_cond(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(User_Distillation_thermosyphon_cond)

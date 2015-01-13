@@ -1,6 +1,6 @@
 module EMLcolumn
 	using DanaTypes
-	using NamesOfTypes
+	using TypeInheritance
 	require("EMSOModelLibrary.jl/JuliaEMSOModels/stage_separators/tray.jl")
 	using EMLtray
 	using EMLtypes

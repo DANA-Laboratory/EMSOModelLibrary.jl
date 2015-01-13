@@ -15,7 +15,7 @@ type stoic_conv_vap
 				:Symbol=>"X_k"
 			)),
 			[
-				:(_P1.rate*_P1._P1._P1.Tank.V = sumt(_P1.stoic)/abs(sumt(_P1.stoic(KComp,:)))*_P1._P1._P1.Outletm.F*_P1._P1._P1.Outletm.z(KComp)*kconv),
+				:(_base_1.rate*_base_1._base_1._base_1.Tank.V = sumt(_base_1.stoic)/abs(sumt(_base_1.stoic(KComp,:)))*_base_1._base_1._base_1.Outletm.F*_base_1._base_1._base_1.Outletm.z(KComp)*kconv),
 			],
 			[
 				"Reaction rate",
@@ -24,7 +24,7 @@ type stoic_conv_vap
 			[:kconv,]
 		)
 	end
-	_P1::stoic_vap
+	_base_1::stoic_vap
 	KComp::DanaInteger
 	kconv::DanaReal 
 	equations::Array{Expr,1}
@@ -55,4 +55,3 @@ stoic_conv_vap(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(stoic_conv_vap)

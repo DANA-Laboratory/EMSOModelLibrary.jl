@@ -54,17 +54,17 @@ type ShellandTubes_LMTD
 				:Lower=>1e-6
 			)),
 			[
-				:(_P1.Details.Q = _P1.Details.Ud*_P1.Pi*_P1.Tubes.TubeOD*_P1.Tubes.NumberOfTubes*_P1.Tubes.TubeLength*Method.LMTD*Method.Fc),
-				:(Phi*(2*((_P1.InletShell.T+ _P1.OutletShell.T)-(_P1.InletTube.T+ _P1.OutletTube.T))) = (sqrt(((_P1.InletShell.T- _P1.OutletShell.T)*(_P1.InletShell.T- _P1.OutletShell.T))+((_P1.OutletTube.T - _P1.InletTube.T)*(_P1.OutletTube.T - _P1.InletTube.T))))),
-				:(R*(_P1.OutletTube.T - _P1.InletTube.T ) = (_P1.InletShell.T-_P1.OutletShell.T)),
-				:(P*(_P1.InletShell.T- _P1.InletTube.T)= (_P1.OutletTube.T-_P1.InletTube.T)),
-				:(Method.DT0 = _P1.InletShell.T - _P1.OutletTube.T),
-				:(Method.DTL = _P1.OutletShell.T - _P1.InletTube.T),
-				:(Phi*(2*((_P1.InletShell.T+ _P1.OutletShell.T)-(_P1.InletTube.T+ _P1.OutletTube.T))) = (sqrt(((_P1.InletShell.T- _P1.OutletShell.T)*(_P1.InletShell.T- _P1.OutletShell.T))+((_P1.OutletTube.T - _P1.InletTube.T)*(_P1.OutletTube.T - _P1.InletTube.T))))),
-				:(R*(_P1.OutletShell.T - _P1.InletShell.T ) = (_P1.InletTube.T-_P1.OutletTube.T)),
-				:(P*(_P1.InletTube.T- _P1.InletShell.T)= (_P1.OutletShell.T-_P1.InletShell.T)),
-				:(Method.DT0 = _P1.InletTube.T - _P1.OutletShell.T),
-				:(Method.DTL = _P1.OutletTube.T - _P1.InletShell.T),
+				:(_base_1.Details.Q = _base_1.Details.Ud*_base_1.Pi*_base_1.Tubes.TubeOD*_base_1.Tubes.NumberOfTubes*_base_1.Tubes.TubeLength*Method.LMTD*Method.Fc),
+				:(Phi*(2*((_base_1.InletShell.T+ _base_1.OutletShell.T)-(_base_1.InletTube.T+ _base_1.OutletTube.T))) = (sqrt(((_base_1.InletShell.T- _base_1.OutletShell.T)*(_base_1.InletShell.T- _base_1.OutletShell.T))+((_base_1.OutletTube.T - _base_1.InletTube.T)*(_base_1.OutletTube.T - _base_1.InletTube.T))))),
+				:(R*(_base_1.OutletTube.T - _base_1.InletTube.T ) = (_base_1.InletShell.T-_base_1.OutletShell.T)),
+				:(P*(_base_1.InletShell.T- _base_1.InletTube.T)= (_base_1.OutletTube.T-_base_1.InletTube.T)),
+				:(Method.DT0 = _base_1.InletShell.T - _base_1.OutletTube.T),
+				:(Method.DTL = _base_1.OutletShell.T - _base_1.InletTube.T),
+				:(Phi*(2*((_base_1.InletShell.T+ _base_1.OutletShell.T)-(_base_1.InletTube.T+ _base_1.OutletTube.T))) = (sqrt(((_base_1.InletShell.T- _base_1.OutletShell.T)*(_base_1.InletShell.T- _base_1.OutletShell.T))+((_base_1.OutletTube.T - _base_1.InletTube.T)*(_base_1.OutletTube.T - _base_1.InletTube.T))))),
+				:(R*(_base_1.OutletShell.T - _base_1.InletShell.T ) = (_base_1.InletTube.T-_base_1.OutletTube.T)),
+				:(P*(_base_1.InletTube.T- _base_1.InletShell.T)= (_base_1.OutletShell.T-_base_1.InletShell.T)),
+				:(Method.DT0 = _base_1.InletTube.T - _base_1.OutletShell.T),
+				:(Method.DTL = _base_1.OutletTube.T - _base_1.InletShell.T),
 				:(lambdaN =1),
 				:(lambda1 =1),
 				:(Rho =1),
@@ -97,7 +97,7 @@ type ShellandTubes_LMTD
 			[:Method,:R,:P,:Pc,:Rho,:Phi,:lambdaN,:lambda1,]
 		)
 	end
-	_P1::ShellandTubesBasic
+	_base_1::ShellandTubesBasic
 	LMTDcorrection::DanaSwitcher 
 	Method::LMTD_Basic
 	R::positive 
@@ -211,4 +211,3 @@ ShellandTubes_LMTD(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(ShellandTubes_LMTD)

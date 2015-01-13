@@ -62,13 +62,13 @@ type stoic_vap
 				:Default=>0
 			)),(NComp)),
 			[
-				:(Outlet.F*Outlet.z = _P1._P1.Outletm.F*_P1._P1.Outletm.z + rate*_P1._P1.Tank.V),
-				:(Outlet.P = _P1._P1.Outletm.P),
-				:(Outlet.F*Outlet.h = _P1._P1.Outletm.F*_P1._P1.Outletm.h),
-				:(Outlet.F = _P1._P1.Outletm.F),
-				:(Outlet.F*Outlet.z([1:_P1._P1.NComp]) = _P1._P1.Outletm.F*_P1._P1.Outletm.z([1:_P1._P1.NComp])*(1 - conv([1:_P1._P1.NComp]))),
-				:(conv([1:_P1._P1.NComp]) = 1),
-				:(conv([1:_P1._P1.NComp]) = 0),
+				:(Outlet.F*Outlet.z = _base_1._base_1.Outletm.F*_base_1._base_1.Outletm.z + rate*_base_1._base_1.Tank.V),
+				:(Outlet.P = _base_1._base_1.Outletm.P),
+				:(Outlet.F*Outlet.h = _base_1._base_1.Outletm.F*_base_1._base_1.Outletm.h),
+				:(Outlet.F = _base_1._base_1.Outletm.F),
+				:(Outlet.F*Outlet.z([1:_base_1._base_1.NComp]) = _base_1._base_1.Outletm.F*_base_1._base_1.Outletm.z([1:_base_1._base_1.NComp])*(1 - conv([1:_base_1._base_1.NComp]))),
+				:(conv([1:_base_1._base_1.NComp]) = 1),
+				:(conv([1:_base_1._base_1.NComp]) = 0),
 			],
 			[
 				"Outlet stream","Mechanical equilibrium","Energy balance","Steady-state","Molar conversion","Molar conversion","Molar conversion",
@@ -77,7 +77,7 @@ type stoic_vap
 			[:Outlet,:rate,:conv,]
 		)
 	end
-	_P1::tank_vap
+	_base_1::tank_vap
 	NReac::DanaInteger 
 	stoic::Array{DanaReal }
 	Outlet::vapour_stream
@@ -125,4 +125,3 @@ stoic_vap(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(stoic_vap)

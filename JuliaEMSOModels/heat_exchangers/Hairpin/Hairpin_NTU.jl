@@ -34,7 +34,7 @@ type Hairpin_NTU
 			)),
 			[
 				:(Method.Eft1 = 1),
-				:(Method.NTU*Method.Cmin = _P1.Details.Ud*_P1.Pi*_P1.DoInner*(2*_P1.Lpipe)),
+				:(Method.NTU*Method.Cmin = _base_1.Details.Ud*_base_1.Pi*_base_1.DoInner*(2*_base_1.Lpipe)),
 				:(Method.Cmin = min([Method.Ch,Method.Cc])),
 				:(Method.Cmax = max([Method.Ch,Method.Cc])),
 				:(Method.Cr = Method.Cmin/Method.Cmax),
@@ -47,14 +47,14 @@ type Hairpin_NTU
 				:(Method.Cmax = max([Method.Ch,Method.Cc])),
 				:(Method.Cr = 1),
 				:(Method.Eft = Eftestimated),
-				:(_P1.Details.Q = Method.Eft*Method.Cmin*(_P1.InletOuter.T-_P1.InletInner.T)),
-				:(_P1.Details.Q = _P1.Qestimated),
-				:(Method.Ch = _P1.InletOuter.F*_P1.Outer.Properties.Average.Cp),
-				:(Method.Cc = _P1.InletInner.F*_P1.Inner.Properties.Average.Cp),
-				:(_P1.Details.Q = Method.Eft*Method.Cmin*(_P1.InletInner.T-_P1.InletOuter.T)),
-				:(_P1.Details.Q = _P1.Qestimated),
-				:(Method.Cc = _P1.InletOuter.F*_P1.Outer.Properties.Average.Cp),
-				:(Method.Ch = _P1.InletInner.F*_P1.Inner.Properties.Average.Cp),
+				:(_base_1.Details.Q = Method.Eft*Method.Cmin*(_base_1.InletOuter.T-_base_1.InletInner.T)),
+				:(_base_1.Details.Q = _base_1.Qestimated),
+				:(Method.Ch = _base_1.InletOuter.F*_base_1.Outer.Properties.Average.Cp),
+				:(Method.Cc = _base_1.InletInner.F*_base_1.Inner.Properties.Average.Cp),
+				:(_base_1.Details.Q = Method.Eft*Method.Cmin*(_base_1.InletInner.T-_base_1.InletOuter.T)),
+				:(_base_1.Details.Q = _base_1.Qestimated),
+				:(Method.Cc = _base_1.InletOuter.F*_base_1.Outer.Properties.Average.Cp),
+				:(Method.Ch = _base_1.InletInner.F*_base_1.Inner.Properties.Average.Cp),
 			],
 			[
 				"Effectiveness Correction","Number of Units Transference","Minimum Heat Capacity","Maximum Heat Capacity","Thermal Capacity Ratio","Effectiveness","Effectiveness in Cocurrent Flow","Effectiveness in Counter Flow","Effectiveness in Counter Flow","Number of Units Transference","Minimum Heat Capacity","Maximum Heat Capacity","Thermal Capacity Ratio","Effectiveness","Duty","Duty","Hot Stream Heat Capacity","Cold Stream Heat Capacity","Duty","Duty","Cold Stream Heat Capacity","Hot Stream Heat Capacity",
@@ -63,7 +63,7 @@ type Hairpin_NTU
 			[:Method,]
 		)
 	end
-	_P1::Hairpin_Basic
+	_base_1::Hairpin_Basic
 	FlowDirection::DanaSwitcher 
 	Eftestimated::positive 
 	Method::NTU_Basic 
@@ -149,4 +149,3 @@ Hairpin_NTU(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(Hairpin_NTU)

@@ -1,6 +1,6 @@
 module EMLratio
 	using DanaTypes
-	using NamesOfTypes
+	using TypeInheritance
 	require("EMSOModelLibrary.jl/JuliaEMSOModels/types.jl")
 	using EMLtypes
 	include("ratio/Ratio.jl")

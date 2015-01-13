@@ -26,7 +26,7 @@ type cooler
 				:Symbol=>"_{out}"
 			)),
 			[
-				:(OutletQ.Q = -_P1.Duty),
+				:(OutletQ.Q = -_base_1.Duty),
 			],
 			[
 				"Duty Specification",
@@ -34,7 +34,7 @@ type cooler
 			[:OutletQ,]
 		)
 	end
-	_P1::heater_basic
+	_base_1::heater_basic
 	OutletQ::energy_stream 
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
@@ -67,4 +67,3 @@ cooler(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(cooler)

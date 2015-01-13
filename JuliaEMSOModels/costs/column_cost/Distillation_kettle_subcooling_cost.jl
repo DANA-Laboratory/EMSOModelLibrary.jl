@@ -87,8 +87,8 @@ type Distillation_kettle_subcooling_cost
 				:(Ftm = Cost(8,1) + Cost(8,2)*D/"m"),
 				:(Ftm = Cost(9,1) + Cost(9,2)*D/"m"),
 				:(Ftm = Cost(10,1) + Cost(10,2)*D/"m"),
-				:(Fnt = Cost(11,1)/(Cost(11,2))^_P1.NTrays),
-				:(Ct = Cb*Fm + _P1.NTrays*Cbt*Ftm*Ftt*Fnt + Cpl),
+				:(Fnt = Cost(11,1)/(Cost(11,2))^_base_1.NTrays),
+				:(Ct = Cb*Fm + _base_1.NTrays*Cbt*Ftm*Ftt*Fnt + Cpl),
 				:(Ftt = Cost(12,1)),
 				:(Fm = Cost(5,1)),
 				:(Ws = dens_mass_material*Di*(Lt + 0.8116*Di)*Tp*Pi),
@@ -100,7 +100,7 @@ type Distillation_kettle_subcooling_cost
 			[:Cs,:Cb,:Fm,:Cpl,:Cbt,:Ftm,:Fnt,:Ftt,:Ct,:Ws,]
 		)
 	end
-	_P1::Distillation_kettle_subcooling
+	_base_1::Distillation_kettle_subcooling
 	Material::DanaSwitcher 
 	Tray_Type::DanaSwitcher 
 	Tray_Material::DanaSwitcher 
@@ -188,4 +188,3 @@ Distillation_kettle_subcooling_cost(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(Distillation_kettle_subcooling_cost)

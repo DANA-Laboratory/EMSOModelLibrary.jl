@@ -1,6 +1,6 @@
 module EMLPHE
 	using DanaTypes
-	using NamesOfTypes
+	using TypeInheritance
 	require("EMSOModelLibrary.jl/JuliaEMSOModels/heat_exchangers/HEX_Engine.jl")
 	using EMLHEX_Engine
 	using EMLtypes

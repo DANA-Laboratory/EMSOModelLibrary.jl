@@ -102,18 +102,18 @@ type equil_vap
 				:Default=>0
 			)),(NComp)),
 			[
-				:(Outlet.F*Outlet.z = _P1._P1.Outletm.F*_P1._P1.Outletm.z + rate*_P1._P1.Tank.V),
-				:(Outlet.P = _P1._P1.Outletm.P),
-				:(Outlet.F*Outlet.h = _P1._P1.Outletm.F*_P1._P1.Outletm.h),
-				:(Outlet.F = _P1._P1.Inlet.F + sum(sumt(stoic*extent))),
-				:(G = _P1._P1.PP.IdealGasGibbsOfFormation(Outlet.T)),
+				:(Outlet.F*Outlet.z = _base_1._base_1.Outletm.F*_base_1._base_1.Outletm.z + rate*_base_1._base_1.Tank.V),
+				:(Outlet.P = _base_1._base_1.Outletm.P),
+				:(Outlet.F*Outlet.h = _base_1._base_1.Outletm.F*_base_1._base_1.Outletm.h),
+				:(Outlet.F = _base_1._base_1.Inlet.F + sum(sumt(stoic*extent))),
+				:(G = _base_1._base_1.PP.IdealGasGibbsOfFormation(Outlet.T)),
 				:(sumt(G*stoic(:,[1:NReac])) = -Rg*Outlet.T*ln(K([1:NReac]))),
 				:(K([1:NReac]) = prod(activ^stoic(:,[1:NReac]))),
-				:(Outlet.F*Outlet.z([1:_P1._P1.NComp]) = (_P1._P1.Inlet.F*_P1._P1.Inlet.z([1:_P1._P1.NComp]) + sumt(stoic([1:_P1._P1.NComp],:)*extent))),
-				:(Outlet.F*Outlet.z([1:_P1._P1.NComp]) = _P1._P1.Outletm.F*_P1._P1.Outletm.z([1:_P1._P1.NComp])*(1 - conv([1:_P1._P1.NComp]))),
-				:(conv([1:_P1._P1.NComp]) = 1),
-				:(conv([1:_P1._P1.NComp]) = 0),
-				:(activ = _P1._P1.PP.VapourFugacityCoefficient(Outlet.T,Outlet.P,Outlet.z)*Outlet.P*Outlet.z/fs),
+				:(Outlet.F*Outlet.z([1:_base_1._base_1.NComp]) = (_base_1._base_1.Inlet.F*_base_1._base_1.Inlet.z([1:_base_1._base_1.NComp]) + sumt(stoic([1:_base_1._base_1.NComp],:)*extent))),
+				:(Outlet.F*Outlet.z([1:_base_1._base_1.NComp]) = _base_1._base_1.Outletm.F*_base_1._base_1.Outletm.z([1:_base_1._base_1.NComp])*(1 - conv([1:_base_1._base_1.NComp]))),
+				:(conv([1:_base_1._base_1.NComp]) = 1),
+				:(conv([1:_base_1._base_1.NComp]) = 0),
+				:(activ = _base_1._base_1.PP.VapourFugacityCoefficient(Outlet.T,Outlet.P,Outlet.z)*Outlet.P*Outlet.z/fs),
 			],
 			[
 				"Outlet stream","Mechanical equilibrium","Energy balance","Steady-state","Gibbs free-energy of formation","Gibbs free energy of reaction","Equilibrium constant","Outlet molar fraction","Molar conversion","Molar conversion","Molar conversion","Activity",
@@ -122,7 +122,7 @@ type equil_vap
 			[:Outlet,:G,:K,:activ,:rate,:extent,:conv,]
 		)
 	end
-	_P1::tank_vap
+	_base_1::tank_vap
 	NReac::DanaInteger 
 	stoic::Array{DanaReal }
 	Rg::DanaReal 
@@ -194,4 +194,3 @@ equil_vap(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(equil_vap)

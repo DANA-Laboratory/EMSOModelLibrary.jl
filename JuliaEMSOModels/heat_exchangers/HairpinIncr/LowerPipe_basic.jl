@@ -86,28 +86,28 @@ type LowerPipe_basic
 				:Lower=>0
 			)),
 			[
-				:(_P1.Details.Q(1:N) = _P1.InletOuter.F*(_P1.Outer.HeatTransfer.Enth(1:N) - _P1.Outer.HeatTransfer.Enth(2:_P1.Npoints))),
-				:(_P1.Details.Q(1:N) = -_P1.InletInner.F*(_P1.Inner.HeatTransfer.Enth(2:_P1.Npoints) - _P1.Inner.HeatTransfer.Enth(1:N))),
-				:(_P1.Details.Q = _P1.Details.Ud*_P1.Pi*_P1.DoInner*(_P1.Lpipe/N)*(_P1.Outer.Properties.Average.T - _P1.Inner.Properties.Average.T)),
-				:(_P1.Details.Q(1:N) = _P1.InletInner.F*(_P1.Inner.HeatTransfer.Enth(2:_P1.Npoints)-_P1.Inner.HeatTransfer.Enth(1:N))),
-				:(_P1.Details.Q(1:N) = -_P1.InletOuter.F*(_P1.Outer.HeatTransfer.Enth(1:N) - _P1.Outer.HeatTransfer.Enth(2:_P1.Npoints))),
-				:(_P1.Details.Q = _P1.Details.Ud*_P1.Pi*_P1.DoInner*(_P1.Lpipe/N)*(_P1.Inner.Properties.Average.T - _P1.Outer.Properties.Average.T)),
-				:(_P1.Outer.HeatTransfer.Enth(1) = _P1.InletOuter.h),
-				:(_P1.Outer.HeatTransfer.Enth(_P1.Npoints) = _P1.OutletOuter.h),
-				:(_P1.Outer.HeatTransfer.Tlocal(1) = _P1.InletOuter.T),
-				:(_P1.Outer.HeatTransfer.Tlocal(_P1.Npoints) = _P1.OutletOuter.T),
-				:(_P1.Outer.PressureDrop.Plocal(1) = _P1.InletOuter.P),
-				:(_P1.Outer.PressureDrop.Plocal(_P1.Npoints) = _P1.OutletOuter.P),
-				:(_P1.Inner.HeatTransfer.Enth(_P1.Npoints) = _P1.InletInner.h),
-				:(_P1.Inner.HeatTransfer.Enth(1) = _P1.OutletInner.h),
-				:(_P1.Inner.HeatTransfer.Tlocal(_P1.Npoints) = _P1.InletInner.T),
-				:(_P1.Inner.HeatTransfer.Tlocal(1) = _P1.OutletInner.T),
-				:(_P1.Inner.PressureDrop.Plocal(_P1.Npoints) = _P1.InletInner.P),
-				:(_P1.Inner.PressureDrop.Plocal(1) = _P1.OutletInner.P),
-				:(_P1.Inner.PressureDrop.Pd_fric([1:N]) = (2*_P1.Inner.PressureDrop.fi([1:N])*_P1.Lincr(1+_P1.Npoints-[1:N])*_P1.Inner.Properties.Average.rho([1:N])*_P1.Inner.HeatTransfer.Vmean([1:N])^2)/(_P1.DiInner*_P1.Inner.HeatTransfer.Phi([1:N]))),
-				:(_P1.Inner.PressureDrop.Pd_fric(_P1.Npoints) = 0*"kPa"),
-				:(_P1.Outer.PressureDrop.Pd_fric(2:_P1.Npoints) = (2*_P1.Outer.PressureDrop.fi*_P1.Lincr(2:_P1.Npoints)*_P1.Outer.Properties.Average.rho*_P1.Outer.HeatTransfer.Vmean^2)/(_P1.Outer.PressureDrop.Dh*_P1.Outer.HeatTransfer.Phi)),
-				:(_P1.Outer.PressureDrop.Pd_fric(1) = 0*"kPa"),
+				:(_base_1.Details.Q(1:N) = _base_1.InletOuter.F*(_base_1.Outer.HeatTransfer.Enth(1:N) - _base_1.Outer.HeatTransfer.Enth(2:_base_1.Npoints))),
+				:(_base_1.Details.Q(1:N) = -_base_1.InletInner.F*(_base_1.Inner.HeatTransfer.Enth(2:_base_1.Npoints) - _base_1.Inner.HeatTransfer.Enth(1:N))),
+				:(_base_1.Details.Q = _base_1.Details.Ud*_base_1.Pi*_base_1.DoInner*(_base_1.Lpipe/N)*(_base_1.Outer.Properties.Average.T - _base_1.Inner.Properties.Average.T)),
+				:(_base_1.Details.Q(1:N) = _base_1.InletInner.F*(_base_1.Inner.HeatTransfer.Enth(2:_base_1.Npoints)-_base_1.Inner.HeatTransfer.Enth(1:N))),
+				:(_base_1.Details.Q(1:N) = -_base_1.InletOuter.F*(_base_1.Outer.HeatTransfer.Enth(1:N) - _base_1.Outer.HeatTransfer.Enth(2:_base_1.Npoints))),
+				:(_base_1.Details.Q = _base_1.Details.Ud*_base_1.Pi*_base_1.DoInner*(_base_1.Lpipe/N)*(_base_1.Inner.Properties.Average.T - _base_1.Outer.Properties.Average.T)),
+				:(_base_1.Outer.HeatTransfer.Enth(1) = _base_1.InletOuter.h),
+				:(_base_1.Outer.HeatTransfer.Enth(_base_1.Npoints) = _base_1.OutletOuter.h),
+				:(_base_1.Outer.HeatTransfer.Tlocal(1) = _base_1.InletOuter.T),
+				:(_base_1.Outer.HeatTransfer.Tlocal(_base_1.Npoints) = _base_1.OutletOuter.T),
+				:(_base_1.Outer.PressureDrop.Plocal(1) = _base_1.InletOuter.P),
+				:(_base_1.Outer.PressureDrop.Plocal(_base_1.Npoints) = _base_1.OutletOuter.P),
+				:(_base_1.Inner.HeatTransfer.Enth(_base_1.Npoints) = _base_1.InletInner.h),
+				:(_base_1.Inner.HeatTransfer.Enth(1) = _base_1.OutletInner.h),
+				:(_base_1.Inner.HeatTransfer.Tlocal(_base_1.Npoints) = _base_1.InletInner.T),
+				:(_base_1.Inner.HeatTransfer.Tlocal(1) = _base_1.OutletInner.T),
+				:(_base_1.Inner.PressureDrop.Plocal(_base_1.Npoints) = _base_1.InletInner.P),
+				:(_base_1.Inner.PressureDrop.Plocal(1) = _base_1.OutletInner.P),
+				:(_base_1.Inner.PressureDrop.Pd_fric([1:N]) = (2*_base_1.Inner.PressureDrop.fi([1:N])*_base_1.Lincr(1+_base_1.Npoints-[1:N])*_base_1.Inner.Properties.Average.rho([1:N])*_base_1.Inner.HeatTransfer.Vmean([1:N])^2)/(_base_1.DiInner*_base_1.Inner.HeatTransfer.Phi([1:N]))),
+				:(_base_1.Inner.PressureDrop.Pd_fric(_base_1.Npoints) = 0*"kPa"),
+				:(_base_1.Outer.PressureDrop.Pd_fric(2:_base_1.Npoints) = (2*_base_1.Outer.PressureDrop.fi*_base_1.Lincr(2:_base_1.Npoints)*_base_1.Outer.Properties.Average.rho*_base_1.Outer.HeatTransfer.Vmean^2)/(_base_1.Outer.PressureDrop.Dh*_base_1.Outer.HeatTransfer.Phi)),
+				:(_base_1.Outer.PressureDrop.Pd_fric(1) = 0*"kPa"),
 			],
 			[
 				"Energy Balance Outer Stream in counter flow","Energy Balance Inner Stream","Incremental Duty","Energy Balance Hot Stream","Energy Balance Cold Stream in counter flow","Incremental Duty","Enthalpy of Outer Side - Inlet Boundary","Enthalpy of Outer Side - Outlet Boundary","Temperature of OuterSide - Inlet Boundary","Temperature of Outer Side - Outlet Boundary","Pressure of Outer Side - Inlet Boundary","Pressure of Outer Side - Outlet Boundary","Enthalpy of Inner Side - Inlet Boundary","Enthalpy of Inner Side - Outlet Boundary","Temperature of Inner Side - Inlet Boundary","Temperature of Inner Side - Outlet Boundary","Pressure of Inner Side - Inlet Boundary","Pressure of Inner Side - Outlet Boundary","Inner Pipe Pressure Drop for friction","Inner Pipe Pressure Drop for friction","Outer Pipe Pressure Drop for friction","Outer Pipe Pressure Drop for friction",
@@ -115,7 +115,7 @@ type LowerPipe_basic
 			[:PP,:NComp,:Pi,:N,:Npoints,:DoInner,:DiInner,:DiOuter,:Lpipe,:Kwall,:Rfi,:Rfo,],
 		)
 	end
-	_P1::HairpinIncr_basic
+	_base_1::HairpinIncr_basic
 	PP::DanaPlugin 
 	NComp::DanaInteger 
 	Pi::constant 
@@ -184,4 +184,3 @@ LowerPipe_basic(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(LowerPipe_basic)

@@ -57,31 +57,31 @@ type Heatex_LMTD
 			)),
 			[
 				:(Q = U*A*Method.LMTD*Method.Fc),
-				:(Method.DT0 = _P1.InletHot.T - _P1.InletCold.T),
-				:(Method.DTL = _P1.OutletHot.T - _P1.OutletCold.T),
+				:(Method.DT0 = _base_1.InletHot.T - _base_1.InletCold.T),
+				:(Method.DTL = _base_1.OutletHot.T - _base_1.OutletCold.T),
 				:(R=1),
 				:(P=1),
 				:(Phi = 1),
 				:(Rho = 1),
 				:(Method.Fc = 1),
-				:(Method.DT0 = _P1.InletHot.T - _P1.OutletCold.T),
-				:(Method.DTL = _P1.OutletHot.T - _P1.InletCold.T),
+				:(Method.DT0 = _base_1.InletHot.T - _base_1.OutletCold.T),
+				:(Method.DTL = _base_1.OutletHot.T - _base_1.InletCold.T),
 				:(R=1),
 				:(P=1),
 				:(Phi = 1),
 				:(Rho = 1),
 				:(Method.Fc = 1),
-				:(Method.DT0 = _P1.InletHot.T - _P1.OutletCold.T),
-				:(Method.DTL = _P1.OutletHot.T - _P1.InletCold.T),
+				:(Method.DT0 = _base_1.InletHot.T - _base_1.OutletCold.T),
+				:(Method.DTL = _base_1.OutletHot.T - _base_1.InletCold.T),
 				:(Phi = 1),
 				:(Rho = 1),
-				:(R*(_P1.OutletCold.T - _P1.InletCold.T ) = (_P1.InletHot.T-_P1.OutletHot.T)),
-				:(P*(_P1.InletHot.T- _P1.InletCold.T)= (_P1.OutletCold.T-_P1.InletCold.T)),
+				:(R*(_base_1.OutletCold.T - _base_1.InletCold.T ) = (_base_1.InletHot.T-_base_1.OutletHot.T)),
+				:(P*(_base_1.InletHot.T- _base_1.InletCold.T)= (_base_1.OutletCold.T-_base_1.InletCold.T)),
 				:(Method.Fc = (sqrt(2)*P)/((1-P)*ln( abs( ( 2-P*0.585786)/( 2-P*3.414214))))),
 				:(Method.Fc = sqrt(R*R+1)*ln(abs((1-P*R)/(1-P)))/((1-R)*ln( abs( ( 2-P*(R+1-sqrt(R*R+1)))/ ( 2-P*(R + 1 + sqrt(R*R+1))))))),
-				:(R*(_P1.OutletCold.T - _P1.InletCold.T ) = (_P1.InletHot.T-_P1.OutletHot.T)),
-				:(P*(_P1.InletHot.T- _P1.InletCold.T)= (_P1.OutletCold.T-_P1.InletCold.T)),
-				:(Phi = (sqrt(((_P1.InletHot.T- _P1.OutletHot.T)*(_P1.InletHot.T- _P1.OutletHot.T))+((_P1.OutletCold.T - _P1.InletCold.T)*(_P1.OutletCold.T - _P1.InletCold.T))))/(2*((_P1.InletHot.T+ _P1.OutletHot.T)-(_P1.InletCold.T+ _P1.OutletCold.T)))),
+				:(R*(_base_1.OutletCold.T - _base_1.InletCold.T ) = (_base_1.InletHot.T-_base_1.OutletHot.T)),
+				:(P*(_base_1.InletHot.T- _base_1.InletCold.T)= (_base_1.OutletCold.T-_base_1.InletCold.T)),
+				:(Phi = (sqrt(((_base_1.InletHot.T- _base_1.OutletHot.T)*(_base_1.InletHot.T- _base_1.OutletHot.T))+((_base_1.OutletCold.T - _base_1.InletCold.T)*(_base_1.OutletCold.T - _base_1.InletCold.T))))/(2*((_base_1.InletHot.T+ _base_1.OutletHot.T)-(_base_1.InletCold.T+ _base_1.OutletCold.T)))),
 				:(Rho*(1-P*R) = (1-P)),
 				:(Method.Fc = (4*Phi)/(ln(abs((1+2*Phi)/(1-2*Phi))))),
 				:(Method.Fc = (2*Phi*(Rho+1)*ln(abs(Rho)))/( ln(abs((1+2*Phi)/(1-2*Phi)))*(Rho-1))),
@@ -93,7 +93,7 @@ type Heatex_LMTD
 			[:Method,:R,:P,:Rho,:Phi,]
 		)
 	end
-	_P1::Heatex_Basic
+	_base_1::Heatex_Basic
 	ExchangerType::DanaSwitcher 
 	LMTDcorrection::DanaSwitcher 
 	Method::LMTD_Basic 
@@ -189,4 +189,3 @@ Heatex_LMTD(_::Dict{Symbol,Any})=begin
 	newModel.attributes=atributes(newModel,_)
 	newModel
 end
-addnamestoinventory(Heatex_LMTD)
