@@ -1,6 +1,6 @@
 module EMLcompressor
 	using DanaTypes
-	using TypeInheritance
+	using DotPlusInheritance
 	require("EMSOModelLibrary.jl/JuliaEMSOModels/streams.jl")
 	using EMLstreams
 	using EMLtypes

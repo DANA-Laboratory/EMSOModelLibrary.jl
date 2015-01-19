@@ -1,6 +1,6 @@
 module EMLtank_basic
 	using DanaTypes
-	using TypeInheritance
+	using DotPlusInheritance
 	require("EMSOModelLibrary.jl/JuliaEMSOModels/streams.jl")
 	using EMLstreams
 	using EMLtypes

@@ -1,6 +1,6 @@
 module EMLtank_cost
 	using DanaTypes
-	using TypeInheritance
+	using DotPlusInheritance
 	require("EMSOModelLibrary.jl/JuliaEMSOModels/stage_separators/tank.jl")
 	using EMLtank
 	using EMLtypes

@@ -1,6 +1,6 @@
 module EMLlag_1
 	using DanaTypes
-	using TypeInheritance
+	using DotPlusInheritance
 	require("EMSOModelLibrary.jl/JuliaEMSOModels/types.jl")
 	using EMLtypes
 	include("lag_1/Lag_1.jl")

@@ -1,6 +1,6 @@
 module EMLreboiler_cost
 	using DanaTypes
-	using TypeInheritance
+	using DotPlusInheritance
 	require("EMSOModelLibrary.jl/JuliaEMSOModels/stage_separators/reboiler.jl")
 	using EMLreboiler
 	using EMLtypes
