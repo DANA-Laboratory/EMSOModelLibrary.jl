@@ -1,6 +1,6 @@
 # EMSOModelLibrary.jl
 
-[![Build Status](https://travis-ci.org/DANA-Laboratory/EMSOModelLibrary.jl.svg?branch=master)](https://travis-ci.org/DANA-Laboratory/EMSOModelLibrary.jl)
+[![Build Status](https://api.travis-ci.org/DANA-Laboratory/EMSOModelLibrary.jl.svg?branch=master)](https://travis-ci.org/DANA-Laboratory/EMSOModelLibrary.jl)
 
 Julia equivalent for EMSO Model library. translated by EMLTranslator 
 
