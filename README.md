@@ -8,7 +8,7 @@ Julia equivalent for EMSO Model library. translated by EMLTranslator
 
 `using DanaTypes`
 
-`using DonPlusInherintance`
+`using DotPlusInherintance`
 
 ##Usage
 
