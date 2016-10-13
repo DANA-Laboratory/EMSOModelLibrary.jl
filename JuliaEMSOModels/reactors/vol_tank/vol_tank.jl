@@ -37,8 +37,7 @@ type vol_tank
 			positive (Dict{Symbol,Any}(
 				:Brief=>"Pi value",
 				:Default=>3.141593,
-				:Symbol=>"\\pi",
-				:Hidden=>true
+				:Symbol=>"\\pi"
 			)),
 			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Tank head type",

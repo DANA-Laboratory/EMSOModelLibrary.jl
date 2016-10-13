@@ -1,6 +1,20 @@
-#----------------------------------------------------------------------
-#* Model of a steady-state PH flash.
-#*---------------------------------------------------------------------
+#-------------------------------------------------------------------
+#* EMSO Model Library (EML) Copyright (C) 2004 - 2007 ALSOC.
+#*
+#* This LIBRARY is free software; you can distribute it and/or modify
+#* it under the therms of the ALSOC FREE LICENSE as available at
+#* http://www.enq.ufrgs.br/alsoc.
+#*
+#* EMSO Copyright (C) 2004 - 2007 ALSOC, original code
+#* from http://www.rps.eng.br Copyright (C) 2002-2004.
+#* All rights reserved.
+#*
+#* EMSO is distributed under the therms of the ALSOC LICENSE as
+#* available at http://www.enq.ufrgs.br/alsoc.
+#*----------------------------------------------------------------------
+#* Author: Paula B. Staudt
+#* $Id$
+#*--------------------------------------------------------------------
 type FlashPHSteady
 	FlashPHSteady()=begin
 		PP=outers.PP
@@ -11,6 +25,10 @@ type FlashPHSteady
 				:Type=>"PP"
 			)),
 			DanaInteger(),
+			DanaReal(Dict{Symbol,Any}(
+				:Default=>1000,
+				:Brief=>"Regularization Factor"
+			)),
 			stream(Dict{Symbol,Any}(
 				:Brief=>"Feed Stream",
 				:PosX=>0,
@@ -29,7 +47,7 @@ type FlashPHSteady
 				:PosY=>0,
 				:Symbol=>"_{outV}"
 			)),
-			energy_stream (Dict{Symbol,Any}(
+			power (Dict{Symbol,Any}(
 				:Brief=>"Rate of heat supply",
 				:PosX=>1,
 				:PosY=>0.7559,
@@ -39,9 +57,27 @@ type FlashPHSteady
 				:Brief=>"Vaporization fraction",
 				:Symbol=>"\\phi"
 			)),
-			enth_mol(Dict{Symbol,Any}(
-				:Brief=>"Mixture enthalpy"
+			DanaReal(Dict{Symbol,Any}(
+				:Lower=>-0.1,
+				:Upper=>1.1,
+				:Brief=>"Vaporization fraction if saturated",
+				:Symbol=>"\\phi_{sat}"
 			)),
+			temperature(Dict{Symbol,Any}(
+				:Lower=>173,
+				:Upper=>1473,
+				:Brief=>"Temperature if saturated"
+			)),
+			fill(DanaReal(Dict{Symbol,Any}(
+				:Lower=>0,
+				:Upper=>1,
+				:Brief=>"Liquid composition if saturated"
+			)),(NComp)),
+			fill(DanaReal(Dict{Symbol,Any}(
+				:Lower=>0,
+				:Upper=>1,
+				:Brief=>"Vapour composition if saturated"
+			)),(NComp)),
 			positive (Dict{Symbol,Any}(
 				:Brief=>"Pressure Ratio",
 				:Symbol=>"P_{ratio}"
@@ -51,34 +87,53 @@ type FlashPHSteady
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P"
 			)),
+			fraction(Dict{Symbol,Any}(
+				:Brief=>"Regularization Variable"
+			)),
+			fraction(Dict{Symbol,Any}(
+				:Brief=>"Regularization Variable"
+			)),
 			[
-				:([vfrac,OutletL.z,OutletV.z]=PP.FlashPH(OutletL.P,h,Inlet.z)),
+				:(PP.LiquidFugacityCoefficient(Tsat, OutletL.P, xsat)*xsat = PP.VapourFugacityCoefficient(Tsat, OutletV.P, ysat)*ysat),
 				:(Inlet.F = OutletV.F + OutletL.F),
 				:(OutletV.F = Inlet.F * vfrac),
-				:(Inlet.F*(h - Inlet.h) = InletQ.Q),
-				:(Inlet.F*h = Inlet.F*(1-vfrac)*OutletL.h + Inlet.F*vfrac*OutletV.h),
+				:(Inlet.F*Inlet.z = OutletL.F*xsat + OutletV.F*ysat),
+				:(sum(xsat) = sum(ysat)),
+				:(Inlet.F*Inlet.h + InletQ = Inlet.F*(1-vsat)*PP.LiquidEnthalpy(Tsat, OutletL.P, xsat) + Inlet.F*vsat*PP.VapourEnthalpy(Tsat, OutletV.P, ysat)),
+				:(Inlet.F*Inlet.h + InletQ = Inlet.F*(1-vfrac)*OutletL.h + Inlet.F*vfrac*OutletV.h),
 				:(OutletV.T = OutletL.T),
 				:(OutletV.P = OutletL.P),
 				:(OutletL.P = Inlet.P - Pdrop),
 				:(OutletL.P = Inlet.P * Pratio),
+				:(zero_one = (1 + tanh(B * vsat))/2),
+				:(one_zero = (1 - tanh(B * (vsat - 1)))/2),
+				:(vfrac = zero_one * one_zero * vsat + 1 - one_zero),
+				:(OutletL.z = zero_one*one_zero*xsat + (1-zero_one*one_zero)*Inlet.z),
+				:(OutletV.z = zero_one*one_zero*ysat + (1-zero_one*one_zero)*Inlet.z),
 			],
 			[
-				"Chemical equilibrium","Global Molar Balance","","Energy Balance","","Thermal Equilibrium","Mechanical Equilibrium","Pressure Drop","Pressure Ratio",
+				"Chemical equilibrium","Global Molar Balance","","Component Molar Balance","","Energy Balance if saturated","Real Energy Balance","Thermal Equilibrium","Mechanical Equilibrium","Pressure Drop","Pressure Ratio","","","","","",
 			],
-			[:PP,:NComp,],
-			[:Inlet,:OutletL,:OutletV,:InletQ,:vfrac,:h,:Pratio,:Pdrop,]
+			[:PP,:NComp,:B,],
+			[:Inlet,:OutletL,:OutletV,:InletQ,:vfrac,:vsat,:Tsat,:xsat,:ysat,:Pratio,:Pdrop,:zero_one,:one_zero,]
 		)
 	end
 	PP::DanaPlugin
 	NComp::DanaInteger
+	B::DanaReal
 	Inlet::stream
 	OutletL::liquid_stream
 	OutletV::vapour_stream
-	InletQ::energy_stream 
+	InletQ::power 
 	vfrac::fraction
-	h::enth_mol
+	vsat::DanaReal
+	Tsat::temperature
+	xsat::Array{DanaReal}
+	ysat::Array{DanaReal}
 	Pratio::positive 
 	Pdrop::press_delta 
+	zero_one::fraction
+	one_zero::fraction
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}
@@ -96,13 +151,25 @@ function setEquationFlow(in::FlashPHSteady)
 	addEquation(7)
 	addEquation(8)
 	addEquation(9)
+	addEquation(10)
+	addEquation(11)
+	# regularization functions
+	addEquation(12)
+	addEquation(13)
+	addEquation(14)
+	addEquation(15)
+	addEquation(16)
 end
 function atributes(in::FlashPHSteady,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
-	fields[:Pallete]=true
+	fields[:Pallete]=false
 	fields[:Icon]="icon/Flash"
-	fields[:Brief]="Model of a static PH flash."
-	fields[:Info]="This model is for using the flashPH routine available on VRTherm.
+	fields[:Brief]="Another model of a static PH flash."
+	fields[:Info]="This model shows how to model a pressure enthalpy flash
+directly with the EMSO modeling language.
+
+This model is for demonstration purposes only, the flashPH
+routine available on VRTherm is much more robust.
 
 == Assumptions ==
 * perfect mixing of both phases;

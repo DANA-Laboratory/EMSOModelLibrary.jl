@@ -13,9 +13,8 @@
 #* available at http://www.enq.ufrgs.br/alsoc.
 #*
 #*----------------------------------------------------------------------
-#* Authors: Rafael de Pelegrini Soares
-#*          Andrey Copat, Estefane S. Horn, Marcos L. Alencastro
-#* $Id$
+#* Author: Marcos L. Alencastro,  Estefane S. Horn (Revised Gerson B. Bicca)
+#* $Id: expander.mso 687 2008-11-20 19:42:33Z bicca $
 #*--------------------------------------------------------------------
 type expander
 	expander()=begin
@@ -37,14 +36,20 @@ type expander
 				:Hidden=>true
 			)),
 			fill(molweight (Dict{Symbol,Any}(
-				:Brief=>"Molar Weight"
+				:Brief=>"Molar Weight",
+				:Hidden=>true
 			)),(NComp)),
 			positive (Dict{Symbol,Any}(
-				:Brief=>"Isentropic Coefficient",
-				:Lower=>0.2
+				:Brief=>"Mechanical efficiency",
+				:Lower=>1E-3
+			)),
+			positive (Dict{Symbol,Any}(
+				:Brief=>"Isentropic efficiency",
+				:Lower=>1E-3
 			)),
 			positive (Dict{Symbol,Any}(
 				:Brief=>"Pressure Ratio",
+				:Lower=>1E-6,
 				:Symbol=>"P_{ratio}"
 			)),
 			press_delta (Dict{Symbol,Any}(
@@ -55,62 +60,82 @@ type expander
 			press_delta (Dict{Symbol,Any}(
 				:Brief=>"Pressure Decrease",
 				:DisplayUnit=>"kPa",
-				:Symbol=>"P_{decr}"
-			)),
-			energy_mass (Dict{Symbol,Any}(
-				:Brief=>"Head",
-				:Hidden=>true
-			)),
-			energy_mass (Dict{Symbol,Any}(
-				:Brief=>"Isentropic Head"
-			)),
-			temperature (Dict{Symbol,Any}(
-				:Brief=>"Isentropic Temperature"
-			)),
-			efficiency (Dict{Symbol,Any}(
-				:Brief=>"Isentropic efficiency"
-			)),
-			efficiency (Dict{Symbol,Any}(
-				:Brief=>"Mechanical efficiency"
-			)),
-			power (Dict{Symbol,Any}(
-				:Brief=>"Fluid Power"
-			)),
-			power (Dict{Symbol,Any}(
-				:Brief=>"Brake Power"
+				:Symbol=>"P_{incr}"
 			)),
 			power (Dict{Symbol,Any}(
 				:Brief=>"Power Losses",
 				:Lower=>0
 			)),
+			energy_mass (Dict{Symbol,Any}(
+				:Brief=>"Actual Head",
+				:Protected=>true
+			)),
+			energy_mass (Dict{Symbol,Any}(
+				:Brief=>"Isentropic Head",
+				:Protected=>true
+			)),
+			power (Dict{Symbol,Any}(
+				:Brief=>"Fluid Power",
+				:Protected=>true
+			)),
+			power (Dict{Symbol,Any}(
+				:Brief=>"Brake Power",
+				:Protected=>true
+			)),
+			positive (Dict{Symbol,Any}(
+				:Brief=>"Isentropic Coefficient",
+				:Lower=>0.2,
+				:Protected=>true
+			)),
+			temperature (Dict{Symbol,Any}(
+				:Brief=>"Isentropic Temperature",
+				:Protected=>true
+			)),
+			enth_mol (Dict{Symbol,Any}(
+				:Brief=>"Enthalpy at constant entropy",
+				:Hidden=>true
+			)),
 			molweight (Dict{Symbol,Any}(
-				:Brief=>"Mixture Molar Weight"
+				:Brief=>"Mixture Molar Weight",
+				:Hidden=>true
 			)),
 			dens_mass (Dict{Symbol,Any}(
-				:Brief=>"Mass Density"
+				:Brief=>"Mass Density at inlet conditions",
+				:Lower=>1E-6,
+				:Protected=>true
+			)),
+			dens_mass (Dict{Symbol,Any}(
+				:Brief=>"Mass Density at outlet conditions",
+				:Lower=>1E-6,
+				:Protected=>true
 			)),
 			fraction (Dict{Symbol,Any}(
-				:Brief=>"Compressibility factor at inlet"
+				:Brief=>"Compressibility factor at inlet",
+				:Lower=>1E-3,
+				:Protected=>true
 			)),
 			fraction (Dict{Symbol,Any}(
-				:Brief=>"Compressibility factor at outlet"
+				:Brief=>"Compressibility factor at outlet",
+				:Lower=>1E-3,
+				:Protected=>true
 			)),
 			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
-				:PosX=>0.05,
+				:PosX=>0.14,
 				:PosY=>0.0,
 				:Symbol=>"_{in}"
 			)),
 			streamPH (Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
-				:PosX=>0.65,
+				:PosX=>0.83,
 				:PosY=>1,
 				:Symbol=>"_{out}"
 			)),
-			work_stream (Dict{Symbol,Any}(
+			power (Dict{Symbol,Any}(
 				:Brief=>"Work Outlet",
 				:PosX=>1,
-				:PosY=>0.46
+				:PosY=>0.45,
+				:Protected=>true
 			)),
 			[
 				:(Outlet.F = Inlet.F),
@@ -119,50 +144,54 @@ type expander
 				:(Outlet.P = Inlet.P * Pratio),
 				:(Outlet.P = Inlet.P - Pdrop),
 				:(Outlet.P = Inlet.P - Pdecrease),
-				:(rho = PP.VapourDensity(Inlet.T, Inlet.P, Inlet.z)),
+				:(rho_in = PP.VapourDensity(Inlet.T, Inlet.P, Inlet.z)),
+				:(rho_out= PP.VapourDensity(Outlet.T, Outlet.P, Outlet.z)),
+				:(hise = PP.VapourEnthalpy(Tisentropic, Outlet.P, Outlet.z)),
 				:(Zfac_in = PP.VapourCompressibilityFactor(Inlet.T,Inlet.P,Inlet.z)),
 				:(Zfac_out = PP.VapourCompressibilityFactor(Outlet.T,Outlet.P,Outlet.z)),
-				:(HeadIsentropic*Mwm = (PP.VapourEnthalpy(Tisentropic,Outlet.P,Outlet.z)-Inlet.h)),
 				:(Head*Mwm = (Outlet.h-Inlet.h)),
-				:(HeadIsentropic = (0.5*Zfac_in+0.5*Zfac_out)*(1/Mwm)*(IseCoeff/(IseCoeff-1.001))*Rgas*Inlet.T*((Outlet.P/Inlet.P)^((IseCoeff-1.001)/IseCoeff) - 1)),
-				:(PP.VapourEntropy(Tisentropic, Outlet.P, Outlet.z) = PP.VapourEntropy(Inlet.T, Inlet.P, Inlet.z)),
 				:(Outlet.T = Tisentropic),
-				:((PP.VapourEnthalpy(Outlet.T,Outlet.P,Outlet.z)-Inlet.h)= (PP.VapourEnthalpy(Tisentropic,Outlet.P,Outlet.z)-Inlet.h)*IsentropicEff),
-				:(FluidPower = IsentropicEff*HeadIsentropic*sum(Mw*Inlet.z)*Inlet.F+PowerLoss),
-				:(BrakePower = WorkOut.Work),
+				:((Outlet.h-Inlet.h)= (hise-Inlet.h)*IsentropicEff),
+				:(PP.VapourEntropy(Tisentropic, Outlet.P, Outlet.z) = PP.VapourEntropy(Inlet.T, Inlet.P, Inlet.z)),
+				:(BrakePower = WorkOut),
 				:(BrakePower = FluidPower*MechanicalEff),
 				:(PowerLoss = BrakePower - FluidPower),
+				:(FluidPower = HeadIsentropic*Mwm*Inlet.F*IsentropicEff),
+				:(HeadIsentropic*Mwm*((IseCoeff-1.001)/IseCoeff) = (0.5*Zfac_in+0.5*Zfac_out)*Rgas*Inlet.T*((Pratio)^((IseCoeff-1.001)/IseCoeff) - 1)),
+				:(HeadIsentropic*Mwm = (hise -Inlet.h)),
 			],
 			[
-				"Overall Molar Balance","Component Molar Balance","Average Molecular Weight","Pressure Ratio","Pressure Drop","Pressure Decrease","Mass Density","Compressibility factor at Inlet Conditions","Compressibility factor at Outlet Conditions","Isentropic Head","Actual Head","Isentropic Coefficient","Isentropic Outlet Temperature","Discharge Temperature","Discharge Temperature","Fluid Power","Brake Power","Brake Power","Power Loss",
+				"Overall Molar Balance","Component Molar Balance","Average Molecular Weight","Pressure Ratio","Pressure Drop","Pressure Decrease","Mass Density at inlet conditions","Mass Density at outlet conditions","Enthalpy at isentropic conditions","Compressibility factor at Inlet Conditions","Compressibility factor at Outlet Conditions","Actual Head","Discharge Temperature","Discharge Temperature","Isentropic Outlet Temperature","Brake Power","Brake Power","Power Loss","Fluid Power","Isentropic Coefficient","Isentropic Head",
 			],
-			[:PP,:NComp,:Rgas,:Mw,],
-			[:IseCoeff,:Pratio,:Pdrop,:Pdecrease,:Head,:HeadIsentropic,:Tisentropic,:IsentropicEff,:MechanicalEff,:FluidPower,:BrakePower,:PowerLoss,:Mwm,:rho,:Zfac_in,:Zfac_out,:Inlet,:Outlet,:WorkOut,]
+			[:PP,:NComp,:Rgas,:Mw,:MechanicalEff,:IsentropicEff,],
+			[:Pratio,:Pdrop,:Pdecrease,:PowerLoss,:Head,:HeadIsentropic,:FluidPower,:BrakePower,:IseCoeff,:Tisentropic,:hise,:Mwm,:rho_in,:rho_out,:Zfac_in,:Zfac_out,:Inlet,:Outlet,:WorkOut,]
 		)
 	end
 	PP::DanaPlugin 
 	NComp::DanaInteger 
 	Rgas::positive 
 	Mw::Array{molweight }
-	IseCoeff::positive 
+	MechanicalEff::positive 
+	IsentropicEff::positive 
 	Pratio::positive 
 	Pdrop::press_delta 
 	Pdecrease::press_delta 
+	PowerLoss::power 
 	Head::energy_mass 
 	HeadIsentropic::energy_mass 
-	Tisentropic::temperature 
-	IsentropicEff::efficiency 
-	MechanicalEff::efficiency 
 	FluidPower::power 
 	BrakePower::power 
-	PowerLoss::power 
+	IseCoeff::positive 
+	Tisentropic::temperature 
+	hise::enth_mol 
 	Mwm::molweight 
-	rho::dens_mass 
+	rho_in::dens_mass 
+	rho_out::dens_mass 
 	Zfac_in::fraction 
 	Zfac_out::fraction 
 	Inlet::stream 
 	Outlet::streamPH 
-	WorkOut::work_stream 
+	WorkOut::power 
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}
@@ -188,23 +217,31 @@ function setEquationFlow(in::expander)
 	addEquation(10)
 	addEquation(11)
 	addEquation(12)
-	addEquation(13)
-	if IsentropicEff == 1 
-		addEquation(14)
+	if IsentropicEff >= 1 
+		addEquation(13)
 	else
-		addEquation(15)
+		addEquation(14)
 	end
+	addEquation(15)
 	addEquation(16)
 	addEquation(17)
 	addEquation(18)
 	addEquation(19)
+	addEquation(20)
+	addEquation(21)
 end
 function atributes(in::expander,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/expander"
-	fields[:Brief]="Model of an expansor."
-	fields[:Info]="To be documented"
+	fields[:Brief]="Model of an expander."
+	fields[:Info]="To be documented
+
+== References ==
+
+[1] GPSA, 1979, Engineering Data Book, Chapter 4, 5-9 - 5-10.
+
+[2] Bloch, Heinz P., A Practical Guide to Compressor Technology, John Wiley & Sons, Incorporate, 2006."
 	drive!(fields,_)
 	return fields
 end

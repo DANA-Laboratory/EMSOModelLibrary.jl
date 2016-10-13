@@ -65,7 +65,7 @@ function setEquationFlow(in::HiLoSelect)
 end
 function atributes(in::HiLoSelect,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
-	fields[:Pallete]=true
+	fields[:Pallete]=false
 	fields[:Icon]="icon/HiLoSelect"
 	fields[:Brief]="Model HiLo Select."
 	fields[:Info]="== Inputs ==

@@ -1,10 +1,10 @@
 module EMLgibbs
 	using DanaTypes
 	using DotPlusInheritance
-	require("EMSOModelLibrary.jl/JuliaEMSOModels/reactors/tank_basic.jl")
+	require("EMSOModelLibrary/JuliaEMSOModels/reactors/tank_basic.jl")
 	using EMLtank_basic
-	using EMLtypes
 	using EMLstreams
+	using EMLtypes
 	using EMLvol_tank
 	include("gibbs/gibbs_vap.jl")
 	include("gibbs/gibbs_liq.jl")

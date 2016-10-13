@@ -68,7 +68,7 @@ function initial(in::Lag_1)
 end
 function atributes(in::Lag_1,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
-	fields[:Pallete]=true
+	fields[:Pallete]=false
 	fields[:Icon]="icon/Lag_1"
 	fields[:Brief]="Model Lag."
 	fields[:Info]="== Inputs ==

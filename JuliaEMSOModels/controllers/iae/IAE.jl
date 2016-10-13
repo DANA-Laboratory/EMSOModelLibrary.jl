@@ -68,7 +68,7 @@ function initial(in::IAE)
 end
 function atributes(in::IAE,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
-	fields[:Pallete]=true
+	fields[:Pallete]=false
 	fields[:Icon]="icon/IAE"
 	fields[:Brief]="Model IAE."
 	fields[:Info]="== Inputs ==

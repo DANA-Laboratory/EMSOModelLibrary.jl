@@ -40,8 +40,8 @@ type _mol
 	function _mol(_::Dict{Symbol,Any})
 		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Moles"
-		fields[:Default]=2.5
-		fields[:Upper]=1e6
+		fields[:Default]=2500
+		fields[:Upper]=1e9
 		fields[:finalUnit]="kmol"
 		drive!(fields,_)
 		new(_positive (fields).value)

@@ -34,6 +34,7 @@
 #*
 #*----------------------------------------------------------------------------------
 # elementary
+#mol as positive (Brief = "Moles", Default=2500, Upper=1e9, final Unit = 'mol');
 export molweight_inv
 typealias Danamolweight_inv DanaRealParametric
 type _molweight_inv

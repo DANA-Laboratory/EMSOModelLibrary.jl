@@ -34,6 +34,7 @@
 #*
 #*----------------------------------------------------------------------------------
 # elementary
+#mol as positive (Brief = "Moles", Default=2500, Upper=1e9, final Unit = 'mol');
 # densities
 # Concentration
 # reaction
@@ -51,8 +52,8 @@ type _enth_mol
 		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Molar Enthalpy"
 		fields[:Default]=500
-		fields[:Lower]=-1e16
-		fields[:Upper]=1e16
+		fields[:Lower]=-1e9
+		fields[:Upper]=1e9
 		fields[:finalUnit]="kJ/kmol"
 		drive!(fields,_)
 		new(fields)

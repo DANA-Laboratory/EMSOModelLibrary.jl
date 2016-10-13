@@ -1,8 +1,9 @@
 module EMLturbine
 	using DanaTypes
 	using DotPlusInheritance
-	require("EMSOModelLibrary.jl/JuliaEMSOModels/streams.jl")
+	require("EMSOModelLibrary/JuliaEMSOModels/streams.jl")
 	using EMLstreams
 	using EMLtypes
-	include("turbine/Hidraulic_Turbine.jl")
+	include("turbine/HidraulicTurbine.jl")
+	include("turbine/HidraulicTurbineGenerator.jl")
 end

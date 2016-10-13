@@ -34,6 +34,7 @@
 #*
 #*----------------------------------------------------------------------------------
 # elementary
+#mol as positive (Brief = "Moles", Default=2500, Upper=1e9, final Unit = 'mol');
 # densities
 export dens_mass
 typealias Danadens_mass DanaRealParametric

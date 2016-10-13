@@ -1,39 +1,44 @@
 # Modelo de condensador com uma alimentacao
 type Condensador
 	Condensador()=begin
-		propterm=outers.propterm
+		PP2=outers.PP2
 		new(
 			DanaPlugin(Dict{Symbol,Any}(
-				:Brief=>"Steam tables",
-				:Type=>"water"
+				:Brief=>"Steam tables"
 			)),
 			Potencia (Dict{Symbol,Any}(
-				:Brief=>"Taxa de calor removido"
+				:Brief=>"Taxa de calor removido",
+				:PosX=>1,
+				:PosY=>0.5
 			)),
 			Dif_Temp (Dict{Symbol,Any}(
 				:Brief=>"Grau de sub-resfriamento"
 			)),
 			Corrente (Dict{Symbol,Any}(
-				:Symbol=>"_{in}"
+				:Symbol=>"_{in}",
+				:PosX=>0.5,
+				:PosY=>0
 			)),
 			Corrente (Dict{Symbol,Any}(
-				:Symbol=>"_{out}"
+				:Symbol=>"_{out}",
+				:PosX=>0.5,
+				:PosY=>1
 			)),
 			[
 				:(Fout.P = Fin.P),
-				:(Fout.T = propterm.Tsat(Fout.P) - G_S),
-				:([Fout.S,Fout.H] = propterm.propPTl(Fout.P,Fout.T)),
+				:(Fout.T = PP2.Tsat(Fout.P) - G_S),
+				:([Fout.S,Fout.H] = PP2.propPTl(Fout.P,Fout.T)),
 				:(Q_COND = Fin.F * (Fin.H - Fout.H)),
 				:(Fout.F = Fin.F),
 			],
 			[
 				"","","","","",
 			],
-			[:propterm,],
+			[:PP2,],
 			[:Q_COND,:G_S,:Fin,:Fout,]
 		)
 	end
-	propterm::DanaPlugin
+	PP2::DanaPlugin
 	Q_COND::Potencia 
 	G_S::Dif_Temp 
 	Fin::Corrente 

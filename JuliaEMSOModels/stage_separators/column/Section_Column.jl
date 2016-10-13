@@ -22,63 +22,73 @@
 #* where:
 #*	Type = refluxed or reboiled or section
 #*	Column = Stripping, Absorption, Rectifier, Distillation
-#*	Reboiler type (if exists) = kettle or thermosyphon 
+#*	Reboiler type (if exists) = kettle or thermosyphon
 #*	Condenser type (if exists) = with subccoling or without subcooling
-#* 
+#*
 #*-----------------------------------------------------------------------
 #* Author: Paula B. Staudt
-#* $Id$
-#*---------------------------------------------------------------------
-#----------------------------------------------------------------------
-#* Model of a  column section with:
-#*	- NTrays=number of trays.
-#* 
+#* $Id: column.mso 511 2008-05-12 17:25:33Z paula $
 #*---------------------------------------------------------------------
 type Section_Column
 	Section_Column()=begin
-		PP=outers.PP
-		NComp=outers.NComp
 		new(
-			DanaPlugin(Dict{Symbol,Any}(
-				:Brief=>"External Physical Properties",
-				:Type=>"PP"
+			SectionColumnBasic(),
+			stream (Dict{Symbol,Any}(
+				:Brief=>"Feed stream",
+				:PosX=>0,
+				:PosY=>0.55
 			)),
-			DanaInteger(),
-			DanaInteger(Dict{Symbol,Any}(
-				:Brief=>"Number of trays",
-				:Default=>2
-			)),
-			DanaInteger(Dict{Symbol,Any}(
-				:Brief=>"Trays counting (1=top-down, -1=bottom-up)",
-				:Default=>1
-			)),
-			DanaInteger(Dict{Symbol,Any}(
-				:Brief=>"Number of top tray"
-			)),
-			DanaInteger(Dict{Symbol,Any}(
-				:Brief=>"Number of bottom tray"
-			)),
-			fill(tray()),
-			[:PP,:NComp,:NTrays,:topdown,:top,:bot,],
-			[:trays,]
+			[
+				:(FeedTray.F= TRAYS([1:_base_1.NumberOfTrays]).Inlet.F),
+				:(FeedTray.T = TRAYS([1:_base_1.NumberOfTrays]).Inlet.T),
+				:(FeedTray.P = TRAYS([1:_base_1.NumberOfTrays]).Inlet.P),
+				:(FeedTray.z = TRAYS([1:_base_1.NumberOfTrays]).Inlet.z),
+				:(FeedTray.v = TRAYS([1:_base_1.NumberOfTrays]).Inlet.v),
+				:(FeedTray.h = TRAYS([1:_base_1.NumberOfTrays]).Inlet.h),
+				:(0*"mol/h"= TRAYS([1:_base_1.NumberOfTrays]).Inlet.F),
+				:(300*"K" = TRAYS([1:_base_1.NumberOfTrays]).Inlet.T),
+				:(1*"atm" = TRAYS([1:_base_1.NumberOfTrays]).Inlet.P),
+				:(0.1 = TRAYS([1:_base_1.NumberOfTrays]).Inlet.z),
+				:(0 = TRAYS([1:_base_1.NumberOfTrays]).Inlet.v),
+				:(0*"J/mol" = TRAYS([1:_base_1.NumberOfTrays]).Inlet.h),
+			],
+			[
+				"FeedTrayTop Inlet Flow","FeedTrayTop Inlet Temperature","FeedTrayTop Inlet Pressure","FeedTrayTop Inlet Composition","FeedTrayTop Inlet Vapour Fraction","FeedTrayTop Inlet Enthalpy","Inlet Tray - Flow Sealed","Inlet Tray -  Temperature","Inlet Tray -  Pressure","Inlet Tray -  Composition","Inlet Tray -  Vapour Fraction","Inlet Tray -  Enthalpy",
+			],
+			[:FeedTray,]
 		)
 	end
-	PP::DanaPlugin
-	NComp::DanaInteger
-	NTrays::DanaInteger
-	topdown::DanaInteger
-	top::DanaInteger
-	bot::DanaInteger
-	trays::Array{tray}
-	parameters::Array{Symbol,1}
+	_base_1::SectionColumnBasic
+	FeedTray::stream 
+	equations::Array{Expr,1}
+	equationNames::Array{String,1}
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end
 export Section_Column
 function set(in::Section_Column)
-	top = (NTrays-1)*(1-topdown)/2+1
-	 bot = NTrays/top
+	_base_1.NumberOfFeeds = 1
 	 
+end
+function setEquationFlow(in::Section_Column)
+	#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	# Equating Feed Tray Variables to Trays Variables
+	#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	if i == FeedTrayLocation(1) 
+		addEquation(1)
+		addEquation(2)
+		addEquation(3)
+		addEquation(4)
+		addEquation(5)
+		addEquation(6)
+	else
+		addEquation(7)
+		addEquation(8)
+		addEquation(9)
+		addEquation(10)
+		addEquation(11)
+		addEquation(12)
+	end
 end
 function atributes(in::Section_Column,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
@@ -86,18 +96,19 @@ function atributes(in::Section_Column,_::Dict{Symbol,Any})
 	fields[:Icon]="icon/SectionColumn"
 	fields[:Brief]="Model of a column section."
 	fields[:Info]="== Model of a column section containing ==
-* NTrays trays.
-	
+* NumberOfTrays TRAYS.
+* One Feed Inlet.
+
 == Specify ==
 * the feed stream of each tray (Inlet);
 * the Murphree eficiency for each tray Emv;
-* the InletL stream of the top tray;
-* the InletV stream of the bottom tray.
-	
+* the InletLiquid stream of the top tray;
+* the InletVapour stream of the bottom tray.
+
 == Initial Conditions ==
-* the trays temperature (OutletL.T);
-* the trays liquid level (Level) OR the trays liquid flow (OutletL.F);
-* (NoComps - 1) OutletL (OR OutletV) compositions for each tray.
+* the TRAYS temperature (OutletLiquid.T);
+* the TRAYS liquid level (Level) OR the TRAYS liquid flow (OutletLiquid.F);
+* (NoComps - 1) OutletLiquid (OR OutletVapour) compositions for each tray.
 "
 	drive!(fields,_)
 	return fields

@@ -14,7 +14,7 @@
 #*
 #*--------------------------------------------------------------------
 #* Author: Gerson Balbueno Bicca 
-#* $Id: Heatex.mso 574 2008-07-25 14:18:50Z rafael $
+#* $Id$
 #*--------------------------------------------------------------------
 type Heatex_Basic
 	Heatex_Basic()=begin
@@ -35,24 +35,24 @@ type Heatex_Basic
 			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet Hot Stream",
 				:PosX=>0,
-				:PosY=>0.4915,
+				:PosY=>0.508,
 				:Symbol=>"^{inHot}"
 			)),
 			streamPH (Dict{Symbol,Any}(
 				:Brief=>"Outlet Hot Stream",
 				:PosX=>1,
-				:PosY=>0.4915,
+				:PosY=>0.508,
 				:Symbol=>"^{outHot}"
 			)),
 			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet Cold Stream",
-				:PosX=>0.5237,
+				:PosX=>0.50,
 				:PosY=>1,
 				:Symbol=>"^{inCold}"
 			)),
 			streamPH (Dict{Symbol,Any}(
 				:Brief=>"Outlet Cold Stream",
-				:PosX=>0.5237,
+				:PosX=>0.50,
 				:PosY=>0,
 				:Symbol=>"^{outCold}"
 			)),

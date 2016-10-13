@@ -66,10 +66,6 @@ type flash_cost
 			dens_mass (Dict{Symbol,Any}(
 				:Brief=>"Mass Density of the Material"
 			)),
-			constant (Dict{Symbol,Any}(
-				:Brief=>"Pi Number",
-				:Default=>3.14159265
-			)),
 			currency (Dict{Symbol,Any}(
 				:Brief=>"Capital Cost"
 			)),
@@ -92,13 +88,13 @@ type flash_cost
 				:(Ws = dens_mass_material*Div*(flash_length + Cost(5,1)*Div)*Ts),
 				:(Cb = "US\$"*exp(Cost(1,1) - Cost(1,2)*ln(Ws/"kg") + Cost(1,3)*(ln(Ws/"kg"))^2)),
 				:(Ca = "US\$"*Cost(3,1)*((Dih^0.20294)/"m^0.20294")),
-				:(Ws = dens_mass_material*Dih*(flash_length + Cost(5,1)*Dih)*Ts*Pi),
+				:(Ws = dens_mass_material*Dih*(flash_length + Cost(5,1)*Dih)*Ts*_base_1._base_1.Pi),
 				:(Fm = Cost(6,1)),
 			],
 			[
 				"Capital Cost","Basic Cost","Cost for stairs, railing and platform","Equipment Weight for vertical vases","Basic Cost for horizontal flash","Cost for stairs, railing and platform","Equipment Weight for horizontal vases","Cost Factor based on the construction material",
 			],
-			[:Material,:Cost,:flash_length,:Div,:Dih,:Ts,:dens_mass_material,:Pi,],
+			[:Material,:Cost,:flash_length,:Div,:Dih,:Ts,:dens_mass_material,],
 			[:Ce,:Cb,:Ca,:Fm,:Ws,]
 		)
 	end
@@ -110,7 +106,6 @@ type flash_cost
 	Dih::length 
 	Ts::length 
 	dens_mass_material::dens_mass 
-	Pi::constant 
 	Ce::currency 
 	Cb::currency 
 	Ca::currency 
@@ -125,7 +120,7 @@ end
 export flash_cost
 function setEquationFlow(in::flash_cost)
 	addEquation(1)
-	let switch=orientation
+	let switch=Orientation
 		if switch=="vertical"
 			addEquation(2)
 			addEquation(3)

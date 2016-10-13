@@ -32,7 +32,8 @@ type simple_source
 				:Lower=>1
 			)),
 			fill(molweight (Dict{Symbol,Any}(
-				:Brief=>"Component Mol Weight"
+				:Brief=>"Component Mol Weight",
+				:Protected=>true
 			)),(NComp)),
 			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Valid Phases for Flash Calculation",
@@ -46,18 +47,23 @@ type simple_source
 				:Symbol=>"_{out}",
 				:Protected=>true
 			)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(positive (Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Composition"
 			)),(NComp)),
+			positive (Dict{Symbol,Any}(
+				:Brief=>"Sum of Stream Composition",
+				:Protected=>true
+			)),
 			flow_mol (Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Flow Rate"
 			)),
 			temperature (Dict{Symbol,Any}(
 				:Brief=>"Stream Temperature"
 			)),
-			temperature (Dict{Symbol,Any}(
-				:Brief=>"Temperature in �C",
-				:Lower=>-200
+			DanaReal(Dict{Symbol,Any}(
+				:Brief=>"Temperature in  C",
+				:Lower=>-250,
+				:Upper=>5000
 			)),
 			pressure (Dict{Symbol,Any}(
 				:Brief=>"Stream Pressure"
@@ -71,6 +77,7 @@ type simple_source
 				:Hidden=>true
 			)),(NComp)),
 			[
+				:(SumOfComposition = sum(MolarComposition)),
 				:(Outlet.z = MolarComposition/sum(MolarComposition)),
 				:(Outlet.v = 0),
 				:(x = Outlet.z),
@@ -82,16 +89,16 @@ type simple_source
 				:(Outlet.h = PP.VapourEnthalpy(Outlet.T, Outlet.P, y)),
 				:([Outlet.v, x, y] = PP.Flash(Outlet.T, Outlet.P, Outlet.z)),
 				:(Outlet.h = (1-Outlet.v)*PP.LiquidEnthalpy(Outlet.T, Outlet.P, x) + Outlet.v*PP.VapourEnthalpy(Outlet.T, Outlet.P, y)),
-				:(T_Cdeg = Outlet.T - 273.15 * "K"),
+				:(T_Cdeg = Outlet.T/"K" - 273.15),
 				:(Outlet.F = F),
 				:(Outlet.P = P),
 				:(Outlet.T = T),
 			],
 			[
-				"Stream Molar Composition","Vapour Fraction","Liquid Composition","Vapour Composition","Overall Enthalpy","Vapor Fraction","Liquid Composition","Vapour Composition","Overall Enthalpy","Flash Calculation","Overall Enthalpy","Temperature in �C","Equate Flow","Equate Pressures","Equate Temperatures",
+				"Sum of Composition","Stream Molar Composition","Vapour Fraction","Liquid Composition","Vapour Composition","Overall Enthalpy","Vapor Fraction","Liquid Composition","Vapour Composition","Overall Enthalpy","Flash Calculation","Overall Enthalpy","Temperature in  C","Equate Flow","Equate Pressures","Equate Temperatures",
 			],
 			[:PP,:NComp,:M,:ValidPhases,],
-			[:Outlet,:MolarComposition,:F,:T,:T_Cdeg,:P,:x,:y,]
+			[:Outlet,:MolarComposition,:SumOfComposition,:F,:T,:T_Cdeg,:P,:x,:y,]
 		)
 	end
 	PP::DanaPlugin 
@@ -99,10 +106,11 @@ type simple_source
 	M::Array{molweight }
 	ValidPhases::DanaSwitcher 
 	Outlet::stream 
-	MolarComposition::Array{fraction }
+	MolarComposition::Array{positive }
+	SumOfComposition::positive 
 	F::flow_mol 
 	T::temperature 
-	T_Cdeg::temperature 
+	T_Cdeg::DanaReal
 	P::pressure 
 	x::Array{fraction }
 	y::Array{fraction }
@@ -119,26 +127,27 @@ function set(in::simple_source)
 end
 function setEquationFlow(in::simple_source)
 	addEquation(1)
+	addEquation(2)
 	let switch=ValidPhases
 		if switch=="Liquid-Only"
-			addEquation(2)
 			addEquation(3)
 			addEquation(4)
 			addEquation(5)
-		elseif switch=="Vapour-Only"
 			addEquation(6)
+		elseif switch=="Vapour-Only"
 			addEquation(7)
 			addEquation(8)
 			addEquation(9)
-		elseif switch=="Vapour-Liquid"
 			addEquation(10)
+		elseif switch=="Vapour-Liquid"
 			addEquation(11)
+			addEquation(12)
 		end
 	end
-	addEquation(12)
 	addEquation(13)
 	addEquation(14)
 	addEquation(15)
+	addEquation(16)
 end
 function atributes(in::simple_source,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()

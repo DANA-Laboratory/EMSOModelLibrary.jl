@@ -22,48 +22,56 @@ type NTU_Basic
 				:Brief=>"Hot Stream Heat Capacity",
 				:Lower=>1e-3,
 				:Default=>1e3,
-				:Unit=>"W/K"
+				:Unit=>"W/K",
+				:Protected=>true
 			)),
 			positive (Dict{Symbol,Any}(
 				:Brief=>"Cold Stream Heat Capacity",
 				:Lower=>1e-3,
 				:Default=>1e3,
-				:Unit=>"W/K"
+				:Unit=>"W/K",
+				:Protected=>true
 			)),
 			positive (Dict{Symbol,Any}(
 				:Brief=>"Heat Capacity Ratio",
 				:Default=>0.5,
-				:Lower=>1e-6
+				:Lower=>1e-6,
+				:Protected=>true
 			)),
 			positive (Dict{Symbol,Any}(
 				:Brief=>"Minimum Heat Capacity",
 				:Lower=>1e-10,
 				:Default=>1e3,
-				:Unit=>"W/K"
+				:Unit=>"W/K",
+				:Protected=>true
 			)),
 			positive (Dict{Symbol,Any}(
 				:Brief=>"Maximum Heat Capacity",
 				:Lower=>1e-10,
 				:Default=>1e3,
-				:Unit=>"W/K"
+				:Unit=>"W/K",
+				:Protected=>true
 			)),
 			positive (Dict{Symbol,Any}(
 				:Brief=>"Number of Units Transference",
 				:Default=>0.05,
-				:Lower=>1e-10
+				:Lower=>1e-10,
+				:Protected=>true
 			)),
 			positive (Dict{Symbol,Any}(
 				:Brief=>"Effectiveness",
 				:Default=>0.5,
 				:Lower=>1e-8,
 				:Upper=>1,
-				:Symbol=>"\\varepsilon"
+				:Symbol=>"\\varepsilon",
+				:Protected=>true
 			)),
 			positive (Dict{Symbol,Any}(
 				:Brief=>"Effectiveness Correction",
 				:Lower=>1e-8,
 				:Default=>0.5,
-				:Symbol=>"\\hat {\\varepsilon}"
+				:Symbol=>"\\hat {\\varepsilon}",
+				:Protected=>true
 			)),
 			[:Ch,:Cc,:Cr,:Cmin,:Cmax,:NTU,:Eft,:Eft1,]
 		)

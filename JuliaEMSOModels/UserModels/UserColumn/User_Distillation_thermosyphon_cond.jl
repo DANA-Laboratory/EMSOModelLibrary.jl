@@ -156,16 +156,16 @@ function atributes(in::User_Distillation_thermosyphon_cond,_::Dict{Symbol,Any})
 * the heat supllied in bottom tank;
 * the heat supllied in condenser and reboiler;
 * the Outlet1 flow in the bottom splitter (spbottom.Outlet1.F) that corresponds to the bottom product;
-	
+
 == Initial Conditions ==
 * the trays temperature (OutletL.T);
 * the trays liquid level (Level) OR the trays liquid flow (OutletL.F);
 * (NoComps - 1) OutletL (OR OutletV) compositions for each tray;
-	
+
 * the condenser temperature (OutletL.T);
 * the condenser liquid level (Level);
 * (NoComps - 1) OutletL (OR OutletV) compositions;
-	
+
 * the bottom tank temperature (OutletL.T);
 * the bottom tank liquid level (Level);
 * (NoComps - 1) OutletL (OR OutletV) compositions.

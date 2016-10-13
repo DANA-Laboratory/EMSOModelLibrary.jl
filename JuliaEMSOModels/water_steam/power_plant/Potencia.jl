@@ -28,6 +28,7 @@ type _Potencia
 		fields[:Lower]=0
 		fields[:Upper]=500
 		fields[:Unit]="1000*kW"
+		fields[:Color]="Red"
 		drive!(fields,_)
 		new(fields)
 	end

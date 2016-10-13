@@ -13,7 +13,7 @@
 #* available at http://www.enq.ufrgs.br/alsoc.
 #*
 #*----------------------------------------------------------------------
-#* Author: Andrey Copat, Estefane S. Horn, Marcos L. Alencastro
+#* Author: Andrey Copat, Estefane S. Horn, Marcos L. Alencastro (Revised Gerson B. Bicca)
 #* $Id$
 #*--------------------------------------------------------------------
 type centrifugal_pump
@@ -145,7 +145,7 @@ type centrifugal_pump
 				:PosY=>0.20,
 				:Symbol=>"_{out}"
 			)),
-			work_stream (Dict{Symbol,Any}(
+			power (Dict{Symbol,Any}(
 				:Brief=>"Work Inlet",
 				:PosX=>0.5,
 				:PosY=>1,
@@ -168,7 +168,7 @@ type centrifugal_pump
 				:(Head*Mwm = (Outlet.h-Inlet.h)),
 				:(FluidPower = HeadIsentropic *Mwm* Inlet.F),
 				:(BrakePower * PumpEfficiency = FluidPower),
-				:(EletricPower = -WorkIn.Work),
+				:(EletricPower = -WorkIn),
 				:(BrakePower = EletricPower * MechanicalEff),
 				:(Outlet.F = Inlet.F),
 				:(Outlet.z = Inlet.z),
@@ -212,7 +212,7 @@ type centrifugal_pump
 	NozzleVelocity::velocity 
 	Inlet::stream 
 	Outlet::streamPH 
-	WorkIn::work_stream 
+	WorkIn::power 
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}
@@ -261,15 +261,10 @@ function atributes(in::centrifugal_pump,_::Dict{Symbol,Any})
 	fields[:Icon]="icon/Pump"
 	fields[:Brief]="Model of a centrifugal pump."
 	fields[:Info]="== Assumptions ==
-
 * Steady State;
-
 * Only Liquid;
-
 * Adiabatic;
-
 * Isentropic.
-
 "
 	drive!(fields,_)
 	return fields

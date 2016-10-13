@@ -182,16 +182,16 @@ function atributes(in::User_Distillation_kettle_cond,_::Dict{Symbol,Any})
 * the condenser vapor outlet flow (OutletV.F);
 * the reboiler liquid outlet flow (OutletL.F);
 * both splitter outlet flows OR one of the splitter outlet flows and the splitter frac.
-	
+
 == Initial Conditions ==
 * the trays temperature (OutletL.T);
 * the trays liquid level (Level) OR the trays liquid flow (OutletL.F);
 * (NoComps - 1) OutletL (OR OutletV) compositions for each tray;
-	
+
 * the condenser temperature (OutletL.T);
 * the condenser liquid level (Level);
 * (NoComps - 1) OutletL (OR OutletV) compositions;
-	
+
 * the reboiler temperature (OutletL.T);
 * the reboiler liquid level (Level);
 * (NoComps - 1) OutletL (OR OutletV) compositions.

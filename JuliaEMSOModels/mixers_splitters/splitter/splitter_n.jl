@@ -78,9 +78,9 @@ function setEquationFlow(in::splitter_n)
 end
 function atributes(in::splitter_n,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
-	fields[:Pallete]=true
+	fields[:Pallete]=false
 	fields[:Icon]="icon/splitter_n"
-	fields[:Brief]="Model of a splitter"
+	fields[:Brief]="Model of a splitter (NOT Handled by the GUI)"
 	fields[:Info]="== Assumptions ==
 * thermodynamics equilibrium
 * adiabatic

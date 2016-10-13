@@ -68,7 +68,7 @@ function initial(in::ISE)
 end
 function atributes(in::ISE,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
-	fields[:Pallete]=true
+	fields[:Pallete]=false
 	fields[:Icon]="icon/ISE"
 	fields[:Brief]="Model ISE."
 	fields[:Info]="== Inputs ==

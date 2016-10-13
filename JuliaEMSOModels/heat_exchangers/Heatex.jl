@@ -1,10 +1,10 @@
 module EMLHeatex
 	using DanaTypes
 	using DotPlusInheritance
-	require("EMSOModelLibrary.jl/JuliaEMSOModels/heat_exchangers/HEX_Engine.jl")
+	require("EMSOModelLibrary/JuliaEMSOModels/heat_exchangers/HEX_Engine.jl")
 	using EMLHEX_Engine
-	using EMLtypes
 	using EMLstreams
+	using EMLtypes
 	include("Heatex/Heatex_Basic.jl")
 	include("Heatex/Heatex_LMTD.jl")
 	include("Heatex/Heatex_NTU.jl")

@@ -1,7 +1,7 @@
 module EMLHEX_Engine
 	using DanaTypes
 	using DotPlusInheritance
-	require("EMSOModelLibrary.jl/JuliaEMSOModels/streams.jl")
+	require("EMSOModelLibrary/JuliaEMSOModels/streams.jl")
 	using EMLstreams
 	using EMLtypes
 	include("HEX_Engine/Properties_Average.jl")

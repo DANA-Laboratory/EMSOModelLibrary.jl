@@ -1,35 +1,42 @@
 # Modelo de turbina com sangria
 type Turbina_sangra
 	Turbina_sangra()=begin
-		propterm=outers.propterm
+		PP2=outers.PP2
 		new(
 			DanaPlugin(Dict{Symbol,Any}(
-				:Brief=>"Steam tables",
-				:Type=>"water"
+				:Brief=>"Steam tables"
 			)),
 			Entalpia(),
 			Eficiencia(Dict{Symbol,Any}(
 				:Brief=>"Eficiencia da turbina"
 			)),
 			Potencia(Dict{Symbol,Any}(
-				:Brief=>"Potencia da turbina"
+				:Brief=>"Potencia da turbina",
+				:PosX=>0.9,
+				:PosY=>0.45
 			)),
 			Fracao(Dict{Symbol,Any}(
 				:Brief=>"Fracao massica da sangria"
 			)),
 			Corrente (Dict{Symbol,Any}(
-				:Symbol=>"_{in}"
+				:Symbol=>"_{in}",
+				:PosX=>0,
+				:PosY=>0.25
 			)),
 			Corrente (Dict{Symbol,Any}(
-				:Symbol=>"_{out}"
+				:Symbol=>"_{out}",
+				:PosX=>1,
+				:PosY=>0.85
 			)),
 			Corrente (Dict{Symbol,Any}(
-				:Symbol=>"_{outx}"
+				:Symbol=>"_{outx}",
+				:PosX=>0.85,
+				:PosY=>1
 			)),
 			[
-				:(H_IS = propterm.propPS(Fout.P,Fin.S)),
+				:(H_IS = PP2.propPS(Fout.P,Fin.S)),
 				:(Fout.H = (H_IS - Fin.H) * EF_T + Fin.H),
-				:([Fout.S,Fout.T] = propterm.propPH(Fout.P,Fout.H)),
+				:([Fout.S,Fout.T] = PP2.propPH(Fout.P,Fout.H)),
 				:(Fin.F * (Fin.H - Fout.H) = POT_TURB),
 				:(Fouts.F = Fin.F * y),
 				:(Fout.F = Fin.F - Fouts.F),
@@ -41,11 +48,11 @@ type Turbina_sangra
 			[
 				"","","","","","","","","","",
 			],
-			[:propterm,],
+			[:PP2,],
 			[:H_IS,:EF_T,:POT_TURB,:y,:Fin,:Fout,:Fouts,]
 		)
 	end
-	propterm::DanaPlugin
+	PP2::DanaPlugin
 	H_IS::Entalpia
 	EF_T::Eficiencia
 	POT_TURB::Potencia

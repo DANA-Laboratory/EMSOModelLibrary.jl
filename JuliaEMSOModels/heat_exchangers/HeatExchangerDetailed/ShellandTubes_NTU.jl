@@ -33,9 +33,9 @@ type ShellandTubes_NTU
 				:(_base_1.Details.Q = Method.Eft*Method.Cmin*(_base_1.InletTube.T-_base_1.InletShell.T)),
 				:(Method.Cc = _base_1.InletShell.F*_base_1.Shell.Properties.Average.Cp),
 				:(Method.Ch = _base_1.InletTube.F*_base_1.Tubes.Properties.Average.Cp),
-				:(Method.Eft1 = 2*(1+Method.Cr+sqrt(1+Method.Cr^2)*((1+exp(-Method.NTU*sqrt(1+Method.Cr^2)))/(1-exp(-Method.NTU*sqrt(1+Method.Cr^2)))) )^-1),
-				:(Method.Eft = ( ((1-Method.Eft1*Method.Cr)/(1-Method.Eft1))^2 -1 )*( ((1-Method.Eft1*Method.Cr)/(1-Method.Eft1))^2 - Method.Cr )^-1),
-				:(Method.Eft = 2*(1+Method.Cr+sqrt(1+Method.Cr^2)*((1+exp(-Method.NTU*sqrt(1+Method.Cr^2)))/(1-exp(-Method.NTU*sqrt(1+Method.Cr^2)))) )^-1),
+				:(Method.Eft1 = 2*(1+Method.Cr+sqrt(1+Method.Cr^2)*((1+exp(-Method.NTU*sqrt(1+Method.Cr^2)))/(1-exp(-Method.NTU*sqrt(1+Method.Cr^2)))) )^(-1)),
+				:(Method.Eft = ( ((1-Method.Eft1*Method.Cr)/(1-Method.Eft1))^2 -1 )*( ((1-Method.Eft1*Method.Cr)/(1-Method.Eft1))^2 - Method.Cr )^(-1)),
+				:(Method.Eft = 2*(1+Method.Cr+sqrt(1+Method.Cr^2)*((1+exp(-Method.NTU*sqrt(1+Method.Cr^2)))/(1-exp(-Method.NTU*sqrt(1+Method.Cr^2)))) )^(-1)),
 				:(Method.Eft1 = 1),
 			],
 			[
@@ -88,7 +88,7 @@ end
 function atributes(in::ShellandTubes_NTU,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
-	fields[:Icon]="icon/ShellandTubes_NTU"
+	fields[:Icon]="icon/STHE"
 	fields[:Brief]="Shell and Tubes Heat Exchangers"
 	fields[:Info]="to be documented"
 	drive!(fields,_)

@@ -53,7 +53,7 @@ type Diff_Dist
 				:PosY=>0.1984,
 				:Symbol=>"_{outV}"
 			)),
-			energy_stream (Dict{Symbol,Any}(
+			power (Dict{Symbol,Any}(
 				:Brief=>"Heat supplied",
 				:PosX=>1,
 				:PosY=>0.9578,
@@ -95,17 +95,17 @@ type Diff_Dist
 				:Brief=>"Molar Enthalpy of the liquid of the distillator"
 			)),
 			[
-				:(diff(M)= Inlet.F*Inlet.z + InletL.F*InletL.z - OutletV.F*OutletV.z),
-				:(diff(E) = Inlet.F*Inlet.h + InletL.F*InletL.h - OutletV.F*OutletV.h + InletQ.Q),
-				:(M = ML*x + MV*OutletV.z),
-				:(E = ML*h + MV*OutletV.h - P*V),
+				:(diff(M)= Inlet.F*Inlet.z + InletLiquid.F*InletLiquid.z - OutletVapour.F*OutletVapour.z),
+				:(diff(E) = Inlet.F*Inlet.h + InletLiquid.F*InletLiquid.h - OutletVapour.F*OutletVapour.h + InletQ),
+				:(M = ML*x + MV*OutletVapour.z),
+				:(E = ML*h + MV*OutletVapour.h - P*V),
 				:(sum(x)=1.0),
-				:(sum(x)=sum(OutletV.z)),
+				:(sum(x)=sum(OutletVapour.z)),
 				:(volL = PP.LiquidVolume(T, P, x)),
-				:(volV = PP.VapourVolume(OutletV.T, OutletV.P, OutletV.z)),
-				:(PP.LiquidFugacityCoefficient(T, P, x)*x = PP.VapourFugacityCoefficient(OutletV.T, OutletV.P, OutletV.z)*OutletV.z),
-				:(P = OutletV.P),
-				:(T = OutletV.T),
+				:(volV = PP.VapourVolume(OutletVapour.T, OutletVapour.P, OutletVapour.z)),
+				:(PP.LiquidFugacityCoefficient(T, P, x)*x = PP.VapourFugacityCoefficient(OutletVapour.T, OutletVapour.P, OutletVapour.z)*OutletVapour.z),
+				:(P = OutletVapour.P),
+				:(T = OutletVapour.T),
 				:(V = ML*volL + MV*volV),
 				:(Level = ML*volL/Across),
 				:(h = PP.LiquidEnthalpy(T, P, x)),
@@ -114,7 +114,7 @@ type Diff_Dist
 				"Component Molar Balance","Energy Balance","Molar Holdup","Energy Holdup","Mol fraction normalisation","","Liquid Volume","Vapour Volume","Chemical Equilibrium","Mechanical Equilibrium","Thermal Equilibrium","Geometry Constraint","Level of liquid phase","Enthalpy",
 			],
 			[:PP,:NComp,:Across,:V,],
-			[:Inlet,:InletL,:OutletV,:InletQ,:M,:ML,:MV,:E,:volL,:volV,:Level,:T,:P,:x,:h,]
+			[:Inlet,:InletLiquid,:OutletVapour,:InletQ,:M,:ML,:MV,:E,:volL,:volV,:Level,:T,:P,:x,:h,]
 		)
 	end
 	PP::DanaPlugin 
@@ -122,9 +122,9 @@ type Diff_Dist
 	Across::area 
 	V::volume 
 	Inlet::stream 
-	InletL::stream 
-	OutletV::vapour_stream 
-	InletQ::energy_stream 
+	InletLiquid::stream 
+	OutletVapour::vapour_stream 
+	InletQ::power 
 	M::Array{mol }
 	ML::mol 
 	MV::mol 

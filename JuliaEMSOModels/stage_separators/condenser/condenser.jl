@@ -14,106 +14,203 @@
 #*
 #*----------------------------------------------------------------------
 #* Author: Paula B. Staudt
-#* $Id$
+#* $Id: condenser.mso 555 2008-07-18 19:01:13Z rafael $
 #*--------------------------------------------------------------------
 type condenser
 	condenser()=begin
 		PP=outers.PP
 		NComp=outers.NComp
+		[
+			:(LI = Levelpercent_Initial),
+			:(OutletLiquid.T = Initial_Temperature),
+			:(OutletLiquid.z(1:NComp-1) = Initial_Composition(1:NComp-1)/sum(Initial_Composition)),
+		],
+		[
+			"Initial level Percent","Initial Temperature","Initial Composition",
+		],
 		new(
-			DanaPlugin(Dict{Symbol,Any}(
+			DanaPlugin (Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger(),
-			volume (Dict{Symbol,Any}(
-				:Brief=>"Condenser total volume"
+			DanaInteger (Dict{Symbol,Any}(
+				:Brief=>"Number of Components"
 			)),
-			area (Dict{Symbol,Any}(
-				:Brief=>"Cross Section Area of reboiler"
+			fill(molweight (Dict{Symbol,Any}(
+				:Brief=>"Component Mol Weight",
+				:Hidden=>true
+			)),(NComp)),
+			flow_mol (Dict{Symbol,Any}(
+				:Brief=>"Low Flow",
+				:Default=>1E-6,
+				:Hidden=>true
 			)),
-			stream(Dict{Symbol,Any}(
+			flow_mol (Dict{Symbol,Any}(
+				:Brief=>"No Flow",
+				:Default=>0,
+				:Hidden=>true
+			)),
+			DanaSwitcher (Dict{Symbol,Any}(
+				:Brief=>"Vapour Flow",
+				:Valid=>["on", "off"],
+				:Default=>"on",
+				:Hidden=>true
+			)),
+			positive (Dict{Symbol,Any}(
+				:Brief=>"K factor for pressure drop",
+				:Lower=>1E-8,
+				:Default=>1E-3
+			)),
+			positive (Dict{Symbol,Any}(
+				:Brief=>"Initial liquid height in Percent",
+				:Default=>0.70
+			)),
+			temperature (Dict{Symbol,Any}(
+				:Brief=>"Initial Temperature of Condenser"
+			)),
+			fill(positive (Dict{Symbol,Any}(
+				:Brief=>"Initial Liquid Composition",
+				:Lower=>1E-6
+			)),(NComp)),
+			VesselVolume (Dict{Symbol,Any}(
+				:Brief=>"Vessel Geometry",
+				:Symbol=>" "
+			)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Vapour inlet stream",
-				:PosX=>0.1164,
+				:PosX=>0.13,
 				:PosY=>0,
-				:Symbol=>"_{inV}"
+				:Symbol=>"_{in}^{Vapour}"
 			)),
-			liquid_stream(Dict{Symbol,Any}(
+			liquid_stream (Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream",
-				:PosX=>0.4513,
+				:PosX=>0.35,
 				:PosY=>1,
-				:Symbol=>"_{outL}"
+				:Symbol=>"_{out}^{Liquid}"
 			)),
-			vapour_stream(Dict{Symbol,Any}(
+			vapour_stream (Dict{Symbol,Any}(
 				:Brief=>"Vapour outlet stream",
-				:PosX=>0.4723,
+				:PosX=>0.54,
 				:PosY=>0,
-				:Symbol=>"_{outV}"
+				:Symbol=>"_{out}^{Vapour}"
 			)),
-			energy_stream (Dict{Symbol,Any}(
-				:Brief=>"Cold supplied",
+			power (Dict{Symbol,Any}(
+				:Brief=>"Heat supplied",
+				:Protected=>true,
 				:PosX=>1,
-				:PosY=>0.6311,
-				:Symbol=>"_{in}"
+				:PosY=>0.08,
+				:Symbol=>"Q_{in}"
+			)),
+			control_signal (Dict{Symbol,Any}(
+				:Brief=>"Temperature  Indicator of Condenser",
+				:Protected=>true,
+				:PosX=>0.33,
+				:PosY=>0
+			)),
+			control_signal (Dict{Symbol,Any}(
+				:Brief=>"Level  Indicator of Condenser",
+				:Protected=>true,
+				:PosX=>0.43,
+				:PosY=>0
+			)),
+			control_signal (Dict{Symbol,Any}(
+				:Brief=>"Pressure  Indicator of Condenser",
+				:Protected=>true,
+				:PosX=>0.25,
+				:PosY=>0
 			)),
 			fill(mol (Dict{Symbol,Any}(
-				:Brief=>"Molar Holdup in the tray"
+				:Brief=>"Molar Holdup in the tray",
+				:Protected=>true
 			)),(NComp)),
 			mol (Dict{Symbol,Any}(
-				:Brief=>"Molar liquid holdup"
+				:Brief=>"Molar liquid holdup",
+				:Protected=>true
 			)),
 			mol (Dict{Symbol,Any}(
-				:Brief=>"Molar vapour holdup"
+				:Brief=>"Molar vapour holdup",
+				:Protected=>true
 			)),
 			energy (Dict{Symbol,Any}(
-				:Brief=>"Total Energy Holdup on tray"
+				:Brief=>"Total Energy Holdup on tray",
+				:Protected=>true
 			)),
 			volume_mol (Dict{Symbol,Any}(
-				:Brief=>"Liquid Molar Volume"
+				:Brief=>"Liquid Molar Volume",
+				:Protected=>true
 			)),
 			volume_mol (Dict{Symbol,Any}(
-				:Brief=>"Vapour Molar volume"
+				:Brief=>"Vapour Molar volume",
+				:Protected=>true
 			)),
-			length (Dict{Symbol,Any}(
-				:Brief=>"Level of liquid phase"
+			dens_mass (Dict{Symbol,Any}(
+				:Brief=>"Inlet Vapour Mass Density",
+				:Hidden=>true,
+				:Symbol=>"\\rho"
+			)),
+			press_delta (Dict{Symbol,Any}(
+				:Brief=>"Pressure Drop",
+				:DisplayUnit=>"kPa",
+				:Symbol=>"\\Delta P",
+				:Protected=>true
 			)),
 			[
-				:(diff(M) = InletV.F*InletV.z - OutletL.F*OutletL.z - OutletV.F*OutletV.z),
-				:(diff(E) = InletV.F*InletV.h - OutletL.F*OutletL.h - OutletV.F*OutletV.h + InletQ.Q),
-				:(M = ML*OutletL.z + MV*OutletV.z),
-				:(E = ML*OutletL.h + MV*OutletV.h - OutletV.P*V),
-				:(sum(OutletL.z)=1.0),
-				:(sum(OutletL.z)=sum(OutletV.z)),
-				:(vL = PP.LiquidVolume(OutletL.T, OutletL.P, OutletL.z)),
-				:(vV = PP.VapourVolume(OutletV.T, OutletV.P, OutletV.z)),
-				:(PP.LiquidFugacityCoefficient(OutletL.T, OutletL.P, OutletL.z)*OutletL.z = PP.VapourFugacityCoefficient(OutletV.T, OutletV.P, OutletV.z)*OutletV.z),
-				:(OutletL.T = OutletV.T),
-				:(OutletV.P = OutletL.P),
-				:(V = ML*vL + MV*vV),
-				:(Level = ML*vL/Across),
+				:(InletVapour.F*vV = Kfactor *sqrt(Pdrop/rho)*"m^2"),
+				:(InletVapour.F = zero_flow),
+				:(diff(M) = InletVapour.F*InletVapour.z - OutletLiquid.F*OutletLiquid.z- OutletVapour.F*OutletVapour.z),
+				:(diff(E) = InletVapour.F*InletVapour.h - OutletLiquid.F*OutletLiquid.h- OutletVapour.F*OutletVapour.h + InletQ),
+				:(M = ML*OutletLiquid.z + MV*OutletVapour.z),
+				:(E = ML*OutletLiquid.h + MV*OutletVapour.h - OutletVapour.P*Geometry.Vtotal),
+				:(sum(OutletLiquid.z)=1.0),
+				:(sum(OutletLiquid.z)=sum(OutletVapour.z)),
+				:(vL = PP.LiquidVolume(OutletLiquid.T, OutletLiquid.P, OutletLiquid.z)),
+				:(vV = PP.VapourVolume(OutletVapour.T, OutletVapour.P, OutletVapour.z)),
+				:(rho = PP.VapourDensity(InletVapour.T, InletVapour.P, InletVapour.z)),
+				:(PP.LiquidFugacityCoefficient(OutletLiquid.T, OutletLiquid.P, OutletLiquid.z)*OutletLiquid.z = PP.VapourFugacityCoefficient(OutletVapour.T, OutletVapour.P, OutletVapour.z)*OutletVapour.z),
+				:(OutletLiquid.T = OutletVapour.T),
+				:(OutletVapour.P = OutletLiquid.P),
+				:(OutletLiquid.P = InletVapour.P - Pdrop),
+				:(Geometry.Vtotal = ML*vL + MV*vV),
+				:(ML * vL = Geometry.Vfilled),
+				:(TI * "K" = OutletLiquid.T),
+				:(PI * "atm" = OutletLiquid.P),
+				:(LI*Geometry.Vtotal= Geometry.Vfilled),
 			],
 			[
-				"Component Molar Balance","Energy Balance","Molar Holdup","Energy Holdup","Mol fraction normalisation","","Liquid Volume","Vapour Volume","Chemical Equilibrium","Thermal Equilibrium","Mechanical Equilibrium","Geometry Constraint","Level of liquid phase",
+				"","","Component Molar Balance","Energy Balance","Molar Holdup","Energy Holdup","Mol fraction normalisation","Mol fraction Constraint","Liquid Volume","Vapour Volume","Inlet Vapour Density","Chemical Equilibrium","Thermal Equilibrium","Mechanical Equilibrium","Pressure Drop","Geometry Constraint","Liquid Level","Temperature indicator","Pressure indicator","Level indicator",
 			],
-			[:PP,:NComp,:V,:Across,],
-			[:InletV,:OutletL,:OutletV,:InletQ,:M,:ML,:MV,:E,:vL,:vV,:Level,]
+			[:PP,:NComp,:Mw,:low_flow,:zero_flow,:VapourFlow,:Kfactor,:Levelpercent_Initial,:Initial_Temperature,:Initial_Composition,],
+			[:Geometry,:InletVapour,:OutletLiquid,:OutletVapour,:InletQ,:TI,:LI,:PI,:M,:ML,:MV,:E,:vL,:vV,:rho,:Pdrop,]
 		)
 	end
-	PP::DanaPlugin
-	NComp::DanaInteger
-	V::volume 
-	Across::area 
-	InletV::stream
-	OutletL::liquid_stream
-	OutletV::vapour_stream
-	InletQ::energy_stream 
+	PP::DanaPlugin 
+	NComp::DanaInteger 
+	Mw::Array{molweight }
+	low_flow::flow_mol 
+	zero_flow::flow_mol 
+	VapourFlow::DanaSwitcher 
+	Kfactor::positive 
+	Levelpercent_Initial::positive 
+	Initial_Temperature::temperature 
+	Initial_Composition::Array{positive }
+	Geometry::VesselVolume 
+	InletVapour::stream 
+	OutletLiquid::liquid_stream 
+	OutletVapour::vapour_stream 
+	InletQ::power 
+	TI::control_signal 
+	LI::control_signal 
+	PI::control_signal 
 	M::Array{mol }
 	ML::mol 
 	MV::mol 
 	E::energy 
 	vL::volume_mol 
 	vV::volume_mol 
-	Level::length 
+	rho::dens_mass 
+	Pdrop::press_delta 
+	initials::Array{Expr,1}
+	initialNames::Array{String,1}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}
@@ -121,9 +218,31 @@ type condenser
 	attributes::Dict{Symbol,Any}
 end
 export condenser
-function setEquationFlow(in::condenser)
+function set(in::condenser)
+	Mw = PP.MolecularWeight()
+	 low_flow = 1E-6 * "kmol/h"
+	 zero_flow = 0 * "kmol/h"
+	 
+end
+function initial(in::condenser)
 	addEquation(1)
 	addEquation(2)
+	addEquation(3)
+end
+function setEquationFlow(in::condenser)
+	let switch=VapourFlow
+		if VapourFlow==InletVapour.F < low_flow
+			set(switch,"off")
+		end
+		if VapourFlow==InletVapour.P > OutletLiquid.P
+			set(switch,"on")
+		end
+		if switch=="on"
+			addEquation(1)
+		elseif switch=="off"
+			addEquation(2)
+		end
+	end
 	addEquation(3)
 	addEquation(4)
 	addEquation(5)
@@ -135,25 +254,38 @@ function setEquationFlow(in::condenser)
 	addEquation(11)
 	addEquation(12)
 	addEquation(13)
+	addEquation(14)
+	addEquation(15)
+	addEquation(16)
+	addEquation(17)
+	addEquation(18)
+	addEquation(19)
+	addEquation(20)
 end
 function atributes(in::condenser,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Condenser"
-	fields[:Brief]="Model of a dynamic condenser."
-	fields[:Info]="== Assumptions ==
+	fields[:Brief]="Model of a  dynamic condenser with control."
+	fields[:Info]="== ASSUMPTIONS ==
 * perfect mixing of both phases;
 * thermodynamics equilibrium.
 	
-== Specify ==
-* the inlet stream;
-* the outlet flows: OutletV.F and OutletL.F;
-* the heat supply.
-	
-== Initial Conditions ==
-* the condenser temperature (OutletL.T);
-* the condenser liquid level (Level);
-* (NoComps - 1) OutletL (OR OutletV) compositions.
+== SPECIFY ==
+* the InletVapour stream;
+* the outlet flows: OutletVapour.F and OutletLiquid.F;
+* the InletQ (the model requires an energy stream, also you can use a controller for setting the heat duty using the heat_flow model).
+
+== OPTIONAL ==
+* the condenser model has three control ports
+** TI OutletLiquid Temperature Indicator;
+** PI OutletLiquid Pressure Indicator;
+** LI Level Indicator of Condenser;
+
+== INITIAL CONDITIONS ==
+* Initial_Temperature :  the condenser temperature (OutletLiquid.T);
+* Levelpercent_Initial : the condenser liquid level in percent (LI);
+* Initial_Composition : (NoComps) OutletLiquid compositions.
 "
 	drive!(fields,_)
 	return fields

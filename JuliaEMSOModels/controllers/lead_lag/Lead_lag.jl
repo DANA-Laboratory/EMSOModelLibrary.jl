@@ -79,7 +79,7 @@ function initial(in::Lead_lag)
 end
 function atributes(in::Lead_lag,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
-	fields[:Pallete]=true
+	fields[:Pallete]=false
 	fields[:Icon]="icon/Lead_Lag"
 	fields[:Brief]="Model Lead lag."
 	fields[:Info]="== Inputs ==

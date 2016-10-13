@@ -32,27 +32,18 @@ type source
 				:Lower=>1
 			)),
 			fill(molweight (Dict{Symbol,Any}(
-				:Brief=>"Component Mol Weight"
+				:Brief=>"Component Mol Weight",
+				:Protected=>true
 			)),(NComp)),
-			DanaSwitcher (Dict{Symbol,Any}(
-				:Brief=>"Molar or Mass Composition",
-				:Valid=>["Molar", "Mass"],
-				:Default=>"Molar"
-			)),
 			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"Valid Phases for Flash Calculation",
 				:Valid=>["Vapour-Only", "Liquid-Only","Vapour-Liquid"],
 				:Default=>"Vapour-Liquid"
 			)),
-			temperature (Dict{Symbol,Any}(
-				:Brief=>"Standard temperature",
-				:Hidden=>true,
-				:Default=>298.15
-			)),
-			pressure (Dict{Symbol,Any}(
-				:Brief=>"Standard pressure",
-				:Hidden=>true,
-				:Default=>1
+			DanaSwitcher (Dict{Symbol,Any}(
+				:Brief=>"Molar or Mass Composition",
+				:Valid=>["Molar", "Mass"],
+				:Default=>"Molar"
 			)),
 			stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
@@ -61,9 +52,13 @@ type source
 				:Symbol=>"_{out}",
 				:Protected=>true
 			)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(positive (Dict{Symbol,Any}(
 				:Brief=>"Stream Composition"
 			)),(NComp)),
+			positive (Dict{Symbol,Any}(
+				:Brief=>"Sum of Stream Composition",
+				:Protected=>true
+			)),
 			flow_mol (Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Flow Rate"
 			)),
@@ -73,17 +68,15 @@ type source
 			flow_vol (Dict{Symbol,Any}(
 				:Brief=>"Volumetric Flow"
 			)),
-			flow_vol (Dict{Symbol,Any}(
-				:Brief=>"Standard Volumetric Flow (1 atm, 20 C)"
-			)),
 			temperature (Dict{Symbol,Any}(
 				:Brief=>"Stream Temperature"
 			)),
-			temperature (Dict{Symbol,Any}(
-				:Brief=>"Temperature in �C",
-				:Lower=>-200
+			DanaReal(Dict{Symbol,Any}(
+				:Brief=>"Temperature in  C",
+				:Lower=>-250,
+				:Upper=>5000
 			)),
-			pressure (Dict{Symbol,Any}(
+			pressure(Dict{Symbol,Any}(
 				:Brief=>"Stream Pressure"
 			)),
 			fill(fraction (Dict{Symbol,Any}(
@@ -100,10 +93,6 @@ type source
 			)),
 			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Molar Volume",
-				:Protected=>true
-			)),
-			volume_mol (Dict{Symbol,Any}(
-				:Brief=>"Standard Molar Volume",
 				:Protected=>true
 			)),
 			dens_mass (Dict{Symbol,Any}(
@@ -128,56 +117,50 @@ type source
 				:(y = Outlet.z),
 				:(Outlet.h = PP.LiquidEnthalpy(Outlet.T, Outlet.P, x)),
 				:(vm = PP.LiquidVolume(Outlet.T, Outlet.P, x)),
-				:(vm_std = PP.LiquidVolume(T_std, P_std, x)),
 				:(Outlet.v = 1),
 				:(x = Outlet.z),
 				:(y = Outlet.z),
 				:(Outlet.h = PP.VapourEnthalpy(Outlet.T, Outlet.P, y)),
 				:(vm = PP.VapourVolume(Outlet.T, Outlet.P, y)),
-				:(vm_std = PP.VapourVolume(T_std, P_std, y)),
 				:([Outlet.v, x, y] = PP.Flash(Outlet.T, Outlet.P, Outlet.z)),
 				:(Outlet.h = (1-Outlet.v)*PP.LiquidEnthalpy(Outlet.T, Outlet.P, x) + Outlet.v*PP.VapourEnthalpy(Outlet.T, Outlet.P, y)),
-				:(vm = (1-Outlet.v)*PP.LiquidVolume(Outlet.T, Outlet.P, x) + Outlet.v*PP.VapourVolume(Outlet.T, Outlet.P, y)),
-				:(vm_std = (1-Outlet.v)*PP.LiquidVolume(T_std, P_std, x) + Outlet.v*PP.VapourVolume(T_std, P_std, y)),
+				:(vm = (1-Outlet.v)*PP.LiquidVolume(Outlet.T, Outlet.P, x) + Outlet.v*PP.VapourVolume(Outlet.T,Outlet.P,y)),
+				:(SumOfComposition = sum(Composition)),
 				:(rhom * vm = 1),
 				:(Mw = sum(M*Outlet.z)),
 				:(rhom * Mw = rho),
 				:(Fw = Mw*Outlet.F),
 				:(Fvol = Outlet.F*vm),
-				:(Fvol_std = Outlet.F*vm_std),
-				:(T_Cdeg = Outlet.T - 273.15 * "K"),
+				:(T_Cdeg = Outlet.T/"K" - 273.15),
 				:(Outlet.F = F),
 				:(Outlet.P = P),
 				:(Outlet.T = T),
 			],
 			[
-				"Stream Molar Composition","Stream Mass Composition","Stream Mass Composition","Stream Molar Composition","Vapour Fraction","Liquid Composition","Vapour Composition","Overall Enthalpy","Molar Volume","Standard Molar Volume","Vapor Fraction","Liquid Composition","Vapour Composition","Overall Enthalpy","Molar Volume","Standard Molar Volume","Flash Calculation","Overall Enthalpy","Molar Volume","Standard Molar Volume","Molar Density","Average Molecular Weight","Mass or Molar Density","Flow Mass","Volumetric Flow","Standard Volumetric Flow","Temperature in �C","Equate Flow","Equate Pressures","Equate Temperatures",
+				"Stream Molar Composition","Stream Mass Composition","Stream Mass Composition","Stream Molar Composition","Vapour Fraction","Liquid Composition","Vapour Composition","Overall Enthalpy","Molar Volume","Vapor Fraction","Liquid Composition","Vapour Composition","Overall Enthalpy","Molar Volume","Flash Calculation","Overall Enthalpy","Molar Volume","Sum of Composition","Molar Density","Average Molecular Weight","Mass or Molar Density","Flow Mass","Volumetric Flow","Temperature in  C","Equate Flow","Equate Pressures","Equate Temperatures",
 			],
-			[:PP,:NComp,:M,:CompositionBasis,:ValidPhases,:T_std,:P_std,],
-			[:Outlet,:Composition,:F,:Fw,:Fvol,:Fvol_std,:T,:T_Cdeg,:P,:x,:y,:Mw,:vm,:vm_std,:rho,:rhom,:zmass,]
+			[:PP,:NComp,:M,:ValidPhases,:CompositionBasis,],
+			[:Outlet,:Composition,:SumOfComposition,:F,:Fw,:Fvol,:T,:T_Cdeg,:P,:x,:y,:Mw,:vm,:rho,:rhom,:zmass,]
 		)
 	end
 	PP::DanaPlugin 
 	NComp::DanaInteger 
 	M::Array{molweight }
-	CompositionBasis::DanaSwitcher 
 	ValidPhases::DanaSwitcher 
-	T_std::temperature 
-	P_std::pressure 
+	CompositionBasis::DanaSwitcher 
 	Outlet::stream 
-	Composition::Array{fraction }
+	Composition::Array{positive }
+	SumOfComposition::positive 
 	F::flow_mol 
 	Fw::flow_mass 
 	Fvol::flow_vol 
-	Fvol_std::flow_vol 
 	T::temperature 
-	T_Cdeg::temperature 
-	P::pressure 
+	T_Cdeg::DanaReal
+	P::pressure
 	x::Array{fraction }
 	y::Array{fraction }
 	Mw::molweight 
 	vm::volume_mol 
-	vm_std::volume_mol 
 	rho::dens_mass 
 	rhom::dens_mol 
 	zmass::Array{fraction }
@@ -209,21 +192,21 @@ function setEquationFlow(in::source)
 			addEquation(7)
 			addEquation(8)
 			addEquation(9)
-			addEquation(10)
 		elseif switch=="Vapour-Only"
+			addEquation(10)
 			addEquation(11)
 			addEquation(12)
 			addEquation(13)
 			addEquation(14)
+		elseif switch=="Vapour-Liquid"
 			addEquation(15)
 			addEquation(16)
-		elseif switch=="Vapour-Liquid"
 			addEquation(17)
-			addEquation(18)
-			addEquation(19)
-			addEquation(20)
 		end
 	end
+	addEquation(18)
+	addEquation(19)
+	addEquation(20)
 	addEquation(21)
 	addEquation(22)
 	addEquation(23)
@@ -231,9 +214,6 @@ function setEquationFlow(in::source)
 	addEquation(25)
 	addEquation(26)
 	addEquation(27)
-	addEquation(28)
-	addEquation(29)
-	addEquation(30)
 end
 function atributes(in::source,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()

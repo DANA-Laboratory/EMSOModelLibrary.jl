@@ -3,6 +3,7 @@
 #*--------------------------------------------------------------------
 type gibbs_liq
 	gibbs_liq()=begin
+		NElem=outers.NElem
 		new(
 			tank_liq(),
 			DanaInteger (Dict{Symbol,Any}(
@@ -12,8 +13,7 @@ type gibbs_liq
 			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Universal gas constant",
 				:Unit=>"J/mol/K",
-				:Default=>8.314,
-				:Hidden=>true
+				:Default=>8.314
 			)),
 			fill(DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Number of elements per component"
@@ -21,13 +21,11 @@ type gibbs_liq
 			pressure (Dict{Symbol,Any}(
 				:Brief=>"Pressure of standard state",
 				:Default=>1,
-				:DisplayUnit=>"atm",
-				:Hidden=>true
+				:DisplayUnit=>"atm"
 			)),
 			temperature (Dict{Symbol,Any}(
 				:Brief=>"Reference temperature",
-				:Default=>298.15,
-				:Hidden=>true
+				:Default=>298.15
 			)),
 			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
@@ -36,19 +34,16 @@ type gibbs_liq
 				:Symbol=>"_{out}"
 			)),
 			fill(energy_mol (Dict{Symbol,Any}(
-				:Brief=>"Gibbs free-energy change of formation",
-				:Protected=>true
+				:Brief=>"Gibbs free-energy change of formation"
 			)),(NComp)),
 			fill(energy_mol (Dict{Symbol,Any}(
 				:Brief=>"Lagrangian multiplier",
-				:Symbol=>"\\lambda",
-				:Hidden=>true
+				:Symbol=>"\\lambda"
 			)),(NElem)),
 			fill(DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Activity",
 				:Symbol=>"\\hat{a}",
-				:Lower=>0,
-				:Protected=>true
+				:Lower=>0
 			)),(NComp)),
 			fill(reaction_mol (Dict{Symbol,Any}(
 				:Brief=>"Overall component rate of reaction"
@@ -59,8 +54,7 @@ type gibbs_liq
 				:Default=>0
 			)),(NComp)),
 			fill(flow_mol (Dict{Symbol,Any}(
-				:Brief=>"Component molar flow rate",
-				:Hidden=>true
+				:Brief=>"Component molar flow rate"
 			)),(NComp)),
 			[
 				:(Outlet.F*Outlet.z = _base_1._base_1.Outletm.F*_base_1._base_1.Outletm.z + rate*_base_1._base_1.Tank.V),

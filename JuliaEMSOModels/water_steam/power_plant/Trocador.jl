@@ -1,11 +1,10 @@
 # Modelo de trocador de calor, dada a carga termica
 type Trocador
 	Trocador()=begin
-		propterm=outers.propterm
+		PP2=outers.PP2
 		new(
 			DanaPlugin(Dict{Symbol,Any}(
-				:Brief=>"Steam tables",
-				:Type=>"water"
+				:Brief=>"Steam tables"
 			)),
 			Potencia(),
 			Dif_Pres(),
@@ -19,16 +18,16 @@ type Trocador
 				:(Fout.F = Fin.F),
 				:(Fout.P = Fin.P - DP),
 				:(Fout.F * (Fout.H - Fin.H) = Q),
-				:([Fout.S,Fout.T] = propterm.propPH(Fout.P,Fout.H)),
+				:([Fout.S,Fout.T] = PP2.propPH(Fout.P,Fout.H)),
 			],
 			[
 				"","","","",
 			],
-			[:propterm,],
+			[:PP2,],
 			[:Q,:DP,:Fin,:Fout,]
 		)
 	end
-	propterm::DanaPlugin
+	PP2::DanaPlugin
 	Q::Potencia
 	DP::Dif_Pres
 	Fin::Corrente 

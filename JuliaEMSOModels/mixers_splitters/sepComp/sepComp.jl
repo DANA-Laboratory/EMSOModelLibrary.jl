@@ -26,70 +26,63 @@ type sepComp
 				:Type=>"PP"
 			)),
 			DanaInteger (Dict{Symbol,Any}(
-				:Brief=>"Number of chemical components",
-				:Lower=>1
-			)),
-			DanaInteger (Dict{Symbol,Any}(
-				:Brief=>"Component specified",
-				:Default=>1,
-				:Lower=>1
+				:Brief=>"Number of chemical components"
 			)),
 			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0.5001,
+				:Symbol=>"_{Inlet}"
+			)),
+			streamPH (Dict{Symbol,Any}(
+				:Brief=>"Overhead_Outlet stream",
+				:PosX=>0.5,
+				:PosY=>0,
+				:Symbol=>"_{Overhead}"
+			)),
+			streamPH (Dict{Symbol,Any}(
+				:Brief=>"Bottom_Outlet stream",
+				:PosX=>0.5,
+				:PosY=>1,
+				:Symbol=>"_{Bottom}"
+			)),
+			power (Dict{Symbol,Any}(
+				:Brief=>"Rate of heat supply",
+				:PosX=>1,
+				:PosY=>0.7559,
 				:Symbol=>"_{in}"
 			)),
-			stream (Dict{Symbol,Any}(
-				:Brief=>"Outlet stream 1",
-				:PosX=>1,
-				:PosY=>0.3027,
-				:Symbol=>"_{out1}"
-			)),
-			stream (Dict{Symbol,Any}(
-				:Brief=>"Outlet stream 2",
-				:PosX=>1,
-				:PosY=>0.7141,
-				:Symbol=>"_{out2}"
-			)),
-			fraction (Dict{Symbol,Any}(
-				:Brief=>"Fraction to Outlet 1",
-				:Symbol=>"\\phi"
-			)),
-			fraction (Dict{Symbol,Any}(
-				:Brief=>"Recovery of the component specified",
-				:Symbol=>"\\eta"
-			)),
+			fill(fraction (Dict{Symbol,Any}(
+				:Brief=>"Fraction to Overhead_Outlet",
+				:Symbol=>"\\phi_{overhead}"
+			)),(NComp)),
+			fill(fraction (Dict{Symbol,Any}(
+				:Brief=>"Fraction to Bottom_Outlet",
+				:Symbol=>"\\phi_{bottom}"
+			)),(NComp)),
 			[
-				:(Outlet1.F = Inlet.F * frac),
-				:(Outlet1.F + Outlet2.F = Inlet.F),
-				:(recovery*Inlet.z(mainComp) = frac*Outlet1.z(mainComp)),
-				:(sum(Outlet1.z) = 1),
-				:(Outlet1.F*Outlet1.z([1:NComp]) + Outlet2.F*Outlet2.z([1:NComp]) = Inlet.F*Inlet.z([1:NComp])),
-				:(Outlet1.P = Inlet.P),
-				:(Outlet2.P = Inlet.P),
-				:(Outlet1.h = (1-Outlet1.v)*PP.LiquidEnthalpy(Outlet1.T, Outlet1.P, Outlet1.z) + Outlet1.v*PP.VapourEnthalpy(Outlet1.T, Outlet1.P, Outlet1.z)),
-				:(Outlet2.h = (1-Outlet2.v)*PP.LiquidEnthalpy(Outlet2.T, Outlet2.P, Outlet2.z) + Outlet2.v*PP.VapourEnthalpy(Outlet2.T, Outlet2.P, Outlet2.z)),
-				:(Outlet1.T = Inlet.T),
-				:(Outlet2.T = Inlet.T),
-				:(Outlet1.v = PP.VapourFraction(Outlet1.T, Outlet1.P, Outlet1.z)),
-				:(Outlet2.v = PP.VapourFraction(Outlet2.T, Outlet2.P, Outlet2.z)),
+				:(Overhead_Outlet.F*Overhead_Outlet.z = Inlet.F * Inlet.z*Overhead_Splits),
+				:(sum(Bottom_Outlet.z) = 1),
+				:(Overhead_Splits+Bottom_Splits = 1),
+				:(sum(Overhead_Outlet.z) = 1),
+				:(Overhead_Outlet.F*Overhead_Outlet.z + Bottom_Outlet.F*Bottom_Outlet.z = Inlet.F*Inlet.z),
+				:(Inlet.F*Inlet.h = Overhead_Outlet.F*Overhead_Outlet.h + Bottom_Outlet.F*Bottom_Outlet.h - InletQ),
 			],
 			[
-				"Flow","","","","Composition","Pressure","","Enthalpy","","Temperature","","Vapourization Fraction","",
+				"Composition Overhead","Bottom Composition Constraints","Sum Of Splits","Overhead Composition Constraints","Global Composition","Energy Balance",
 			],
-			[:PP,:NComp,:mainComp,],
-			[:Inlet,:Outlet1,:Outlet2,:frac,:recovery,]
+			[:PP,:NComp,],
+			[:Inlet,:Overhead_Outlet,:Bottom_Outlet,:InletQ,:Overhead_Splits,:Bottom_Splits,]
 		)
 	end
 	PP::DanaPlugin 
 	NComp::DanaInteger 
-	mainComp::DanaInteger 
 	Inlet::stream 
-	Outlet1::stream 
-	Outlet2::stream 
-	frac::fraction 
-	recovery::fraction 
+	Overhead_Outlet::streamPH 
+	Bottom_Outlet::streamPH 
+	InletQ::power 
+	Overhead_Splits::Array{fraction }
+	Bottom_Splits::Array{fraction }
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}
@@ -104,27 +97,28 @@ function setEquationFlow(in::sepComp)
 	addEquation(4)
 	addEquation(5)
 	addEquation(6)
-	addEquation(7)
-	addEquation(8)
-	addEquation(9)
-	addEquation(10)
-	addEquation(11)
-	addEquation(12)
-	addEquation(13)
+	#"Overhead Pressure"
+	#	Overhead_Outlet.P = Inlet.P;
+	#"Bottom Pressure"
+	#	Bottom_Outlet.P = Inlet.P;
+	#"Overhead Temperature"
+	#	Overhead_Outlet.T = Inlet.T;
+	#"Bottom Temperature"
+	#	Bottom_Outlet.T = Inlet.T;
+	
 end
 function atributes(in::sepComp,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
-	fields[:Icon]="icon/splitter"
+	fields[:Icon]="icon/SepComp"
 	fields[:Brief]="Model of a separator of components"
 	fields[:Info]="== Assumptions ==
 * thermodynamics equilibrium
-* adiabatic
 	
 == Specify ==
 * the inlet stream
-* (NComp - 1) molar fractions to 1 of the outlet streams
-* the fraction of split of the outlet streams
+* (NComp) Overhead_Splits or (NComp) Bottom_Splits 
+* the Pressure and Temperature of the outlet streams
 "
 	drive!(fields,_)
 	return fields

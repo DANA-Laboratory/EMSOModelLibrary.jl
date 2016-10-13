@@ -104,9 +104,9 @@ function setEquationFlow(in::sepComp_n)
 end
 function atributes(in::sepComp_n,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
-	fields[:Pallete]=true
+	fields[:Pallete]=false
 	fields[:Icon]="icon/splitter_n"
-	fields[:Brief]="Model of a separator of components"
+	fields[:Brief]="Model of a separator of components (NOT Handled by the GUI)"
 	fields[:Info]="== Assumptions ==
 * thermodynamics equilibrium
 * adiabatic

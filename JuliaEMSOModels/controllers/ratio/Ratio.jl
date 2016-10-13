@@ -60,7 +60,7 @@ function setEquationFlow(in::Ratio)
 end
 function atributes(in::Ratio,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
-	fields[:Pallete]=true
+	fields[:Pallete]=false
 	fields[:Icon]="icon/Ratio"
 	fields[:Brief]="Model Ratio."
 	fields[:Info]="== Inputs ==

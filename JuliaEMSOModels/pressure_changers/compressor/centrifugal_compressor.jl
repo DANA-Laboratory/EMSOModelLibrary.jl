@@ -36,12 +36,18 @@ type centrifugal_compressor
 				:Hidden=>true
 			)),
 			fill(molweight (Dict{Symbol,Any}(
-				:Brief=>"Molar Weight"
+				:Brief=>"Molar Weight",
+				:Hidden=>true
 			)),(NComp)),
 			DanaSwitcher (Dict{Symbol,Any}(
-				:Brief=>"Compressor Model Type",
-				:Valid=>["Polytropic With GPSA Method","Isentropic With GPSA Method","Isentropic With ASME Method","Polytropic With ASME Method"],
-				:Default=>"Isentropic With GPSA Method"
+				:Brief=>"Compressor Operation Model",
+				:Valid=>["Polytropic","Isentropic"],
+				:Default=>"Isentropic"
+			)),
+			DanaSwitcher (Dict{Symbol,Any}(
+				:Brief=>"Method of Calculation",
+				:Valid=>["GPSA Method","ASME Method"],
+				:Default=>"GPSA Method"
 			)),
 			positive (Dict{Symbol,Any}(
 				:Brief=>"Pressure Ratio",
@@ -59,18 +65,6 @@ type centrifugal_compressor
 				:DisplayUnit=>"kPa",
 				:Symbol=>"P_{incr}"
 			)),
-			energy_mass (Dict{Symbol,Any}(
-				:Brief=>"Actual Head"
-			)),
-			energy_mass (Dict{Symbol,Any}(
-				:Brief=>"Isentropic Head"
-			)),
-			energy_mass (Dict{Symbol,Any}(
-				:Brief=>"Polytropic Head"
-			)),
-			positive (Dict{Symbol,Any}(
-				:Brief=>"Schultz Polytropic Head Correction"
-			)),
 			positive (Dict{Symbol,Any}(
 				:Brief=>"Compressor efficiency - Polytropic or Isentropic (See Compressor Type)",
 				:Lower=>1E-3,
@@ -82,13 +76,31 @@ type centrifugal_compressor
 				:Upper=>1
 			)),
 			power (Dict{Symbol,Any}(
-				:Brief=>"Fluid Power"
-			)),
-			power (Dict{Symbol,Any}(
-				:Brief=>"Brake Power"
-			)),
-			power (Dict{Symbol,Any}(
 				:Brief=>"Power Losses"
+			)),
+			energy_mass (Dict{Symbol,Any}(
+				:Brief=>"Actual Head",
+				:Protected=>true
+			)),
+			energy_mass (Dict{Symbol,Any}(
+				:Brief=>"Isentropic Head",
+				:Protected=>true
+			)),
+			energy_mass (Dict{Symbol,Any}(
+				:Brief=>"Polytropic Head",
+				:Protected=>true
+			)),
+			positive (Dict{Symbol,Any}(
+				:Brief=>"Schultz Polytropic Head Correction",
+				:Protected=>true
+			)),
+			power (Dict{Symbol,Any}(
+				:Brief=>"Fluid Power",
+				:Protected=>true
+			)),
+			power (Dict{Symbol,Any}(
+				:Brief=>"Brake Power",
+				:Protected=>true
 			)),
 			positive (Dict{Symbol,Any}(
 				:Brief=>"Polytropic Coefficient",
@@ -151,20 +163,21 @@ type centrifugal_compressor
 			)),
 			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
-				:PosX=>0.437,
+				:PosX=>0.16,
 				:PosY=>1,
 				:Symbol=>"_{in}"
 			)),
 			streamPH (Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
-				:PosX=>0.953,
+				:PosX=>0.87,
 				:PosY=>0.0,
 				:Symbol=>"_{out}"
 			)),
-			work_stream (Dict{Symbol,Any}(
+			power (Dict{Symbol,Any}(
 				:Brief=>"Work Inlet",
 				:PosX=>0,
-				:PosY=>0.45
+				:PosY=>0.45,
+				:Protected=>true
 			)),
 			[
 				:(Outlet.F = Inlet.F),
@@ -182,29 +195,29 @@ type centrifugal_compressor
 				:(IsentropicEff*(Outlet.h-Inlet.h) = (hise-Inlet.h)),
 				:(Head*Mwm = (Outlet.h-Inlet.h)),
 				:(PP.VapourEntropy(Tisentropic, Outlet.P, Outlet.z) = PP.VapourEntropy(Inlet.T, Inlet.P, Inlet.z)),
-				:(BrakePower = -WorkIn.Work),
+				:(BrakePower = -WorkIn),
 				:(BrakePower*MechanicalEff = FluidPower),
 				:(PowerLoss = BrakePower - FluidPower),
 				:(PolytropicEff*HeadIsentropic = HeadPolytropic*IsentropicEff),
 				:(FluidPower = Head*Mwm*Inlet.F),
-				:(EfficiencyOperation = IsentropicEff),
-				:(PolytropicEff*IseCoeff*(PolyCoeff-1) = PolyCoeff*(IseCoeff-1)),
-				:(HeadIsentropic = (0.5*Zfac_in+0.5*Zfac_out)*(1/Mwm)*(IseCoeff/(IseCoeff-1.001))*Rgas*Inlet.T*((Pratio)^((IseCoeff-1.001)/IseCoeff) - 1)),
-				:(HeadPolytropic = (0.5*Zfac_in+0.5*Zfac_out)*(1/Mwm)*(PolyCoeff/(PolyCoeff-1.001))*Rgas*Inlet.T*((Pratio)^((PolyCoeff-1.001)/PolyCoeff) - 1)),
-				:(HeadCorrection =1),
-				:(HeadIsentropic = Head*IsentropicEff),
-				:(EfficiencyOperation = PolytropicEff),
-				:(PolytropicEff*IseCoeff*(PolyCoeff-1) = PolyCoeff*(IseCoeff-1)),
-				:(HeadIsentropic = (0.5*Zfac_in+0.5*Zfac_out)*(1/Mwm)*(IseCoeff/(IseCoeff-1.001))*Rgas*Inlet.T*((Pratio)^((IseCoeff-1.001)/IseCoeff) - 1)),
-				:(HeadPolytropic = (0.5*Zfac_in+0.5*Zfac_out)*(1/Mwm)*(PolyCoeff/(PolyCoeff-1.001))*Rgas*Inlet.T*((Pratio)^((PolyCoeff-1.001)/PolyCoeff) - 1)),
-				:(HeadCorrection =1),
-				:(HeadIsentropic = Head*IsentropicEff),
 				:(EfficiencyOperation = IsentropicEff),
 				:(IseCoeff*ln(rho_ise/rho_in) = ln(Outlet.P/Inlet.P)),
 				:(PolyCoeff*ln(rho_out/rho_in) = ln(Outlet.P/Inlet.P)),
 				:(HeadIsentropic*rho_in = (IseCoeff/(IseCoeff-1.001))*Inlet.P*HeadCorrection*((Pratio)^((IseCoeff-1.001)/IseCoeff) - 1)),
 				:(HeadPolytropic*rho_in = (PolyCoeff/(PolyCoeff-1.001))*Inlet.P*HeadCorrection*((Pratio)^((PolyCoeff-1.001)/PolyCoeff) - 1)),
 				:(HeadCorrection*Mwm*(IseCoeff/(IseCoeff-1.001))*(Outlet.P/rho_ise -Inlet.P/rho_in) = (hise-Inlet.h)),
+				:(EfficiencyOperation = IsentropicEff),
+				:(PolytropicEff*IseCoeff*(PolyCoeff-1) = PolyCoeff*(IseCoeff-1)),
+				:(HeadIsentropic*Mwm*((IseCoeff-1.001)/IseCoeff) = (0.5*Zfac_in+0.5*Zfac_out)*Rgas*Inlet.T*((Pratio)^((IseCoeff-1.001)/IseCoeff) - 1)),
+				:(HeadPolytropic*Mwm*((PolyCoeff-1.001)/PolyCoeff) = (0.5*Zfac_in+0.5*Zfac_out)*Rgas*Inlet.T*((Pratio)^((PolyCoeff-1.001)/PolyCoeff) - 1)),
+				:(HeadCorrection =1),
+				:(HeadIsentropic = Head*IsentropicEff),
+				:(EfficiencyOperation = PolytropicEff),
+				:(PolytropicEff*IseCoeff*(PolyCoeff-1) = PolyCoeff*(IseCoeff-1)),
+				:(HeadIsentropic*Mwm*((IseCoeff-1.001)/IseCoeff) = (0.5*Zfac_in+0.5*Zfac_out)*Rgas*Inlet.T*((Pratio)^((IseCoeff-1.001)/IseCoeff) - 1)),
+				:(HeadPolytropic*Mwm*((PolyCoeff-1.001)/PolyCoeff) = (0.5*Zfac_in+0.5*Zfac_out)*Rgas*Inlet.T*((Pratio)^((PolyCoeff-1.001)/PolyCoeff) - 1)),
+				:(HeadCorrection =1),
+				:(HeadIsentropic = Head*IsentropicEff),
 				:(EfficiencyOperation = PolytropicEff),
 				:(IseCoeff*ln(rho_ise/rho_in) = ln(Outlet.P/Inlet.P)),
 				:(PolyCoeff*ln(rho_out/rho_in) = ln(Outlet.P/Inlet.P)),
@@ -213,29 +226,30 @@ type centrifugal_compressor
 				:(HeadCorrection*Mwm*(IseCoeff/(IseCoeff-1.001))*(Outlet.P/rho_ise -Inlet.P/rho_in) = (hise-Inlet.h)),
 			],
 			[
-				"Overall Molar Balance","Component Molar Balance","Average Molecular Weight","Pressure Ratio","Pressure Drop","Pressure Increase","Mass Density at inlet conditions","Mass Density at outlet conditions","Mass Density at isentropic conditions","Enthalpy at isentropic conditions","Compressibility factor at Inlet Conditions","Compressibility factor at Outlet Conditions","Isentropic Efficiency","Actual Head","Isentropic Outlet Temperature","Brake Power","Brake Power","Power Loss","Polytropic-Isentropic Relation","Fluid Power","Efficiency","Polytropic Efficiency","Isentropic Coefficient","Polytropic Coefficient","Head Correction","Isentropic Head","Efficiency","Polytropic Efficiency","Isentropic Coefficient","Polytropic Coefficient","Head Correction","Isentropic Head","Efficiency","Isentropic Coefficient","Polytropic Coefficient","Isentropic Head","Polytropic Head","Schultz Polytropic Head Correction","Efficiency","Isentropic Coefficient","Polytropic Coefficient","Isentropic Head","Polytropic Head","Schultz Polytropic Head Correction",
+				"Overall Molar Balance","Component Molar Balance","Average Molecular Weight","Pressure Ratio","Pressure Drop","Pressure Increase","Mass Density at inlet conditions","Mass Density at outlet conditions","Mass Density at isentropic conditions","Enthalpy at isentropic conditions","Compressibility factor at Inlet Conditions","Compressibility factor at Outlet Conditions","Isentropic Efficiency","Actual Head","Isentropic Outlet Temperature","Brake Power","Brake Power","Power Loss","Polytropic-Isentropic Relation","Fluid Power","Efficiency","Isentropic Coefficient","Polytropic Coefficient","Isentropic Head","Polytropic Head","Schultz Polytropic Head Correction","Efficiency","Polytropic Efficiency","Isentropic Coefficient","Polytropic Coefficient","Head Correction","Isentropic Head","Efficiency","Polytropic Efficiency","Isentropic Coefficient","Polytropic Coefficient","Head Correction","Isentropic Head","Efficiency","Isentropic Coefficient","Polytropic Coefficient","Isentropic Head","Polytropic Head","Schultz Polytropic Head Correction",
 			],
-			[:PP,:NComp,:Rgas,:Mw,:CompressorType,],
-			[:Pratio,:Pdrop,:Pincrease,:Head,:HeadIsentropic,:HeadPolytropic,:HeadCorrection,:EfficiencyOperation,:MechanicalEff,:FluidPower,:BrakePower,:PowerLoss,:PolyCoeff,:IseCoeff,:PolytropicEff,:IsentropicEff,:Tisentropic,:hise,:Mwm,:rho_in,:rho_out,:rho_ise,:Zfac_in,:Zfac_out,:Inlet,:Outlet,:WorkIn,]
+			[:PP,:NComp,:Rgas,:Mw,:CompressorOperation,:Method,],
+			[:Pratio,:Pdrop,:Pincrease,:EfficiencyOperation,:MechanicalEff,:PowerLoss,:Head,:HeadIsentropic,:HeadPolytropic,:HeadCorrection,:FluidPower,:BrakePower,:PolyCoeff,:IseCoeff,:PolytropicEff,:IsentropicEff,:Tisentropic,:hise,:Mwm,:rho_in,:rho_out,:rho_ise,:Zfac_in,:Zfac_out,:Inlet,:Outlet,:WorkIn,]
 		)
 	end
 	PP::DanaPlugin 
 	NComp::DanaInteger 
 	Rgas::positive 
 	Mw::Array{molweight }
-	CompressorType::DanaSwitcher 
+	CompressorOperation::DanaSwitcher 
+	Method::DanaSwitcher 
 	Pratio::positive 
 	Pdrop::press_delta 
 	Pincrease::press_delta 
+	EfficiencyOperation::positive 
+	MechanicalEff::positive 
+	PowerLoss::power 
 	Head::energy_mass 
 	HeadIsentropic::energy_mass 
 	HeadPolytropic::energy_mass 
 	HeadCorrection::positive 
-	EfficiencyOperation::positive 
-	MechanicalEff::positive 
 	FluidPower::power 
 	BrakePower::power 
-	PowerLoss::power 
 	PolyCoeff::positive 
 	IseCoeff::positive 
 	PolytropicEff::positive 
@@ -250,7 +264,7 @@ type centrifugal_compressor
 	Zfac_out::fraction 
 	Inlet::stream 
 	Outlet::streamPH 
-	WorkIn::work_stream 
+	WorkIn::power 
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}
@@ -284,35 +298,43 @@ function setEquationFlow(in::centrifugal_compressor)
 	addEquation(18)
 	addEquation(19)
 	addEquation(20)
-	let switch=CompressorType
-		if switch=="Isentropic With GPSA Method"
-			addEquation(21)
-			addEquation(22)
-			addEquation(23)
-			addEquation(24)
-			addEquation(25)
-			addEquation(26)
-		elseif switch=="Polytropic With GPSA Method"
-			addEquation(27)
-			addEquation(28)
-			addEquation(29)
-			addEquation(30)
-			addEquation(31)
-			addEquation(32)
-		elseif switch=="Isentropic With ASME Method"
-			addEquation(33)
-			addEquation(34)
-			addEquation(35)
-			addEquation(36)
-			addEquation(37)
-			addEquation(38)
-		elseif switch=="Polytropic With ASME Method"
-			addEquation(39)
-			addEquation(40)
-			addEquation(41)
-			addEquation(42)
-			addEquation(43)
-			addEquation(44)
+	let switch=CompressorOperation
+		if switch=="Isentropic"
+			let switch=Method
+				if switch=="ASME Method"
+					addEquation(21)
+					addEquation(22)
+					addEquation(23)
+					addEquation(24)
+					addEquation(25)
+					addEquation(26)
+				elseif switch=="GPSA Method"
+					addEquation(27)
+					addEquation(28)
+					addEquation(29)
+					addEquation(30)
+					addEquation(31)
+					addEquation(32)
+				end
+			end
+		elseif switch=="Polytropic"
+			let switch=Method
+				if switch=="GPSA Method"
+					addEquation(33)
+					addEquation(34)
+					addEquation(35)
+					addEquation(36)
+					addEquation(37)
+					addEquation(38)
+				elseif switch=="ASME Method"
+					addEquation(39)
+					addEquation(40)
+					addEquation(41)
+					addEquation(42)
+					addEquation(43)
+					addEquation(44)
+				end
+			end
 		end
 	end
 end

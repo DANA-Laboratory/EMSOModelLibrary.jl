@@ -50,7 +50,7 @@ function setEquationFlow(in::comparator)
 end
 function atributes(in::comparator,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
-	fields[:Pallete]=true
+	fields[:Pallete]=false
 	fields[:Icon]="icon/Comparator"
 	fields[:Brief]="Model Comparator."
 	fields[:Info]="== Inputs ==

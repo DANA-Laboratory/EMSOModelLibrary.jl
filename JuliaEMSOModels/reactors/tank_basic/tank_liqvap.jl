@@ -22,8 +22,7 @@ type tank_liqvap
 			)),
 			liquid_stream (Dict{Symbol,Any}(
 				:Brief=>"Intermediary liquid outlet stream",
-				:Symbol=>"_{outmL}",
-				:Hidden=>true
+				:Symbol=>"_{outmL}"
 			)),
 			vapour_stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet vapour stream",
@@ -34,28 +33,23 @@ type tank_liqvap
 				:Symbol=>"_{tank}"
 			)),
 			fill(mol (Dict{Symbol,Any}(
-				:Brief=>"Component molar holdup",
-				:Protected=>true
+				:Brief=>"Component molar holdup"
 			)),(NComp)),
 			mol (Dict{Symbol,Any}(
-				:Brief=>"Molar liquid holdup",
-				:Protected=>true
+				:Brief=>"Molar liquid holdup"
 			)),
 			mol (Dict{Symbol,Any}(
-				:Brief=>"Molar vapour holdup",
-				:Protected=>true
+				:Brief=>"Molar vapour holdup"
 			)),
 			energy (Dict{Symbol,Any}(
-				:Brief=>"Internal energy",
-				:Protected=>true
+				:Brief=>"Internal energy"
 			)),
 			heat_rate (Dict{Symbol,Any}(
 				:Brief=>"Reactor duty",
 				:Default=>0
 			)),
 			volume_mol (Dict{Symbol,Any}(
-				:Brief=>"Liquid Molar Volume",
-				:Protected=>true
+				:Brief=>"Liquid Molar Volume"
 			)),
 			[
 				:(diff(M) = Inlet.F*Inlet.z - (OutletmL.F*OutletmL.z + OutletV.F*OutletV.z)),

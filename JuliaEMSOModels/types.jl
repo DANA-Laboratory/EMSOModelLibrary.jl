@@ -1,7 +1,6 @@
 module EMLtypes
 	using DanaTypes
 	using DotPlusInheritance
-	include("types/binary.jl")
 	include("types/coefficient.jl")
 	include("types/constant.jl")
 	include("types/positive.jl")
@@ -37,6 +36,7 @@ module EMLtypes
 	include("types/currency.jl")
 	include("types/mass.jl")
 	include("types/mol.jl")
+	include("types/kmol.jl")
 	include("types/molweight.jl")
 	include("types/molweight_inv.jl")
 	include("types/dens_mol.jl")

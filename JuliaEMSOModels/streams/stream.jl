@@ -36,7 +36,8 @@ type stream
 				:Brief=>"Stream Pressure"
 			)),
 			enth_mol (Dict{Symbol,Any}(
-				:Brief=>"Stream Enthalpy"
+				:Brief=>"Stream Enthalpy",
+				:Protected=>true
 			)),
 			fraction (Dict{Symbol,Any}(
 				:Brief=>"Vapourization fraction"

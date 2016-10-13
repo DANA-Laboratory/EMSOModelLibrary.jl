@@ -34,6 +34,7 @@
 #*
 #*----------------------------------------------------------------------------------
 # elementary
+#mol as positive (Brief = "Moles", Default=2500, Upper=1e9, final Unit = 'mol');
 # densities
 # Concentration
 export inv_conc_mass

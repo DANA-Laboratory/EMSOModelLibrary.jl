@@ -20,15 +20,11 @@
 #*---------------------------------------------------------------------
 type streamPHS
 	streamPHS()=begin
-		PP=outers.PP
 		new(
 			streamPH(),
-			DanaPlugin(Dict{Symbol,Any}(
-				:Brief=>"External Physical Properties",
-				:Type=>"PP"
-			)),
 			entr_mol (Dict{Symbol,Any}(
-				:Brief=>"Stream Entropy"
+				:Brief=>"Stream Entropy",
+				:Protected=>true
 			)),
 			[
 				:(s = (1-v)*_base_1.PP.LiquidEntropy(T, P, x) + v*_base_1.PP.VapourEntropy(T, P, y)),
@@ -36,16 +32,13 @@ type streamPHS
 			[
 				"Entropy",
 			],
-			[:PP,],
 			[:s,]
 		)
 	end
 	_base_1::streamPH
-	PP::DanaPlugin
 	s::entr_mol 
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
-	parameters::Array{Symbol,1}
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

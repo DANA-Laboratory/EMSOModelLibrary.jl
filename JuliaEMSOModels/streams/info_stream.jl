@@ -32,19 +32,20 @@ type info_stream
 				:Lower=>1
 			)),
 			fill(molweight (Dict{Symbol,Any}(
-				:Brief=>"Component Mol Weight"
+				:Brief=>"Component Mol Weight",
+				:Protected=>true
 			)),(NComp)),
 			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet Stream",
 				:PosX=>0,
-				:PosY=>0.5308,
+				:PosY=>0.50,
 				:Protected=>true ,
 				:Symbol=>"_{in}"
 			)),
 			stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet Stream",
 				:PosX=>1,
-				:PosY=>0.5308,
+				:PosY=>0.50,
 				:Protected=>true ,
 				:Symbol=>"_{out}"
 			)),
@@ -76,9 +77,10 @@ type info_stream
 				:Brief=>"Total Volumetric Flow",
 				:Protected=>true
 			)),
-			temperature (Dict{Symbol,Any}(
-				:Brief=>"Temperature in �C",
-				:Lower=>-200,
+			DanaReal(Dict{Symbol,Any}(
+				:Brief=>"Temperature in  C",
+				:Lower=>-250,
+				:Upper=>5000,
 				:Protected=>true
 			)),
 			viscosity (Dict{Symbol,Any}(
@@ -137,7 +139,7 @@ type info_stream
 				:(Mu = (1-v)*PP.LiquidViscosity(Inlet.T, Inlet.P, x) + v*PP.VapourViscosity(Inlet.T,Inlet.P,y)),
 				:(K = (1-v)*PP.LiquidThermalConductivity(Inlet.T, Inlet.P, x) + v*PP.VapourThermalConductivity(Inlet.T,Inlet.P,y)),
 				:(s = (1-v)*PP.LiquidEntropy(Inlet.T, Inlet.P, x) + v*PP.VapourEntropy(Inlet.T, Inlet.P, y)),
-				:(T_Cdeg = Inlet.T - 273.15 * "K"),
+				:(T_Cdeg = Inlet.T/"K" - 273.15),
 				:(Outlet.F = Inlet.F),
 				:(F = Inlet.F*Inlet.z),
 				:(Outlet.T = Inlet.T),
@@ -147,7 +149,7 @@ type info_stream
 				:(Outlet.z= Inlet.z),
 			],
 			[
-				"Flash Calculation","Average Molecular Weight","Mass Density","Mass or Molar Density","Total Flow Mass","Component Flow Mass","Molar Volume","Total Volumetric Flow","Mass Fraction","Stream Heat Capacity","Stream Viscosity","Stream ThermalConductivity","Stream Overall Entropy","Temperature in �C","Outlet Flow","Component Molar Flow","Outlet Temperature","Outlet Pressure","Outlet Vapour Fraction","Outlet Enthalpy","Outlet Composition",
+				"Flash Calculation","Average Molecular Weight","Mass Density","Mass or Molar Density","Total Flow Mass","Component Flow Mass","Molar Volume","Total Volumetric Flow","Mass Fraction","Stream Heat Capacity","Stream Viscosity","Stream ThermalConductivity","Stream Overall Entropy","Temperature in  C","Outlet Flow","Component Molar Flow","Outlet Temperature","Outlet Pressure","Outlet Vapour Fraction","Outlet Enthalpy","Outlet Composition",
 			],
 			[:PP,:NComp,:M,],
 			[:Inlet,:Outlet,:v,:x,:y,:F,:FwTotal,:Fw,:FvolTotal,:T_Cdeg,:Mu,:Cp,:K,:Mw,:vm,:rho,:rhom,:s,:zmass,]
@@ -165,7 +167,7 @@ type info_stream
 	FwTotal::flow_mass 
 	Fw::Array{flow_mass }
 	FvolTotal::flow_vol 
-	T_Cdeg::temperature 
+	T_Cdeg::DanaReal
 	Mu::viscosity 
 	Cp::cp_mol 
 	K::conductivity 

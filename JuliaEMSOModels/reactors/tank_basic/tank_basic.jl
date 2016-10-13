@@ -48,24 +48,20 @@ type tank_basic
 			)),
 			stream (Dict{Symbol,Any}(
 				:Brief=>"Intermediary outlet stream",
-				:Symbol=>"_{outm}",
-				:Hidden=>true
+				:Symbol=>"_{outm}"
 			)),
 			vol_tank (Dict{Symbol,Any}(
 				:Brief=>"Routine to volume tank calculation",
 				:Symbol=>"_{tank}"
 			)),
 			fill(mol (Dict{Symbol,Any}(
-				:Brief=>"Component molar holdup",
-				:Protected=>true
+				:Brief=>"Component molar holdup"
 			)),(NComp)),
 			mol (Dict{Symbol,Any}(
-				:Brief=>"Total component molar holdup",
-				:Protected=>true
+				:Brief=>"Total component molar holdup"
 			)),
 			energy (Dict{Symbol,Any}(
-				:Brief=>"Internal energy",
-				:Protected=>true
+				:Brief=>"Internal energy"
 			)),
 			heat_rate(Dict{Symbol,Any}(
 				:Brief=>"Reactor duty",

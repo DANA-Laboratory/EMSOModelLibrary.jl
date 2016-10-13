@@ -12,40 +12,47 @@ type pump
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger(),
+			DanaInteger (Dict{Symbol,Any}(
+				:Brief=>"Number of chemical components"
+			)),
 			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0.4727,
+				:Protected=>true,
 				:Symbol=>"_{in}"
 			)),
-			streamPH (Dict{Symbol,Any}(
+			liquid_stream (Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>1,
 				:PosY=>0.1859,
+				:Protected=>true,
 				:Symbol=>"_{out}"
 			)),
 			press_delta (Dict{Symbol,Any}(
-				:Brief=>"Pump head"
+				:Brief=>"Pressure Increase",
+				:Lower=>0,
+				:DisplayUnit=>"kPa",
+				:Symbol=>"P_{incr}"
 			)),
 			[
 				:(Inlet.F = Outlet.F),
 				:(Inlet.z = Outlet.z),
-				:(Outlet.P = Inlet.P + dP),
+				:(Outlet.P = Inlet.P + Pincrease),
 				:(Outlet.h = Inlet.h),
 			],
 			[
-				"Molar Balance","","Pump head","FIXME: pump potency",
+				"Molar Balance","Composittion","Pump head","Pump potency",
 			],
 			[:PP,:NComp,],
-			[:Inlet,:Outlet,:dP,]
+			[:Inlet,:Outlet,:Pincrease,]
 		)
 	end
 	PP::DanaPlugin 
-	NComp::DanaInteger
+	NComp::DanaInteger 
 	Inlet::stream 
-	Outlet::streamPH 
-	dP::press_delta 
+	Outlet::liquid_stream 
+	Pincrease::press_delta 
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}
@@ -64,10 +71,16 @@ function atributes(in::pump,_::Dict{Symbol,Any})
 	fields[:Pallete]=true
 	fields[:Icon]="icon/Pump"
 	fields[:Brief]="Model of a simplified pump, used in distillation column model."
-	fields[:Info]="Specify: 
-	 * the inlet stream;
-	 * the pump press delta dP.
-	"
+	fields[:Info]="== ASSUMPTIONS ==
+* Steady State;
+* Only Liquid;
+* Adiabatic;
+* Isentropic.
+
+== SPECIFY == 
+* the inlet stream;
+* the pump Pincrease.
+"
 	drive!(fields,_)
 	return fields
 end

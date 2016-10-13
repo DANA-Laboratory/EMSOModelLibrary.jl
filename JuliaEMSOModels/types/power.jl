@@ -34,6 +34,7 @@
 #*
 #*----------------------------------------------------------------------------------
 # elementary
+#mol as positive (Brief = "Moles", Default=2500, Upper=1e9, final Unit = 'mol');
 # densities
 # Concentration
 # reaction
@@ -57,6 +58,7 @@ type _power
 		fields[:Lower]=-1e8
 		fields[:Upper]=1e8
 		fields[:finalUnit]="kW"
+		fields[:Color]="Red"
 		drive!(fields,_)
 		new(fields)
 	end

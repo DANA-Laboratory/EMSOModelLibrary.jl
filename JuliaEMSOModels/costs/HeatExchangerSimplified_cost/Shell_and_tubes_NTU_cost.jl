@@ -45,7 +45,7 @@ type Shell_and_tubes_NTU_cost
 				:Brief=>"Average  Pressure"
 			)),
 			[
-				:(Pmax = max( [_base_1._base_1.OutletHot.P , _base_1._base_1.OutletCold.P] )),
+				:(Pmax = max( [(0.5*_base_1._base_1.InletHot.P+0.5*_base_1._base_1.OutletHot.P) , (0.5*_base_1._base_1.InletCold.P+0.5*_base_1._base_1.OutletCold.P)] )),
 				:(Ce = Cb*Fd*Fp*Fm),
 				:(Cb = "US\$"*exp(Cost(1,1) + Cost(1,2)*ln(A/"m^2") + Cost(1,3)*(ln(A/"m^2"))^2)),
 				:(Fd = exp(Cost(2,1) + Cost(2,2)*ln(A/"m^2") + Cost(2,3)*ln(A/"m^2"))),

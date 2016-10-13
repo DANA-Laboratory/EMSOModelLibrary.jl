@@ -50,7 +50,7 @@ function setEquationFlow(in::Sum)
 end
 function atributes(in::Sum,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
-	fields[:Pallete]=true
+	fields[:Pallete]=false
 	fields[:Icon]="icon/Sum"
 	fields[:Brief]="Model Sum."
 	fields[:Info]="== Inputs ==

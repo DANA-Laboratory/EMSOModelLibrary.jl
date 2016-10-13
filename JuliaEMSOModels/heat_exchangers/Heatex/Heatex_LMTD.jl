@@ -14,7 +14,7 @@
 #*
 #*--------------------------------------------------------------------
 #* Author: Gerson Balbueno Bicca 
-#* $Id: Heatex.mso 574 2008-07-25 14:18:50Z rafael $
+#* $Id$
 #*--------------------------------------------------------------------
 type Heatex_LMTD
 	Heatex_LMTD()=begin
@@ -159,7 +159,7 @@ end
 function atributes(in::Heatex_LMTD,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
-	fields[:Icon]="icon/HeatExchanger_LMTD"
+	fields[:Icon]="icon/Heatex"
 	fields[:Brief]="Simplified model for Heat Exchangers"
 	fields[:Info]="This model perform material and heat balance using the Log Mean Temperature Difference Approach. 
 This shortcut calculation does not require exchanger configuration or geometry data.

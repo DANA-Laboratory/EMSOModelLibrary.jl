@@ -21,16 +21,16 @@
 type work_source
 	work_source()=begin
 		new(
-			work_stream (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Outlet work stream",
 				:PosX=>1,
 				:PosY=>0.46,
 				:Symbol=>"_{out}"
 			)),
-			[:OutletWork,]
+			[:Work,]
 		)
 	end
-	OutletWork::work_stream 
+	Work::power
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

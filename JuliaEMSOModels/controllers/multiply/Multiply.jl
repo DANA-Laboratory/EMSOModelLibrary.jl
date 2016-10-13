@@ -18,14 +18,20 @@
 type Multiply
 	Multiply()=begin
 		new(
-			DanaReal (Dict{Symbol,Any}(
-				:Brief=>"input signal 1"
+			control_signal (Dict{Symbol,Any}(
+				:Brief=>"input signal 1",
+				:PosX=>0,
+				:PosY=>0.75
 			)),
-			DanaReal (Dict{Symbol,Any}(
-				:Brief=>"input signal 2"
+			control_signal (Dict{Symbol,Any}(
+				:Brief=>"input signal 2",
+				:PosX=>0,
+				:PosY=>0.25
 			)),
-			DanaReal (Dict{Symbol,Any}(
-				:Brief=>"output signal"
+			control_signal (Dict{Symbol,Any}(
+				:Brief=>"output signal",
+				:PosX=>1,
+				:PosY=>0.5
 			)),
 			[
 				:(output=input1*input2),
@@ -36,9 +42,9 @@ type Multiply
 			[:input1,:input2,:output,]
 		)
 	end
-	input1::DanaReal 
-	input2::DanaReal 
-	output::DanaReal 
+	input1::control_signal 
+	input2::control_signal 
+	output::control_signal 
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}
@@ -50,7 +56,7 @@ function setEquationFlow(in::Multiply)
 end
 function atributes(in::Multiply,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
-	fields[:Pallete]=true
+	fields[:Pallete]=false
 	fields[:Icon]="icon/Multiply"
 	fields[:Brief]="Model Multiply."
 	fields[:Info]="== Inputs ==

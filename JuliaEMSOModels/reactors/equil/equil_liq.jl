@@ -16,19 +16,16 @@ type equil_liq
 			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Universal gas constant",
 				:Unit=>"J/mol/K",
-				:Default=>8.314,
-				:Hidden=>true
+				:Default=>8.314
 			)),
 			pressure (Dict{Symbol,Any}(
 				:Brief=>"Standard pressure",
 				:Default=>1,
-				:DisplayUnit=>"bar",
-				:Hidden=>true
+				:DisplayUnit=>"bar"
 			)),
 			temperature (Dict{Symbol,Any}(
 				:Brief=>"Reference temperature",
-				:Default=>298.15,
-				:Hidden=>true
+				:Default=>298.15
 			)),
 			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
@@ -37,17 +34,14 @@ type equil_liq
 				:Symbol=>"_{out}"
 			)),
 			fill(enth_mol (Dict{Symbol,Any}(
-				:Brief=>"Gibbs free-energy of formation",
-				:Protected=>true
+				:Brief=>"Gibbs free-energy of formation"
 			)),(NReac)),
 			fill(fraction (Dict{Symbol,Any}(
-				:Brief=>"Equillibrium constant",
-				:Protected=>true
+				:Brief=>"Equillibrium constant"
 			)),(NReac)),
 			fill(DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Activity",
-				:Symbol=>"\\hat{a}",
-				:Protected=>true
+				:Symbol=>"\\hat{a}"
 			)),(NComp)),
 			fill(reaction_mol (Dict{Symbol,Any}(
 				:Brief=>"Overall component rate of reaction"

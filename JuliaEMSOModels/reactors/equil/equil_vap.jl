@@ -52,19 +52,16 @@ type equil_vap
 			DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Universal gas constant",
 				:Unit=>"J/mol/K",
-				:Default=>8.314,
-				:Hidden=>true
+				:Default=>8.314
 			)),
 			fill(pressure (Dict{Symbol,Any}(
 				:Brief=>"Fugacity in standard state",
 				:Default=>1,
-				:DisplayUnit=>"atm",
-				:Hidden=>true
+				:DisplayUnit=>"atm"
 			)),(NComp)),
 			temperature (Dict{Symbol,Any}(
 				:Brief=>"Reference temperature",
-				:Default=>298.15,
-				:Hidden=>true
+				:Default=>298.15
 			)),
 			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
@@ -73,21 +70,18 @@ type equil_vap
 				:Symbol=>"_{out}"
 			)),
 			fill(energy_mol (Dict{Symbol,Any}(
-				:Brief=>"Gibbs free-energy of formation",
-				:Protected=>true
+				:Brief=>"Gibbs free-energy of formation"
 			)),(NComp)),
 			fill(DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Equillibrium constant",
 				:Lower=>0,
-				:Default=>1.5,
-				:Protected=>true
+				:Default=>1.5
 			)),(NReac)),
 			fill(DanaReal (Dict{Symbol,Any}(
 				:Brief=>"Activity",
 				:Symbol=>"\\hat{a}",
 				:Lower=>0,
-				:Default=>0.2,
-				:Protected=>true
+				:Default=>0.2
 			)),(NComp)),
 			fill(reaction_mol (Dict{Symbol,Any}(
 				:Brief=>"Overall component rate of reaction"

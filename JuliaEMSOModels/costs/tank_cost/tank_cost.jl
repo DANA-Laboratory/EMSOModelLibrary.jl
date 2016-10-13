@@ -35,7 +35,7 @@
 type tank_cost
 	tank_cost()=begin
 		new(
-			tank(),
+			VesselVolume(),
 			DanaSwitcher (Dict{Symbol,Any}(
 				:Valid=>["Stainless steel 316", "Stainless steel 304", "Stainless steel 347", "Nickel", "Monel", "Inconel", "Zirconium", "Titanium", "Brick_and_rubber", "Brick_and_polyester_lined steel", "Rubber", "Lead_lined steel", "Polyester" ,"Fiberglass_strengthened", "Aluminum", "Copper", "Concrete"],
 				:Default=>"Stainless steel 316"
@@ -57,7 +57,7 @@ type tank_cost
 				:Brief=>"Total Volume"
 			)),
 			[
-				:(V = _base_1.Across * Height),
+				:(V = Across * Height),
 				:(Ce = Cb*Fm),
 				:(Cb = "US\$"*exp(Cost(1,1) + Cost(1,2)*ln(V/"m^3") + Cost(1,3)*(ln(V/"m^3"))^2)),
 				:(Cb = "US\$"*exp(Cost(1,1) + Cost(1,2)*ln(V/"m^3") + Cost(1,3)*(ln(V/"m^3"))^2)),
@@ -72,7 +72,7 @@ type tank_cost
 			[:Ce,:Cb,:Fm,:V,]
 		)
 	end
-	_base_1::tank
+	_base_1::VesselVolume
 	Material::DanaSwitcher 
 	Cost::Array{DanaReal}
 	Height::length

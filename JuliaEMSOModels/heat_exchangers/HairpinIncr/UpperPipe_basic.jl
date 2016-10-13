@@ -17,74 +17,8 @@
 #*------------------------------------------------------------------
 type UpperPipe_basic
 	UpperPipe_basic()=begin
-		PP=outers.PP
-		NComp=outers.NComp
-		Pi=outers.Pi
-		N=outers.N
-		Npoints=outers.Npoints
-		DoInner=outers.DoInner
-		DiInner=outers.DiInner
-		DiOuter=outers.DiOuter
-		Lpipe=outers.Lpipe
-		Kwall=outers.Kwall
-		Rfi=outers.Rfi
-		Rfo=outers.Rfo
 		new(
 			HairpinIncr_basic(),
-			DanaPlugin (Dict{Symbol,Any}(
-				:Brief=>"External Physical Properties",
-				:Type=>"PP"
-			)),
-			DanaInteger (Dict{Symbol,Any}(
-				:Brief=>"Number of Components"
-			)),
-			constant (Dict{Symbol,Any}(
-				:Brief=>"Pi Number",
-				:Default=>3.14159265,
-				:Symbol=>"\\pi"
-			)),
-			DanaInteger (Dict{Symbol,Any}(
-				:Brief=>"Number of zones",
-				:Default=>2
-			)),
-			DanaInteger (Dict{Symbol,Any}(
-				:Brief=>"Number of incremental points",
-				:Default=>3
-			)),
-			length (Dict{Symbol,Any}(
-				:Brief=>"Outside Diameter of Inner Pipe",
-				:Lower=>1e-6
-			)),
-			length (Dict{Symbol,Any}(
-				:Brief=>"Inside Diameter of Inner Pipe",
-				:Lower=>1e-10
-			)),
-			length (Dict{Symbol,Any}(
-				:Brief=>"Inside Diameter of Outer pipe",
-				:Lower=>1e-10
-			)),
-			length (Dict{Symbol,Any}(
-				:Brief=>"Effective Tube Length of one segment of Pipe",
-				:Lower=>0.1,
-				:Symbol=>"L_{pipe}"
-			)),
-			conductivity (Dict{Symbol,Any}(
-				:Brief=>"Tube Wall Material Thermal Conductivity",
-				:Default=>1.0,
-				:Symbol=>"K_{wall}"
-			)),
-			positive (Dict{Symbol,Any}(
-				:Brief=>"Inside Fouling Resistance",
-				:Unit=>"m^2*K/kW",
-				:Default=>1e-6,
-				:Lower=>0
-			)),
-			positive (Dict{Symbol,Any}(
-				:Brief=>"Outside Fouling Resistance",
-				:Unit=>"m^2*K/kW",
-				:Default=>1e-6,
-				:Lower=>0
-			)),
 			[
 				:(_base_1.Details.Q(1:N) = _base_1.InletOuter.F*(_base_1.Outer.HeatTransfer.Enth(2:_base_1.Npoints) - _base_1.Outer.HeatTransfer.Enth(1:N))),
 				:(_base_1.Details.Q(1:N) = -_base_1.InletInner.F*(_base_1.Inner.HeatTransfer.Enth(1:N) - _base_1.Inner.HeatTransfer.Enth(2:_base_1.Npoints))),
@@ -112,25 +46,11 @@ type UpperPipe_basic
 			[
 				"Energy Balance Outer Stream","Energy Balance Inner Stream","Incremental Duty","Energy Balance Hot Stream","Energy Balance Cold Stream","Incremental Duty","Enthalpy of Inner Side - Inlet Boundary","Enthalpy of inner Side - Outlet Boundary","Temperature of Inner Side - Inlet Boundary","Temperature of Inner Side - Outlet Boundary","Pressure of Inner Side - Inlet Boundary","Pressure of Inner Side - Outlet Boundary","Enthalpy of Outer Side - Inlet Boundary","Enthalpy of Outer Side - Outlet Boundary","Temperature of Outer Side - Inlet Boundary","Temperature of Outer Side - Outlet Boundary","Pressure of Outer Side - Inlet Boundary","Pressure of Outer Side - Outlet Boundary","Outer Pipe Pressure Drop for friction","Outer Pipe Pressure Drop for friction","Inner Pipe Pressure Drop for friction","Inner Pipe Pressure Drop for friction",
 			],
-			[:PP,:NComp,:Pi,:N,:Npoints,:DoInner,:DiInner,:DiOuter,:Lpipe,:Kwall,:Rfi,:Rfo,],
 		)
 	end
 	_base_1::HairpinIncr_basic
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Pi::constant 
-	N::DanaInteger 
-	Npoints::DanaInteger 
-	DoInner::length 
-	DiInner::length 
-	DiOuter::length 
-	Lpipe::length 
-	Kwall::conductivity 
-	Rfi::positive 
-	Rfo::positive 
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
-	parameters::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end
 export UpperPipe_basic

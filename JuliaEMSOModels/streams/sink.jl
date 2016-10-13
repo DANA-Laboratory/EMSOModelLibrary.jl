@@ -32,31 +32,19 @@ type sink
 				:Lower=>1
 			)),
 			fill(molweight (Dict{Symbol,Any}(
-				:Brief=>"Component Mol Weight"
+				:Brief=>"Component Mol Weight",
+				:Protected=>true
 			)),(NComp)),
-			DanaSwitcher (Dict{Symbol,Any}(
-				:Brief=>"Density model",
-				:Valid=>["volume", "correlation"],
-				:Default=>"volume"
-			)),
-			temperature (Dict{Symbol,Any}(
-				:Brief=>"Standard temperature",
-				:Hidden=>true,
-				:Default=>298.15
-			)),
-			pressure (Dict{Symbol,Any}(
-				:Brief=>"Standard pressure",
-				:Hidden=>true,
-				:Default=>1
-			)),
 			stream (Dict{Symbol,Any}(
 				:Brief=>"Inlet Stream",
 				:PosX=>0,
 				:PosY=>0.5308,
+				:Protected=>true,
 				:Symbol=>"_{in}"
 			)),
 			fraction (Dict{Symbol,Any}(
-				:Brief=>"Vapourization fraction"
+				:Brief=>"Vapourization fraction",
+				:Hidden=>true
 			)),
 			fill(fraction (Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Fraction",
@@ -75,10 +63,6 @@ type sink
 			volume_mol (Dict{Symbol,Any}(
 				:Brief=>"Molar Volume"
 			)),
-			volume_mol (Dict{Symbol,Any}(
-				:Brief=>"Standard Molar Volume",
-				:Protected=>true
-			)),
 			dens_mass (Dict{Symbol,Any}(
 				:Brief=>"Stream Mass Density"
 			)),
@@ -91,44 +75,32 @@ type sink
 			flow_vol (Dict{Symbol,Any}(
 				:Brief=>"Volumetric Flow"
 			)),
-			flow_vol (Dict{Symbol,Any}(
-				:Brief=>"Standard Volumetric Flow (1 atm, 20 C)"
-			)),
-			entr_mol (Dict{Symbol,Any}(
-				:Brief=>"Stream Entropy"
-			)),
-			temperature (Dict{Symbol,Any}(
-				:Brief=>"Temperature in �C",
-				:Lower=>-200
+			DanaReal(Dict{Symbol,Any}(
+				:Brief=>"Temperature in  C",
+				:Lower=>-250,
+				:Upper=>5000
 			)),
 			[
 				:([v, x, y] = PP.FlashPH(Inlet.P, Inlet.h, Inlet.z)),
 				:(Mw = sum(M*Inlet.z)),
 				:(rhom * vm = 1),
-				:(rho * ((1-v)/PP.LiquidDensity(Inlet.T,Inlet.P,x) + v/PP.VapourDensity(Inlet.T,Inlet.P,y)) = 1),
 				:(rhom * Mw = rho),
 				:(Fw = Mw*Inlet.F),
-				:(vm = (1-v)*PP.LiquidVolume(Inlet.T, Inlet.P, x) + v*PP.VapourVolume(Inlet.T, Inlet.P, y)),
-				:(vm_std = (1-v)*PP.LiquidVolume(T_std, P_std, x) + v*PP.VapourVolume(T_std, P_std, y)),
+				:(vm = (1-v)*PP.LiquidVolume(Inlet.T, Inlet.P, x) + v*PP.VapourVolume(Inlet.T,Inlet.P,y)),
 				:(Fvol = Inlet.F*vm),
-				:(Fvol_std = Inlet.F*vm_std),
 				:(zmass = M*Inlet.z / Mw),
-				:(s = (1-v)*PP.LiquidEntropy(Inlet.T, Inlet.P, x) + v*PP.VapourEntropy(Inlet.T, Inlet.P, y)),
-				:(T_Cdeg = Inlet.T - 273.15 * "K"),
+				:(T_Cdeg = Inlet.T/"K" - 273.15),
 			],
 			[
-				"Flash Calculation","Average Molecular Weight","Molar Density","Mass Density","Mass or Molar Density","Flow Mass","Molar Volume","Standard Molar Volume","Volumetric Flow","Standard Volumetric Flow","Mass Fraction","Overall Entropy","Temperature in �C",
+				"Flash Calculation","Average Molecular Weight","Molar Density","Mass or Molar Density","Flow Mass","Molar Volume","Volumetric Flow","Mass Fraction","Temperature in  C",
 			],
-			[:PP,:NComp,:M,:rhoModel,:T_std,:P_std,],
-			[:Inlet,:v,:x,:y,:zmass,:Mw,:vm,:vm_std,:rho,:rhom,:Fw,:Fvol,:Fvol_std,:s,:T_Cdeg,]
+			[:PP,:NComp,:M,],
+			[:Inlet,:v,:x,:y,:zmass,:Mw,:vm,:rho,:rhom,:Fw,:Fvol,:T_Cdeg,]
 		)
 	end
 	PP::DanaPlugin 
 	NComp::DanaInteger 
 	M::Array{molweight }
-	rhoModel::DanaSwitcher 
-	T_std::temperature 
-	P_std::pressure 
 	Inlet::stream 
 	v::fraction 
 	x::Array{fraction }
@@ -136,14 +108,11 @@ type sink
 	zmass::Array{fraction }
 	Mw::molweight 
 	vm::volume_mol 
-	vm_std::volume_mol 
 	rho::dens_mass 
 	rhom::dens_mol 
 	Fw::flow_mass 
 	Fvol::flow_vol 
-	Fvol_std::flow_vol 
-	s::entr_mol 
-	T_Cdeg::temperature 
+	T_Cdeg::DanaReal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}
@@ -158,22 +127,13 @@ end
 function setEquationFlow(in::sink)
 	addEquation(1)
 	addEquation(2)
-	let switch=rhoModel
-		if switch=="volume"
-			addEquation(3)
-		elseif switch=="correlation"
-			addEquation(4)
-		end
-	end
+	addEquation(3)
+	addEquation(4)
 	addEquation(5)
 	addEquation(6)
 	addEquation(7)
 	addEquation(8)
 	addEquation(9)
-	addEquation(10)
-	addEquation(11)
-	addEquation(12)
-	addEquation(13)
 end
 function atributes(in::sink,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()

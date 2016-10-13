@@ -155,8 +155,8 @@ function setEquationFlow(in::pfr)
 	addEquation(15)
 	addEquation(16)
 	addEquation(17)
-	#Hf(:,z) = PP.IdealGasEnthalpyOfFormation(str(z+1).T);
-	#Hr(:,z) = -sum(stoic*Hf(:, z));
+	#Hf(:,z) = PP.IdealGasEnthalpyOfFormation(str(z+1).T);
+	#Hr(:,z) = -sum(stoic*Hf(:, z));
 	addEquation(18)
 	addEquation(19)
 end
@@ -165,10 +165,10 @@ function atributes(in::pfr,_::Dict{Symbol,Any})
 	fields[:Pallete]=true
 	fields[:Brief]="Model of a Generic PFR with constant mass holdup"
 	fields[:Icon]="icon/pfr"
-	fields[:Info]="== Requires the information of ==
-* Reaction values
-* Heat of reaction
-* Pressure profile
+	fields[:Info]="== Requires the information of ==
+* Reaction values
+* Heat of reaction
+* Pressure profile
 "
 	drive!(fields,_)
 	return fields

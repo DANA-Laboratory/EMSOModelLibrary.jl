@@ -14,7 +14,7 @@
 #*
 #*----------------------------------------------------------------------
 #* File containg user models of columns
-#* 
+#*
 #*
 #* The default nomenclature is:
 #*		Type_Column_reboilertype_condensertyper
@@ -22,9 +22,9 @@
 #* where:
 #*	Type = refluxed or reboiled or section
 #*	Column = Stripping, Absorption, Rectifier, Distillation
-#*	Reboiler type (if exists) = kettle or thermosyphon 
+#*	Reboiler type (if exists) = kettle or thermosyphon
 #*	Condenser type (if exists) = with subccoling or without subcooling
-#* 
+#*
 #*-----------------------------------------------------------------------
 #* Author: Based on Models written by Paula B. Staudt
 #* $Id$
@@ -33,7 +33,7 @@
 #----------------------------------------------------------------------
 #* Model of a  basic column section with:
 #*	- NumberOfTrays=number of trays.
-#* 
+#*
 #*---------------------------------------------------------------------
 type User_Section_ColumnBasic
 	User_Section_ColumnBasic()=begin
@@ -416,13 +416,13 @@ function atributes(in::User_Section_ColumnBasic,_::Dict{Symbol,Any})
 	fields[:Brief]="Model of a column section."
 	fields[:Info]="== Model of a column section containing ==
 * NumberOfTrays trays.
-	
+
 == Specify ==
 * the feed stream of each tray (Inlet);
 * the Murphree eficiency for each tray Emv;
 * the InletL stream of the top tray;
 * the InletV stream of the bottom tray.
-	
+
 == Initial Conditions ==
 * the trays temperature (OutletL.T);
 * the trays liquid level (Level) OR the trays liquid flow (OutletL.F);

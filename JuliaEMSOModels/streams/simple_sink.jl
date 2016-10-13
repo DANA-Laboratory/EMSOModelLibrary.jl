@@ -25,6 +25,7 @@ type simple_sink
 				:Brief=>"Inlet Stream",
 				:PosX=>0,
 				:PosY=>0.5308,
+				:Protected=>true,
 				:Symbol=>"_{in}"
 			)),
 			[:Inlet,]

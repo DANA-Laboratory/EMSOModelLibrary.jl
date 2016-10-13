@@ -1,11 +1,12 @@
 module EMLreboiler
 	using DanaTypes
 	using DotPlusInheritance
-	require("EMSOModelLibrary.jl/JuliaEMSOModels/streams.jl")
+	require("EMSOModelLibrary/JuliaEMSOModels/stage_separators/tank.jl")
+	using EMLtank
 	using EMLstreams
 	using EMLtypes
-	include("reboiler/reboiler.jl")
+	include("reboiler/thermosyphon.jl")
 	include("reboiler/reboilerSteady.jl")
-	include("reboiler/reboilerSteady_fakeH.jl")
 	include("reboiler/reboilerReact.jl")
+	include("reboiler/reboiler.jl")
 end

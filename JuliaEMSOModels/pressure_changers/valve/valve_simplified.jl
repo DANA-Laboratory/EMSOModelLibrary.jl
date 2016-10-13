@@ -1,3 +1,21 @@
+ #-------------------------------------------------------------------
+#* EMSO Model Library (EML) Copyright (C) 2004 - 2007 ALSOC.
+#*
+#* This LIBRARY is free software; you can distribute it and/or modify
+#* it under the therms of the ALSOC FREE LICENSE as available at
+#* http://www.enq.ufrgs.br/alsoc.
+#*
+#* EMSO Copyright (C) 2004 - 2007 ALSOC, original code
+#* from http://www.rps.eng.br Copyright (C) 2002-2004.
+#* All rights reserved.
+#*
+#* EMSO is distributed under the therms of the ALSOC LICENSE as
+#* available at http://www.enq.ufrgs.br/alsoc.
+#*
+#*---------------------------------------------------------------------
+#* Author: Estefane Horn, N�bia do Carmo Ferreira
+#*$Id$									
+#*-------------------------------------------------------------------
 #-------------------------------------------------------------------
 #* Model of a valve (simplified)
 #*-------------------------------------------------------------------- 
@@ -97,7 +115,7 @@ function setEquationFlow(in::valve_simplified)
 	addEquation(5)
 	addEquation(6)
 	addEquation(7)
-	if Pdrop > 0 
+	if Pdrop > 0 * "atm" 
 		addEquation(8)
 	else
 		addEquation(9)

@@ -21,8 +21,11 @@ type ShellandTubes_LMTD
 			ShellandTubesBasic(),
 			DanaSwitcher (Dict{Symbol,Any}(
 				:Brief=>"LMTD Correction Factor Model",
-				:Valid=>["Bowmann","Fakeri"],
+				:Valid=>["Bowmann","Fakeri" , "User Specified"],
 				:Default=>"Bowmann"
+			)),
+			fraction (Dict{Symbol,Any}(
+				:Default=>0.8
 			)),
 			LMTD_Basic(),
 			positive (Dict{Symbol,Any}(
@@ -65,6 +68,11 @@ type ShellandTubes_LMTD
 				:(P*(_base_1.InletTube.T- _base_1.InletShell.T)= (_base_1.OutletShell.T-_base_1.InletShell.T)),
 				:(Method.DT0 = _base_1.InletTube.T - _base_1.OutletShell.T),
 				:(Method.DTL = _base_1.OutletTube.T - _base_1.InletShell.T),
+				:(Method.Fc = FLMTDcorrection),
+				:(lambdaN =1),
+				:(lambda1 =1),
+				:(Rho =1),
+				:(Pc = P),
 				:(lambdaN =1),
 				:(lambda1 =1),
 				:(Rho =1),
@@ -83,6 +91,8 @@ type ShellandTubes_LMTD
 				:(lambdaN =1),
 				:(lambda1 =1),
 				:(Pc = P),
+				:(Method.Fc = FLMTDcorrection),
+				:(Rho =1),
 				:(Rho = 1),
 				:(Method.Fc = (sqrt(2)*P)/((1-P)*ln( abs( ( 2-P*0.585786)/( 2-P*3.414214))))),
 				:(Method.Fc = sqrt(R*R+1)*ln(abs((1-P*R)/(1-P)))/((1-R)*ln( abs( ( 2-P*(R+1-sqrt(R*R+1)))/ ( 2-P*(R + 1 + sqrt(R*R+1))))))),
@@ -91,14 +101,15 @@ type ShellandTubes_LMTD
 				:(Method.Fc = (2*Phi*(Rho+1)*ln(abs(Rho)))/( ln(abs((1+2*Phi)/(1-2*Phi)))*(Rho-1))),
 			],
 			[
-				"Exchange Surface Area","Non Dimensional Variable for LMTD Correction Fator in Fakeri Equation ","R: Capacity Ratio for LMTD Correction Fator","P: Non - Dimensional Variable for LMTD Correction Fator","Temperature Difference at Inlet","Temperature Difference at Outlet","Non Dimensional Variable for LMTD Correction Fator in Fakeri Equation ","R: Capacity Ratio for LMTD Correction Fator","P: Non - Dimensional Variable for LMTD Correction Fator","Temperature Difference at Inlet","Temperature Difference at Outlet"," Variable not in use with Bowmann equation"," Variable not in use with Bowmann equation"," Variable not in use with Bowmann equation","Non Dimensional Variable for LMTD Correction Fator when 2 Pass Shell Side","LMTD Correction Fator when 2 Pass Shell Side","Non Dimensional Variable for LMTD Correction Fator when 2 Pass Shell Side","LMTD Correction Fator when 2 Pass Shell Side"," Variable not in use with Fakeri equation","Non Dimensional Variable for LMTD Correction Fator in Fakeri Equation"," Variable not in use when Rho = 1"," Variable not in use when Rho = 1","LMTD Correction Fator when 2 Pass Shell Side","Non Dimensional Variable for LMTD Correction Fator in Fakeri Equation","Non Dimensional Variable for LMTD Correction Fator in Fakeri Equation","LMTD Correction Fator when 2 Pass Shell Side"," Variable not in use when 1 Pass Shell Side"," Variable not in use when 1 Pass Shell Side"," Variable not in use when 1 Pass Shell Side"," Variable not in use with Bowmann equation","LMTD Correction Fator when 1 Pass Shell Side","LMTD Correction Fator when 1 Pass Shell Side","Non Dimensional Variable for LMTD Correction Fator in Fakeri Equation","LMTD Correction Fator when 1 Pass Shell Side","LMTD Correction Fator when 1 Pass Shell Side",
+				"Exchange Surface Area","Non Dimensional Variable for LMTD Correction Fator in Fakeri Equation ","R: Capacity Ratio for LMTD Correction Fator","P: Non - Dimensional Variable for LMTD Correction Fator","Temperature Difference at Inlet","Temperature Difference at Outlet","Non Dimensional Variable for LMTD Correction Fator in Fakeri Equation ","R: Capacity Ratio for LMTD Correction Fator","P: Non - Dimensional Variable for LMTD Correction Fator","Temperature Difference at Inlet","Temperature Difference at Outlet",""," Variable not in use with this equation"," Variable not in use with this equation"," Variable not in use with this equation"," Variable not in use with this equation"," Variable not in use with Bowmann equation"," Variable not in use with Bowmann equation"," Variable not in use with Bowmann equation","Non Dimensional Variable for LMTD Correction Fator when 2 Pass Shell Side","LMTD Correction Fator when 2 Pass Shell Side","Non Dimensional Variable for LMTD Correction Fator when 2 Pass Shell Side","LMTD Correction Fator when 2 Pass Shell Side"," Variable not in use with Fakeri equation","Non Dimensional Variable for LMTD Correction Fator in Fakeri Equation"," Variable not in use when Rho = 1"," Variable not in use when Rho = 1","LMTD Correction Fator when 2 Pass Shell Side","Non Dimensional Variable for LMTD Correction Fator in Fakeri Equation","Non Dimensional Variable for LMTD Correction Fator in Fakeri Equation","LMTD Correction Fator when 2 Pass Shell Side"," Variable not in use when 1 Pass Shell Side"," Variable not in use when 1 Pass Shell Side"," Variable not in use when 1 Pass Shell Side",""," Variable not in use with this equation"," Variable not in use with Bowmann equation","LMTD Correction Fator when 1 Pass Shell Side","LMTD Correction Fator when 1 Pass Shell Side","Non Dimensional Variable for LMTD Correction Fator in Fakeri Equation","LMTD Correction Fator when 1 Pass Shell Side","LMTD Correction Fator when 1 Pass Shell Side",
 			],
-			[:LMTDcorrection,],
+			[:LMTDcorrection,:FLMTDcorrection,],
 			[:Method,:R,:P,:Pc,:Rho,:Phi,:lambdaN,:lambda1,]
 		)
 	end
 	_base_1::ShellandTubesBasic
 	LMTDcorrection::DanaSwitcher 
+	FLMTDcorrection::fraction 
 	Method::LMTD_Basic
 	R::positive 
 	P::positive 
@@ -140,57 +151,76 @@ function setEquationFlow(in::ShellandTubes_LMTD)
 	let switch=ShellType
 		if switch=="Fshell"
 			let switch=LMTDcorrection
-				if switch=="Bowmann"
+				if switch=="User Specified"
+					#Just For Initialization
 					addEquation(12)
 					addEquation(13)
+					addEquation(14)
+					#" Variable not in use with this equation"
+					#	Phi = 1;
+					addEquation(15)
+					addEquation(16)
+				elseif switch=="Bowmann"
+					addEquation(17)
+					addEquation(18)
 					#" Variable not in use with Bowmann equation"
 					#	Phi = 1;
-					addEquation(14)
+					addEquation(19)
 					if R == 1 
-						addEquation(15)
-						addEquation(16)
+						addEquation(20)
+						addEquation(21)
 					else
-						addEquation(17)
-						addEquation(18)
+						addEquation(22)
+						addEquation(23)
 					end
 				elseif switch=="Fakeri"
-					addEquation(19)
-					addEquation(20)
+					addEquation(24)
+					addEquation(25)
 					#"Non Dimensional Variable for LMTD Correction Fator in Fakeri Equation "
 					#	Phi = (sqrt(((Inlet.Hot.T - Outlet.Hot.T)*(Inlet.Hot.T- Outlet.Hot.T))+((Outlet.Cold.T -  Inlet.Cold.T)*(Outlet.Cold.T -  Inlet.Cold.T))))/(2*((Inlet.Hot.T + Outlet.Hot.T)-( Inlet.Cold.T + Outlet.Cold.T)));
 					if Rho == 1 
-						addEquation(21)
-						addEquation(22)
-						addEquation(23)
-					else
-						addEquation(24)
-						addEquation(25)
 						addEquation(26)
+						addEquation(27)
+						addEquation(28)
+					else
+						addEquation(29)
+						addEquation(30)
+						addEquation(31)
 					end
 				end
 			end
 		elseif switch=="Eshell"
-			addEquation(27)
-			addEquation(28)
-			addEquation(29)
+			addEquation(32)
+			addEquation(33)
+			addEquation(34)
 			let switch=LMTDcorrection
-				if switch=="Bowmann"
+				if switch=="User Specified"
+					#Just For Initialization
+					addEquation(35)
+					#" Variable not in use with this equation"
+					#	lambdaN =1;
+					#" Variable not in use with this equation"
+					#	lambda1 =1;
+					#" Variable not in use with this equation"
+					#	Phi = 1;
+					addEquation(36)
+				elseif switch=="Bowmann"
 					#" Variable not in use with Bowmann equation"
 					#	Phi  = 1;
-					addEquation(30)
+					addEquation(37)
 					if R == 1 
-						addEquation(31)
+						addEquation(38)
 					else
-						addEquation(32)
+						addEquation(39)
 					end
 				elseif switch=="Fakeri"
 					#"Non Dimensional Variable for LMTD Correction Fator in Fakeri Equation "
 					#	Phi  = (sqrt(((Inlet.Hot.T- Outlet.Hot.T)*(Inlet.Hot.T- Outlet.Hot.T))+((Outlet.Cold.T - Inlet.Cold.T)*(Outlet.Cold.T - Inlet.Cold.T))))/(2*((Inlet.Hot.T+ Outlet.Hot.T)-(Inlet.Cold.T+ Outlet.Cold.T)));
-					addEquation(33)
+					addEquation(40)
 					if Rho == 1 
-						addEquation(34)
+						addEquation(41)
 					else
-						addEquation(35)
+						addEquation(42)
 					end
 				end
 			end
@@ -200,7 +230,7 @@ end
 function atributes(in::ShellandTubes_LMTD,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 	fields[:Pallete]=true
-	fields[:Icon]="icon/ShellandTubes_LMTD"
+	fields[:Icon]="icon/STHE"
 	fields[:Brief]="Shell and Tubes Heat Exchangers"
 	fields[:Info]="to be documented."
 	drive!(fields,_)

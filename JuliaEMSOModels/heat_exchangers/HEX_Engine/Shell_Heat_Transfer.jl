@@ -21,7 +21,7 @@ type Shell_Heat_Transfer
 			positive (Dict{Symbol,Any}(
 				:Brief=>"Shell Side Reynolds Number",
 				:Default=>100,
-				:Lower=>1
+				:Lower=>1E-6
 			)),
 			positive (Dict{Symbol,Any}(
 				:Brief=>"Shell Side Prandtl Number",

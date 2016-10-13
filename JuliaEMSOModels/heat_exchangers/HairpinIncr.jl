@@ -1,7 +1,7 @@
 module EMLHairpinIncr
 	using DanaTypes
 	using DotPlusInheritance
-	require("EMSOModelLibrary.jl/JuliaEMSOModels/streams.jl")
+	require("EMSOModelLibrary/JuliaEMSOModels/streams.jl")
 	using EMLstreams
 	using EMLtypes
 	include("HairpinIncr/Properties_Average.jl")

@@ -4,7 +4,11 @@ type Torre
 		new(
 			CalorEspecifico(),
 			VazaoMassica(),
-			Potencia(),
+			Potencia (Dict{Symbol,Any}(
+				:Symbol=>"_{in1}",
+				:PosX=>0.1,
+				:PosY=>0.5
+			)),
 			Dif_Temp(),
 			Dif_Temp(),
 			Dif_Temp(),
@@ -17,19 +21,19 @@ type Torre
 				:(DTar = Tar_h - Tar_c),
 				:(DTh = Th - Tar_h),
 				:(DTc = Tc - Tar_c),
-				:(F * cpa * (Th - Tc) = Q),
-				:(Uat * (DTh - DTc) = Q * ln(abs(DTh/DTc))),
+				:(F * cpa * (Th - Tc) = Qin),
+				:(Uat * (DTh - DTc) = Qin * ln(abs(DTh/DTc))),
 			],
 			[
 				"","","","","",
 			],
 			[:cpa,],
-			[:F,:Q,:DTh,:DTc,:DTar,:Th,:Tc,:Tar_c,:Tar_h,:Uat,]
+			[:F,:Qin,:DTh,:DTc,:DTar,:Th,:Tc,:Tar_c,:Tar_h,:Uat,]
 		)
 	end
 	cpa::CalorEspecifico
 	F::VazaoMassica
-	Q::Potencia
+	Qin::Potencia 
 	DTh::Dif_Temp
 	DTc::Dif_Temp
 	DTar::Dif_Temp
@@ -51,7 +55,7 @@ function setEquationFlow(in::Torre)
 	addEquation(3)
 	addEquation(4)
 	addEquation(5)
-	#	Uat * 0.5 * (DTh + DTc) = Q;
+	#	Uat * 0.5 * (DTh + DTc) = Qin;
 	
 end
 function atributes(in::Torre,_::Dict{Symbol,Any})

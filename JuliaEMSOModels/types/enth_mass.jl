@@ -34,6 +34,7 @@
 #*
 #*----------------------------------------------------------------------------------
 # elementary
+#mol as positive (Brief = "Moles", Default=2500, Upper=1e9, final Unit = 'mol');
 # densities
 # Concentration
 # reaction
@@ -50,8 +51,8 @@ type _enth_mass
 		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Mass Enthalpy"
 		fields[:Default]=500
-		fields[:Lower]=-1e14
-		fields[:Upper]=1e14
+		fields[:Lower]=-10000
+		fields[:Upper]=10000
 		fields[:finalUnit]="kJ/kg"
 		drive!(fields,_)
 		new(fields)

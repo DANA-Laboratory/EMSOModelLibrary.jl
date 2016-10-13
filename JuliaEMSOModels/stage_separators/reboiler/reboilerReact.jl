@@ -1,10 +1,33 @@
 #-------------------------------------------------------------------
-#* Model of a dynamic reboiler with reaction
-#*-------------------------------------------------------------------
+#* EMSO Model Library (EML) Copyright (C) 2004 - 2007 ALSOC.
+#*
+#* This LIBRARY is free software; you can distribute it and/or modify
+#* it under the therms of the ALSOC FREE LICENSE as available at
+#* http://www.enq.ufrgs.br/alsoc.
+#*
+#* EMSO Copyright (C) 2004 - 2007 ALSOC, original code
+#* from http://www.rps.eng.br Copyright (C) 2002-2004.
+#* All rights reserved.
+#*
+#* EMSO is distributed under the therms of the ALSOC LICENSE as
+#* available at http://www.enq.ufrgs.br/alsoc.
+#*
+#*----------------------------------------------------------------------
+#* Author: Paula B. Staudt
+#* $Id$
+#*--------------------------------------------------------------------
 type reboilerReact
 	reboilerReact()=begin
 		PP=outers.PP
 		NComp=outers.NComp
+		[
+			:(Level = Initial_Level),
+			:(OutletLiquid.T = Initial_Temperature),
+			:(OutletLiquid.z(1:NComp-1) = Initial_Composition(1:NComp-1)/sum(Initial_Composition)),
+		],
+		[
+			"","","",
+		],
 		new(
 			DanaPlugin(Dict{Symbol,Any}(
 				:Type=>"PP"
@@ -20,32 +43,34 @@ type reboilerReact
 				:Brief=>"Stoichiometric matrix"
 			)),(NComp)),
 			energy_mol(),
-			pressure(),
-			stream(Dict{Symbol,Any}(
-				:Brief=>"Feed Stream",
-				:PosX=>0.8127,
-				:PosY=>0,
-				:Symbol=>"_{in}"
+			length (Dict{Symbol,Any}(
+				:Brief=>"Initial Level of liquid phase"
 			)),
-			stream(Dict{Symbol,Any}(
+			temperature (Dict{Symbol,Any}(
+				:Brief=>"Initial Temperature of Reboiler"
+			)),
+			fill(fraction (Dict{Symbol,Any}(
+				:Brief=>"Initial Liquid Composition"
+			)),(NComp)),
+			stream (Dict{Symbol,Any}(
 				:Brief=>"Liquid inlet stream",
 				:PosX=>0,
 				:PosY=>0.5254,
 				:Symbol=>"_{inL}"
 			)),
-			liquid_stream(Dict{Symbol,Any}(
+			liquid_stream (Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream",
 				:PosX=>0.2413,
 				:PosY=>1,
 				:Symbol=>"_{outL}"
 			)),
-			vapour_stream(Dict{Symbol,Any}(
+			vapour_stream (Dict{Symbol,Any}(
 				:Brief=>"Vapour outlet stream",
 				:PosX=>0.5079,
 				:PosY=>0,
 				:Symbol=>"_{outV}"
 			)),
-			energy_stream (Dict{Symbol,Any}(
+			power (Dict{Symbol,Any}(
 				:Brief=>"Heat supplied",
 				:PosX=>1,
 				:PosY=>0.6123,
@@ -73,7 +98,6 @@ type reboilerReact
 				:Brief=>"Level of liquid phase"
 			)),
 			volume(),
-			DanaReal(),
 			dens_mass(),
 			reaction_mol (Dict{Symbol,Any}(
 				:Brief=>"Reaction resulting ethyl acetate",
@@ -84,29 +108,29 @@ type reboilerReact
 				:Lower=>-1
 			)),(NComp)),
 			[
-				:(OutletL.z = vL * C),
-				:(r3 = exp(-7150*"K"/OutletL.T)*(4.85e4*C(1)*C(2) - 1.23e4*C(3)*C(4)) * "l/mol/s"),
-				:(diff(M)= Inlet.F*Inlet.z + InletL.F*InletL.z - OutletL.F*OutletL.z - OutletV.F*OutletV.z + stoic*r3*ML*vL),
-				:(diff(E) = Inlet.F*Inlet.h + InletL.F*InletL.h - OutletL.F*OutletL.h - OutletV.F*OutletV.h + InletQ.Q + Hr * r3 * vL*ML),
-				:(M = ML*OutletL.z + MV*OutletV.z),
-				:(E = ML*OutletL.h + MV*OutletV.h - OutletL.P*V),
-				:(sum(OutletL.z)=1.0),
-				:(vL = PP.LiquidVolume(OutletL.T, OutletL.P, OutletL.z)),
-				:(vV = PP.VapourVolume(OutletV.T, OutletV.P, OutletV.z)),
-				:(rhoV = PP.VapourDensity(OutletV.T, OutletV.P, OutletV.z)),
+				:(OutletLiquid.z = vL * C),
+				:(r3 = exp(-7150*"K"/OutletLiquid.T)*(4.85e4*C(1)*C(2) - 1.23e4*C(3)*C(4)) * "l/mol/s"),
+				:(diff(M)= InletLiquid.F*InletLiquid.z- OutletLiquid.F*OutletLiquid.z - OutletVapour.F*OutletVapour.z + stoic*r3*ML*vL),
+				:(diff(E) = InletLiquid.F*InletLiquid.h- OutletLiquid.F*OutletLiquid.h - OutletVapour.F*OutletVapour.h + InletQ + Hr * r3 * vL*ML),
+				:(M = ML*OutletLiquid.z + MV*OutletVapour.z),
+				:(E = ML*OutletLiquid.h + MV*OutletVapour.h - OutletLiquid.P*V),
+				:(sum(OutletLiquid.z)=1.0),
+				:(vL = PP.LiquidVolume(OutletLiquid.T, OutletLiquid.P, OutletLiquid.z)),
+				:(vV = PP.VapourVolume(OutletVapour.T, OutletVapour.P, OutletVapour.z)),
+				:(rhoV = PP.VapourDensity(OutletVapour.T, OutletVapour.P, OutletVapour.z)),
 				:(Level = ML*vL/Across),
 				:(Vol = ML*vL),
-				:(OutletL.P = OutletV.P),
-				:(OutletL.T = OutletV.T),
+				:(OutletLiquid.P = OutletVapour.P),
+				:(OutletLiquid.T = OutletVapour.T),
 				:(V = ML*vL + MV*vV),
-				:(PP.LiquidFugacityCoefficient(OutletL.T, OutletL.P, OutletL.z)*OutletL.z = PP.VapourFugacityCoefficient(OutletV.T, OutletV.P, OutletV.z)*OutletV.z),
-				:(sum(OutletL.z)=sum(OutletV.z)),
+				:(PP.LiquidFugacityCoefficient(OutletLiquid.T, OutletLiquid.P, OutletLiquid.z)*OutletLiquid.z = PP.VapourFugacityCoefficient(OutletVapour.T, OutletVapour.P, OutletVapour.z)*OutletVapour.z),
+				:(sum(OutletLiquid.z)=sum(OutletVapour.z)),
 			],
 			[
 				"Molar Concentration","Reaction","Component Molar Balance","Energy Balance","Molar Holdup","Energy Holdup","Mol fraction normalisation","Liquid Volume","Vapour Volume","Vapour Density","Level of liquid phase","","Mechanical Equilibrium","Thermal Equilibrium","Geometry Constraint","Chemical Equilibrium","",
 			],
-			[:PP,:NComp,:Across,:V,:stoic,:Hr,:Pstartup,],
-			[:Inlet,:InletL,:OutletL,:OutletV,:InletQ,:M,:ML,:MV,:E,:vL,:vV,:Level,:Vol,:startup,:rhoV,:r3,:C,]
+			[:PP,:NComp,:Across,:V,:stoic,:Hr,:Initial_Level,:Initial_Temperature,:Initial_Composition,],
+			[:InletLiquid,:OutletLiquid,:OutletVapour,:InletQ,:M,:ML,:MV,:E,:vL,:vV,:Level,:Vol,:rhoV,:r3,:C,]
 		)
 	end
 	PP::DanaPlugin
@@ -115,12 +139,13 @@ type reboilerReact
 	V::volume 
 	stoic::Array{DanaReal}
 	Hr::energy_mol
-	Pstartup::pressure
-	Inlet::stream
-	InletL::stream
-	OutletL::liquid_stream
-	OutletV::vapour_stream
-	InletQ::energy_stream 
+	Initial_Level::length 
+	Initial_Temperature::temperature 
+	Initial_Composition::Array{fraction }
+	InletLiquid::stream 
+	OutletLiquid::liquid_stream 
+	OutletVapour::vapour_stream 
+	InletQ::power 
 	M::Array{mol }
 	ML::mol 
 	MV::mol 
@@ -129,10 +154,11 @@ type reboilerReact
 	vV::volume_mol 
 	Level::length 
 	Vol::volume
-	startup::DanaReal
 	rhoV::dens_mass
 	r3::reaction_mol 
 	C::Array{conc_mol }
+	initials::Array{Expr,1}
+	initialNames::Array{String,1}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}
@@ -140,6 +166,11 @@ type reboilerReact
 	attributes::Dict{Symbol,Any}
 end
 export reboilerReact
+function initial(in::reboilerReact)
+	addEquation(1)
+	addEquation(2)
+	addEquation(3)
+end
 function setEquationFlow(in::reboilerReact)
 	addEquation(1)
 	addEquation(2)
@@ -161,7 +192,7 @@ function setEquationFlow(in::reboilerReact)
 end
 function atributes(in::reboilerReact,_::Dict{Symbol,Any})
 	fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
-	fields[:Pallete]=true
+	fields[:Pallete]=false
 	fields[:Icon]="icon/Reboiler"
 	fields[:Brief]="Model of a dynamic reboiler with reaction."
 	fields[:Info]="== Assumptions ==
@@ -174,13 +205,13 @@ function atributes(in::reboilerReact,_::Dict{Symbol,Any})
 * the kinetics variables;
 * the inlet stream;
 * the liquid inlet stream;
-* the outlet flows: OutletV.F and OutletL.F;
+* the outlet flows: OutletVapour.F and OutletLiquid.F;
 * the heat supply.
 
 == Initial Conditions ==
-* the reboiler temperature (OutletL.T);
+* the reboiler temperature (OutletLiquid.T);
 * the reboiler liquid level (Level);
-* (NoComps - 1) OutletL (OR OutletV) compositions.
+* (NoComps - 1) OutletLiquid (OR OutletVapour) compositions.
 "
 	drive!(fields,_)
 	return fields

@@ -31,6 +31,7 @@ type _control_signal
 		fields[:Default]=1
 		fields[:Lower]=-1e9
 		fields[:Upper]=1e9
+		fields[:LineDashed]=true
 		drive!(fields,_)
 		new(fields)
 	end

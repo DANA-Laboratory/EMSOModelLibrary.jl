@@ -6,14 +6,20 @@ type Splitter
 				:Brief=>"Fracao de massa para a segunda corrente"
 			)),
 			Corrente (Dict{Symbol,Any}(
-				:Symbol=>"_{in}"
+				:Symbol=>"_{in}",
+				:PosX=>0,
+				:PosY=>0.5
 			)),
 			Corrente (Dict{Symbol,Any}(
-				:Symbol=>"_{out}"
+				:Symbol=>"_{out}",
+				:PosX=>1,
+				:PosY=>0.25
 			)),
 			Corrente(Dict{Symbol,Any}(
 				:Brief=>"Segunda corrente",
-				:Symbol=>"_{outx}"
+				:Symbol=>"_{outx}",
+				:PosX=>1,
+				:PosY=>0.75
 			)),
 			[
 				:(Fout.P = Fin.P),

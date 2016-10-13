@@ -26,7 +26,7 @@ type _Entropia
 		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Default]=5
 		fields[:Lower]=1e-3
-		fields[:Upper]=8
+		fields[:Upper]=10
 		fields[:Unit]="kJ/kg/K"
 		drive!(fields,_)
 		new(fields)
