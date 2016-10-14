@@ -45,7 +45,7 @@ type _kmol
 		fields[:Upper]=1e6
 		fields[:finalUnit]="kmol"
 		drive!(fields,_)
-		new(_positive (fields).value)
+		new(_positive(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

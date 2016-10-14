@@ -64,7 +64,7 @@ type _flow_mol
 		fields[:Upper]=1e8
 		fields[:finalUnit]="kmol/h"
 		drive!(fields,_)
-		new(_positive (fields).value)
+		new(_positive(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

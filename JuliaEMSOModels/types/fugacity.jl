@@ -73,7 +73,7 @@ type _fugacity
 		fields[:Default]=0.5
 		fields[:Upper]=10
 		drive!(fields,_)
-		new(_positive (fields).value)
+		new(_positive(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

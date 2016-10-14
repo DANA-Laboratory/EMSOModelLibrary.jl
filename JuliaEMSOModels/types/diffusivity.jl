@@ -73,7 +73,7 @@ type _diffusivity
 		fields[:Upper]=1
 		fields[:finalUnit]="cm^2/s"
 		drive!(fields,_)
-		new(_positive (fields).value)
+		new(_positive(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

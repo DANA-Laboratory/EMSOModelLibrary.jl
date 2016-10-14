@@ -37,7 +37,7 @@ type _capacitance
 		fields[:Upper]=1e12
 		fields[:finalUnit]="F"
 		drive!(fields,_)
-		new(_positive (fields).value)
+		new(_positive(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

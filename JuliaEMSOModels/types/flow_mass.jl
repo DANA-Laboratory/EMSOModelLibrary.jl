@@ -58,7 +58,7 @@ type _flow_mass
 		fields[:Upper]=1e10
 		fields[:finalUnit]="kg/h"
 		drive!(fields,_)
-		new(_positive (fields).value)
+		new(_positive(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

@@ -34,7 +34,7 @@ type _length_delta
 		fields[:Brief]="Difference of Length"
 		fields[:Lower]=-1000
 		drive!(fields,_)
-		new(_length (fields).value)
+		new(_length(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

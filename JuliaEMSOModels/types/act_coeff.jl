@@ -77,7 +77,7 @@ type _act_coeff
 		fields[:Default]=1
 		fields[:Upper]=30
 		drive!(fields,_)
-		new(_positive (fields).value)
+		new(_positive(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

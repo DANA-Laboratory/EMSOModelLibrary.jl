@@ -38,7 +38,7 @@ type _mass
 		fields[:Upper]=1e6
 		fields[:finalUnit]="kg"
 		drive!(fields,_)
-		new(_positive (fields).value)
+		new(_positive(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

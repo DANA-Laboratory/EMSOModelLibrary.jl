@@ -63,7 +63,7 @@ type _flux_mol_delta
 		fields[:Brief]="Difference of Molar Flux"
 		fields[:Lower]=-1e4
 		drive!(fields,_)
-		new(_flux_mol (fields).value)
+		new(_flux_mol(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

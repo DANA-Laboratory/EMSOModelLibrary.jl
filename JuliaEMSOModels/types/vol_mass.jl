@@ -74,7 +74,7 @@ type _vol_mass
 		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Specific Volume"
 		drive!(fields,_)
-		new(_volume_mass (fields).value)
+		new(_volume_mass(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

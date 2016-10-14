@@ -37,7 +37,7 @@ type _indutance
 		fields[:Upper]=1e12
 		fields[:finalUnit]="V*s/A"
 		drive!(fields,_)
-		new(_positive (fields).value)
+		new(_positive(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

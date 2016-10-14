@@ -44,7 +44,7 @@ type _conc_mol
 		fields[:Brief]="Molar Concentration"
 		fields[:Default]=1e-3
 		drive!(fields,_)
-		new(_dens_mol (fields).value)
+		new(_dens_mol(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

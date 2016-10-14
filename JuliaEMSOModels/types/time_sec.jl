@@ -33,7 +33,7 @@ type _time_sec
 		fields[:Brief]="Time in seconds"
 		fields[:DisplayUnit]="s"
 		drive!(fields,_)
-		new(_time_h (fields).value)
+		new(_time_h(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

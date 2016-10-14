@@ -44,7 +44,7 @@ type _conc_mass
 		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Mass Concentration"
 		drive!(fields,_)
-		new(_dens_mass (fields).value)
+		new(_dens_mass(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

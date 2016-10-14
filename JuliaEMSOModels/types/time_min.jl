@@ -33,7 +33,7 @@ type _time_min
 		fields[:Brief]="Time in minutes"
 		fields[:DisplayUnit]="min"
 		drive!(fields,_)
-		new(_time_h (fields).value)
+		new(_time_h(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

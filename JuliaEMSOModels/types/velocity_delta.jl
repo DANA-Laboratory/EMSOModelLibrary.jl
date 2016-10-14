@@ -66,7 +66,7 @@ type _velocity_delta
 		fields[:Lower]=-1E3
 		fields[:Upper]=-1E3
 		drive!(fields,_)
-		new(_velocity (fields).value)
+		new(_velocity(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

@@ -37,7 +37,7 @@ type _voltage
 		fields[:Upper]=1e9
 		fields[:finalUnit]="V"
 		drive!(fields,_)
-		new(_positive (fields).value)
+		new(_positive(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

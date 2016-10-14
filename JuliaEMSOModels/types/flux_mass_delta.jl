@@ -63,7 +63,7 @@ type _flux_mass_delta
 		fields[:Brief]="Difference of Mass Flux"
 		fields[:Lower]=-1e6
 		drive!(fields,_)
-		new(_flux_mass (fields).value)
+		new(_flux_mass(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

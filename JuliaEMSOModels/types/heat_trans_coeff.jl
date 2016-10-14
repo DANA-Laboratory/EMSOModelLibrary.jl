@@ -57,7 +57,7 @@ type _heat_trans_coeff
 		fields[:Upper]=1e3
 		fields[:finalUnit]="kW/m^2/K"
 		drive!(fields,_)
-		new(_positive (fields).value)
+		new(_positive(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

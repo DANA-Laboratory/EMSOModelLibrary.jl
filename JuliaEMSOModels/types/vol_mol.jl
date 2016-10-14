@@ -73,7 +73,7 @@ type _vol_mol
 		fields::Dict{Symbol,Any}=Dict{Symbol,Any}()
 		fields[:Brief]="Molar Volume"
 		drive!(fields,_)
-		new(_volume_mol (fields).value)
+		new(_volume_mol(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

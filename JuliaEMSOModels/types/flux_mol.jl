@@ -64,7 +64,7 @@ type _flux_mol
 		fields[:Upper]=1e4
 		fields[:finalUnit]="kmol/s/m^2"
 		drive!(fields,_)
-		new(_positive (fields).value)
+		new(_positive(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end

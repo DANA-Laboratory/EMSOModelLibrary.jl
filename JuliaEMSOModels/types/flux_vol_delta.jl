@@ -63,7 +63,7 @@ type _flux_vol_delta
 		fields[:Brief]="Difference of Volumetric Flux"
 		fields[:Lower]=-1e4
 		drive!(fields,_)
-		new(_flux_vol (fields).value)
+		new(_flux_vol(fields).value)
 	end
 	value::Dict{Symbol,Any}
 end
