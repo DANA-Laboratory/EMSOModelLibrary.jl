@@ -25,23 +25,23 @@ type flow_measurement
 				:Type=>"PP"
 			)),
 			DanaInteger(),
-			flow_mol (Dict{Symbol,Any}(
+			flow_mol(Dict{Symbol,Any}(
 				:Brief=>"Flow Constant",
 				:Hidden=>true
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0.78,
 				:Protected=>true
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>1,
 				:PosY=>0.78,
 				:Protected=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Flow Signal",
 				:PosX=>0.5,
 				:PosY=>0,

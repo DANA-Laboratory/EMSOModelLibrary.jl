@@ -18,29 +18,29 @@
 type Clearances_Main
 	Clearances_Main()=begin
 		new(
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Sealing Strips pairs",
 				:Lower=>1
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Height Under Shell Inlet Nozzle",
 				:Lower=>1E-6
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Height Under Shell Outlet Nozzle",
 				:Lower=>1E-6
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Bundle-to-Shell Clearance",
 				:Symbol=>"L_{cf}",
 				:Lower=>1E-8
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Baffle-to-Shell Clearance",
 				:Symbol=>"L_{cd}",
 				:Lower=>1E-8
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Tube-to-Baffle Clearance",
 				:Symbol=>"L_{td}",
 				:Lower=>1E-8

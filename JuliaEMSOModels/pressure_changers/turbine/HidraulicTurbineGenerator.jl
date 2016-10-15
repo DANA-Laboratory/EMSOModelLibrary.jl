@@ -22,7 +22,7 @@ type HidraulicTurbineGenerator
 	HidraulicTurbineGenerator()=begin
 		new(
 			HidraulicTurbine(),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Eletrical Potency"
 			)),
 			[

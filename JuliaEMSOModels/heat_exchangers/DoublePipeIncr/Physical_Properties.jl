@@ -18,19 +18,19 @@
 type Physical_Properties
 	Physical_Properties()=begin
 		new(
-			Properties_In_Out (Dict{Symbol,Any}(
+			Properties_In_Out(Dict{Symbol,Any}(
 				:Brief=>"Properties at Inlet Stream",
 				:Symbol=>"^{in}"
 			)),
-			Properties_Average (Dict{Symbol,Any}(
+			Properties_Average(Dict{Symbol,Any}(
 				:Brief=>"Properties at Average Temperature",
 				:Symbol=>"^{avg}"
 			)),
-			Properties_In_Out (Dict{Symbol,Any}(
+			Properties_In_Out(Dict{Symbol,Any}(
 				:Brief=>"Properties at Outlet Stream",
 				:Symbol=>"^{out}"
 			)),
-			Properties_Wall (Dict{Symbol,Any}(
+			Properties_Wall(Dict{Symbol,Any}(
 				:Brief=>"Properties at Wall Temperature",
 				:Symbol=>"^{wall}"
 			)),

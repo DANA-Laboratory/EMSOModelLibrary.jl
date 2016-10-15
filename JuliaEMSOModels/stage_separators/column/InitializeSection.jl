@@ -33,26 +33,26 @@ type InitializeSection
 	InitializeSection()=begin
 		NComp=outers.NComp
 		new(
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of components"
 			)),
-			temperature (Dict{Symbol,Any}(
+			temperature(Dict{Symbol,Any}(
 				:Brief=>"Tray Temperature at Column Top",
 				:Default=>300
 			)),
-			temperature (Dict{Symbol,Any}(
+			temperature(Dict{Symbol,Any}(
 				:Brief=>"Tray Temperature at Column Bottom",
 				:Default=>330
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Tray Level Fraction",
 				:Default=>0.5
 			)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Component Molar Fraction at Column Top",
 				:Default=>0.30
 			)),(NComp)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Component Molar Fraction at Column Bottom",
 				:Default=>0.30
 			)),(NComp)),

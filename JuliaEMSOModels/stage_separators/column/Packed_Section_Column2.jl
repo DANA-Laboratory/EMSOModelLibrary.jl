@@ -33,12 +33,12 @@ type Packed_Section_Column2
 	Packed_Section_Column2()=begin
 		new(
 			Packed_Section_ColumnBasic(),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Feed stream",
 				:PosX=>0,
 				:PosY=>0.45
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Feed stream",
 				:PosX=>0,
 				:PosY=>0.65

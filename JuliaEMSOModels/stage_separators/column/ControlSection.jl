@@ -33,19 +33,19 @@ type ControlSection
 	ControlSection()=begin
 		NComp=outers.NComp
 		new(
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of components"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Temperature Indicator in the tray"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Pressure Indicator in the tray"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Composition Indicator in the tray"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Component to indicate"
 			)),
 			[:NComp,:Tindicator_TrayNumber,:Pindicator_TrayNumber,:zindicator_TrayNumber,:zindicator_Component,],

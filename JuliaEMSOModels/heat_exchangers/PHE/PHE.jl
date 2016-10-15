@@ -20,60 +20,60 @@ type PHE
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Chemical Components"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Chevron Corrugation Inclination Angle in Degrees ",
 				:Valid=>["A30_Deg","A45_Deg","A50_Deg","A60_Deg","A65_Deg"],
 				:Default=>"A30_Deg"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Fluid Alocation in the Side I - (The odd channels)",
 				:Valid=>["hot","cold"],
 				:Default=>"hot"
 			)),
-			PHE_Geometry (Dict{Symbol,Any}(
+			PHE_Geometry(Dict{Symbol,Any}(
 				:Brief=>"Plate Heat Exchanger Geometrical Parameters",
 				:Symbol=>" "
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet Hot Stream",
 				:PosX=>0,
 				:PosY=>0.75,
 				:Symbol=>"^{inHot}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet Cold Stream",
 				:PosX=>0,
 				:PosY=>0.25,
 				:Symbol=>"^{inCold}"
 			)),
-			streamPH (Dict{Symbol,Any}(
+			streamPH(Dict{Symbol,Any}(
 				:Brief=>"Outlet Hot Stream",
 				:PosX=>1,
 				:PosY=>0.25,
 				:Symbol=>"^{outHot}"
 			)),
-			streamPH (Dict{Symbol,Any}(
+			streamPH(Dict{Symbol,Any}(
 				:Brief=>"Outlet Cold Stream",
 				:PosX=>1,
 				:PosY=>0.75,
 				:Symbol=>"^{outCold}"
 			)),
-			Main_PHE (Dict{Symbol,Any}(
+			Main_PHE(Dict{Symbol,Any}(
 				:Brief=>"Plate Heat Exchanger Hot Side",
 				:Symbol=>"_{hot}"
 			)),
-			Main_PHE (Dict{Symbol,Any}(
+			Main_PHE(Dict{Symbol,Any}(
 				:Brief=>"Plate Heat Exchanger Cold Side",
 				:Symbol=>"_{cold}"
 			)),
-			Thermal_PHE (Dict{Symbol,Any}(
+			Thermal_PHE(Dict{Symbol,Any}(
 				:Brief=>"Thermal Results",
 				:Symbol=>" "
 			)),

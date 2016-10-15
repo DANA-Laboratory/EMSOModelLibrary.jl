@@ -21,39 +21,39 @@ type pfr
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of components"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of reactions"
 			)),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Stoichiometric Matrix"
 			)),(NComp, NReac)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of points of discretization",
 				:Default=>10
 			)),
-			fill(molweight (Dict{Symbol,Any}(
+			fill(molweight(Dict{Symbol,Any}(
 				:Brief=>"Component Mol Weight"
 			)),(NComp)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Reactor Length"
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Cross section area"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet Stream",
 				:PosX=>0,
 				:PosY=>0.5076,
 				:Symbol=>"_{in}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet Stream",
 				:PosX=>1,
 				:PosY=>0.5236,
@@ -63,17 +63,17 @@ type pfr
 			fill(vol_mol()),
 			fill(dens_mass()),
 			fill(heat_rate()),
-			fill(mol (Dict{Symbol,Any}(
+			fill(mol(Dict{Symbol,Any}(
 				:Brief=>"Molar holdup"
 			)),(NComp, NDisc)),
-			fill(mol (Dict{Symbol,Any}(
+			fill(mol(Dict{Symbol,Any}(
 				:Brief=>"Molar holdup"
 			)),(NDisc)),
-			fill(conc_mol (Dict{Symbol,Any}(
+			fill(conc_mol(Dict{Symbol,Any}(
 				:Brief=>"Components concentration",
 				:Lower=>-1e-6
 			)),(NComp, NDisc)),
-			fill(energy (Dict{Symbol,Any}(
+			fill(energy(Dict{Symbol,Any}(
 				:Brief=>"Total Energy Holdup on element"
 			)),(NDisc)),
 			fill(reaction_mol()),

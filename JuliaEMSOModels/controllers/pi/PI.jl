@@ -7,94 +7,94 @@ type PI
 			"",
 		],
 		new(
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Controller action",
 				:Valid=>["Direct","Reverse"],
 				:Default=>"Reverse"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Controller mode",
 				:Valid=>["Automatic","Manual"],
 				:Default=>"Automatic"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Previous scaled bias",
 				:Lower=>0,
 				:Upper=>1,
 				:Default=>0.5
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Proportional term setPoint change filter",
 				:Default=>1
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Controller gain",
 				:Lower=>0,
 				:Upper=>1,
 				:Default=>0.5
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Integral time constant",
 				:Unit=>"s"
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Default=>-1000
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Default=>1000
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Previous scaled input signal",
 				:Default=>0.5,
 				:PosX=>0,
 				:PosY=>0.5,
 				:Protected=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Scaled output signal",
 				:Default=>0,
 				:PosX=>0.54,
 				:PosY=>1,
 				:Protected=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Scaled setPoint",
 				:Lower=>0,
 				:Upper=>1,
 				:Default=>0.5
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Proportional term",
 				:Default=>0,
 				:Protected=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Integral term",
 				:Default=>0,
 				:Protected=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Scaled input variable",
 				:Hidden=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Scaled set point",
 				:Hidden=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Controller action: (-1) Direct,(1) Reverse",
 				:Default=>-1,
 				:Hidden=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Sum of proportional, integral and derivative terms",
 				:Hidden=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Error definition for proportional term",
 				:Hidden=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Variable outp scaled between -1 and 1",
 				:Hidden=>true
 			)),

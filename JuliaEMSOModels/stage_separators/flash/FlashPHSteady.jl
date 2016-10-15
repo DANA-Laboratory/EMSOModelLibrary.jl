@@ -47,7 +47,7 @@ type FlashPHSteady
 				:PosY=>0,
 				:Symbol=>"_{outV}"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Rate of heat supply",
 				:PosX=>1,
 				:PosY=>0.7559,
@@ -78,11 +78,11 @@ type FlashPHSteady
 				:Upper=>1,
 				:Brief=>"Vapour composition if saturated"
 			)),(NComp)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Pressure Ratio",
 				:Symbol=>"P_{ratio}"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop",
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P"

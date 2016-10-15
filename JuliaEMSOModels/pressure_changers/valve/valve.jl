@@ -27,75 +27,75 @@ type valve
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["linear", "parabolic", "equal", "quick", "hyperbolic"],
 				:Default=>"linear"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Valid Phases for Flash Calculation",
 				:Valid=>["Vapour-Only", "Liquid-Only"],
 				:Default=>"Liquid-Only"
 			)),
-			dens_mass (Dict{Symbol,Any}(
+			dens_mass(Dict{Symbol,Any}(
 				:Brief=>"Water Mass Density at 60 F",
 				:Hidden=>true
 			)),
 			flow_mass(Dict{Symbol,Any}(
 				:DisplayUnit=>"kg/s"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop",
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P"
 			)),
-			flow_vol (Dict{Symbol,Any}(
+			flow_vol(Dict{Symbol,Any}(
 				:Brief=>"Volumetric Flow"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Opening Function",
 				:Hidden=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Valve Flow Coefficient",
 				:Unit=>"gal/min/psi^0.5"
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Valve Flow Coefficient",
 				:Unit=>"m^2"
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Valve Gas Flow Coefficient",
 				:Unit=>"ft^3/h/psi"
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Liquid-gas Coefficient Ratio",
 				:Unit=>"(ft^3/gal)*(min/h)/(psi^.5)"
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Actual valve stem position"
 			)),
 			DanaReal(),
-			vol_mol (Dict{Symbol,Any}(
+			vol_mol(Dict{Symbol,Any}(
 				:Brief=>"Mixture Molar Volume"
 			)),
-			dens_mass (Dict{Symbol,Any}(
+			dens_mass(Dict{Symbol,Any}(
 				:Brief=>"Mixture Mass Density"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0.7365,
 				:Symbol=>"_{in}"
 			)),
-			streamPH (Dict{Symbol,Any}(
+			streamPH(Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>1,
 				:PosY=>0.7365,

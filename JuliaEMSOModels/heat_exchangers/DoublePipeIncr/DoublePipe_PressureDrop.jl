@@ -20,81 +20,81 @@ type DoublePipe_PressureDrop
 		N=outers.N
 		Npoints=outers.Npoints
 		new(
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Hydraulic Diameter of Pipe for Pressure Drop",
 				:Lower=>1e-6
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of zones",
 				:Default=>2
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of incremental points",
 				:Default=>3
 			)),
-			fill(pressure (Dict{Symbol,Any}(
+			fill(pressure(Dict{Symbol,Any}(
 				:Brief=>"Incremental Local  Pressure",
 				:Default=>1,
 				:Lower=>1e-10,
 				:Upper=>2e4,
 				:DisplayUnit=>"kPa"
 			)),(Npoints)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Total Pressure Drop",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P"
 			)),
-			fill(press_delta (Dict{Symbol,Any}(
+			fill(press_delta(Dict{Symbol,Any}(
 				:Brief=>"Incremental Pressure Drop for friction",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P_{fric}"
 			)),(Npoints)),
-			fill(fricfactor (Dict{Symbol,Any}(
+			fill(fricfactor(Dict{Symbol,Any}(
 				:Brief=>"Incremental Friction Factor",
 				:Default=>0.05,
 				:Lower=>1e-10,
 				:Upper=>2000
 			)),(N)),
-			fill(positive (Dict{Symbol,Any}(
+			fill(positive(Dict{Symbol,Any}(
 				:Brief=>"Incremental Reynolds Number",
 				:Default=>100,
 				:Lower=>1
 			)),(N)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Inlet Nozzle Pressure Drop",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Outlet Nozzle Pressure Drop",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa"
 			)),
-			velocity (Dict{Symbol,Any}(
+			velocity(Dict{Symbol,Any}(
 				:Brief=>"Inlet Nozzle Velocity",
 				:Default=>1,
 				:Upper=>1e5,
 				:Lower=>0
 			)),
-			velocity (Dict{Symbol,Any}(
+			velocity(Dict{Symbol,Any}(
 				:Brief=>"Outlet Nozzle Velocity",
 				:Default=>1,
 				:Upper=>1e5,
 				:Lower=>0
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Inlet Nozzle rho-V^2",
 				:Default=>1,
 				:Upper=>1e6,
 				:Unit=>"kg/s^2/m"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Outlet Nozzle rho-V^2",
 				:Default=>1,
 				:Upper=>1e6,

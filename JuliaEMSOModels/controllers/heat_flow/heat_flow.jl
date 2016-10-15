@@ -19,21 +19,21 @@
 type heat_flow
 	heat_flow()=begin
 		new(
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Minimum of Heat Flow",
 				:Default=>-1000
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Maximum of Heat Flow",
 				:Default=>1000
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Heat Flow",
 				:PosX=>0,
 				:PosY=>0.60,
 				:Protected=>true
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Flow Signal",
 				:PosX=>0.50,
 				:PosY=>0,

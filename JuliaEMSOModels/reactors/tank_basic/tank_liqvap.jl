@@ -10,45 +10,45 @@ type tank_liqvap
 				:Brief=>"External physical properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of components",
 				:Default=>1
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0,
 				:Symbol=>"_{in}"
 			)),
-			liquid_stream (Dict{Symbol,Any}(
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Intermediary liquid outlet stream",
 				:Symbol=>"_{outmL}"
 			)),
-			vapour_stream (Dict{Symbol,Any}(
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet vapour stream",
 				:Symbol=>"_{outV}"
 			)),
-			vol_tank (Dict{Symbol,Any}(
+			vol_tank(Dict{Symbol,Any}(
 				:Brief=>"Routine to volume tank calculation",
 				:Symbol=>"_{tank}"
 			)),
-			fill(mol (Dict{Symbol,Any}(
+			fill(mol(Dict{Symbol,Any}(
 				:Brief=>"Component molar holdup"
 			)),(NComp)),
-			mol (Dict{Symbol,Any}(
+			mol(Dict{Symbol,Any}(
 				:Brief=>"Molar liquid holdup"
 			)),
-			mol (Dict{Symbol,Any}(
+			mol(Dict{Symbol,Any}(
 				:Brief=>"Molar vapour holdup"
 			)),
-			energy (Dict{Symbol,Any}(
+			energy(Dict{Symbol,Any}(
 				:Brief=>"Internal energy"
 			)),
-			heat_rate (Dict{Symbol,Any}(
+			heat_rate(Dict{Symbol,Any}(
 				:Brief=>"Reactor duty",
 				:Default=>0
 			)),
-			volume_mol (Dict{Symbol,Any}(
+			volume_mol(Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Volume"
 			)),
 			[

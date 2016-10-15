@@ -18,70 +18,70 @@
 type VesselVolume
 	VesselVolume()=begin
 		new(
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Pi value",
 				:Default=>3.141593,
 				:Hidden=>true,
 				:Symbol=>"\\pi"
 			)),
-			acceleration (Dict{Symbol,Any}(
+			acceleration(Dict{Symbol,Any}(
 				:Brief=>"Gravity Acceleration",
 				:Default=>9.81,
 				:Hidden=>true
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["vertical","horizontal"],
 				:Default=>"vertical"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["elliptical","hemispherical","flat"],
 				:Default=>"flat"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Vessel diameter",
 				:Default=>2,
 				:Symbol=>"D_{i}"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Side length of the cylinder shell",
 				:Default=>6,
 				:Symbol=>"L_{vessel}"
 			)),
-			volume (Dict{Symbol,Any}(
+			volume(Dict{Symbol,Any}(
 				:Brief=>"Elliptical Head Total Volume",
 				:Hidden=>true,
 				:Symbol=>"V_{head}^{elliptical}"
 			)),
-			volume (Dict{Symbol,Any}(
+			volume(Dict{Symbol,Any}(
 				:Brief=>"Hemispherical Head Total Volume",
 				:Hidden=>true,
 				:Symbol=>"V_{head}^{hemispherical}"
 			)),
-			volume (Dict{Symbol,Any}(
+			volume(Dict{Symbol,Any}(
 				:Brief=>"Cylinder Total Volume",
 				:Hidden=>true,
 				:Symbol=>"V_{cylinder}"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Vessel radius",
 				:Hidden=>true,
 				:Symbol=>"R_{cylinder}"
 			)),
-			volume (Dict{Symbol,Any}(
+			volume(Dict{Symbol,Any}(
 				:Brief=>"Vessel total volume",
 				:Protected=>true,
 				:Symbol=>"V_{total}"
 			)),
-			volume (Dict{Symbol,Any}(
+			volume(Dict{Symbol,Any}(
 				:Brief=>"Vessel volume content",
 				:Protected=>true,
 				:Symbol=>"V_{filled}"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"liquid height",
 				:Protected=>true
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Vessel cylinder shell Cross section area",
 				:Hidden=>true,
 				:Symbol=>"A_{cross}"

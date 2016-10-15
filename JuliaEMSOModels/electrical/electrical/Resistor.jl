@@ -20,13 +20,13 @@ type Resistor
 	Resistor()=begin
 		new(
 			resistance(),
-			wire (Dict{Symbol,Any}(
+			wire(Dict{Symbol,Any}(
 				:Brief=>"Inlet",
 				:PosX=>0.3831,
 				:PosY=>0,
 				:Symbol=>"_{in}"
 			)),
-			wire (Dict{Symbol,Any}(
+			wire(Dict{Symbol,Any}(
 				:Brief=>"Outlet",
 				:PosX=>0.3529,
 				:PosY=>1,

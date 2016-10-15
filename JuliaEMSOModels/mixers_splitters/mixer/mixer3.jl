@@ -20,25 +20,25 @@
 type mixer3
 	mixer3()=begin
 		new(
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet stream 1",
 				:PosX=>0,
 				:PosY=>0.25,
 				:Symbol=>"_{in1}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet stream 2",
 				:PosX=>0,
 				:PosY=>0.5059,
 				:Symbol=>"_{in2}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet stream 3",
 				:PosX=>0,
 				:PosY=>0.75,
 				:Symbol=>"_{in3}"
 			)),
-			streamPH (Dict{Symbol,Any}(
+			streamPH(Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>1,
 				:PosY=>0.5059,

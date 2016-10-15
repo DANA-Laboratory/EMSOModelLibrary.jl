@@ -29,118 +29,118 @@ type flash
 		],
 		new(
 			VesselVolume(),
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of components",
 				:Lower=>1
 			)),
-			fill(molweight (Dict{Symbol,Any}(
+			fill(molweight(Dict{Symbol,Any}(
 				:Brief=>"Mol Weight",
 				:Hidden=>true
 			)),(NComp)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Initial liquid height in Percent",
 				:Default=>0.70
 			)),
-			temperature (Dict{Symbol,Any}(
+			temperature(Dict{Symbol,Any}(
 				:Brief=>"Initial Liquid Temperature",
 				:Default=>330
 			)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Initial Composition",
 				:Default=>0.10
 			)),(NComp)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Feed Stream",
 				:PosX=>0,
 				:PosY=>0.48,
 				:Symbol=>"_{in}"
 			)),
-			liquid_stream (Dict{Symbol,Any}(
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream",
 				:PosX=>0.43,
 				:PosY=>1,
 				:Symbol=>"_{out}^{Liquid}"
 			)),
-			vapour_stream (Dict{Symbol,Any}(
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"Vapour outlet stream",
 				:PosX=>0.43,
 				:PosY=>0,
 				:Symbol=>"_{out}^{Vapour}"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Heat Duty",
 				:PosX=>1,
 				:PosY=>0.81,
 				:Protected=>true,
 				:Symbol=>"Q_{in}"
 			)),
-			fill(mol (Dict{Symbol,Any}(
+			fill(mol(Dict{Symbol,Any}(
 				:Brief=>"Molar Holdup in the Vessel",
 				:Protected=>true
 			)),(NComp)),
-			mol (Dict{Symbol,Any}(
+			mol(Dict{Symbol,Any}(
 				:Brief=>"Molar liquid holdup",
 				:Protected=>true
 			)),
-			mol (Dict{Symbol,Any}(
+			mol(Dict{Symbol,Any}(
 				:Brief=>"Molar vapour holdup",
 				:Protected=>true
 			)),
-			energy (Dict{Symbol,Any}(
+			energy(Dict{Symbol,Any}(
 				:Brief=>"Total Energy Holdup in the Vessel",
 				:Protected=>true
 			)),
-			volume_mol (Dict{Symbol,Any}(
+			volume_mol(Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Volume",
 				:Protected=>true
 			)),
-			volume_mol (Dict{Symbol,Any}(
+			volume_mol(Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar volume",
 				:Protected=>true
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Vapourization fraction",
 				:Symbol=>"\\phi",
 				:Protected=>true
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Pressure Ratio",
 				:Symbol=>"P_{ratio}",
 				:Protected=>true
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop",
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P",
 				:Protected=>true
 			)),
-			pressure (Dict{Symbol,Any}(
+			pressure(Dict{Symbol,Any}(
 				:Brief=>"Equilibrium pressure on the liquid surface",
 				:Protected=>true,
 				:Symbol=>"\\Delta P_{eq}"
 			)),
-			pressure (Dict{Symbol,Any}(
+			pressure(Dict{Symbol,Any}(
 				:Brief=>"Static head at the bottom of the tank",
 				:Protected=>true,
 				:Symbol=>"P_{static}^{Liquid}"
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Temperature Indicator",
 				:PosX=>1,
 				:PosY=>0.39,
 				:Protected=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Pressure Indicator",
 				:PosX=>1,
 				:PosY=>0.21,
 				:Protected=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Level Indicator",
 				:PosX=>1,
 				:PosY=>0.59,

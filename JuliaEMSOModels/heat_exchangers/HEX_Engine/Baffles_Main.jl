@@ -18,29 +18,29 @@
 type Baffles_Main
 	Baffles_Main()=begin
 		new(
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Baffle Cut",
 				:Default=>25,
 				:Lower=>25
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Number of Baffles",
 				:Symbol=>"N_{baffles}",
 				:Lower=>1
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Inlet Baffle Spacing",
 				:Lower=>1e-8,
 				:Symbol=>"L_{si}",
 				:DisplayUnit=>"mm" 
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Central Baffle Spacing",
 				:Lower=>1e-8,
 				:Symbol=>"L_s",
 				:DisplayUnit=>"mm" 
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Outlet Baffle Spacing",
 				:Lower=>1e-8,
 				:Symbol=>"L_{so}",

@@ -6,54 +6,54 @@ type Gerador_Vapor
 			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"Steam tables"
 			)),
-			Pot_sinal (Dict{Symbol,Any}(
+			Pot_sinal(Dict{Symbol,Any}(
 				:Brief=>"Taxa de calor gerado na caldeira",
 				:PosX=>1,
 				:PosY=>0.5
 			)),
-			Eficiencia (Dict{Symbol,Any}(
+			Eficiencia(Dict{Symbol,Any}(
 				:Brief=>"Eficiencia do gerador de vapor"
 			)),
-			Potencia (Dict{Symbol,Any}(
+			Potencia(Dict{Symbol,Any}(
 				:Brief=>"Taxa de calor nos reaquecedores"
 			)),
-			Potencia (Dict{Symbol,Any}(
+			Potencia(Dict{Symbol,Any}(
 				:Brief=>"Taxa de calor nos superaquecedores"
 			)),
-			Potencia (Dict{Symbol,Any}(
+			Potencia(Dict{Symbol,Any}(
 				:Brief=>"Taxa de calor no evaporador"
 			)),
-			Potencia (Dict{Symbol,Any}(
+			Potencia(Dict{Symbol,Any}(
 				:Brief=>"Taxa de calor nos economizadores"
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Brief=>"Agua de alimentacao",
 				:Symbol=>"_{in_a}",
 				:PosX=>0.5,
 				:PosY=>1
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Brief=>"Vapor a ser Reaquecido",
 				:Symbol=>"_{in_ra}",
 				:PosX=>0.7,
 				:PosY=>1
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Brief=>"Vapor Superaquecido",
 				:Symbol=>"_{out_sa}",
 				:PosX=>0.5,
 				:PosY=>0
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Brief=>"Vapor Reaquecido",
 				:Symbol=>"_{out_ra}",
 				:PosX=>0.7,
 				:PosY=>0
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Brief=>"Evaporador"
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Brief=>"Economizadores"
 			)),
 			[

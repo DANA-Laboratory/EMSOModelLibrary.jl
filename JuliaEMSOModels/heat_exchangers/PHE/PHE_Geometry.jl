@@ -20,149 +20,149 @@ type PHE_Geometry
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Chemical Components",
 				:Hidden=>true
 			)),
-			constant (Dict{Symbol,Any}(
+			constant(Dict{Symbol,Any}(
 				:Brief=>"Pi Number",
 				:Default=>3.14159265,
 				:Hidden=>true,
 				:Symbol=>"\\pi"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Auxiliar Constant",
 				:Hidden=>true,
 				:Default=>15
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Auxiliar Constant",
 				:Hidden=>true,
 				:Default=>14
 			)),
-			fill(constant (Dict{Symbol,Any}(
+			fill(constant(Dict{Symbol,Any}(
 				:Brief=>"First constant in Kumar calculation for Pressure Drop",
 				:Hidden=>true
 			)),(N1)),
-			fill(constant (Dict{Symbol,Any}(
+			fill(constant(Dict{Symbol,Any}(
 				:Brief=>"Second constant in Kumar calculation for Pressure Drop",
 				:Hidden=>true
 			)),(N1)),
-			fill(constant (Dict{Symbol,Any}(
+			fill(constant(Dict{Symbol,Any}(
 				:Brief=>"First constant in Kumar calculation for Heat Transfer",
 				:Hidden=>true
 			)),(N2)),
-			fill(constant (Dict{Symbol,Any}(
+			fill(constant(Dict{Symbol,Any}(
 				:Brief=>"Second constant Kumar calculation for Heat Transfer",
 				:Hidden=>true
 			)),(N2)),
-			fill(molweight (Dict{Symbol,Any}(
+			fill(molweight(Dict{Symbol,Any}(
 				:Brief=>"Component Mol Weight",
 				:Hidden=>true
 			)),(NComp)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Vertical Ports Distance",
 				:Lower=>0.1
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Total Number of Plates in The Whole Heat Exchanger",
 				:Default=>25,
 				:Symbol=>"N_{plates}"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Passes for Hot Side",
 				:Symbol=>"Npasshot"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Passes for Cold Side",
 				:Symbol=>"Npasscold"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Ports Diameter",
 				:Lower=>1e-6,
 				:Symbol=>"D_{ports}"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Plate Width",
 				:Lower=>0.1
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Plate Pitch",
 				:Lower=>0.1
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Plate Thickness",
 				:Lower=>0.1
 			)),
-			conductivity (Dict{Symbol,Any}(
+			conductivity(Dict{Symbol,Any}(
 				:Brief=>"Plate Thermal Conductivity",
 				:Default=>1.0,
 				:Symbol=>"K_{wall}"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Hot Side Fouling Resistance",
 				:Unit=>"m^2*K/kW",
 				:Default=>1e-6,
 				:Lower=>0
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Cold Side Fouling Resistance",
 				:Unit=>"m^2*K/kW",
 				:Default=>1e-6,
 				:Lower=>0
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Enlargement Factor",
 				:Lower=>1e-6,
 				:Symbol=>"\\phi"
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Total Effective  Area",
 				:Lower=>1e-6,
 				:Symbol=>"A_{total}",
 				:Protected=>true
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Port Opening  Area of Plate",
 				:Lower=>1e-6,
 				:Symbol=>"A_{ports}",
 				:Protected=>true
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Cross-Sectional Area for Channel Flow",
 				:Lower=>1e-6,
 				:Symbol=>"A_{channel}",
 				:Protected=>true
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Equivalent Diameter of Channel",
 				:Lower=>1e-6,
 				:Protected=>true
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Corrugation Depth",
 				:Lower=>1e-6,
 				:Protected=>true
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Total Number of Channels in The Whole Heat Exchanger",
 				:Protected=>true
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Plate Vertical Distance between Port Centers",
 				:Lower=>0.1,
 				:Protected=>true
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Compact Plate Pack Length",
 				:Lower=>0.1,
 				:Protected=>true
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Plate Horizontal Distance between Port Centers",
 				:Lower=>0.1,
 				:Protected=>true

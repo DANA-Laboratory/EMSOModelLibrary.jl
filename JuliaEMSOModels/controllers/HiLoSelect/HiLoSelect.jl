@@ -18,18 +18,18 @@
 type HiLoSelect
 	HiLoSelect()=begin
 		new(
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"HiLoSelect option",
 				:Valid=>["higher","lower"],
 				:Default=>"higher"
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"input signal 1"
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"input signal 2"
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"output signal"
 			)),
 			[

@@ -8,28 +8,28 @@ type pump2
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>1,
 				:PosY=>0.4727,
 				:Protected=>true,
 				:Symbol=>"_{in}"
 			)),
-			liquid_stream (Dict{Symbol,Any}(
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>0,
 				:PosY=>0.1859,
 				:Protected=>true,
 				:Symbol=>"_{out}"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Pressure Increase",
 				:Lower=>0,
 				:DisplayUnit=>"kPa",

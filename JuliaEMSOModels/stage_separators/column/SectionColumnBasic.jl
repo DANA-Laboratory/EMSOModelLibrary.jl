@@ -40,94 +40,94 @@ type SectionColumnBasic
 			
 		],
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of components"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Feed Trays",
 				:Default=>3,
 				:Protected=>true
 			)),
-			fill(DanaInteger (Dict{Symbol,Any}(
+			fill(DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Feed tray Location",
 				:Default=>2
 			)),(NumberOfFeeds)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of trays",
 				:Default=>8
 			)),
-			fill(DanaInteger (Dict{Symbol,Any}(
+			fill(DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Liquid Side Tray Index",
 				:Default=>0,
 				:Hidden=>true
 			)),(NumberOfTrays)),
-			fill(DanaInteger (Dict{Symbol,Any}(
+			fill(DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Vapour Side Tray Index",
 				:Default=>0,
 				:Hidden=>true
 			)),(NumberOfTrays)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Liquid Side Stream Location",
 				:Default=>2
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Vapour Side Stream Location",
 				:Default=>2
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["Reepmeyer", "Feehery_Fv", "Roffel_Fv", "Klingberg", "Wang_Fv", "Elgue"],
 				:Default=>"Reepmeyer"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["Francis", "Wang_Fl", "Olsen", "Feehery_Fl", "Roffel_Fl"],
 				:Default=>"Francis"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Tray Diameter",
 				:Default=>1.600
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Tray Spacing",
 				:Default=>0.600
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Fraction of the active area that is occupied by the holes with respect to the total tray area",
 				:Default=>0.10
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Fraction of the downcomer area with respect to the total tray area",
 				:Default=>0.20
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Weir length",
 				:Default=>1
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Weir height",
 				:Default=>0.05
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Number of liquid passes in the tray",
 				:Lower=>1,
 				:Default=>1
 			)),
-			heat_rate (Dict{Symbol,Any}(
+			heat_rate(Dict{Symbol,Any}(
 				:Brief=>"Rate of heat supply",
 				:Default=>0
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Aeration fraction",
 				:Default=>1
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Dry pressure drop coefficient",
 				:Default=>0.60
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Murphree efficiency for All Trays",
 				:Default=>1
 			)),

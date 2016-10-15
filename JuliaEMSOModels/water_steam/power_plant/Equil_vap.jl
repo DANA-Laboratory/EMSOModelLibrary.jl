@@ -8,64 +8,64 @@ type Equil_vap
 			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of reactions",
 				:Default=>1
 			)),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Stoichiometric matrix",
 				:Symbol=>"\\nu"
 			)),(NComp,NReac)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Universal gas constant",
 				:Unit=>"J/mol/K",
 				:Default=>8.314
 			)),
-			fill(Pressao (Dict{Symbol,Any}(
+			fill(Pressao(Dict{Symbol,Any}(
 				:Brief=>"Fugacity in standard state",
 				:Default=>1,
 				:DisplayUnit=>"atm"
 			)),(NComp)),
-			Temperatura (Dict{Symbol,Any}(
+			Temperatura(Dict{Symbol,Any}(
 				:Brief=>"Reference temperature",
 				:Default=>298.15
 			)),
 			Volume(),
 			fill(molweight()),
-			CorrenteZ (Dict{Symbol,Any}(
+			CorrenteZ(Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0,
 				:Symbol=>"_{in}"
 			)),
-			CorrenteVap (Dict{Symbol,Any}(
+			CorrenteVap(Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>1,
 				:PosY=>1,
 				:Symbol=>"_{out}"
 			)),
-			fill(EntalpiaMol (Dict{Symbol,Any}(
+			fill(EntalpiaMol(Dict{Symbol,Any}(
 				:Brief=>"Gibbs free-energy of formation"
 			)),(NComp)),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Equillibrium constant",
 				:Lower=>0,
 				:Default=>1.5
 			)),(NReac)),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Activity",
 				:Symbol=>"\\hat{a}",
 				:Lower=>0,
 				:Default=>0.2
 			)),(NComp)),
-			fill(Reacao_mol (Dict{Symbol,Any}(
+			fill(Reacao_mol(Dict{Symbol,Any}(
 				:Brief=>"Overall component rate of reaction"
 			)),(NComp)),
-			fill(VazaoMolar (Dict{Symbol,Any}(
+			fill(VazaoMolar(Dict{Symbol,Any}(
 				:Brief=>"Extent of reaction",
 				:Symbol=>"\\xi"
 			)),(NReac)),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Fractional conversion of component",
 				:Symbol=>"X",
 				:Default=>0

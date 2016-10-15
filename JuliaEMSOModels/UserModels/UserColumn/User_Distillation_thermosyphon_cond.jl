@@ -14,7 +14,7 @@ type User_Distillation_thermosyphon_cond
 	User_Distillation_thermosyphon_cond()=begin
 		new(
 			User_Section_ColumnBasic(),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["on", "off"],
 				:Default=>"on",
 				:Hidden=>true
@@ -26,42 +26,42 @@ type User_Distillation_thermosyphon_cond
 			splitter(),
 			reboilerSteady(),
 			DanaReal(),
-			energy_stream (Dict{Symbol,Any}(
+			energy_stream(Dict{Symbol,Any}(
 				:Brief=>"Heat supplied to Condenser",
 				:Hidden=>true
 			)),
-			energy_stream (Dict{Symbol,Any}(
+			energy_stream(Dict{Symbol,Any}(
 				:Brief=>"Heat supplied to Reboiler",
 				:Hidden=>true
 			)),
-			energy_stream (Dict{Symbol,Any}(
+			energy_stream(Dict{Symbol,Any}(
 				:Brief=>"Heat supplied to Bottom Vessel",
 				:Hidden=>true
 			)),
-			vapour_stream (Dict{Symbol,Any}(
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"Vapour outlet stream From Top Condenser",
 				:PosX=>0.73,
 				:PosY=>0
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Connector for Vapour outlet stream From Top Condenser",
 				:Hidden=>true
 			)),
-			liquid_stream (Dict{Symbol,Any}(
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream From Top Splitter",
 				:PosX=>1,
 				:PosY=>0.45
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Connector for Liquid outlet stream From Top Splitter",
 				:Hidden=>true
 			)),
-			liquid_stream (Dict{Symbol,Any}(
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream From Bottom Splitter",
 				:PosX=>1,
 				:PosY=>1
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Connector for Liquid outlet stream From Reboiler",
 				:Hidden=>true
 			)),

@@ -20,36 +20,36 @@ type Heatex_NTU
 	Heatex_NTU()=begin
 		new(
 			Heatex_Basic(),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Type of Heat Exchanger",
 				:Valid=>["Counter Flow","Cocurrent Flow", "Shell and Tube"],
 				:Default=>"Cocurrent Flow"
 			)),
-			NTU_Basic (Dict{Symbol,Any}(
+			NTU_Basic(Dict{Symbol,Any}(
 				:Brief=>"NTU Method of Calculation",
 				:Symbol=>" "
 			)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Fraction in Hot Side",
 				:Hidden=>true
 			)),(NComp)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar Fraction in Hot Side",
 				:Hidden=>true
 			)),(NComp)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Vapour Fraction in Hot Side",
 				:Hidden=>true
 			)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Fraction in Cold Side",
 				:Hidden=>true
 			)),(NComp)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar Fraction in Cold Side",
 				:Hidden=>true
 			)),(NComp)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Vapour Fraction in Cold Side",
 				:Hidden=>true
 			)),

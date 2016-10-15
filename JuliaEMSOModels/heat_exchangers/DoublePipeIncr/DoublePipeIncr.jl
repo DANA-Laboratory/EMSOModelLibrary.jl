@@ -20,197 +20,197 @@ type DoublePipeIncr
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Components"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of zones",
 				:Default=>2
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of incremental points",
 				:Default=>3
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Options for convergence Calculations ",
 				:Valid=>["Simplified","Full"],
 				:Default=>"Full"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Estimated Duty",
 				:Default=>70,
 				:Lower=>1e-6,
 				:Upper=>1e10
 			)),
-			fill(molweight (Dict{Symbol,Any}(
+			fill(molweight(Dict{Symbol,Any}(
 				:Brief=>"Component Mol Weight"
 			)),(NComp)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Flow Direction",
 				:Valid=>["counter","cocurrent"],
 				:Default=>"cocurrent"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Flag for Fluid Alocation ",
 				:Valid=>["outer","inner"],
 				:Default=>"outer"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Inner Flow Regime ",
 				:Valid=>["laminar","transition","turbulent"],
 				:Default=>"laminar"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Outer Flow Regime ",
 				:Valid=>["laminar","transition","turbulent"],
 				:Default=>"laminar"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer Correlation in Laminar Flow for the Inner Side",
 				:Valid=>["Hausen","Schlunder"],
 				:Default=>"Hausen"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer Correlation in Transition Flow for the Inner Side",
 				:Valid=>["Gnielinski","Hausen"],
 				:Default=>"Gnielinski"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer Correlation in Turbulent Flow for the Inner Side",
 				:Valid=>["Petukhov","SiederTate"],
 				:Default=>"Petukhov"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer Correlation in Laminar Flow for the Outer Side",
 				:Valid=>["Hausen","Schlunder"],
 				:Default=>"Hausen"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer Correlation in Transition Flow for the OuterSide",
 				:Valid=>["Gnielinski","Hausen"],
 				:Default=>"Gnielinski"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer Correlation in Turbulent Flow for the Outer Side",
 				:Valid=>["Petukhov","SiederTate"],
 				:Default=>"Petukhov"
 			)),
-			constant (Dict{Symbol,Any}(
+			constant(Dict{Symbol,Any}(
 				:Brief=>"Pi Number",
 				:Default=>3.14159265,
 				:Symbol=>"\\pi"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Outside Diameter of Inner Pipe",
 				:Lower=>1e-6
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Inside Diameter of Inner Pipe",
 				:Lower=>1e-10
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Inside Diameter of Outer pipe",
 				:Lower=>1e-10
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Effective Tube Length of one segment of Pipe",
 				:Lower=>0.1,
 				:Symbol=>"L_{pipe}"
 			)),
-			conductivity (Dict{Symbol,Any}(
+			conductivity(Dict{Symbol,Any}(
 				:Brief=>"Tube Wall Material Thermal Conductivity",
 				:Default=>1.0,
 				:Symbol=>"K_{wall}"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Inside Fouling Resistance",
 				:Unit=>"m^2*K/kW",
 				:Default=>1e-6,
 				:Lower=>0
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Outside Fouling Resistance",
 				:Unit=>"m^2*K/kW",
 				:Default=>1e-6,
 				:Lower=>0
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Inner Side Outlet Nozzle Diameter",
 				:Default=>0.036,
 				:Lower=>10e-6
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Inner Side Inlet Nozzle Diameter",
 				:Default=>0.036,
 				:Lower=>10e-6
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Outer Side Outlet Nozzle Diameter",
 				:Default=>0.036,
 				:Lower=>10e-6
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Outer Side Inlet Nozzle Diameter",
 				:Default=>0.036,
 				:Lower=>10e-6
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Inner Side Inlet Nozzle Pressure Loss Coeff",
 				:Default=>1.1
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Inner Side Outlet Nozzle Pressure Loss Coeff",
 				:Default=>0.7
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Outer Side Inlet Nozzle Pressure Loss Coeff",
 				:Default=>1.1
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Outer Side Outlet Nozzle Pressure Loss Coeff",
 				:Default=>0.7
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet Inner Stream",
 				:PosX=>0,
 				:PosY=>0.5225,
 				:Symbol=>"_{inInner}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet Outer Stream",
 				:PosX=>0.2805,
 				:PosY=>0,
 				:Symbol=>"_{inOuter}"
 			)),
-			streamPH (Dict{Symbol,Any}(
+			streamPH(Dict{Symbol,Any}(
 				:Brief=>"Outlet Inner Stream",
 				:PosX=>1,
 				:PosY=>0.5225,
 				:Symbol=>"_{outInner}"
 			)),
-			streamPH (Dict{Symbol,Any}(
+			streamPH(Dict{Symbol,Any}(
 				:Brief=>"Outlet Outer Stream",
 				:PosX=>0.7264,
 				:PosY=>1,
 				:Symbol=>"_{outOuter}"
 			)),
-			Details_Main (Dict{Symbol,Any}(
+			Details_Main(Dict{Symbol,Any}(
 				:Brief=>"Some Details in the Heat Exchanger",
 				:Symbol=>" "
 			)),
-			Main_DoublePipe (Dict{Symbol,Any}(
+			Main_DoublePipe(Dict{Symbol,Any}(
 				:Brief=>"Inner Side of the Heat Exchanger",
 				:Symbol=>"_{Inner}"
 			)),
-			Main_DoublePipe (Dict{Symbol,Any}(
+			Main_DoublePipe(Dict{Symbol,Any}(
 				:Brief=>"Outer Side of the Heat Exchanger",
 				:Symbol=>"_{Outer}"
 			)),
-			fill(length (Dict{Symbol,Any}(
+			fill(length(Dict{Symbol,Any}(
 				:Brief=>"Incremental Tube Length",
 				:Symbol=>"L_{incr}"
 			)),(Npoints)),

@@ -18,12 +18,12 @@
 type tank_simplified
 	tank_simplified()=begin
 		new(
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Valve Constant",
 				:Unit=>"m^2.5/h",
 				:Default=>4
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Tank area",
 				:Default=>2
 			)),

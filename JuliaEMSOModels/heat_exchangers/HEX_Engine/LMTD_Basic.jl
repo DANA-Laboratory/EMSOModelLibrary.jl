@@ -18,24 +18,24 @@
 type LMTD_Basic
 	LMTD_Basic()=begin
 		new(
-			temp_delta (Dict{Symbol,Any}(
+			temp_delta(Dict{Symbol,Any}(
 				:Brief=>"Temperature Difference at Inlet",
 				:Lower=>1e-6,
 				:Symbol=>"\\Delta T_0",
 				:Protected=>true
 			)),
-			temp_delta (Dict{Symbol,Any}(
+			temp_delta(Dict{Symbol,Any}(
 				:Brief=>"Temperature Difference at Outlet",
 				:Lower=>1e-6,
 				:Symbol=>"\\Delta T_L",
 				:Protected=>true
 			)),
-			temp_delta (Dict{Symbol,Any}(
+			temp_delta(Dict{Symbol,Any}(
 				:Brief=>"Logarithmic Mean Temperature Difference",
 				:Lower=>1e-6,
 				:Protected=>true
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"LMTD Correction Factor",
 				:Lower=>0.1,
 				:Protected=>true

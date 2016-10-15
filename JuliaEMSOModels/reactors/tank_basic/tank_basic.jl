@@ -32,35 +32,35 @@ type tank_basic
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External physical properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of components",
 				:Default=>1
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0,
 				:Symbol=>"_{in}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Intermediary outlet stream",
 				:Symbol=>"_{outm}"
 			)),
-			vol_tank (Dict{Symbol,Any}(
+			vol_tank(Dict{Symbol,Any}(
 				:Brief=>"Routine to volume tank calculation",
 				:Symbol=>"_{tank}"
 			)),
-			fill(mol (Dict{Symbol,Any}(
+			fill(mol(Dict{Symbol,Any}(
 				:Brief=>"Component molar holdup"
 			)),(NComp)),
-			mol (Dict{Symbol,Any}(
+			mol(Dict{Symbol,Any}(
 				:Brief=>"Total component molar holdup"
 			)),
-			energy (Dict{Symbol,Any}(
+			energy(Dict{Symbol,Any}(
 				:Brief=>"Internal energy"
 			)),
 			heat_rate(Dict{Symbol,Any}(

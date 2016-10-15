@@ -21,48 +21,48 @@ type condenserSteady_fakeH
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Components"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop in the condenser",
 				:Default=>0,
 				:Symbol=>"\\Delta _P"
 			)),
-			temperature (Dict{Symbol,Any}(
+			temperature(Dict{Symbol,Any}(
 				:Brief=>"Fake temperature",
 				:Symbol=>"T_{fake}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Vapour inlet stream",
 				:PosX=>0.16,
 				:PosY=>0,
 				:Symbol=>"_{in}^{Vapour}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream",
 				:PosX=>0.53,
 				:PosY=>1,
 				:Symbol=>"_{out}^{Liquid}"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Heat Duty",
 				:PosX=>1,
 				:PosY=>0.08,
 				:Symbol=>"Q_{in}",
 				:Protected=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Temperature  Indicator of Condenser",
 				:Protected=>true,
 				:PosX=>0.50,
 				:PosY=>0
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Pressure  Indicator of Condenser",
 				:Protected=>true,
 				:PosX=>0.32,

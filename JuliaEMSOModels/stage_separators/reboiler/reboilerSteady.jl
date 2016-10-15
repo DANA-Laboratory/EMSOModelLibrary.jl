@@ -21,74 +21,74 @@ type reboilerSteady
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Components"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Flash Calculation",
 				:Valid=>["Flash_PH","Fake_Conditions"],
 				:Default=>"Fake_Conditions"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop in the reboiler",
 				:Symbol=>"\\Delta P"
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Flow Constant"
 			)),
-			temperature (Dict{Symbol,Any}(
+			temperature(Dict{Symbol,Any}(
 				:Brief=>"Fake temperature",
 				:Symbol=>"T_{fake}"
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Fake vapour fraction",
 				:Symbol=>"v_{fake}"
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Flow Constant",
 				:Hidden=>true,
 				:Unit=>"mol^3/(kg*m^2)"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid inlet stream",
 				:PosX=>0.345,
 				:PosY=>1,
 				:Symbol=>"_{inL}",
 				:Protected=>true
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Vapour outlet stream",
 				:PosX=>0.17,
 				:PosY=>0,
 				:Symbol=>"_{outV}",
 				:Protected=>true
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Heat supplied",
 				:PosX=>1,
 				:PosY=>0.08,
 				:Symbol=>"Q_{in}",
 				:Protected=>true
 			)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Fraction",
 				:Hidden=>true
 			)),(NComp)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar Fraction",
 				:Hidden=>true
 			)),(NComp)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Temperature  Indicator of Reboiler",
 				:Protected=>true,
 				:PosX=>0.44,
 				:PosY=>0
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Pressure Indicator of Reboiler",
 				:Protected=>true,
 				:PosX=>0.35,

@@ -6,190 +6,190 @@ type packedStage
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number Of Components"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Resistance coefficient on the liquid load",
 				:Default=>1,
 				:Hidden=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"surface area per packing volume",
 				:Unit=>"m^2/m^3",
 				:Hidden=>true
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Column diameter",
 				:Hidden=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Void fraction of packing, (m^3 void space/m^3 packed bed)",
 				:Hidden=>true
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Height of packing",
 				:Hidden=>true
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Stages",
 				:Default=>3,
 				:Hidden=>true
 			)),
-			heat_rate (Dict{Symbol,Any}(
+			heat_rate(Dict{Symbol,Any}(
 				:Brief=>"Rate of heat supply",
 				:Hidden=>true
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"The Height Equivalent to a Theoretical Plate",
 				:Hidden=>true
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Column Sectional Cross Area",
 				:Hidden=>true
 			)),
-			volume (Dict{Symbol,Any}(
+			volume(Dict{Symbol,Any}(
 				:Brief=>"Total Volume of the tray",
 				:Hidden=>true
 			)),
-			constant (Dict{Symbol,Any}(
+			constant(Dict{Symbol,Any}(
 				:Brief=>"Pi Number",
 				:Default=>3.14159265,
 				:Symbol=>"\\pi",
 				:Hidden=>true
 			)),
-			acceleration (Dict{Symbol,Any}(
+			acceleration(Dict{Symbol,Any}(
 				:Brief=>"Gravity Acceleration",
 				:Default=>9.81,
 				:Hidden=>true
 			)),
-			flow_mol (Dict{Symbol,Any}(
+			flow_mol(Dict{Symbol,Any}(
 				:Brief=>"Low Flow",
 				:Default=>1E-6,
 				:Hidden=>true
 			)),
-			pressure (Dict{Symbol,Any}(
+			pressure(Dict{Symbol,Any}(
 				:Brief=>"Low Pressure",
 				:Default=>1E-6,
 				:Hidden=>true
 			)),
-			flow_mol (Dict{Symbol,Any}(
+			flow_mol(Dict{Symbol,Any}(
 				:Brief=>"No Flow",
 				:Default=>0,
 				:Hidden=>true
 			)),
-			fill(molweight (Dict{Symbol,Any}(
+			fill(molweight(Dict{Symbol,Any}(
 				:Brief=>"Component Mol Weight",
 				:Hidden=>true
 			)),(NComp)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Vapour Flow",
 				:Valid=>["on", "off"],
 				:Default=>"on",
 				:Hidden=>true
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Feed stream",
 				:Symbol=>"_{in}",
 				:Protected=>true
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet liquid stream",
 				:Symbol=>"_{inL}",
 				:Protected=>true
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet vapour stream",
 				:Symbol=>"_{inV}",
 				:Protected=>true
 			)),
-			liquid_stream (Dict{Symbol,Any}(
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet liquid stream",
 				:Symbol=>"_{outL}",
 				:Protected=>true
 			)),
-			vapour_stream (Dict{Symbol,Any}(
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet vapour stream",
 				:Symbol=>"_{outV}",
 				:Protected=>true
 			)),
-			fill(mol (Dict{Symbol,Any}(
+			fill(mol(Dict{Symbol,Any}(
 				:Brief=>"Molar Holdup in the tray",
 				:Default=>0.01,
 				:Lower=>-0.000001,
 				:Upper=>100,
 				:Protected=>true
 			)),(NComp)),
-			mol (Dict{Symbol,Any}(
+			mol(Dict{Symbol,Any}(
 				:Brief=>"Molar liquid holdup",
 				:Default=>0.01,
 				:Lower=>0,
 				:Upper=>100,
 				:Protected=>true
 			)),
-			mol (Dict{Symbol,Any}(
+			mol(Dict{Symbol,Any}(
 				:Brief=>"Molar vapour holdup",
 				:Default=>0.01,
 				:Lower=>0,
 				:Upper=>100,
 				:Protected=>true
 			)),
-			energy (Dict{Symbol,Any}(
+			energy(Dict{Symbol,Any}(
 				:Brief=>"Total Energy Holdup on tray",
 				:Default=>-500,
 				:Protected=>true
 			)),
-			volume_mol (Dict{Symbol,Any}(
+			volume_mol(Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Volume",
 				:Protected=>true
 			)),
-			volume_mol (Dict{Symbol,Any}(
+			volume_mol(Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar volume",
 				:Protected=>true
 			)),
-			viscosity (Dict{Symbol,Any}(
+			viscosity(Dict{Symbol,Any}(
 				:Brief=>"Liquid dynamic viscosity",
 				:DisplayUnit=>"kg/m/s",
 				:Protected=>true
 			)),
-			dens_mass (Dict{Symbol,Any}(
+			dens_mass(Dict{Symbol,Any}(
 				:Brief=>"Liquid mass density",
 				:Protected=>true
 			)),
-			dens_mass (Dict{Symbol,Any}(
+			dens_mass(Dict{Symbol,Any}(
 				:Brief=>"Vapour mass density",
 				:Protected=>true
 			)),
-			velocity (Dict{Symbol,Any}(
+			velocity(Dict{Symbol,Any}(
 				:Brief=>"volume flow rate of liquid, m^3/m^2/s",
 				:Lower=>-10,
 				:Upper=>1000,
 				:Protected=>true
 			)),
-			velocity (Dict{Symbol,Any}(
+			velocity(Dict{Symbol,Any}(
 				:Brief=>"volume flow rate of vapor, m^3/m^2/s",
 				:Lower=>-10,
 				:Upper=>1000,
 				:Protected=>true
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Area occupied by the liquid",
 				:Default=>0.001,
 				:Upper=>10,
 				:Protected=>true
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Column holdup",
 				:Unit=>"m^3/m^3",
 				:Default=>0.01,
 				:Upper=>10,
 				:Protected=>true
 			)),
-			pressure (Dict{Symbol,Any}(
+			pressure(Dict{Symbol,Any}(
 				:Brief=>"Stage Pressure drop",
 				:Protected=>true
 			)),

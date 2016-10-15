@@ -8,20 +8,20 @@ type Flash
 			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"Steam tables"
 			)),
-			Fracao (Dict{Symbol,Any}(
+			Fracao(Dict{Symbol,Any}(
 				:Upper=>2
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{in}",
 				:PosX=>1,
 				:PosY=>0.5
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{outL}",
 				:PosX=>0.4,
 				:PosY=>1
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{outV}",
 				:PosX=>0.4,
 				:PosY=>0

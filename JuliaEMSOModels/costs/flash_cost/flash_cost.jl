@@ -46,39 +46,39 @@ type flash_cost
 	flash_cost()=begin
 		new(
 			flash(),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["Stainless steell 304", "Stainless steel 316", "Carpenter 20CB_3", "Nickel 200", "Monel 400", "Inconel 600", "Incoloy 825", "Titanium"],
 				:Default=>"Stainless steel 304"
 			)),
 			fill(DanaReal()),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Flash Length"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Internal Diameter for vertical vases"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Internal Diameter for horizontal vases"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Thickness"
 			)),
-			dens_mass (Dict{Symbol,Any}(
+			dens_mass(Dict{Symbol,Any}(
 				:Brief=>"Mass Density of the Material"
 			)),
-			currency (Dict{Symbol,Any}(
+			currency(Dict{Symbol,Any}(
 				:Brief=>"Capital Cost"
 			)),
-			currency (Dict{Symbol,Any}(
+			currency(Dict{Symbol,Any}(
 				:Brief=>"Basic Cost"
 			)),
-			currency (Dict{Symbol,Any}(
+			currency(Dict{Symbol,Any}(
 				:Brief=>"Cost for stairs, railing and platform"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Cost Factor based on the construction material"
 			)),
-			mass (Dict{Symbol,Any}(
+			mass(Dict{Symbol,Any}(
 				:Brief=>"Equipment Weight"
 			)),
 			[

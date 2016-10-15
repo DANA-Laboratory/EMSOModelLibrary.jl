@@ -39,11 +39,11 @@ type yield_vap
 	yield_vap()=begin
 		new(
 			tank_vap(),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of reactions",
 				:Default=>1
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Key component",
 				:Lower=>1,
 				:Default=>1
@@ -54,19 +54,19 @@ type yield_vap
 				:PosY=>1,
 				:Symbol=>"_{out}"
 			)),
-			fill(reaction_mol (Dict{Symbol,Any}(
+			fill(reaction_mol(Dict{Symbol,Any}(
 				:Brief=>"Overall component rate of reaction"
 			)),(NComp)),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Fractional conversion of component",
 				:Symbol=>"X",
 				:Default=>0
 			)),(NComp)),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Molar component yield (global)",
 				:Symbol=>"Y_G"
 			)),(NComp)),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Molar reaction yield (instantaneous)",
 				:Symbol=>"Y_I"
 			)),(NComp)),

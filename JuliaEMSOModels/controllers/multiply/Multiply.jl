@@ -18,17 +18,17 @@
 type Multiply
 	Multiply()=begin
 		new(
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"input signal 1",
 				:PosX=>0,
 				:PosY=>0.75
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"input signal 2",
 				:PosX=>0,
 				:PosY=>0.25
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"output signal",
 				:PosX=>1,
 				:PosY=>0.5

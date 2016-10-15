@@ -5,25 +5,25 @@ type equil_liq
 	equil_liq()=begin
 		new(
 			tank_liq(),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of reactions",
 				:Default=>1
 			)),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Stoichiometric matrix",
 				:Symbol=>"\\nu"
 			)),(NComp,NReac)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Universal gas constant",
 				:Unit=>"J/mol/K",
 				:Default=>8.314
 			)),
-			pressure (Dict{Symbol,Any}(
+			pressure(Dict{Symbol,Any}(
 				:Brief=>"Standard pressure",
 				:Default=>1,
 				:DisplayUnit=>"bar"
 			)),
-			temperature (Dict{Symbol,Any}(
+			temperature(Dict{Symbol,Any}(
 				:Brief=>"Reference temperature",
 				:Default=>298.15
 			)),
@@ -33,24 +33,24 @@ type equil_liq
 				:PosY=>1,
 				:Symbol=>"_{out}"
 			)),
-			fill(enth_mol (Dict{Symbol,Any}(
+			fill(enth_mol(Dict{Symbol,Any}(
 				:Brief=>"Gibbs free-energy of formation"
 			)),(NReac)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Equillibrium constant"
 			)),(NReac)),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Activity",
 				:Symbol=>"\\hat{a}"
 			)),(NComp)),
-			fill(reaction_mol (Dict{Symbol,Any}(
+			fill(reaction_mol(Dict{Symbol,Any}(
 				:Brief=>"Overall component rate of reaction"
 			)),(NComp)),
-			fill(flow_mol (Dict{Symbol,Any}(
+			fill(flow_mol(Dict{Symbol,Any}(
 				:Brief=>"Extent of reaction",
 				:Symbol=>"\\xi"
 			)),(NReac)),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Fractional conversion of component",
 				:Symbol=>"X",
 				:Default=>0

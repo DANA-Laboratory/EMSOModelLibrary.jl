@@ -22,7 +22,7 @@ type streamPHS
 	streamPHS()=begin
 		new(
 			streamPH(),
-			entr_mol (Dict{Symbol,Any}(
+			entr_mol(Dict{Symbol,Any}(
 				:Brief=>"Stream Entropy",
 				:Protected=>true
 			)),

@@ -22,10 +22,10 @@ type cstr
 	cstr()=begin
 		new(
 			cstr_basic(),
-			fill(reaction_mol (Dict{Symbol,Any}(
+			fill(reaction_mol(Dict{Symbol,Any}(
 				:Brief=>"Molar Reaction Rate"
 			)),(NReac)),
-			fill(heat_reaction (Dict{Symbol,Any}(
+			fill(heat_reaction(Dict{Symbol,Any}(
 				:Brief=>"Heat Reaction"
 			)),(NReac)),
 			[

@@ -27,160 +27,160 @@ type PIDIncr
 			"","","","",
 		],
 		new(
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Type of PID Incremental",
 				:Valid=>["Ideal","Parallel","Series","Ideal_AWBT","Parallel_AWBT","Series_AWBT","Ideal_AW","Parallel_AW","Series_AW"],
 				:Default=>"Ideal"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Controller action",
 				:Valid=>["Direct","Reverse"],
 				:Default=>"Reverse"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Controller mode",
 				:Valid=>["Automatic","Manual"],
 				:Default=>"Automatic"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Controller mode",
 				:Valid=>["Clipped","Unclipped"],
 				:Default=>"Clipped"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Derivative term filter constant",
 				:Default=>1
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Proportional term setPoint change filter"
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Previous scaled bias",
 				:Default=>0.5
 			)),
-			time_sec (Dict{Symbol,Any}(
+			time_sec(Dict{Symbol,Any}(
 				:Brief=>"Derivative time constant"
 			)),
-			time_sec (Dict{Symbol,Any}(
+			time_sec(Dict{Symbol,Any}(
 				:Brief=>"Integral time constant"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Controller gain",
 				:Default=>0.5
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Derivative term SP change filter"
 			)),
-			time_sec (Dict{Symbol,Any}(
+			time_sec(Dict{Symbol,Any}(
 				:Brief=>"Input filter time constant"
 			)),
-			time_sec (Dict{Symbol,Any}(
+			time_sec(Dict{Symbol,Any}(
 				:Brief=>"Input filter time constant"
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Default=>0
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Default=>1000
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Default=>0
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Default=>1
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Protected=>true,
 				:PosX=>0,
 				:PosY=>0.5
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Protected=>true,
 				:PosX=>0.54,
 				:PosY=>1
 			)),
 			control_signal(),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Derivative term",
 				:Unit=>"1/s",
 				:Default=>0,
 				:Hidden=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Derivative term filtered",
 				:Default=>0.5,
 				:Unit=>"1/s",
 				:Hidden=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Error definition for proportional term",
 				:Unit=>"1/s",
 				:Hidden=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Error definition for derivative term",
 				:Unit=>"1/s",
 				:Hidden=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Error definition for integral term",
 				:Hidden=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Filtered input",
 				:Hidden=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Integral term",
 				:Default=>0,
 				:Unit=>"1/s",
 				:Hidden=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Sum of proportional, integral and derivative terms",
 				:Unit=>"1/s",
 				:Hidden=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Variable outp scaled between -1 and 1",
 				:Hidden=>true,
 				:Default=>0.5
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Variable outp",
 				:Hidden=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Proportional term",
 				:Default=>0,
 				:Unit=>"1/s",
 				:Hidden=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Filtered setPoint",
 				:Default=>0,
 				:Hidden=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Previous scaled input signal",
 				:Default=>0.5,
 				:Hidden=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Scaled output signal",
 				:Default=>0.5,
 				:Hidden=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Scaled setPoint",
 				:Default=>0.5,
 				:Hidden=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Integral term multiplier used in anti-reset windup",
 				:Hidden=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Hidden=>true
 			)),
 			[

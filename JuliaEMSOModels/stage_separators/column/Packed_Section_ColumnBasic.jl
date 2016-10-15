@@ -40,48 +40,48 @@ type Packed_Section_ColumnBasic
 			
 		],
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of components",
 				:Protected=>true
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Feed Stages",
 				:Default=>3,
 				:Protected=>true
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Stages",
 				:Default=>3
 			)),
-			fill(DanaInteger (Dict{Symbol,Any}(
+			fill(DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Feed Stage Location",
 				:Default=>2
 			)),(NumberOfFeeds)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Height of packing"
 			)),
-			heat_rate (Dict{Symbol,Any}(
+			heat_rate(Dict{Symbol,Any}(
 				:Brief=>"Rate of heat supply"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Column diameter"
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Void fraction of packing, (m^3 void space/m^3 packed bed)"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Resistance coefficient on the liquid load",
 				:Default=>1
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"surface area per packing volume",
 				:Unit=>"m^2/m^3"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"The Height Equivalent to a Theoretical Plate",
 				:Protected=>true
 			)),

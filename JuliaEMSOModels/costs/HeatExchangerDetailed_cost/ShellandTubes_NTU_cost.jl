@@ -20,27 +20,27 @@ type ShellandTubes_NTU_cost
 	ShellandTubes_NTU_cost()=begin
 		new(
 			ShellandTubes_NTU(),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["Stainless steel 316", "Stainless steel 304", "Stainless steel 347", "Nickel 200", "Monel 400", "Inconel 600", "Incoloy 825", "Titanium", "Hastelloy"],
 				:Default=>"Stainless steel 316"
 			)),
 			fill(DanaReal()),
-			currency (Dict{Symbol,Any}(
+			currency(Dict{Symbol,Any}(
 				:Brief=>"Capital Cost"
 			)),
-			currency (Dict{Symbol,Any}(
+			currency(Dict{Symbol,Any}(
 				:Brief=>"Basic Cost"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Cost Factor based on the type of the heat exchanger"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Cost Factor based on the project pressure"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Cost Factor based on the construction material"
 			)),
-			pressure (Dict{Symbol,Any}(
+			pressure(Dict{Symbol,Any}(
 				:Brief=>"Average  Pressure"
 			)),
 			[

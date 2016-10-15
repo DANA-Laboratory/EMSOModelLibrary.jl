@@ -3,6 +3,12 @@ module EMSOModelLibrary
 # package code goes here
   export controllers,costs,electrical,heat_exchangers,mixers_splitters,pressure_changers,reactors
   export stage_separators,streams,types,UserModels,power_plant
+
+  module types
+    export EMLtypes
+    include("../JuliaEMSOModels/types.jl")
+  end
+
   module controllers
     export EMLComparator,EMLHiLoSelect,EMLiae,EMLise
     export EMLlag_1,EMLlead_lag,EMLmultiply
@@ -98,11 +104,6 @@ module EMSOModelLibrary
   module streams
     export EMLstreams
     include("../JuliaEMSOModels/streams.jl")
-  end
-
-  module types
-    export EMLtypes
-    include("../JuliaEMSOModels/types.jl")
   end
 
   module UserModels

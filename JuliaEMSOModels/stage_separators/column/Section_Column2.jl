@@ -33,12 +33,12 @@ type Section_Column2
 	Section_Column2()=begin
 		new(
 			SectionColumnBasic(),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Feed stream",
 				:PosX=>0,
 				:PosY=>0.45
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Feed stream",
 				:PosX=>0,
 				:PosY=>0.65

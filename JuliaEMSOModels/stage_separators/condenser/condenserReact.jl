@@ -33,76 +33,76 @@ type condenserReact
 				:Type=>"PP"
 			)),
 			DanaInteger(),
-			volume (Dict{Symbol,Any}(
+			volume(Dict{Symbol,Any}(
 				:Brief=>"Condenser total volume"
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Cross Section Area of reboiler"
 			)),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Stoichiometric matrix"
 			)),(NComp)),
 			energy_mol(),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Initial Level of liquid phase"
 			)),
-			temperature (Dict{Symbol,Any}(
+			temperature(Dict{Symbol,Any}(
 				:Brief=>"Initial Temperature of Condenser"
 			)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Initial Liquid Composition"
 			)),(NComp)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Vapour inlet stream",
 				:PosX=>0.1164,
 				:PosY=>0,
 				:Symbol=>"_{inV}"
 			)),
-			liquid_stream (Dict{Symbol,Any}(
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream",
 				:PosX=>0.4513,
 				:PosY=>1,
 				:Symbol=>"_{outL}"
 			)),
-			vapour_stream (Dict{Symbol,Any}(
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"Vapour outlet stream",
 				:PosX=>0.4723,
 				:PosY=>0,
 				:Symbol=>"_{outV}"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Cold supplied",
 				:PosX=>1,
 				:PosY=>0.6311,
 				:Symbol=>"_{in}"
 			)),
-			fill(mol (Dict{Symbol,Any}(
+			fill(mol(Dict{Symbol,Any}(
 				:Brief=>"Molar Holdup in the tray"
 			)),(NComp)),
-			mol (Dict{Symbol,Any}(
+			mol(Dict{Symbol,Any}(
 				:Brief=>"Molar liquid holdup"
 			)),
-			mol (Dict{Symbol,Any}(
+			mol(Dict{Symbol,Any}(
 				:Brief=>"Molar vapour holdup"
 			)),
-			energy (Dict{Symbol,Any}(
+			energy(Dict{Symbol,Any}(
 				:Brief=>"Total Energy Holdup on tray"
 			)),
-			volume_mol (Dict{Symbol,Any}(
+			volume_mol(Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Volume"
 			)),
-			volume_mol (Dict{Symbol,Any}(
+			volume_mol(Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar volume"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Level of liquid phase"
 			)),
 			volume(),
-			reaction_mol (Dict{Symbol,Any}(
+			reaction_mol(Dict{Symbol,Any}(
 				:Brief=>"Reaction Rates",
 				:DisplayUnit=>"mol/l/s"
 			)),
-			fill(conc_mol (Dict{Symbol,Any}(
+			fill(conc_mol(Dict{Symbol,Any}(
 				:Brief=>"Molar concentration",
 				:Lower=>-1
 			)),(NComp)),

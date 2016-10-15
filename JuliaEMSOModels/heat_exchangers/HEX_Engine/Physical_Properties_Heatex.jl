@@ -18,21 +18,21 @@
 type Physical_Properties_Heatex
 	Physical_Properties_Heatex()=begin
 		new(
-			molweight (Dict{Symbol,Any}(
+			molweight(Dict{Symbol,Any}(
 				:Brief=>"Average Mol Weight",
 				:Default=>75,
 				:Lower=>1,
 				:Upper=>1e8
 			)),
-			cp_mol (Dict{Symbol,Any}(
+			cp_mol(Dict{Symbol,Any}(
 				:Brief=>"Average Molar Heat Capacity",
 				:Upper=>1e10
 			)),
-			Properties_In_Out (Dict{Symbol,Any}(
+			Properties_In_Out(Dict{Symbol,Any}(
 				:Brief=>"Properties at Inlet Stream",
 				:Symbol=>"_{in}"
 			)),
-			Properties_In_Out (Dict{Symbol,Any}(
+			Properties_In_Out(Dict{Symbol,Any}(
 				:Brief=>"Properties at Outlet Stream",
 				:Symbol=>"_{out}"
 			)),

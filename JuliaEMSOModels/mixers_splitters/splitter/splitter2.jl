@@ -19,25 +19,25 @@
 type splitter2
 	splitter2()=begin
 		new(
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0.5,
 				:PosY=>0,
 				:Symbol=>"_{in}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet stream 1",
 				:PosX=>0.25,
 				:PosY=>1,
 				:Symbol=>"_{out1}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet stream 2",
 				:PosX=>0.75,
 				:PosY=>1,
 				:Symbol=>"_{out2}"
 			)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Distribution of Outlets",
 				:Default=>0.33,
 				:Symbol=>"\\phi"

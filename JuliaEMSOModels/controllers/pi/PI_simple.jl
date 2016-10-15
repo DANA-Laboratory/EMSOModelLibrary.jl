@@ -7,15 +7,15 @@ type PI_simple
 			"",
 		],
 		new(
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Controller gain",
 				:Default=>0.5
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Integral time constant",
 				:Unit=>"s"
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Previous scaled bias",
 				:Default=>0.5
 			)),
@@ -25,38 +25,38 @@ type PI_simple
 			control_signal(Dict{Symbol,Any}(
 				:Default=>1000
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Previous scaled input signal",
 				:Default=>0.5,
 				:PosX=>0,
 				:PosY=>0.5,
 				:Protected=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Scaled output signal",
 				:Default=>0,
 				:PosX=>0.54,
 				:PosY=>1,
 				:Protected=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Scaled input variable",
 				:Hidden=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Scaled set point",
 				:Hidden=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Integral term",
 				:Default=>0,
 				:Protected=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Variable outp scaled between 0 and 1",
 				:Hidden=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Scaled setPoint",
 				:Lower=>0,
 				:Upper=>1,

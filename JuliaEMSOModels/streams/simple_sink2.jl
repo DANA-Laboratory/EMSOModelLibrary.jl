@@ -21,7 +21,7 @@
 type simple_sink2
 	simple_sink2()=begin
 		new(
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet Stream",
 				:PosX=>1,
 				:PosY=>0.5308,

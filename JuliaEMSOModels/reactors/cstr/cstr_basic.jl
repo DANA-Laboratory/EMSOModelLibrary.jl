@@ -22,37 +22,37 @@ type cstr_basic
 	cstr_basic()=begin
 		NComp=outers.NComp
 		new(
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number Of Components"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number Of Reactions"
 			)),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Stoichiometric Matrix"
 			)),(NComp, NReac)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet Stream",
 				:PosX=>0,
 				:PosY=>0,
 				:Symbol=>"_{in}"
 			)),
-			streamPH (Dict{Symbol,Any}(
+			streamPH(Dict{Symbol,Any}(
 				:Brief=>"Outlet Stream",
 				:PosX=>1,
 				:PosY=>1,
 				:Symbol=>"_{out}"
 			)),
-			heat_rate (Dict{Symbol,Any}(
+			heat_rate(Dict{Symbol,Any}(
 				:Brief=>"Heat"
 			)),
-			volume (Dict{Symbol,Any}(
+			volume(Dict{Symbol,Any}(
 				:Brief=>"Reacting Volume"
 			)),
-			mol (Dict{Symbol,Any}(
+			mol(Dict{Symbol,Any}(
 				:Brief=>"Molar total amount"
 			)),
-			fill(conc_mol (Dict{Symbol,Any}(
+			fill(conc_mol(Dict{Symbol,Any}(
 				:Brief=>"Components concentration"
 			)),(NComp)),
 			[

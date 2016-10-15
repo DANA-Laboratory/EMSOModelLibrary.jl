@@ -27,11 +27,11 @@ type valve_flow
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Components"
 			)),
 			flow_mol(Dict{Symbol,Any}(
@@ -42,21 +42,21 @@ type valve_flow
 				:Brief=>"Maximum Flow Allowable in the valve",
 				:Default=>1000
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0.7365,
 				:Symbol=>"_{in}",
 				:Protected=>true
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>1,
 				:PosY=>0.7365,
 				:Symbol=>"_{out}",
 				:Protected=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Flow Signal",
 				:PosX=>0.5,
 				:PosY=>0,

@@ -39,11 +39,11 @@ type stoic_vap
 	stoic_vap()=begin
 		new(
 			tank_vap(),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of reactions",
 				:Default=>1
 			)),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Stoichiometric matrix",
 				:Symbol=>"\\nu"
 			)),(NComp,NReac)),
@@ -53,10 +53,10 @@ type stoic_vap
 				:PosY=>1,
 				:Symbol=>"_{out}"
 			)),
-			fill(reaction_mol (Dict{Symbol,Any}(
+			fill(reaction_mol(Dict{Symbol,Any}(
 				:Brief=>"Overall component rate of reaction"
 			)),(NComp)),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Fractional conversion of component",
 				:Symbol=>"X",
 				:Default=>0

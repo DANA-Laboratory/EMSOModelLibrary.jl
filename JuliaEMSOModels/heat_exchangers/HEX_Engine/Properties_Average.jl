@@ -18,40 +18,40 @@
 type Properties_Average
 	Properties_Average()=begin
 		new(
-			molweight (Dict{Symbol,Any}(
+			molweight(Dict{Symbol,Any}(
 				:Brief=>"Average Mol Weight",
 				:Default=>75,
 				:Lower=>1,
 				:Upper=>1e8
 			)),
-			temperature (Dict{Symbol,Any}(
+			temperature(Dict{Symbol,Any}(
 				:Brief=>"Average  Temperature",
 				:Lower=>50
 			)),
-			pressure (Dict{Symbol,Any}(
+			pressure(Dict{Symbol,Any}(
 				:Brief=>"Average  Pressure",
 				:Default=>1,
 				:Lower=>1e-10,
 				:Upper=>2e4,
 				:DisplayUnit=>"kPa"
 			)),
-			dens_mass (Dict{Symbol,Any}(
+			dens_mass(Dict{Symbol,Any}(
 				:Brief=>"Stream Density" ,
 				:Default=>1000,
 				:Lower=>1e-3,
 				:Upper=>5e5,
 				:Symbol=>"\\rho"
 			)),
-			viscosity (Dict{Symbol,Any}(
+			viscosity(Dict{Symbol,Any}(
 				:Brief=>"Stream Viscosity",
 				:Lower=>0.0001,
 				:Symbol=>"\\mu"
 			)),
-			cp_mol (Dict{Symbol,Any}(
+			cp_mol(Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Heat Capacity",
 				:Upper=>1e10
 			)),
-			conductivity (Dict{Symbol,Any}(
+			conductivity(Dict{Symbol,Any}(
 				:Brief=>"Stream Thermal Conductivity",
 				:Default=>1.0,
 				:Lower=>1e-5,

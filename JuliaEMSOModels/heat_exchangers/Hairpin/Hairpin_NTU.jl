@@ -19,16 +19,16 @@ type Hairpin_NTU
 	Hairpin_NTU()=begin
 		new(
 			Hairpin_Basic(),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Flow Direction",
 				:Valid=>["counter","cocurrent"],
 				:Default=>"cocurrent"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Effectiveness estimate",
 				:Default=>0.5
 			)),
-			NTU_Basic (Dict{Symbol,Any}(
+			NTU_Basic(Dict{Symbol,Any}(
 				:Brief=>"NTU Method of Calculation",
 				:Symbol=>" "
 			)),

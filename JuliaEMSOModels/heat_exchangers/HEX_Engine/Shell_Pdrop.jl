@@ -18,83 +18,83 @@
 type Shell_Pdrop
 	Shell_Pdrop()=begin
 		new(
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Ideal Pressure Drop",
 				:Symbol=>"\\Delta P_{ideal}",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Cross Flow Pressure Drop",
 				:Symbol=>"\\Delta P_{CrossFlow}",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"End Zones Pressure Drop",
 				:Symbol=>"\\Delta P_{EndZones}",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Window Pressure Drop",
 				:Symbol=>"\\Delta P_{Window}",
 				:Default=>0.01,
 				:Lower=>1e-10,
 				:DisplayUnit=>"kPa"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Inlet Nozzle Pressure Drop",
 				:Symbol=>"\\Delta P_{Nozzle\\_In}",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Outlet Nozzle Pressure Drop",
 				:Symbol=>"\\Delta P_{Nozzle\\_Out}",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Total Pressure Drop",
 				:Symbol=>"\\Delta P_{Total}",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa"
 			)),
-			fricfactor (Dict{Symbol,Any}(
+			fricfactor(Dict{Symbol,Any}(
 				:Brief=>"Friction Factor",
 				:Symbol=>"f_i",
 				:Default=>0.05,
 				:Lower=>1e-10,
 				:Upper=>2000
 			)),
-			velocity (Dict{Symbol,Any}(
+			velocity(Dict{Symbol,Any}(
 				:Brief=>"Inlet Nozzle Velocity",
 				:Symbol=>"V_{Nozzle\\_In}",
 				:Default=>1,
 				:Upper=>1e5,
 				:Lower=>0
 			)),
-			velocity (Dict{Symbol,Any}(
+			velocity(Dict{Symbol,Any}(
 				:Brief=>"Outlet Nozzle Velocity",
 				:Symbol=>"V_{Nozzle\\_Out}",
 				:Default=>1,
 				:Upper=>1e5,
 				:Lower=>0
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Outlet Nozzle rho-V^2",
 				:Default=>1,
 				:Upper=>1e6,
 				:Unit=>"kg/s^2/m"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Inlet Nozzle rho-V^2",
 				:Default=>1,
 				:Upper=>1e6,

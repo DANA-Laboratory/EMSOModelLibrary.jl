@@ -21,42 +21,42 @@ type sepComp
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0.5001,
 				:Symbol=>"_{Inlet}"
 			)),
-			streamPH (Dict{Symbol,Any}(
+			streamPH(Dict{Symbol,Any}(
 				:Brief=>"Overhead_Outlet stream",
 				:PosX=>0.5,
 				:PosY=>0,
 				:Symbol=>"_{Overhead}"
 			)),
-			streamPH (Dict{Symbol,Any}(
+			streamPH(Dict{Symbol,Any}(
 				:Brief=>"Bottom_Outlet stream",
 				:PosX=>0.5,
 				:PosY=>1,
 				:Symbol=>"_{Bottom}"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Rate of heat supply",
 				:PosX=>1,
 				:PosY=>0.7559,
 				:Symbol=>"_{in}"
 			)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Fraction to Overhead_Outlet",
 				:Symbol=>"\\phi_{overhead}"
 			)),(NComp)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Fraction to Bottom_Outlet",
 				:Symbol=>"\\phi_{bottom}"
 			)),(NComp)),

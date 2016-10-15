@@ -19,7 +19,7 @@ type ShellandTubes_NTU
 	ShellandTubes_NTU()=begin
 		new(
 			ShellandTubesBasic(),
-			NTU_Basic (Dict{Symbol,Any}(
+			NTU_Basic(Dict{Symbol,Any}(
 				:Brief=>"NTU Method"
 			)),
 			[

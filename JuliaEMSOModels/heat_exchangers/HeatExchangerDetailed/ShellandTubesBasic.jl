@@ -20,289 +20,289 @@ type ShellandTubesBasic
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Hot Side in the Exchanger",
 				:Hidden=>true,
 				:Valid=>["shell","tubes"],
 				:Default=>"shell"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"TEMA Designation",
 				:Valid=>["Eshell","Fshell"],
 				:Default=>"Eshell"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Tube Layout Characteristic Angle",
 				:Valid=>["Triangle","Rotated Square","Square"],
 				:Default=>"Triangle"
 			)),
-			Tube_Side_Main (Dict{Symbol,Any}(
+			Tube_Side_Main(Dict{Symbol,Any}(
 				:Brief=>"Tube Side Section" ,
 				:Symbol=>"^{tube}"
 			)),
-			Shell_Side_Main (Dict{Symbol,Any}(
+			Shell_Side_Main(Dict{Symbol,Any}(
 				:Brief=>"Shell Side Section" ,
 				:Symbol=>"^{shell}"
 			)),
-			Baffles_Main (Dict{Symbol,Any}(
+			Baffles_Main(Dict{Symbol,Any}(
 				:Brief=>"Baffle Section",
 				:Symbol=>" "
 			)),
-			Clearances_Main (Dict{Symbol,Any}(
+			Clearances_Main(Dict{Symbol,Any}(
 				:Brief=>"Diametral Clearances",
 				:Symbol=>" "
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet Tube Stream",
 				:PosX=>0.13,
 				:PosY=>0,
 				:Symbol=>"_{in }^{tube}"
 			)),
-			streamPH (Dict{Symbol,Any}(
+			streamPH(Dict{Symbol,Any}(
 				:Brief=>"Outlet Tube Stream",
 				:PosX=>0.13,
 				:PosY=>1,
 				:Symbol=>"_{out }^{tube}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet Shell Stream",
 				:PosX=>0.31,
 				:PosY=>1,
 				:Symbol=>"_{in }^{shell}"
 			)),
-			streamPH (Dict{Symbol,Any}(
+			streamPH(Dict{Symbol,Any}(
 				:Brief=>"Outlet Shell Stream",
 				:PosX=>0.81,
 				:PosY=>0,
 				:Symbol=>"_{out }^{shell}"
 			)),
-			Details_Main (Dict{Symbol,Any}(
+			Details_Main(Dict{Symbol,Any}(
 				:Brief=>"Details in Heat Exchanger",
 				:Symbol=>" "
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Number of Tube rows Crossed in one Crossflow Section",
 				:Hidden=>true,
 				:Lower=>1
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Number of Effective Crossflow rows in Each Window",
 				:Hidden=>true,
 				:Lower=>1
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Variable for calculating Ji heat transfer correction Factor",
 				:Hidden=>true,
 				:Lower=>1e-3
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Variable for calculating shell side pressure drop friction Factor",
 				:Hidden=>true,
 				:Lower=>1e-3
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"ByPass Correction Factor for Pressure Drop",
 				:Hidden=>true,
 				:Lower=>1e-3
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Correction Factor for Pressure Drop",
 				:Hidden=>true,
 				:Lower=>1e-3
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop Correction Factor for Unequal Baffle Spacing",
 				:Hidden=>true,
 				:Lower=>1e-3
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Mass Velocity in Window Zone",
 				:Hidden=>true,
 				:Unit=>"kg/m^2/s"
 			)),
-			constant (Dict{Symbol,Any}(
+			constant(Dict{Symbol,Any}(
 				:Brief=>"Shell Side Ji Factor",
 				:Symbol=>"J_i",
 				:Hidden=>true,
 				:Default=>0.05
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Shell Side Jr Factor",
 				:Symbol=>"J_r",
 				:Hidden=>true,
 				:Lower=>10e-6
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Shell Side Jl Factor",
 				:Symbol=>"J_l",
 				:Hidden=>true,
 				:Lower=>10e-6
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Shell Side Jb Factor",
 				:Symbol=>"J_b",
 				:Hidden=>true,
 				:Lower=>10e-6
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Shell Side Jc Factor",
 				:Symbol=>"J_c",
 				:Hidden=>true,
 				:Lower=>10e-6
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Shell Side Js Factor",
 				:Symbol=>"J_s",
 				:Hidden=>true,
 				:Lower=>10e-6
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Shell Side Jtotal Factor",
 				:Symbol=>"J_{total}",
 				:Hidden=>true,
 				:Lower=>10e-6
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Shell Side Cross Flow Area",
 				:Symbol=>"S_m",
 				:Hidden=>true,
 				:Default=>0.05,
 				:Lower=>10e-6
 			)),
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Components"
 			)),
-			fill(molweight (Dict{Symbol,Any}(
+			fill(molweight(Dict{Symbol,Any}(
 				:Brief=>"Component Mol Weight"
 			)),(NComp)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Tube Side Flow Regime ",
 				:Hidden=>true,
 				:Valid=>["laminar","transition","turbulent"],
 				:Default=>"laminar"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Shell Side Flow Regime ",
 				:Hidden=>true,
 				:Valid=>["deep laminar","laminar","turbulent"],
 				:Default=>"deep laminar"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Shell Side Flow Regime Range for Correction Factor",
 				:Hidden=>true,
 				:Valid=>["range1","range2","range3", "range4","range5"],
 				:Default=>"range1"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Flag for Fluid Alocation ",
 				:Hidden=>true,
 				:Valid=>["shell","tubes"],
 				:Default=>"shell"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Tube Heat Transfer Correlation in Laminar Flow",
 				:Valid=>["Hausen","Schlunder"],
 				:Default=>"Hausen"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Tube Heat Transfer Correlation in Transition Flow",
 				:Valid=>["Gnielinski","ESDU"],
 				:Default=>"Gnielinski"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Tube Heat Transfer Correlation in Turbulent Flow",
 				:Valid=>["Petukhov","SiederTate"],
 				:Default=>"Petukhov"
 			)),
-			constant (Dict{Symbol,Any}(
+			constant(Dict{Symbol,Any}(
 				:Brief=>"Pi Number",
 				:Hidden=>true,
 				:Default=>3.14159265,
 				:Symbol=>"\\pi"
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Shell Outlet Nozzle Area",
 				:Hidden=>true,
 				:Lower=>1E-6 ,
 				:Symbol=>"A_{nozzle\\_out }^{shell}"
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Shell Inlet Nozzle Area",
 				:Hidden=>true,
 				:Lower=>1E-6 ,
 				:Symbol=>"A_{nozzle\\_in }^{shell}"
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Shell Outlet Escape Area Under Nozzle",
 				:Hidden=>true,
 				:Lower=>1E-6 ,
 				:Symbol=>"Aescape_{nozzle\\_out }^{shell}"
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Shell Inlet Escape Area Under Nozzle",
 				:Hidden=>true,
 				:Lower=>1E-6 ,
 				:Symbol=>"Aescape_{nozzle\\_in }^{shell}"
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Tube Outlet Nozzle Area",
 				:Hidden=>true,
 				:Lower=>1E-6 ,
 				:Symbol=>"A_{nozzle\\_out }^{tube}"
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Tube Inlet Nozzle Area",
 				:Hidden=>true,
 				:Lower=>1E-6 ,
 				:Symbol=>"A_{nozzle\\_in }^{tube}"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Tube Inlet Nozzle Pressure Loss Coeff",
 				:Hidden=>true,
 				:Default=>1.1,
 				:Symbol=>"K_{in }^{tube}"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Tube Outlet Nozzle Pressure Loss Coeff",
 				:Hidden=>true,
 				:Default=>0.7,
 				:Symbol=>"K_{out }^{tube}"
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Baffle cut angle in degrees",
 				:Symbol=>"\\theta _{ds}",
 				:Hidden=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Baffle cut angle relative to the centerline in degrees",
 				:Symbol=>"\\theta _{ctl}",
 				:Hidden=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Fraction of number of tubes in baffle window",
 				:Symbol=>"F _{tw}",
 				:Hidden=>true
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Shell to baffle leakage area",
 				:Symbol=>"S _{cd}",
 				:Hidden=>true
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Tube to baffle hole leakage area",
 				:Symbol=>"S _{td}",
 				:Hidden=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Ratio of the shell to baffle leakage area",
 				:Symbol=>"R_s",
 				:Hidden=>true
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Hydraulic diameter of the baffle window",
 				:Symbol=>"D _w",
 				:Hidden=>true

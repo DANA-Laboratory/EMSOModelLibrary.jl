@@ -18,46 +18,46 @@
 type PHE_HeatTransfer
 	PHE_HeatTransfer()=begin
 		new(
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Reynolds Number",
 				:Default=>100,
 				:Lower=>1
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Prandtl Number",
 				:Default=>0.5,
 				:Lower=>1e-8
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Number of Units Transference",
 				:Default=>0.05,
 				:Lower=>1E-10
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Stream Heat Capacity",
 				:Lower=>1E-3,
 				:Default=>1E3,
 				:Unit=>"W/K"
 			)),
-			heat_trans_coeff (Dict{Symbol,Any}(
+			heat_trans_coeff(Dict{Symbol,Any}(
 				:Brief=>"Film Coefficient",
 				:Default=>1,
 				:Lower=>1E-12,
 				:Upper=>1E6
 			)),
-			flux_mass (Dict{Symbol,Any}(
+			flux_mass(Dict{Symbol,Any}(
 				:Brief=>"Channel Mass Flux",
 				:Default=>1,
 				:Lower=>1E-6,
 				:Symbol=>"G^{channel}"
 			)),
-			flux_mass (Dict{Symbol,Any}(
+			flux_mass(Dict{Symbol,Any}(
 				:Brief=>"Ports Mass Flux",
 				:Default=>1,
 				:Lower=>1E-6,
 				:Symbol=>"G^{ports}"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Viscosity Correction",
 				:Default=>1,
 				:Lower=>1E-6,

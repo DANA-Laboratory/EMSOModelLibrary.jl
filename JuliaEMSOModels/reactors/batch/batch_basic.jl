@@ -22,28 +22,28 @@ type batch_basic
 		new(
 			DanaInteger(),
 			DanaInteger(),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Stoichiometric Matrix"
 			)),(NComp, NReac)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0,
 				:Symbol=>"_{in}"
 			)),
-			fill(conc_mol (Dict{Symbol,Any}(
+			fill(conc_mol(Dict{Symbol,Any}(
 				:Brief=>"Components concentration"
 			)),(NComp)),
-			fill(reaction_mol (Dict{Symbol,Any}(
+			fill(reaction_mol(Dict{Symbol,Any}(
 				:Brief=>"Reaction rates"
 			)),(NReac)),
-			temperature (Dict{Symbol,Any}(
+			temperature(Dict{Symbol,Any}(
 				:Brief=>"Reactor temperature"
 			)),
-			pressure (Dict{Symbol,Any}(
+			pressure(Dict{Symbol,Any}(
 				:Brief=>"Reactor pressure"
 			)),
-			volume (Dict{Symbol,Any}(
+			volume(Dict{Symbol,Any}(
 				:Brief=>"Reacting Volume"
 			)),
 			[

@@ -18,48 +18,48 @@
 type DoublePipe_HeatTransfer
 	DoublePipe_HeatTransfer()=begin
 		new(
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Cross Sectional Area for Flow",
 				:Default=>0.05,
 				:Lower=>1e-8
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Hydraulic Diameter of Pipe for Heat Transfer",
 				:Lower=>1e-8
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Reynolds Number",
 				:Default=>100,
 				:Lower=>1
 			)),
-			heat_trans_coeff (Dict{Symbol,Any}(
+			heat_trans_coeff(Dict{Symbol,Any}(
 				:Brief=>"Film Coefficient",
 				:Default=>1,
 				:Lower=>1e-12,
 				:Upper=>1e6
 			)),
-			fricfactor (Dict{Symbol,Any}(
+			fricfactor(Dict{Symbol,Any}(
 				:Brief=>"Friction Factor",
 				:Default=>0.05,
 				:Lower=>1e-10,
 				:Upper=>2000
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Nusselt Number",
 				:Default=>0.5,
 				:Lower=>1e-8
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Prandtl Number",
 				:Default=>0.5,
 				:Lower=>1e-8
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Phi Correction",
 				:Default=>1,
 				:Lower=>1e-3
 			)),
-			velocity (Dict{Symbol,Any}(
+			velocity(Dict{Symbol,Any}(
 				:Brief=>"Tube Velocity",
 				:Lower=>1e-8
 			)),

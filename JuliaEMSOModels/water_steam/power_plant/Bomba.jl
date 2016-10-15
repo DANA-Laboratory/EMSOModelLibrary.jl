@@ -18,10 +18,10 @@ type Bomba
 			Eficiencia(Dict{Symbol,Any}(
 				:Brief=>"Eficiencia da bomba"
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{in}"
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{out}",
 				:PosX=>0,
 				:PosY=>0.2

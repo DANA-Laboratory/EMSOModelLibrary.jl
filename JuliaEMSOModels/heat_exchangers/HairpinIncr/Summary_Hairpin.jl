@@ -18,19 +18,19 @@
 type Summary_Hairpin
 	Summary_Hairpin()=begin
 		new(
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Total Exchange Surface Area"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Total Duty",
 				:Default=>7000,
 				:Lower=>1e-8,
 				:Upper=>1e10
 			)),
-			Results_Hairpin (Dict{Symbol,Any}(
+			Results_Hairpin(Dict{Symbol,Any}(
 				:Brief=>"Inner Side Summary"
 			)),
-			Results_Hairpin (Dict{Symbol,Any}(
+			Results_Hairpin(Dict{Symbol,Any}(
 				:Brief=>"Outer Side Summary"
 			)),
 			[:A,:Qtotal,:Inner,:Outer,]

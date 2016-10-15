@@ -21,13 +21,13 @@ type Capacitor
 		new(
 			capacitance(),
 			charge(),
-			wire (Dict{Symbol,Any}(
+			wire(Dict{Symbol,Any}(
 				:Brief=>"Inlet",
 				:PosX=>0.3978,
 				:PosY=>0,
 				:Symbol=>"_{in}"
 			)),
-			wire (Dict{Symbol,Any}(
+			wire(Dict{Symbol,Any}(
 				:Brief=>"Outlet",
 				:PosX=>0.3965,
 				:PosY=>1,

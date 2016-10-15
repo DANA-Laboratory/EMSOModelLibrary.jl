@@ -18,23 +18,23 @@
 type Shell_Heat_Transfer
 	Shell_Heat_Transfer()=begin
 		new(
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Shell Side Reynolds Number",
 				:Default=>100,
 				:Lower=>1E-6
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Shell Side Prandtl Number",
 				:Default=>0.7,
 				:Lower=>1e-6
 			)),
-			heat_trans_coeff (Dict{Symbol,Any}(
+			heat_trans_coeff(Dict{Symbol,Any}(
 				:Brief=>"Shell Side Film Coefficient",
 				:Default=>1,
 				:Lower=>1e-12,
 				:Upper=>1e6
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Phi Correction",
 				:Default=>1,
 				:Lower=>1e-3

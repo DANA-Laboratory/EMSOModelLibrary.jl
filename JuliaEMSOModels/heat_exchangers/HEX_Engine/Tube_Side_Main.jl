@@ -18,58 +18,58 @@
 type Tube_Side_Main
 	Tube_Side_Main()=begin
 		new(
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Total Number of Tubes in Shell",
 				:Default=>100,
 				:Lower=>1
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Tube Passes",
 				:Lower=>1
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Effective Tube Length",
 				:Lower=>0.1
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Tube Pitch",
 				:Lower=>1E-8
 			)),
-			conductivity (Dict{Symbol,Any}(
+			conductivity(Dict{Symbol,Any}(
 				:Brief=>"Tube Wall Material Thermal Conductivity"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Tube Outside Diameter",
 				:Lower=>1E-6
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Tube Inside Diameter",
 				:Lower=>1E-6
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Tubeside Fouling Resistance",
 				:Unit=>"m^2*K/kW",
 				:Symbol=>"Rf_{tube}",
 				:Default=>1E-6 ,
 				:Lower=>0
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Inlet Nozzle Inside Diameter",
 				:Lower=>1E-6
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Outlet Nozzle Inside Diameter",
 				:Lower=>1E-6
 			)),
-			Tube_Pdrop (Dict{Symbol,Any}(
+			Tube_Pdrop(Dict{Symbol,Any}(
 				:Brief=>"Tube Side Pressure Drop",
 				:Symbol=>" "
 			)),
-			Tube_Heat_Transfer (Dict{Symbol,Any}(
+			Tube_Heat_Transfer(Dict{Symbol,Any}(
 				:Brief=>"Tube Side Heat Transfer",
 				:Symbol=>" "
 			)),
-			Physical_Properties (Dict{Symbol,Any}(
+			Physical_Properties(Dict{Symbol,Any}(
 				:Brief=>"Tube Side Properties",
 				:Symbol=>" "
 			)),

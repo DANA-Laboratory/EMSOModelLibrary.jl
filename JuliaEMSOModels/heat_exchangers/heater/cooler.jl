@@ -20,58 +20,58 @@ type cooler
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Components"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Option for Display Phase Equilibrium K-values",
 				:Valid=>["yes","no"],
 				:Default=>"yes"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Actual Duty",
 				:Symbol=>"Q_{Duty}"
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Vapor fraction Outlet Stream",
 				:Symbol=>"V_{frac}"
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Liquid fraction Outlet Stream",
 				:Symbol=>"L_{frac}"
 			)),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Phase Equilibrium K-values",
 				:Lower=>1E-30,
 				:Upper=>1E30,
 				:Symbol=>"K_{value}"
 			)),(NComp)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Pressure Ratio",
 				:Symbol=>"P_{ratio}"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop",
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet Stream",
 				:PosX=>0,
 				:PosY=>0.615,
 				:Symbol=>"^{in}"
 			)),
-			streamPH (Dict{Symbol,Any}(
+			streamPH(Dict{Symbol,Any}(
 				:Brief=>"Outlet Stream",
 				:PosX=>1,
 				:PosY=>0.615,
 				:Symbol=>"^{out}"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Inlet Heat Stream",
 				:PosX=>0.5,
 				:PosY=>0,

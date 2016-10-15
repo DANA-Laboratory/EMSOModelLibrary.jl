@@ -19,12 +19,12 @@ type DoublePipe_LMTD
 	DoublePipe_LMTD()=begin
 		new(
 			DoublePipe_Basic(),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Flow Direction",
 				:Valid=>["counter","cocurrent"],
 				:Default=>"cocurrent"
 			)),
-			LMTD_Basic (Dict{Symbol,Any}(
+			LMTD_Basic(Dict{Symbol,Any}(
 				:Brief=>"LMTD Method of Calculation",
 				:Symbol=>" "
 			)),

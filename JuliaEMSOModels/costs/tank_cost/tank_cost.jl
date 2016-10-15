@@ -36,7 +36,7 @@ type tank_cost
 	tank_cost()=begin
 		new(
 			VesselVolume(),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["Stainless steel 316", "Stainless steel 304", "Stainless steel 347", "Nickel", "Monel", "Inconel", "Zirconium", "Titanium", "Brick_and_rubber", "Brick_and_polyester_lined steel", "Rubber", "Lead_lined steel", "Polyester" ,"Fiberglass_strengthened", "Aluminum", "Copper", "Concrete"],
 				:Default=>"Stainless steel 316"
 			)),
@@ -44,16 +44,16 @@ type tank_cost
 			length(Dict{Symbol,Any}(
 				:Brief=>"Tank height"
 			)),
-			currency (Dict{Symbol,Any}(
+			currency(Dict{Symbol,Any}(
 				:Brief=>"Capital Cost"
 			)),
-			currency (Dict{Symbol,Any}(
+			currency(Dict{Symbol,Any}(
 				:Brief=>"Basic Cost"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Cost Factor based on the construction material"
 			)),
-			volume (Dict{Symbol,Any}(
+			volume(Dict{Symbol,Any}(
 				:Brief=>"Total Volume"
 			)),
 			[

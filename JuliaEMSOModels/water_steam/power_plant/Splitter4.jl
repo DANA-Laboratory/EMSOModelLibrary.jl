@@ -5,12 +5,12 @@ type Splitter4
 			fill(Fracao(Dict{Symbol,Any}(
 				:Brief=>"Fracao de massa"
 			)),(3)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{in}",
 				:PosX=>1,
 				:PosY=>0.5
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{out1}",
 				:PosX=>0,
 				:PosY=>0.19
@@ -20,7 +20,7 @@ type Splitter4
 				:PosX=>0,
 				:PosY=>0.4
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{out3}",
 				:PosX=>0,
 				:PosY=>0.62

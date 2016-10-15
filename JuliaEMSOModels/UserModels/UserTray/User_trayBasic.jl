@@ -22,68 +22,68 @@ type User_trayBasic
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
 			DanaInteger(),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Feed stream",
 				:PosX=>0,
 				:PosY=>0.4932,
 				:Hidden=>true
 			)),
-			liquid_stream (Dict{Symbol,Any}(
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"liquid Sidestream",
 				:Hidden=>true
 			)),
-			vapour_stream (Dict{Symbol,Any}(
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"vapour Sidestream",
 				:Hidden=>true
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet liquid stream",
 				:PosX=>0.5195,
 				:PosY=>0,
 				:Symbol=>"_{inL}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet vapour stream",
 				:PosX=>0.4994,
 				:PosY=>1,
 				:Symbol=>"_{inV}"
 			)),
-			liquid_stream (Dict{Symbol,Any}(
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet liquid stream",
 				:PosX=>0.8277,
 				:PosY=>1,
 				:Symbol=>"_{outL}"
 			)),
-			vapour_stream (Dict{Symbol,Any}(
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet vapour stream",
 				:PosX=>0.8043,
 				:PosY=>0,
 				:Symbol=>"_{outV}"
 			)),
-			fill(mol (Dict{Symbol,Any}(
+			fill(mol(Dict{Symbol,Any}(
 				:Brief=>"Molar Holdup in the tray"
 			)),(NComp)),
-			mol (Dict{Symbol,Any}(
+			mol(Dict{Symbol,Any}(
 				:Brief=>"Molar liquid holdup"
 			)),
-			mol (Dict{Symbol,Any}(
+			mol(Dict{Symbol,Any}(
 				:Brief=>"Molar vapour holdup"
 			)),
-			energy (Dict{Symbol,Any}(
+			energy(Dict{Symbol,Any}(
 				:Brief=>"Total Energy Holdup on tray"
 			)),
-			volume_mol (Dict{Symbol,Any}(
+			volume_mol(Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Volume"
 			)),
-			volume_mol (Dict{Symbol,Any}(
+			volume_mol(Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar volume"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Height of clear liquid on plate"
 			)),
 			fill(fraction()),

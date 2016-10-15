@@ -48,185 +48,185 @@ type User_Section_ColumnBasic
 			"The initial temperature of the trays","The initial Level of the trays","The initial composition of the trays",
 		],
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of components"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of trays",
 				:Default=>8
 			)),
-			fill(DanaInteger (Dict{Symbol,Any}(
+			fill(DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of trays",
 				:Default=>0,
 				:Hidden=>true
 			)),(NumberOfTrays)),
-			fill(DanaInteger (Dict{Symbol,Any}(
+			fill(DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of trays",
 				:Default=>0,
 				:Hidden=>true
 			)),(NumberOfTrays)),
-			fill(DanaInteger (Dict{Symbol,Any}(
+			fill(DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of trays",
 				:Default=>0,
 				:Hidden=>true
 			)),(NumberOfTrays)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Feed tray Location",
 				:Default=>2
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Liquid Side Stream Location",
 				:Default=>2
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Vapour Side Stream Location",
 				:Default=>2
 			)),
-			acceleration (Dict{Symbol,Any}(
+			acceleration(Dict{Symbol,Any}(
 				:Brief=>"Gravity Acceleration",
 				:Default=>9.81,
 				:Hidden=>true
 			)),
-			fill(molweight (Dict{Symbol,Any}(
+			fill(molweight(Dict{Symbol,Any}(
 				:Brief=>"Component Mol Weight",
 				:Hidden=>true
 			)),(NComp)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["Reepmeyer", "Feehery_Fv", "Roffel_Fv", "Klingberg", "Wang_Fv", "Elgue"],
 				:Default=>"Reepmeyer"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["default", "Wang_Fl", "Olsen", "Feehery_Fl", "Roffel_Fl"],
 				:Default=>"default"
 			)),
-			volume (Dict{Symbol,Any}(
+			volume(Dict{Symbol,Any}(
 				:Brief=>"Total Volume of the tray"
 			)),
-			heat_rate (Dict{Symbol,Any}(
+			heat_rate(Dict{Symbol,Any}(
 				:Brief=>"Rate of heat supply"
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Plate area = Atray - Adowncomer"
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Total holes area"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Weir length"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Weir height"
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Feeherys correlation coefficient",
 				:Unit=>"1/m^4",
 				:Default=>1
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Elgues correlation coefficient",
 				:Unit=>"kg/m/mol^2",
 				:Default=>1
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Olsens correlation coefficient",
 				:Default=>1
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Number of liquid passes in the tray",
 				:Default=>1
 			)),
 			temperature(),
 			temperature(),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Level Fraction"
 			)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Component Molar Fraction at Top"
 			)),(NComp)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Component Molar Fraction at Bottom"
 			)),(NComp)),
-			volume (Dict{Symbol,Any}(
+			volume(Dict{Symbol,Any}(
 				:Brief=>"Total Volume of the tray",
 				:Hidden=>true
 			)),
-			heat_rate (Dict{Symbol,Any}(
+			heat_rate(Dict{Symbol,Any}(
 				:Brief=>"Rate of heat supply",
 				:Hidden=>true
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Plate area = Atray - Adowncomer",
 				:Hidden=>true
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Total holes area",
 				:Hidden=>true
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Weir length",
 				:Hidden=>true
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Weir height",
 				:Hidden=>true
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Aeration fraction"
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Dry pressure drop coefficient"
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Feeherys correlation coefficient",
 				:Unit=>"1/m^4",
 				:Default=>1,
 				:Hidden=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Elgues correlation coefficient",
 				:Unit=>"kg/m/mol^2",
 				:Default=>1,
 				:Hidden=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Olsens correlation coefficient",
 				:Default=>1,
 				:Hidden=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Number of liquid passes in the tray",
 				:Default=>1,
 				:Hidden=>true
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["on", "off"],
 				:Default=>"on",
 				:Hidden=>true
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["on", "off"],
 				:Default=>"on",
 				:Hidden=>true
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Feed stream",
 				:PosX=>0,
 				:PosY=>0.55
 			)),
-			flow_mol (Dict{Symbol,Any}(
+			flow_mol(Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Flow Rate"
 			)),
-			flow_mol (Dict{Symbol,Any}(
+			flow_mol(Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Flow Rate"
 			)),
-			fill(User_tray (Dict{Symbol,Any}(
+			fill(User_tray(Dict{Symbol,Any}(
 				:Brief=>"Number of trays"
 			)),(NumberOfTrays)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Murphree efficiency"
 			)),
 			[

@@ -18,14 +18,14 @@
 type Properties_Wall
 	Properties_Wall()=begin
 		new(
-			viscosity (Dict{Symbol,Any}(
+			viscosity(Dict{Symbol,Any}(
 				:Brief=>"Stream Viscosity",
 				:Default=>1,
 				:Lower=>1e-5,
 				:Upper=>1e5,
 				:Symbol=>"\\mu"
 			)),
-			temperature (Dict{Symbol,Any}(
+			temperature(Dict{Symbol,Any}(
 				:Brief=>"Wall Temperature",
 				:Lower=>50
 			)),

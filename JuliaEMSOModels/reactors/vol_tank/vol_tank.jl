@@ -34,12 +34,12 @@
 type vol_tank
 	vol_tank()=begin
 		new(
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Pi value",
 				:Default=>3.141593,
 				:Symbol=>"\\pi"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Tank head type",
 				:Valid=>["flat","spherical"],
 				:Default=>"flat"
@@ -49,22 +49,22 @@ type vol_tank
 				:Valid=>["vertical","horizontal"],
 				:Default=>"vertical"
 			)),
-			volume (Dict{Symbol,Any}(
+			volume(Dict{Symbol,Any}(
 				:Brief=>"Level tank volume"
 			)),
-			volume (Dict{Symbol,Any}(
+			volume(Dict{Symbol,Any}(
 				:Brief=>"Tank volume"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Tank length"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Tank level"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Tank diameter"
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Tank cross section area"
 			)),
 			[

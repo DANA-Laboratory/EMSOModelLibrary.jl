@@ -41,25 +41,25 @@ type equil_vap
 	equil_vap()=begin
 		new(
 			tank_vap(),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of reactions",
 				:Default=>1
 			)),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Stoichiometric matrix",
 				:Symbol=>"\\nu"
 			)),(NComp,NReac)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Universal gas constant",
 				:Unit=>"J/mol/K",
 				:Default=>8.314
 			)),
-			fill(pressure (Dict{Symbol,Any}(
+			fill(pressure(Dict{Symbol,Any}(
 				:Brief=>"Fugacity in standard state",
 				:Default=>1,
 				:DisplayUnit=>"atm"
 			)),(NComp)),
-			temperature (Dict{Symbol,Any}(
+			temperature(Dict{Symbol,Any}(
 				:Brief=>"Reference temperature",
 				:Default=>298.15
 			)),
@@ -69,28 +69,28 @@ type equil_vap
 				:PosY=>1,
 				:Symbol=>"_{out}"
 			)),
-			fill(energy_mol (Dict{Symbol,Any}(
+			fill(energy_mol(Dict{Symbol,Any}(
 				:Brief=>"Gibbs free-energy of formation"
 			)),(NComp)),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Equillibrium constant",
 				:Lower=>0,
 				:Default=>1.5
 			)),(NReac)),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Activity",
 				:Symbol=>"\\hat{a}",
 				:Lower=>0,
 				:Default=>0.2
 			)),(NComp)),
-			fill(reaction_mol (Dict{Symbol,Any}(
+			fill(reaction_mol(Dict{Symbol,Any}(
 				:Brief=>"Overall component rate of reaction"
 			)),(NComp)),
-			fill(flow_mol (Dict{Symbol,Any}(
+			fill(flow_mol(Dict{Symbol,Any}(
 				:Brief=>"Extent of reaction",
 				:Symbol=>"\\xi"
 			)),(NReac)),
-			fill(DanaReal (Dict{Symbol,Any}(
+			fill(DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Fractional conversion of component",
 				:Symbol=>"X",
 				:Default=>0

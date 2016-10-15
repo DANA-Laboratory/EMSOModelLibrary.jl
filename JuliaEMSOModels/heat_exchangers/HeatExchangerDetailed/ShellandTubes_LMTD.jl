@@ -19,40 +19,40 @@ type ShellandTubes_LMTD
 	ShellandTubes_LMTD()=begin
 		new(
 			ShellandTubesBasic(),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"LMTD Correction Factor Model",
 				:Valid=>["Bowmann","Fakeri" , "User Specified"],
 				:Default=>"Bowmann"
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Default=>0.8
 			)),
 			LMTD_Basic(),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>" Capacity Ratio for LMTD Correction Fator",
 				:Lower=>1e-6
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Non - Dimensional Variable for LMTD Correction Fator ",
 				:Lower=>1e-6
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Non - Dimensional Variable for LMTD Correction Fator when 2 Pass Shell Side",
 				:Lower=>1e-6
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Non - Dimensional Variable for LMTD Correction Fator in Fakeri Equation",
 				:Lower=>1e-6
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Non - Dimensional Variable for LMTD Correction Fator in Fakeri Equation",
 				:Lower=>1e-6
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Non - Dimensional Variable for LMTD Correction Fator in Fakeri Equation when 2 Pass Shell Side",
 				:Lower=>1e-6
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Non - Dimensional Variable for LMTD Correction Fator in Fakeri Equationwhen 2 Pass Shell Side",
 				:Lower=>1e-6
 			)),

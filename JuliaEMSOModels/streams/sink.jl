@@ -23,56 +23,56 @@ type sink
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
 			)),
-			fill(molweight (Dict{Symbol,Any}(
+			fill(molweight(Dict{Symbol,Any}(
 				:Brief=>"Component Mol Weight",
 				:Protected=>true
 			)),(NComp)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet Stream",
 				:PosX=>0,
 				:PosY=>0.5308,
 				:Protected=>true,
 				:Symbol=>"_{in}"
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Vapourization fraction",
 				:Hidden=>true
 			)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Fraction",
 				:Hidden=>true
 			)),(NComp)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar Fraction",
 				:Hidden=>true
 			)),(NComp)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Mass Fraction"
 			)),(NComp)),
-			molweight (Dict{Symbol,Any}(
+			molweight(Dict{Symbol,Any}(
 				:Brief=>"Average Mol Weight"
 			)),
-			volume_mol (Dict{Symbol,Any}(
+			volume_mol(Dict{Symbol,Any}(
 				:Brief=>"Molar Volume"
 			)),
-			dens_mass (Dict{Symbol,Any}(
+			dens_mass(Dict{Symbol,Any}(
 				:Brief=>"Stream Mass Density"
 			)),
-			dens_mol (Dict{Symbol,Any}(
+			dens_mol(Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Density"
 			)),
-			flow_mass (Dict{Symbol,Any}(
+			flow_mass(Dict{Symbol,Any}(
 				:Brief=>"Stream Mass Flow"
 			)),
-			flow_vol (Dict{Symbol,Any}(
+			flow_vol(Dict{Symbol,Any}(
 				:Brief=>"Volumetric Flow"
 			)),
 			DanaReal(Dict{Symbol,Any}(

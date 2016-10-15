@@ -18,15 +18,15 @@
 type FirstOrder
 	FirstOrder()=begin
 		new(
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Time Constant",
 				:Unit=>"s",
 				:Default=>4
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Unit=>"1/s"
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Unit=>"1/s"
 			)),
 			DanaReal(),

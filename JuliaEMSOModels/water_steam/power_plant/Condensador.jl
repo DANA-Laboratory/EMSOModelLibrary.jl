@@ -6,20 +6,20 @@ type Condensador
 			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"Steam tables"
 			)),
-			Potencia (Dict{Symbol,Any}(
+			Potencia(Dict{Symbol,Any}(
 				:Brief=>"Taxa de calor removido",
 				:PosX=>1,
 				:PosY=>0.5
 			)),
-			Dif_Temp (Dict{Symbol,Any}(
+			Dif_Temp(Dict{Symbol,Any}(
 				:Brief=>"Grau de sub-resfriamento"
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{in}",
 				:PosX=>0.5,
 				:PosY=>0
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{out}",
 				:PosX=>0.5,
 				:PosY=>1

@@ -23,7 +23,7 @@ type User_tray
 			User_trayBasic(),
 			dens_mass(),
 			dens_mass(),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Temporary variable of Roffels liquid flow equation"
 			)),
 			[

@@ -10,7 +10,7 @@ type stoic_conv_vap
 				:Lower=>1,
 				:Default=>1
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Molar conversion of key component",
 				:Symbol=>"X_k"
 			)),

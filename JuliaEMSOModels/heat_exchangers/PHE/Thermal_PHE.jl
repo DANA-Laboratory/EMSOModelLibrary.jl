@@ -18,48 +18,48 @@
 type Thermal_PHE
 	Thermal_PHE()=begin
 		new(
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Heat Capacity Ratio",
 				:Default=>0.5,
 				:Lower=>1E-6
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Minimum Heat Capacity",
 				:Lower=>1E-10,
 				:Default=>1E3,
 				:Unit=>"W/K"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Maximum Heat Capacity",
 				:Lower=>1E-10,
 				:Default=>1E3,
 				:Unit=>"W/K"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Number of Units Transference",
 				:Default=>0.05,
 				:Lower=>1E-10
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Effectiveness",
 				:Default=>0.5,
 				:Lower=>0.1,
 				:Upper=>1.1,
 				:Symbol=>"\\varepsilon"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer",
 				:Default=>7000,
 				:Lower=>1E-6,
 				:Upper=>1E10
 			)),
-			heat_trans_coeff (Dict{Symbol,Any}(
+			heat_trans_coeff(Dict{Symbol,Any}(
 				:Brief=>"Overall Heat Transfer Coefficient Clean",
 				:Default=>1,
 				:Lower=>1E-6,
 				:Upper=>1E10
 			)),
-			heat_trans_coeff (Dict{Symbol,Any}(
+			heat_trans_coeff(Dict{Symbol,Any}(
 				:Brief=>"Overall Heat Transfer Coefficient Dirty",
 				:Default=>1,
 				:Lower=>1E-6,

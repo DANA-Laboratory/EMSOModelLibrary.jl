@@ -21,64 +21,64 @@ type Heatex_Basic
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Components"
 			)),
-			fill(molweight (Dict{Symbol,Any}(
+			fill(molweight(Dict{Symbol,Any}(
 				:Brief=>"Component Mol Weight",
 				:Hidden=>true
 			)),(NComp)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet Hot Stream",
 				:PosX=>0,
 				:PosY=>0.508,
 				:Symbol=>"^{inHot}"
 			)),
-			streamPH (Dict{Symbol,Any}(
+			streamPH(Dict{Symbol,Any}(
 				:Brief=>"Outlet Hot Stream",
 				:PosX=>1,
 				:PosY=>0.508,
 				:Symbol=>"^{outHot}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet Cold Stream",
 				:PosX=>0.50,
 				:PosY=>1,
 				:Symbol=>"^{inCold}"
 			)),
-			streamPH (Dict{Symbol,Any}(
+			streamPH(Dict{Symbol,Any}(
 				:Brief=>"Outlet Cold Stream",
 				:PosX=>0.50,
 				:PosY=>0,
 				:Symbol=>"^{outCold}"
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Exchange Surface Area"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Duty",
 				:Default=>7000,
 				:Lower=>1e-6,
 				:Upper=>1e10
 			)),
-			heat_trans_coeff (Dict{Symbol,Any}(
+			heat_trans_coeff(Dict{Symbol,Any}(
 				:Brief=>"Overall Heat Transfer Coefficient",
 				:Default=>1,
 				:Lower=>1e-6,
 				:Upper=>1e10
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop Hot Side",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa" ,
 				:Symbol=>"\\Delta P_{hot}"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop Cold Side",
 				:Default=>0.01,
 				:Lower=>0,

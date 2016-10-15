@@ -25,46 +25,46 @@ type flash_steady
 				:Type=>"PP"
 			)),
 			DanaInteger(),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Feed Stream",
 				:PosX=>0,
 				:PosY=>0.48,
 				:Symbol=>"_{in}"
 			)),
-			liquid_stream (Dict{Symbol,Any}(
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream",
 				:PosX=>0.43,
 				:PosY=>1,
 				:Symbol=>"_{out}^{Liquid}"
 			)),
-			vapour_stream (Dict{Symbol,Any}(
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"Vapour outlet stream",
 				:PosX=>0.43,
 				:PosY=>0,
 				:Symbol=>"_{out}^{Vapour}"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Heat Duty",
 				:PosX=>1,
 				:PosY=>0.81,
 				:Protected=>true,
 				:Symbol=>"Q_{in}"
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Vaporization fraction",
 				:Symbol=>"\\phi",
 				:Protected=>true
 			)),
-			enth_mol (Dict{Symbol,Any}(
+			enth_mol(Dict{Symbol,Any}(
 				:Brief=>"Mixture enthalpy",
 				:Hidden=>true
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Pressure Ratio",
 				:Symbol=>"P_{ratio}",
 				:Protected=>true
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop",
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P",

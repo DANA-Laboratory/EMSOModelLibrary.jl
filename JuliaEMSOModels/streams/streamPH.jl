@@ -27,11 +27,11 @@ type streamPH
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Fraction",
 				:Hidden=>true
 			)),(NComp)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar Fraction",
 				:Hidden=>true
 			)),(NComp)),

@@ -21,7 +21,7 @@
 type sinkNoFlow
 	sinkNoFlow()=begin
 		new(
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet Stream",
 				:PosX=>0,
 				:PosY=>0.5308,

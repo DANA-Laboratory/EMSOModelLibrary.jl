@@ -23,66 +23,66 @@ type HidraulicTurbine
 		NComp=outers.NComp
 		PP=outers.PP
 		new(
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
 			)),
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			fill(molweight (Dict{Symbol,Any}(
+			fill(molweight(Dict{Symbol,Any}(
 				:Brief=>"Molar Weight"
 			)),(NComp)),
-			efficiency (Dict{Symbol,Any}(
+			efficiency(Dict{Symbol,Any}(
 				:Brief=>"Turbine efficiency"
 			)),
-			efficiency (Dict{Symbol,Any}(
+			efficiency(Dict{Symbol,Any}(
 				:Brief=>"Brake efficiency"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Volumetric expansivity",
 				:Unit=>"1/K"
 			)),
-			head (Dict{Symbol,Any}(
+			head(Dict{Symbol,Any}(
 				:Brief=>"Head Developed"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Fluid Power"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Brake Power"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Pressure Ratio"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop",
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P"
 			)),
-			molweight (Dict{Symbol,Any}(
+			molweight(Dict{Symbol,Any}(
 				:Brief=>"Mixture Molar Weight"
 			)),
-			dens_mass (Dict{Symbol,Any}(
+			dens_mass(Dict{Symbol,Any}(
 				:Brief=>"Specific Mass"
 			)),
-			cp_mol (Dict{Symbol,Any}(
+			cp_mol(Dict{Symbol,Any}(
 				:Brief=>"Heat Capacity"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0.05,
 				:PosY=>0.0,
 				:Symbol=>"_{in}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>0.65,
 				:PosY=>1,
 				:Symbol=>"_{out}"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Work Outlet",
 				:PosX=>1,
 				:PosY=>0.46

@@ -7,20 +7,20 @@ type Turbina
 				:Brief=>"Steam tables"
 			)),
 			Entalpia(),
-			Eficiencia (Dict{Symbol,Any}(
+			Eficiencia(Dict{Symbol,Any}(
 				:Brief=>"Eficiencia da turbina"
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{in}",
 				:PosX=>0,
 				:PosY=>0.25
 			)),
-			Potencia (Dict{Symbol,Any}(
+			Potencia(Dict{Symbol,Any}(
 				:Brief=>"Potencia da turbina",
 				:PosX=>1,
 				:PosY=>0.5
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{out}",
 				:PosX=>1,
 				:PosY=>1

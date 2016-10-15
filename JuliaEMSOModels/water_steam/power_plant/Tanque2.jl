@@ -6,17 +6,17 @@ type Tanque2
 			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"Steam tables"
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{in1}",
 				:PosX=>0.1,
 				:PosY=>0.20
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{in2}",
 				:PosX=>0.1,
 				:PosY=>0.79
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{out}",
 				:PosX=>0.9,
 				:PosY=>0.5

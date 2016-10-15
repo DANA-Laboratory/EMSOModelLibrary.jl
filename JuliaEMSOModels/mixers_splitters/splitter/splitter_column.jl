@@ -19,33 +19,33 @@
 type splitter_column
 	splitter_column()=begin
 		new(
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0.5,
 				:PosY=>0,
 				:Symbol=>"_{in}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Reflux stream",
 				:PosX=>0.25,
 				:PosY=>1,
 				:Symbol=>"_{reflux}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Distillate stream",
 				:PosX=>0.75,
 				:PosY=>1,
 				:Symbol=>"_{distillate}"
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"split of the outlet Reflux stream",
 				:Default=>0.33
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"split of the outlet Distillate stream",
 				:Default=>0.33
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Reflux Ratio",
 				:Default=>10,
 				:Lower=>0.05

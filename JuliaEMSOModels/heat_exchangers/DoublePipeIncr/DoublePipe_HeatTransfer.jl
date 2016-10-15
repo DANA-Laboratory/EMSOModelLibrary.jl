@@ -20,65 +20,65 @@ type DoublePipe_HeatTransfer
 		N=outers.N
 		Npoints=outers.Npoints
 		new(
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Cross Sectional Area for Flow",
 				:Default=>0.05,
 				:Lower=>1e-8
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Hydraulic Diameter of Pipe for Heat Transfer",
 				:Lower=>1e-8
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of zones",
 				:Default=>2
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of incremental points",
 				:Default=>3
 			)),
-			fill(temperature (Dict{Symbol,Any}(
+			fill(temperature(Dict{Symbol,Any}(
 				:Brief=>"Incremental Local  Temperature",
 				:Lower=>50
 			)),(Npoints)),
-			fill(positive (Dict{Symbol,Any}(
+			fill(positive(Dict{Symbol,Any}(
 				:Brief=>"Incremental Reynolds Number",
 				:Default=>100,
 				:Lower=>1
 			)),(N)),
-			fill(heat_trans_coeff (Dict{Symbol,Any}(
+			fill(heat_trans_coeff(Dict{Symbol,Any}(
 				:Brief=>"Incremental Film Coefficient",
 				:Default=>1,
 				:Lower=>1e-12,
 				:Upper=>1e6,
 				:DisplayUnit=>"W/m^2/K"
 			)),(N)),
-			fill(fricfactor (Dict{Symbol,Any}(
+			fill(fricfactor(Dict{Symbol,Any}(
 				:Brief=>"Incremental Friction Factor",
 				:Default=>0.05,
 				:Lower=>1e-10,
 				:Upper=>2000
 			)),(N)),
-			fill(positive (Dict{Symbol,Any}(
+			fill(positive(Dict{Symbol,Any}(
 				:Brief=>"Incremental Nusselt Number",
 				:Default=>0.5,
 				:Lower=>1e-8
 			)),(N)),
-			fill(positive (Dict{Symbol,Any}(
+			fill(positive(Dict{Symbol,Any}(
 				:Brief=>"Incremental Prandtl Number",
 				:Default=>0.5,
 				:Lower=>1e-8
 			)),(N)),
-			fill(positive (Dict{Symbol,Any}(
+			fill(positive(Dict{Symbol,Any}(
 				:Brief=>"Incremental Phi Correction",
 				:Default=>1,
 				:Lower=>1e-3
 			)),(N)),
-			fill(velocity (Dict{Symbol,Any}(
+			fill(velocity(Dict{Symbol,Any}(
 				:Brief=>"Incremental Tube Velocity",
 				:Lower=>1e-8
 			)),(N)),
-			fill(enth_mol (Dict{Symbol,Any}(
+			fill(enth_mol(Dict{Symbol,Any}(
 				:Brief=>"Incremental Stream Enthalpy"
 			)),(Npoints)),
 			[:As,:Dh,:N,:Npoints,],

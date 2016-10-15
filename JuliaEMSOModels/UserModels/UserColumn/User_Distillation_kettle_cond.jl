@@ -10,18 +10,18 @@ type User_Distillation_kettle_cond
 	User_Distillation_kettle_cond()=begin
 		new(
 			User_Section_ColumnBasic(),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Valid=>["on", "off"],
 				:Default=>"on",
 				:Hidden=>true
 			)),
-			vapour_stream (Dict{Symbol,Any}(
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"Vapour Outlet in the section",
 				:PosX=>1,
 				:PosY=>0.46,
 				:Protected=>true
 			)),
-			liquid_stream (Dict{Symbol,Any}(
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid Outlet in the section",
 				:PosX=>1,
 				:PosY=>0.58,
@@ -32,42 +32,42 @@ type User_Distillation_kettle_cond
 			splitter(),
 			pump(),
 			DanaReal(),
-			energy_stream (Dict{Symbol,Any}(
+			energy_stream(Dict{Symbol,Any}(
 				:Brief=>"Heat supplied to Reboiler",
 				:Hidden=>true
 			)),
-			energy_stream (Dict{Symbol,Any}(
+			energy_stream(Dict{Symbol,Any}(
 				:Brief=>"Heat supplied to Condenser",
 				:Hidden=>true
 			)),
-			sourceNoFlow (Dict{Symbol,Any}(
+			sourceNoFlow(Dict{Symbol,Any}(
 				:Brief=>"No Inlet Flow to Reboiler",
 				:Hidden=>true
 			)),
-			vapour_stream (Dict{Symbol,Any}(
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"Vapour outlet stream From Top Condenser",
 				:PosX=>0.67,
 				:PosY=>0
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Connector for Vapour outlet stream From Top Condenser",
 				:Hidden=>true
 			)),
-			liquid_stream (Dict{Symbol,Any}(
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream From Top Splitter",
 				:PosX=>1,
 				:PosY=>0.33
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Connector for Liquid outlet stream From Top Splitter",
 				:Hidden=>true
 			)),
-			liquid_stream (Dict{Symbol,Any}(
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream From Reboiler",
 				:PosX=>1,
 				:PosY=>1
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Connector for Liquid outlet stream From Reboiler",
 				:Hidden=>true
 			)),

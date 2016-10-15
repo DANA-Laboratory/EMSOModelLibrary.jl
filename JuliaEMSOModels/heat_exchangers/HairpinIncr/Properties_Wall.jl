@@ -19,18 +19,18 @@ type Properties_Wall
 	Properties_Wall()=begin
 		N=outers.N
 		new(
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of zones",
 				:Default=>2
 			)),
-			fill(viscosity (Dict{Symbol,Any}(
+			fill(viscosity(Dict{Symbol,Any}(
 				:Brief=>"Stream Incremental Viscosity",
 				:Default=>1,
 				:Lower=>1e-5,
 				:Upper=>1e5,
 				:Symbol=>"\\mu"
 			)),(N)),
-			fill(temperature (Dict{Symbol,Any}(
+			fill(temperature(Dict{Symbol,Any}(
 				:Brief=>"Incremental Wall Temperature",
 				:Lower=>50
 			)),(N)),

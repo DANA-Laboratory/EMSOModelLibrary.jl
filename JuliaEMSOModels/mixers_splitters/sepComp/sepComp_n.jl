@@ -21,40 +21,40 @@ type sepComp_n
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Outlet Streams",
 				:Lower=>1
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Component specified",
 				:Default=>1,
 				:Lower=>1
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0,
 				:PosY=>0.5,
 				:Symbol=>"_{in}"
 			)),
-			fill(stream (Dict{Symbol,Any}(
+			fill(stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet streams",
 				:PosX=>1,
 				:PosY=>0.5059,
 				:Symbol=>"_{out}"
 			)),(NOutlet)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Distribution of the Outlet streams",
 				:Symbol=>"\\phi"
 			)),(NOutlet)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Recovery of the component specified",
 				:Symbol=>"\\eta"
 			)),(NOutlet)),

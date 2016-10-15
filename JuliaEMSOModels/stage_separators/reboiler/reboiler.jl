@@ -29,101 +29,101 @@ type reboiler
 			"Initial level Percent","Initial Temperature","Initial Composition",
 		],
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Components"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Initial liquid height in Percent",
 				:Default=>0.70
 			)),
-			temperature (Dict{Symbol,Any}(
+			temperature(Dict{Symbol,Any}(
 				:Brief=>"Initial Temperature of Reboiler"
 			)),
-			fill(positive (Dict{Symbol,Any}(
+			fill(positive(Dict{Symbol,Any}(
 				:Brief=>"Initial Liquid Composition",
 				:Lower=>1E-6
 			)),(NComp)),
-			VesselVolume (Dict{Symbol,Any}(
+			VesselVolume(Dict{Symbol,Any}(
 				:Brief=>"Vessel Geometry",
 				:Symbol=>" "
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid inlet stream",
 				:PosX=>0.17,
 				:PosY=>1,
 				:Symbol=>"_{in}^{Liquid}"
 			)),
-			liquid_stream (Dict{Symbol,Any}(
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream",
 				:PosX=>0.53,
 				:PosY=>1,
 				:Symbol=>"_{out}^{Liquid}"
 			)),
-			vapour_stream (Dict{Symbol,Any}(
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"Vapour outlet stream",
 				:PosX=>0.17,
 				:PosY=>0,
 				:Symbol=>"_{out}^{Vapour}"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Heat supplied",
 				:Protected=>true,
 				:PosX=>1,
 				:PosY=>0.08,
 				:Symbol=>"Q_{in}"
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Temperature  Indicator of Reboiler",
 				:Protected=>true,
 				:PosX=>0.44,
 				:PosY=>0
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Level Indicator of Reboiler",
 				:Protected=>true,
 				:PosX=>0.53,
 				:PosY=>0
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Pressure Indicator of Reboiler",
 				:Protected=>true,
 				:PosX=>0.35,
 				:PosY=>0
 			)),
-			fill(mol (Dict{Symbol,Any}(
+			fill(mol(Dict{Symbol,Any}(
 				:Brief=>"Molar Holdup in the tray",
 				:Protected=>true
 			)),(NComp)),
-			mol (Dict{Symbol,Any}(
+			mol(Dict{Symbol,Any}(
 				:Brief=>"Molar liquid holdup",
 				:Protected=>true
 			)),
-			mol (Dict{Symbol,Any}(
+			mol(Dict{Symbol,Any}(
 				:Brief=>"Molar vapour holdup",
 				:Protected=>true
 			)),
-			energy (Dict{Symbol,Any}(
+			energy(Dict{Symbol,Any}(
 				:Brief=>"Total Energy Holdup on tray",
 				:Protected=>true
 			)),
-			volume_mol (Dict{Symbol,Any}(
+			volume_mol(Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Volume",
 				:Protected=>true
 			)),
-			volume_mol (Dict{Symbol,Any}(
+			volume_mol(Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar volume",
 				:Protected=>true
 			)),
-			dens_mass (Dict{Symbol,Any}(
+			dens_mass(Dict{Symbol,Any}(
 				:Brief=>"Vapour Density",
 				:Protected=>true,
 				:Symbol=>"\\rho"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop",
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P",

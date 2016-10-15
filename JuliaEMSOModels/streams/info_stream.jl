@@ -23,57 +23,57 @@ type info_stream
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
 			)),
-			fill(molweight (Dict{Symbol,Any}(
+			fill(molweight(Dict{Symbol,Any}(
 				:Brief=>"Component Mol Weight",
 				:Protected=>true
 			)),(NComp)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet Stream",
 				:PosX=>0,
 				:PosY=>0.50,
 				:Protected=>true ,
 				:Symbol=>"_{in}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet Stream",
 				:PosX=>1,
 				:PosY=>0.50,
 				:Protected=>true ,
 				:Symbol=>"_{out}"
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Vapourization fraction",
 				:Hidden=>true
 			)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Fraction",
 				:Hidden=>true
 			)),(NComp)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar Fraction",
 				:Hidden=>true
 			)),(NComp)),
-			fill(flow_mol (Dict{Symbol,Any}(
+			fill(flow_mol(Dict{Symbol,Any}(
 				:Brief=>"Component Molar Flow",
 				:Protected=>true
 			)),(NComp)),
-			flow_mass (Dict{Symbol,Any}(
+			flow_mass(Dict{Symbol,Any}(
 				:Brief=>"Total Mass Flow",
 				:Protected=>true
 			)),
-			fill(flow_mass (Dict{Symbol,Any}(
+			fill(flow_mass(Dict{Symbol,Any}(
 				:Brief=>"Component Mass Flow",
 				:Protected=>true
 			)),(NComp)),
-			flow_vol (Dict{Symbol,Any}(
+			flow_vol(Dict{Symbol,Any}(
 				:Brief=>"Total Volumetric Flow",
 				:Protected=>true
 			)),
@@ -83,45 +83,45 @@ type info_stream
 				:Upper=>5000,
 				:Protected=>true
 			)),
-			viscosity (Dict{Symbol,Any}(
+			viscosity(Dict{Symbol,Any}(
 				:Brief=>"Stream Viscosity",
 				:Lower=>0.0001,
 				:Symbol=>"\\mu",
 				:Protected=>true
 			)),
-			cp_mol (Dict{Symbol,Any}(
+			cp_mol(Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Heat Capacity",
 				:Upper=>1e10,
 				:Protected=>true
 			)),
-			conductivity (Dict{Symbol,Any}(
+			conductivity(Dict{Symbol,Any}(
 				:Brief=>"Stream Thermal Conductivity",
 				:Default=>1.0,
 				:Lower=>1e-5,
 				:Upper=>500,
 				:Protected=>true
 			)),
-			molweight (Dict{Symbol,Any}(
+			molweight(Dict{Symbol,Any}(
 				:Brief=>"Average Mol Weight",
 				:Protected=>true
 			)),
-			volume_mol (Dict{Symbol,Any}(
+			volume_mol(Dict{Symbol,Any}(
 				:Brief=>"Molar Volume",
 				:Protected=>true
 			)),
-			dens_mass (Dict{Symbol,Any}(
+			dens_mass(Dict{Symbol,Any}(
 				:Brief=>"Stream Mass Density",
 				:Protected=>true
 			)),
-			dens_mol (Dict{Symbol,Any}(
+			dens_mol(Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Density",
 				:Protected=>true
 			)),
-			entr_mol (Dict{Symbol,Any}(
+			entr_mol(Dict{Symbol,Any}(
 				:Brief=>"Stream Entropy",
 				:Protected=>true
 			)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Mass Fraction",
 				:Protected=>true
 			)),(NComp)),

@@ -21,159 +21,159 @@ type centrifugal_compressor
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Constant of Gases",
 				:Unit=>"kJ/kmol/K",
 				:Default=>8.31451,
 				:Hidden=>true
 			)),
-			fill(molweight (Dict{Symbol,Any}(
+			fill(molweight(Dict{Symbol,Any}(
 				:Brief=>"Molar Weight",
 				:Hidden=>true
 			)),(NComp)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Compressor Operation Model",
 				:Valid=>["Polytropic","Isentropic"],
 				:Default=>"Isentropic"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Method of Calculation",
 				:Valid=>["GPSA Method","ASME Method"],
 				:Default=>"GPSA Method"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Pressure Ratio",
 				:Lower=>1E-6,
 				:Symbol=>"P_{ratio}"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop",
 				:DisplayUnit=>"kPa",
 				:Symbol=>"\\Delta P"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Pressure Increase",
 				:Lower=>0,
 				:DisplayUnit=>"kPa",
 				:Symbol=>"P_{incr}"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Compressor efficiency - Polytropic or Isentropic (See Compressor Type)",
 				:Lower=>1E-3,
 				:Upper=>1
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Mechanical efficiency",
 				:Lower=>1E-3,
 				:Upper=>1
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Power Losses"
 			)),
-			energy_mass (Dict{Symbol,Any}(
+			energy_mass(Dict{Symbol,Any}(
 				:Brief=>"Actual Head",
 				:Protected=>true
 			)),
-			energy_mass (Dict{Symbol,Any}(
+			energy_mass(Dict{Symbol,Any}(
 				:Brief=>"Isentropic Head",
 				:Protected=>true
 			)),
-			energy_mass (Dict{Symbol,Any}(
+			energy_mass(Dict{Symbol,Any}(
 				:Brief=>"Polytropic Head",
 				:Protected=>true
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Schultz Polytropic Head Correction",
 				:Protected=>true
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Fluid Power",
 				:Protected=>true
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Brake Power",
 				:Protected=>true
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Polytropic Coefficient",
 				:Lower=>0.2,
 				:Protected=>true
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Isentropic Coefficient",
 				:Lower=>0.2,
 				:Protected=>true
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Polytropic efficiency",
 				:Lower=>1E-3,
 				:Upper=>1,
 				:Protected=>true
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Isentropic efficiency",
 				:Lower=>1E-3,
 				:Upper=>1,
 				:Protected=>true
 			)),
-			temperature (Dict{Symbol,Any}(
+			temperature(Dict{Symbol,Any}(
 				:Brief=>"Isentropic Temperature",
 				:Protected=>true
 			)),
-			enth_mol (Dict{Symbol,Any}(
+			enth_mol(Dict{Symbol,Any}(
 				:Brief=>"Enthalpy at constant entropy",
 				:Hidden=>true
 			)),
-			molweight (Dict{Symbol,Any}(
+			molweight(Dict{Symbol,Any}(
 				:Brief=>"Mixture Molar Weight",
 				:Hidden=>true
 			)),
-			dens_mass (Dict{Symbol,Any}(
+			dens_mass(Dict{Symbol,Any}(
 				:Brief=>"Mass Density at inlet conditions",
 				:Lower=>1E-6,
 				:Protected=>true
 			)),
-			dens_mass (Dict{Symbol,Any}(
+			dens_mass(Dict{Symbol,Any}(
 				:Brief=>"Mass Density at outlet conditions",
 				:Lower=>1E-6,
 				:Protected=>true
 			)),
-			dens_mass (Dict{Symbol,Any}(
+			dens_mass(Dict{Symbol,Any}(
 				:Brief=>"Mass Density at isentropic conditions",
 				:Lower=>1E-6,
 				:Hidden=>true
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Compressibility factor at inlet",
 				:Lower=>1E-3,
 				:Protected=>true
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Compressibility factor at outlet",
 				:Lower=>1E-3,
 				:Protected=>true
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet stream",
 				:PosX=>0.16,
 				:PosY=>1,
 				:Symbol=>"_{in}"
 			)),
-			streamPH (Dict{Symbol,Any}(
+			streamPH(Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>0.87,
 				:PosY=>0.0,
 				:Symbol=>"_{out}"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Work Inlet",
 				:PosX=>0,
 				:PosY=>0.45,

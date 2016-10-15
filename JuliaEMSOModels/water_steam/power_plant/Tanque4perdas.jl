@@ -10,32 +10,32 @@ type Tanque4perdas
 				:Brief=>"Fracao massica de perdas"
 			)),
 			VazaoMassica(),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{in1}",
 				:PosX=>0.1,
 				:PosY=>0.16
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{in2}",
 				:PosX=>0.1,
 				:PosY=>0.35
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{in3}",
 				:PosX=>0.1,
 				:PosY=>0.55
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{in4}",
 				:PosX=>0.1,
 				:PosY=>0.75
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{out}",
 				:PosX=>1,
 				:PosY=>0.45
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{perdas}",
 				:PosX=>0.5,
 				:PosY=>1

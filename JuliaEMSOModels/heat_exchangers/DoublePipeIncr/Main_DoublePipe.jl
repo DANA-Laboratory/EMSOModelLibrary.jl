@@ -18,13 +18,13 @@
 type Main_DoublePipe
 	Main_DoublePipe()=begin
 		new(
-			DoublePipe_HeatTransfer (Dict{Symbol,Any}(
+			DoublePipe_HeatTransfer(Dict{Symbol,Any}(
 				:Brief=>"Double Pipe Heat Transfer"
 			)),
-			DoublePipe_PressureDrop (Dict{Symbol,Any}(
+			DoublePipe_PressureDrop(Dict{Symbol,Any}(
 				:Brief=>"Double Pipe Pressure Drop"
 			)),
-			Physical_Properties (Dict{Symbol,Any}(
+			Physical_Properties(Dict{Symbol,Any}(
 				:Brief=>"Double Pipe Properties"
 			)),
 			[:HeatTransfer,:PressureDrop,:Properties,]

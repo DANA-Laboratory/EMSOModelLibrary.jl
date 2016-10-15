@@ -20,103 +20,103 @@ type HairpinIncr
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Components"
 			)),
-			constant (Dict{Symbol,Any}(
+			constant(Dict{Symbol,Any}(
 				:Brief=>"Pi Number",
 				:Default=>3.14159265,
 				:Symbol=>"\\pi"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of zones",
 				:Default=>2
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of incremental points",
 				:Default=>3
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Outside Diameter of Inner Pipe",
 				:Lower=>1e-6
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Inside Diameter of Inner Pipe",
 				:Lower=>1e-10
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Inside Diameter of Outer pipe",
 				:Lower=>1e-10
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Effective Tube Length of one segment of Pipe",
 				:Lower=>0.1,
 				:Symbol=>"L_{pipe}"
 			)),
-			conductivity (Dict{Symbol,Any}(
+			conductivity(Dict{Symbol,Any}(
 				:Brief=>"Tube Wall Material Thermal Conductivity",
 				:Default=>1.0,
 				:Symbol=>"K_{wall}"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Inside Fouling Resistance",
 				:Unit=>"m^2*K/kW",
 				:Default=>1e-6,
 				:Lower=>0
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Outside Fouling Resistance",
 				:Unit=>"m^2*K/kW",
 				:Default=>1e-6,
 				:Lower=>0
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Inner Side Outlet Nozzle Diameter",
 				:Default=>0.036,
 				:Lower=>1e-6
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Inner Side Inlet Nozzle Diameter",
 				:Default=>0.036,
 				:Lower=>1e-6
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Outer Side Outlet Nozzle Diameter",
 				:Default=>0.036,
 				:Lower=>1e-6
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Outer Side Inlet Nozzle Diameter",
 				:Default=>0.036,
 				:Lower=>1e-6
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Inner Side Inlet Nozzle Pressure Loss Coeff",
 				:Default=>1.1
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Inner Side Outlet Nozzle Pressure Loss Coeff",
 				:Default=>0.7
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Outer Side Inlet Nozzle Pressure Loss Coeff",
 				:Default=>1.1
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Outer Side Outlet Nozzle Pressure Loss Coeff",
 				:Default=>0.7
 			)),
-			Summary_Hairpin (Dict{Symbol,Any}(
+			Summary_Hairpin(Dict{Symbol,Any}(
 				:Brief=>"Results for The Whole Heat Exchanger"
 			)),
-			UpperPipe_basic (Dict{Symbol,Any}(
+			UpperPipe_basic(Dict{Symbol,Any}(
 				:Brief=>"Upper Pipe Results"
 			)),
-			LowerPipe_basic (Dict{Symbol,Any}(
+			LowerPipe_basic(Dict{Symbol,Any}(
 				:Brief=>"Lower Pipe Results"
 			)),
 			[

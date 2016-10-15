@@ -23,13 +23,13 @@ type Supply
 			voltage(Dict{Symbol,Any}(
 				:Default=>0
 			)),
-			wire (Dict{Symbol,Any}(
+			wire(Dict{Symbol,Any}(
 				:Brief=>"Inlet",
 				:PosX=>0.3923,
 				:PosY=>0,
 				:Symbol=>"_{in}"
 			)),
-			wire (Dict{Symbol,Any}(
+			wire(Dict{Symbol,Any}(
 				:Brief=>"Outlet",
 				:PosX=>0.3984,
 				:PosY=>1,

@@ -23,41 +23,41 @@ type simple_source2
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
 			)),
-			fill(molweight (Dict{Symbol,Any}(
+			fill(molweight(Dict{Symbol,Any}(
 				:Brief=>"Component Mol Weight",
 				:Protected=>true
 			)),(NComp)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Valid Phases for Flash Calculation",
 				:Valid=>["Vapour-Only", "Liquid-Only","Vapour-Liquid"],
 				:Default=>"Vapour-Liquid"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>1,
 				:PosY=>0.5256,
 				:Symbol=>"_{out}",
 				:Protected=>true
 			)),
-			fill(positive (Dict{Symbol,Any}(
+			fill(positive(Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Composition"
 			)),(NComp)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Sum of Stream Composition",
 				:Protected=>true
 			)),
-			flow_mol (Dict{Symbol,Any}(
+			flow_mol(Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Flow Rate"
 			)),
-			temperature (Dict{Symbol,Any}(
+			temperature(Dict{Symbol,Any}(
 				:Brief=>"Stream Temperature"
 			)),
 			DanaReal(Dict{Symbol,Any}(
@@ -65,14 +65,14 @@ type simple_source2
 				:Lower=>-250,
 				:Upper=>5000
 			)),
-			pressure (Dict{Symbol,Any}(
+			pressure(Dict{Symbol,Any}(
 				:Brief=>"Stream Pressure"
 			)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Fraction",
 				:Hidden=>true
 			)),(NComp)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar Fraction",
 				:Hidden=>true
 			)),(NComp)),

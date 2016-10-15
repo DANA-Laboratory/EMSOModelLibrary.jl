@@ -18,13 +18,13 @@
 type Main_Hairpin
 	Main_Hairpin()=begin
 		new(
-			Hairpin_HeatTransfer (Dict{Symbol,Any}(
+			Hairpin_HeatTransfer(Dict{Symbol,Any}(
 				:Brief=>"Double Pipe Heat Transfer"
 			)),
-			Hairpin_PressureDrop (Dict{Symbol,Any}(
+			Hairpin_PressureDrop(Dict{Symbol,Any}(
 				:Brief=>"Double Pipe Pressure Drop"
 			)),
-			Physical_Properties (Dict{Symbol,Any}(
+			Physical_Properties(Dict{Symbol,Any}(
 				:Brief=>"Double Pipe Properties"
 			)),
 			[:HeatTransfer,:PressureDrop,:Properties,]

@@ -18,49 +18,49 @@
 type Tube_Pdrop
 	Tube_Pdrop()=begin
 		new(
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Tube Pressure Drop due to friction",
 				:Symbol=>"\\Delta P_{tube}",
 				:Default=>0.01,
 				:Lower=>1E-10,
 				:DisplayUnit=>"kPa"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Inlet Nozzle Pressure Drop",
 				:Symbol=>"\\Delta P_{Nozzle\\_In}",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Outlet Nozzle Pressure Drop",
 				:Symbol=>"\\Delta P_{Nozzle\\_Out}",
 				:Default=>0.01,
 				:Lower=>0,
 				:DisplayUnit=>"kPa"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Total Pressure Drop",
 				:Symbol=>"\\Delta P_{total}",
 				:Default=>0.01,
 				:Lower=>1E-10,
 				:DisplayUnit=>"kPa"
 			)),
-			velocity (Dict{Symbol,Any}(
+			velocity(Dict{Symbol,Any}(
 				:Brief=>"Inlet Nozzle Velocity",
 				:Symbol=>"V_{Nozzle\\_In}",
 				:Default=>1,
 				:Upper=>1e5,
 				:Lower=>0
 			)),
-			velocity (Dict{Symbol,Any}(
+			velocity(Dict{Symbol,Any}(
 				:Brief=>"Outlet Nozzle Velocity",
 				:Symbol=>"V_{Nozzle\\_Out}",
 				:Default=>1,
 				:Upper=>1E5,
 				:Lower=>0
 			)),
-			fricfactor (Dict{Symbol,Any}(
+			fricfactor(Dict{Symbol,Any}(
 				:Brief=>"Friction Factor",
 				:Symbol=>"f_i",
 				:Default=>0.05,

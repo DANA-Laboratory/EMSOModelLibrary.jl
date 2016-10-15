@@ -21,204 +21,204 @@ type tray
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of components"
 			)),
-			fill(molweight (Dict{Symbol,Any}(
+			fill(molweight(Dict{Symbol,Any}(
 				:Brief=>"Component Mol Weight",
 				:Hidden=>true
 			)),(NComp)),
-			acceleration (Dict{Symbol,Any}(
+			acceleration(Dict{Symbol,Any}(
 				:Brief=>"Gravity Acceleration",
 				:Default=>9.81,
 				:Hidden=>true
 			)),
-			flow_mol (Dict{Symbol,Any}(
+			flow_mol(Dict{Symbol,Any}(
 				:Brief=>"Stream Flow closed",
 				:Default=>0,
 				:Hidden=>true
 			)),
-			flow_mol (Dict{Symbol,Any}(
+			flow_mol(Dict{Symbol,Any}(
 				:Brief=>"Low stream Flow",
 				:Default=>1E-6,
 				:Hidden=>true
 			)),
-			constant (Dict{Symbol,Any}(
+			constant(Dict{Symbol,Any}(
 				:Brief=>"Pi Number",
 				:Default=>3.14159265,
 				:Symbol=>"\\pi",
 				:Hidden=>true
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Tray Diameter",
 				:Default=>1.600
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Tray Spacing",
 				:Default=>0.600
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Fraction of the active area that is occupied by the holes with respect to the total tray area",
 				:Default=>0.10
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Fraction of the downcomer area with respect to the total tray area",
 				:Default=>0.20
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Weir length",
 				:Default=>1
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Weir height",
 				:Default=>0.05
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Number of liquid passes in the tray",
 				:Lower=>1,
 				:Default=>1
 			)),
-			heat_rate (Dict{Symbol,Any}(
+			heat_rate(Dict{Symbol,Any}(
 				:Brief=>"Rate of heat supply",
 				:Default=>0
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Aeration fraction",
 				:Default=>1
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Dry pressure drop coefficient",
 				:Default=>0.60
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Murphree efficiency for All Trays",
 				:Lower=>0.01,
 				:Upper=>1
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Plate area = Atray - Adowncomer",
 				:Protected=>true
 			)),
-			volume (Dict{Symbol,Any}(
+			volume(Dict{Symbol,Any}(
 				:Brief=>"Total Volume of the tray",
 				:Protected=>true
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Total holes area",
 				:Protected=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Feeherys correlation coefficient",
 				:Unit=>"1/m^4",
 				:Default=>1,
 				:Hidden=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Elgues correlation coefficient",
 				:Unit=>"kg/m/mol^2",
 				:Default=>1,
 				:Hidden=>true
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Olsens correlation coefficient",
 				:Default=>1,
 				:Hidden=>true
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Flag for Vapour Flow condition",
 				:Valid=>["on", "off"],
 				:Default=>"off",
 				:Hidden=>true
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Flag for Liquid Flow condition",
 				:Valid=>["on", "off"],
 				:Default=>"off",
 				:Hidden=>true
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Feed stream",
 				:Hidden=>true,
 				:PosX=>0,
 				:PosY=>0.4932,
 				:Symbol=>"_{in}"
 			)),
-			liquid_stream (Dict{Symbol,Any}(
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"liquid Sidestream",
 				:Hidden=>true,
 				:Symbol=>"_{outL}"
 			)),
-			vapour_stream (Dict{Symbol,Any}(
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"vapour Sidestream",
 				:Hidden=>true,
 				:Symbol=>"_{outV}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet liquid stream",
 				:PosX=>0.5195,
 				:PosY=>0,
 				:Symbol=>"_{inL}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet vapour stream",
 				:PosX=>0.4994,
 				:PosY=>1,
 				:Symbol=>"_{inV}"
 			)),
-			liquid_stream (Dict{Symbol,Any}(
+			liquid_stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet liquid stream",
 				:PosX=>0.8277,
 				:PosY=>1,
 				:Symbol=>"_{outL}"
 			)),
-			vapour_stream (Dict{Symbol,Any}(
+			vapour_stream(Dict{Symbol,Any}(
 				:Brief=>"Outlet vapour stream",
 				:PosX=>0.8043,
 				:PosY=>0,
 				:Symbol=>"_{outV}"
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Flag for Liquid Flow Model",
 				:Lower=>0,
 				:Default=>1 ,
 				:Hidden=>true
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Flag for Vapour Flow Model",
 				:Lower=>0,
 				:Default=>1 ,
 				:Hidden=>true
 			)),
-			fill(mol (Dict{Symbol,Any}(
+			fill(mol(Dict{Symbol,Any}(
 				:Brief=>"Molar Holdup in the tray"
 			)),(NComp)),
-			mol (Dict{Symbol,Any}(
+			mol(Dict{Symbol,Any}(
 				:Brief=>"Molar liquid holdup"
 			)),
-			mol (Dict{Symbol,Any}(
+			mol(Dict{Symbol,Any}(
 				:Brief=>"Molar vapour holdup"
 			)),
-			energy (Dict{Symbol,Any}(
+			energy(Dict{Symbol,Any}(
 				:Brief=>"Total Energy Holdup on tray"
 			)),
-			volume_mol (Dict{Symbol,Any}(
+			volume_mol(Dict{Symbol,Any}(
 				:Brief=>"Liquid Molar Volume"
 			)),
-			volume_mol (Dict{Symbol,Any}(
+			volume_mol(Dict{Symbol,Any}(
 				:Brief=>"Vapour Molar volume"
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Height of clear liquid on plate"
 			)),
 			fill(fraction()),
-			dens_mass (Dict{Symbol,Any}(
+			dens_mass(Dict{Symbol,Any}(
 				:Brief=>"Mass Density of liquid phase"
 			)),
-			dens_mass (Dict{Symbol,Any}(
+			dens_mass(Dict{Symbol,Any}(
 				:Brief=>"Mass Density of vapour phase"
 			)),
 			[

@@ -20,13 +20,13 @@ type Indutor
 	Indutor()=begin
 		new(
 			indutance(),
-			wire (Dict{Symbol,Any}(
+			wire(Dict{Symbol,Any}(
 				:Brief=>"Inlet",
 				:PosX=>0.4638,
 				:PosY=>0,
 				:Symbol=>"_{in}"
 			)),
-			wire (Dict{Symbol,Any}(
+			wire(Dict{Symbol,Any}(
 				:Brief=>"Outlet",
 				:PosX=>0.4638,
 				:PosY=>1,

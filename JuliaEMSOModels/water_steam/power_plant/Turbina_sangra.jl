@@ -18,17 +18,17 @@ type Turbina_sangra
 			Fracao(Dict{Symbol,Any}(
 				:Brief=>"Fracao massica da sangria"
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{in}",
 				:PosX=>0,
 				:PosY=>0.25
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{out}",
 				:PosX=>1,
 				:PosY=>0.85
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{outx}",
 				:PosX=>0.85,
 				:PosY=>1

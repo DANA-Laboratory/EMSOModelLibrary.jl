@@ -8,10 +8,10 @@ type Trocador
 			)),
 			Potencia(),
 			Dif_Pres(),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{in}"
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{out}"
 			)),
 			[

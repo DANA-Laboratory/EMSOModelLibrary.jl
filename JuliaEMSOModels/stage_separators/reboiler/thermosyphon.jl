@@ -21,51 +21,51 @@ type thermosyphon
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Components"
 			)),
-			press_delta (Dict{Symbol,Any}(
+			press_delta(Dict{Symbol,Any}(
 				:Brief=>"Pressure Drop in the reboiler",
 				:Symbol=>"\\Delta P"
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Flow Constant"
 			)),
-			DanaReal (Dict{Symbol,Any}(
+			DanaReal(Dict{Symbol,Any}(
 				:Brief=>"Flow Constant",
 				:Hidden=>true,
 				:Unit=>"mol^3/(kg*m^2)"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid inlet stream",
 				:PosX=>0.44,
 				:PosY=>1,
 				:Symbol=>"_{inL}"
 			)),
-			streamPH (Dict{Symbol,Any}(
+			streamPH(Dict{Symbol,Any}(
 				:Brief=>"Vapour outlet stream",
 				:PosX=>0,
 				:PosY=>0.09,
 				:Symbol=>"_{outV}"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Heat supplied",
 				:PosX=>1,
 				:PosY=>0.77,
 				:Symbol=>"Q_{in}",
 				:Protected=>true
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Temperature  Indicator of Reboiler",
 				:Protected=>true,
 				:PosX=>1,
 				:PosY=>0.57
 			)),
-			control_signal (Dict{Symbol,Any}(
+			control_signal(Dict{Symbol,Any}(
 				:Brief=>"Pressure Indicator of Reboiler",
 				:Protected=>true,
 				:PosX=>1,

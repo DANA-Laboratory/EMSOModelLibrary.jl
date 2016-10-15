@@ -18,34 +18,34 @@
 type Shell_Side_Main
 	Shell_Side_Main()=begin
 		new(
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Inside Shell Diameter",
 				:Lower=>1E-6
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Shellside Fouling Resistance",
 				:Unit=>"m^2*K/kW",
 				:Symbol=>"Rf_{shell}",
 				:Default=>1E-6 ,
 				:Lower=>0
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Inlet Nozzle Inside Diameter",
 				:Lower=>1E-6
 			)),
-			length (Dict{Symbol,Any}(
+			length(Dict{Symbol,Any}(
 				:Brief=>"Outlet Nozzle Inside Diameter",
 				:Lower=>1E-6
 			)),
-			Shell_Pdrop (Dict{Symbol,Any}(
+			Shell_Pdrop(Dict{Symbol,Any}(
 				:Brief=>"Shell Side Pressure Drop",
 				:Symbol=>" "
 			)),
-			Shell_Heat_Transfer (Dict{Symbol,Any}(
+			Shell_Heat_Transfer(Dict{Symbol,Any}(
 				:Brief=>"Shell Side Heat Transfer",
 				:Symbol=>" "
 			)),
-			Physical_Properties (Dict{Symbol,Any}(
+			Physical_Properties(Dict{Symbol,Any}(
 				:Brief=>"ShellSide Properties",
 				:Symbol=>" "
 			)),

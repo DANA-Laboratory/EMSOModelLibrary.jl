@@ -4,7 +4,7 @@ type Torre
 		new(
 			CalorEspecifico(),
 			VazaoMassica(),
-			Potencia (Dict{Symbol,Any}(
+			Potencia(Dict{Symbol,Any}(
 				:Symbol=>"_{in1}",
 				:PosX=>0.1,
 				:PosY=>0.5

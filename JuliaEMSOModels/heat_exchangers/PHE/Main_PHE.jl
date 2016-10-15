@@ -18,15 +18,15 @@
 type Main_PHE
 	Main_PHE()=begin
 		new(
-			PHE_HeatTransfer (Dict{Symbol,Any}(
+			PHE_HeatTransfer(Dict{Symbol,Any}(
 				:Brief=>"PHE Heat Transfer",
 				:Symbol=>" "
 			)),
-			PHE_PressureDrop (Dict{Symbol,Any}(
+			PHE_PressureDrop(Dict{Symbol,Any}(
 				:Brief=>"PHE Pressure Drop",
 				:Symbol=>" "
 			)),
-			Physical_Properties (Dict{Symbol,Any}(
+			Physical_Properties(Dict{Symbol,Any}(
 				:Brief=>"PHE Properties",
 				:Symbol=>" "
 			)),

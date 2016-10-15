@@ -21,34 +21,34 @@ type condenserSubcooled
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Components"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Vapour inlet stream",
 				:PosX=>0.16,
 				:PosY=>0,
 				:Symbol=>"_{in}^{Vapour}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Liquid outlet stream",
 				:PosX=>0.53,
 				:PosY=>1,
 				:Symbol=>"_{out}^{Liquid}"
 			)),
-			temperature (Dict{Symbol,Any}(
+			temperature(Dict{Symbol,Any}(
 				:Brief=>"Condensate temperature (subcooled)",
 				:Symbol=>"T_{sub}"
 			)),
-			temp_delta (Dict{Symbol,Any}(
+			temp_delta(Dict{Symbol,Any}(
 				:Brief=>"Subcooling Degree",
 				:Symbol=>"\\Delta T_{sub}"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Calculated condenser duty for desired subcooling",
 				:Protected=>true,
 				:Symbol=>"Q_{cond}"

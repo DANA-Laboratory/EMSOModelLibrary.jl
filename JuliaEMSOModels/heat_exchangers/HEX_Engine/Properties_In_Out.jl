@@ -18,10 +18,10 @@
 type Properties_In_Out
 	Properties_In_Out()=begin
 		new(
-			flow_mass (Dict{Symbol,Any}(
+			flow_mass(Dict{Symbol,Any}(
 				:Brief=>"Stream Mass Flow"
 			)),
-			dens_mass (Dict{Symbol,Any}(
+			dens_mass(Dict{Symbol,Any}(
 				:Brief=>"Stream Density" ,
 				:Default=>1000,
 				:Lower=>1e-3,

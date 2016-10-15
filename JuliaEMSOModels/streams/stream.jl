@@ -22,27 +22,27 @@ type stream
 	stream()=begin
 		NComp=outers.NComp
 		new(
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
 			)),
-			flow_mol (Dict{Symbol,Any}(
+			flow_mol(Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Flow Rate"
 			)),
-			temperature (Dict{Symbol,Any}(
+			temperature(Dict{Symbol,Any}(
 				:Brief=>"Stream Temperature"
 			)),
-			pressure (Dict{Symbol,Any}(
+			pressure(Dict{Symbol,Any}(
 				:Brief=>"Stream Pressure"
 			)),
-			enth_mol (Dict{Symbol,Any}(
+			enth_mol(Dict{Symbol,Any}(
 				:Brief=>"Stream Enthalpy",
 				:Protected=>true
 			)),
-			fraction (Dict{Symbol,Any}(
+			fraction(Dict{Symbol,Any}(
 				:Brief=>"Vapourization fraction"
 			)),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Stream Molar Fraction"
 			)),(NComp)),
 			[:NComp,],

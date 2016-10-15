@@ -22,7 +22,7 @@ type cstr_yield
 	cstr_yield()=begin
 		new(
 			cstr_basic(),
-			fill(fraction (Dict{Symbol,Any}(
+			fill(fraction(Dict{Symbol,Any}(
 				:Brief=>"Yield"
 			)),(NReac)),
 			[

@@ -18,22 +18,22 @@
 type Details_Main
 	Details_Main()=begin
 		new(
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Exchange Surface Area"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer",
 				:Default=>7000,
 				:Lower=>1e-6,
 				:Upper=>1e10
 			)),
-			heat_trans_coeff (Dict{Symbol,Any}(
+			heat_trans_coeff(Dict{Symbol,Any}(
 				:Brief=>"Overall Heat Transfer Coefficient Clean",
 				:Default=>1,
 				:Lower=>1e-6,
 				:Upper=>1e10
 			)),
-			heat_trans_coeff (Dict{Symbol,Any}(
+			heat_trans_coeff(Dict{Symbol,Any}(
 				:Brief=>"Overall Heat Transfer Coefficient Dirty",
 				:Default=>1,
 				:Lower=>1e-6,

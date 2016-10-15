@@ -5,12 +5,12 @@ type Splitter
 			Fracao(Dict{Symbol,Any}(
 				:Brief=>"Fracao de massa para a segunda corrente"
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{in}",
 				:PosX=>0,
 				:PosY=>0.5
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{out}",
 				:PosX=>1,
 				:PosY=>0.25

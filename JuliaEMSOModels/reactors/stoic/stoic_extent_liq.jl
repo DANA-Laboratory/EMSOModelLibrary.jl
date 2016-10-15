@@ -5,7 +5,7 @@ type stoic_extent_liq
 	stoic_extent_liq()=begin
 		new(
 			stoic_liq(),
-			fill(flow_mol (Dict{Symbol,Any}(
+			fill(flow_mol(Dict{Symbol,Any}(
 				:Brief=>"Extent of reaction",
 				:Symbol=>"\\xi"
 			)),(NReac)),

@@ -8,10 +8,10 @@ type Gerador_Vapor_Simples
 			)),
 			Potencia(),
 			Eficiencia(),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{in}"
 			)),
-			Corrente (Dict{Symbol,Any}(
+			Corrente(Dict{Symbol,Any}(
 				:Symbol=>"_{out}"
 			)),
 			[

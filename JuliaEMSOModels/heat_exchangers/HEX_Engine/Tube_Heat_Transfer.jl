@@ -18,39 +18,39 @@
 type Tube_Heat_Transfer
 	Tube_Heat_Transfer()=begin
 		new(
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Tube Side Reynolds Number",
 				:Default=>1000,
 				:Lower=>1
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Nusselt Number",
 				:Default=>0.5,
 				:Lower=>1e-8
 			)),
-			heat_trans_coeff (Dict{Symbol,Any}(
+			heat_trans_coeff(Dict{Symbol,Any}(
 				:Brief=>"Tube Side Film Coefficient",
 				:Default=>1,
 				:Lower=>1e-12,
 				:Upper=>1e6
 			)),
-			fricfactor (Dict{Symbol,Any}(
+			fricfactor(Dict{Symbol,Any}(
 				:Brief=>"Friction Factor",
 				:Default=>0.05,
 				:Lower=>1e-10,
 				:Upper=>2000
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Tube Side Prandtl Number",
 				:Default=>0.5,
 				:Lower=>1e-8
 			)),
-			positive (Dict{Symbol,Any}(
+			positive(Dict{Symbol,Any}(
 				:Brief=>"Phi Correction",
 				:Default=>1,
 				:Lower=>1e-3
 			)),
-			velocity (Dict{Symbol,Any}(
+			velocity(Dict{Symbol,Any}(
 				:Brief=>"Tube Side Velocity",
 				:Lower=>1e-8
 			)),

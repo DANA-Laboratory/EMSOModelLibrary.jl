@@ -21,22 +21,22 @@ type mixer_n
 	mixer_n()=begin
 		NComp=outers.NComp
 		new(
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of chemical components",
 				:Lower=>1
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Inlet Streams",
 				:Lower=>1,
 				:Default=>2
 			)),
-			fill(stream (Dict{Symbol,Any}(
+			fill(stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet streams",
 				:PosX=>0,
 				:PosY=>0.5,
 				:Symbol=>"_{inMix}"
 			)),(Ninlet)),
-			streamPH (Dict{Symbol,Any}(
+			streamPH(Dict{Symbol,Any}(
 				:Brief=>"Outlet stream",
 				:PosX=>1,
 				:PosY=>0.5059,

@@ -19,32 +19,32 @@ type Details_Main
 	Details_Main()=begin
 		N=outers.N
 		new(
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of zones",
 				:Default=>2
 			)),
-			area (Dict{Symbol,Any}(
+			area(Dict{Symbol,Any}(
 				:Brief=>"Total Exchange Surface Area"
 			)),
-			fill(power (Dict{Symbol,Any}(
+			fill(power(Dict{Symbol,Any}(
 				:Brief=>"Incremental Duty",
 				:Default=>7000,
 				:Lower=>1e-8,
 				:Upper=>1e10
 			)),(N)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Total Duty",
 				:Default=>7000,
 				:Lower=>1e-8,
 				:Upper=>1e10
 			)),
-			heat_trans_coeff (Dict{Symbol,Any}(
+			heat_trans_coeff(Dict{Symbol,Any}(
 				:Brief=>"Average Overall Heat Transfer Coefficient Clean",
 				:Default=>1,
 				:Lower=>1e-6,
 				:Upper=>1e10
 			)),
-			fill(heat_trans_coeff (Dict{Symbol,Any}(
+			fill(heat_trans_coeff(Dict{Symbol,Any}(
 				:Brief=>"Incremental Overall Heat Transfer Coefficient Dirty",
 				:Default=>1,
 				:Lower=>1e-6,

@@ -20,114 +20,114 @@ type DoublePipe_Basic
 		PP=outers.PP
 		NComp=outers.NComp
 		new(
-			DanaPlugin (Dict{Symbol,Any}(
+			DanaPlugin(Dict{Symbol,Any}(
 				:Brief=>"External Physical Properties",
 				:Type=>"PP"
 			)),
-			DanaInteger (Dict{Symbol,Any}(
+			DanaInteger(Dict{Symbol,Any}(
 				:Brief=>"Number of Components",
 				:Hidden=>true
 			)),
-			fill(molweight (Dict{Symbol,Any}(
+			fill(molweight(Dict{Symbol,Any}(
 				:Brief=>"Component Mol Weight",
 				:Hidden=>true
 			)),(NComp)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Flag for Fluid Alocation ",
 				:Valid=>["outer","inner"],
 				:Default=>"outer",
 				:Hidden=>true
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Inner Flow Regime ",
 				:Valid=>["laminar","transition","turbulent"],
 				:Default=>"laminar",
 				:Hidden=>true
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Outer Flow Regime ",
 				:Valid=>["laminar","transition","turbulent"],
 				:Default=>"laminar",
 				:Hidden=>true
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer Correlation in Laminar Flow for the Inner Side",
 				:Valid=>["Hausen","Schlunder"],
 				:Default=>"Hausen"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer Correlation in Transition Flow for the Inner Side",
 				:Valid=>["Gnielinski","Hausen"],
 				:Default=>"Gnielinski"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer Correlation in Turbulent Flow for the Inner Side",
 				:Valid=>["Petukhov","SiederTate"],
 				:Default=>"Petukhov"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer Correlation in Laminar Flow for the Outer Side",
 				:Valid=>["Hausen","Schlunder"],
 				:Default=>"Hausen"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer Correlation in Transition Flow for the OuterSide",
 				:Valid=>["Gnielinski","Hausen"],
 				:Default=>"Gnielinski"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Heat Transfer Correlation in Turbulent Flow for the Outer Side",
 				:Valid=>["Petukhov","SiederTate"],
 				:Default=>"Petukhov"
 			)),
-			DanaSwitcher (Dict{Symbol,Any}(
+			DanaSwitcher(Dict{Symbol,Any}(
 				:Brief=>"Options for convergence Calculations ",
 				:Valid=>["Simplified","Full"],
 				:Default=>"Full"
 			)),
-			power (Dict{Symbol,Any}(
+			power(Dict{Symbol,Any}(
 				:Brief=>"Estimated Duty",
 				:Default=>70,
 				:Lower=>1e-6,
 				:Upper=>1e10
 			)),
-			DoublePipe_Geometry (Dict{Symbol,Any}(
+			DoublePipe_Geometry(Dict{Symbol,Any}(
 				:Brief=>"Double pipe geometry",
 				:Symbol=>" "
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet Inner Stream",
 				:PosX=>0,
 				:PosY=>0.5225,
 				:Symbol=>"_{inInner}"
 			)),
-			stream (Dict{Symbol,Any}(
+			stream(Dict{Symbol,Any}(
 				:Brief=>"Inlet Outer Stream",
 				:PosX=>0.2805,
 				:PosY=>0,
 				:Symbol=>"_{inOuter}"
 			)),
-			streamPH (Dict{Symbol,Any}(
+			streamPH(Dict{Symbol,Any}(
 				:Brief=>"Outlet Inner Stream",
 				:PosX=>1,
 				:PosY=>0.5225,
 				:Symbol=>"_{outInner}"
 			)),
-			streamPH (Dict{Symbol,Any}(
+			streamPH(Dict{Symbol,Any}(
 				:Brief=>"Outlet Outer Stream",
 				:PosX=>0.7264,
 				:PosY=>1,
 				:Symbol=>"_{outOuter}"
 			)),
-			Details_Main (Dict{Symbol,Any}(
+			Details_Main(Dict{Symbol,Any}(
 				:Brief=>"Some Details in the Heat Exchanger",
 				:Symbol=>" "
 			)),
-			Main_DoublePipe (Dict{Symbol,Any}(
+			Main_DoublePipe(Dict{Symbol,Any}(
 				:Brief=>"Inner Side of the Heat Exchanger",
 				:Symbol=>"_{Inner}"
 			)),
-			Main_DoublePipe (Dict{Symbol,Any}(
+			Main_DoublePipe(Dict{Symbol,Any}(
 				:Brief=>"Outer Side of the Heat Exchanger",
 				:Symbol=>"_{Outer}"
 			)),
