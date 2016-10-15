@@ -47,10 +47,10 @@ type ISE
 			[:input,:output,:setPoint,:sqError,]
 		)
 	end
-	input::DanaReal 
-	output::DanaReal 
-	setPoint::DanaReal 
-	sqError::DanaReal 
+	input::DanaReal
+	output::DanaReal
+	setPoint::DanaReal
+	sqError::DanaReal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	initials::Array{Expr,1}

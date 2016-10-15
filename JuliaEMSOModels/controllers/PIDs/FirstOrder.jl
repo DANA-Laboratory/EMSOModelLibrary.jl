@@ -57,9 +57,9 @@ type FirstOrder
 			[:x,:u,:y,]
 		)
 	end
-	tau::DanaReal 
-	A::DanaReal 
-	B::DanaReal 
+	tau::DanaReal
+	A::DanaReal
+	B::DanaReal
 	C::DanaReal
 	D::DanaReal
 	x::control_signal

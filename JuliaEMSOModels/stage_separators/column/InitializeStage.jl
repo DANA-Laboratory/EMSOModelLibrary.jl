@@ -57,12 +57,12 @@ type InitializeStage
 			[:NComp,:TopStageTemperature,:BottomStageTemperature,:TopStageComposition,:BottomStageComposition,:ColumnHoldup,],
 		)
 	end
-	NComp::DanaInteger 
-	TopStageTemperature::temperature 
-	BottomStageTemperature::temperature 
-	TopStageComposition::Array{fraction }
-	BottomStageComposition::Array{fraction }
-	ColumnHoldup::positive 
+	NComp::DanaInteger
+	TopStageTemperature::temperature
+	BottomStageTemperature::temperature
+	TopStageComposition::Array{fraction}
+	BottomStageComposition::Array{fraction}
+	ColumnHoldup::positive
 	parameters::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

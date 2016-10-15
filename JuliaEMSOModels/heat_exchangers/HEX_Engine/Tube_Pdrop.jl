@@ -76,13 +76,13 @@ type Tube_Pdrop
 			[:TubeFriction,:InletNozzle,:OutletNozzle,:Total,:Vnozzle_in,:Vnozzle_out,:FricFactor,]
 		)
 	end
-	TubeFriction::press_delta 
-	InletNozzle::press_delta 
-	OutletNozzle::press_delta 
-	Total::press_delta 
-	Vnozzle_in::velocity 
-	Vnozzle_out::velocity 
-	FricFactor::fricfactor 
+	TubeFriction::press_delta
+	InletNozzle::press_delta
+	OutletNozzle::press_delta
+	Total::press_delta
+	Vnozzle_in::velocity
+	Vnozzle_out::velocity
+	FricFactor::fricfactor
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}

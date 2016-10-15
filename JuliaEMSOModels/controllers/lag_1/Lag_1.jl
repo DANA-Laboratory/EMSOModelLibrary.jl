@@ -47,10 +47,10 @@ type Lag_1
 			[:input,:output,]
 		)
 	end
-	gain::positive 
-	tau::positive 
-	input::DanaReal 
-	output::DanaReal 
+	gain::positive
+	tau::positive
+	input::DanaReal
+	output::DanaReal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	initials::Array{Expr,1}

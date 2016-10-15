@@ -36,10 +36,10 @@ type Summary_Hairpin
 			[:A,:Qtotal,:Inner,:Outer,]
 		)
 	end
-	A::area 
-	Qtotal::power 
-	Inner::Results_Hairpin 
-	Outer::Results_Hairpin 
+	A::area
+	Qtotal::power
+	Inner::Results_Hairpin
+	Outer::Results_Hairpin
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

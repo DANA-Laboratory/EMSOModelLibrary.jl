@@ -47,8 +47,8 @@ type Capacitor
 	end
 	C::capacitance
 	q::charge
-	inlet::wire 
-	outlet::wire 
+	inlet::wire
+	outlet::wire
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

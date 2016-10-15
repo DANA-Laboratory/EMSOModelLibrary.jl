@@ -232,39 +232,39 @@ type centrifugal_compressor
 			[:Pratio,:Pdrop,:Pincrease,:EfficiencyOperation,:MechanicalEff,:PowerLoss,:Head,:HeadIsentropic,:HeadPolytropic,:HeadCorrection,:FluidPower,:BrakePower,:PolyCoeff,:IseCoeff,:PolytropicEff,:IsentropicEff,:Tisentropic,:hise,:Mwm,:rho_in,:rho_out,:rho_ise,:Zfac_in,:Zfac_out,:Inlet,:Outlet,:WorkIn,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Rgas::positive 
-	Mw::Array{molweight }
-	CompressorOperation::DanaSwitcher 
-	Method::DanaSwitcher 
-	Pratio::positive 
-	Pdrop::press_delta 
-	Pincrease::press_delta 
-	EfficiencyOperation::positive 
-	MechanicalEff::positive 
-	PowerLoss::power 
-	Head::energy_mass 
-	HeadIsentropic::energy_mass 
-	HeadPolytropic::energy_mass 
-	HeadCorrection::positive 
-	FluidPower::power 
-	BrakePower::power 
-	PolyCoeff::positive 
-	IseCoeff::positive 
-	PolytropicEff::positive 
-	IsentropicEff::positive 
-	Tisentropic::temperature 
-	hise::enth_mol 
-	Mwm::molweight 
-	rho_in::dens_mass 
-	rho_out::dens_mass 
-	rho_ise::dens_mass 
-	Zfac_in::fraction 
-	Zfac_out::fraction 
-	Inlet::stream 
-	Outlet::streamPH 
-	WorkIn::power 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Rgas::positive
+	Mw::Array{molweight}
+	CompressorOperation::DanaSwitcher
+	Method::DanaSwitcher
+	Pratio::positive
+	Pdrop::press_delta
+	Pincrease::press_delta
+	EfficiencyOperation::positive
+	MechanicalEff::positive
+	PowerLoss::power
+	Head::energy_mass
+	HeadIsentropic::energy_mass
+	HeadPolytropic::energy_mass
+	HeadCorrection::positive
+	FluidPower::power
+	BrakePower::power
+	PolyCoeff::positive
+	IseCoeff::positive
+	PolytropicEff::positive
+	IsentropicEff::positive
+	Tisentropic::temperature
+	hise::enth_mol
+	Mwm::molweight
+	rho_in::dens_mass
+	rho_out::dens_mass
+	rho_ise::dens_mass
+	Zfac_in::fraction
+	Zfac_out::fraction
+	Inlet::stream
+	Outlet::streamPH
+	WorkIn::power
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

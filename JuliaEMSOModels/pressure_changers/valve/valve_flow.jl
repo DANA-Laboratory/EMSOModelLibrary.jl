@@ -78,13 +78,13 @@ type valve_flow
 			[:Inlet,:Outlet,:FlowFraction,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
+	PP::DanaPlugin
+	NComp::DanaInteger
 	MinFlow::flow_mol
 	MaxFlow::flow_mol
-	Inlet::stream 
-	Outlet::stream 
-	FlowFraction::control_signal 
+	Inlet::stream
+	Outlet::stream
+	FlowFraction::control_signal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

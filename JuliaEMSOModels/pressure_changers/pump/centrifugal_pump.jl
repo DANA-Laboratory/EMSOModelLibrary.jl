@@ -183,36 +183,36 @@ type centrifugal_pump
 			[:Fvol,:Fw_in,:Fw_out,:rho_in,:rho_out,:Mwm,:Pvapor,:FluidPower,:BrakePower,:EletricPower,:Pratio,:Pdrop,:Pincrease,:StaticHead,:Head,:HeadIsentropic,:NPSH_available,:VelocityHead,:NozzleVelocity,:Inlet,:Outlet,:WorkIn,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Mw::Array{molweight }
-	PumpEfficiency::positive 
-	MechanicalEff::positive 
-	NPSH_Options::DanaSwitcher 
-	g::acceleration 
-	SuctionArea::area 
-	Fvol::flow_vol 
-	Fw_in::flow_mass 
-	Fw_out::flow_mass 
-	rho_in::dens_mass 
-	rho_out::dens_mass 
-	Mwm::molweight 
-	Pvapor::pressure 
-	FluidPower::power 
-	BrakePower::power 
-	EletricPower::power 
-	Pratio::positive 
-	Pdrop::press_delta 
-	Pincrease::press_delta 
-	StaticHead::length 
-	Head::energy_mass 
-	HeadIsentropic::energy_mass 
-	NPSH_available::length 
-	VelocityHead::length 
-	NozzleVelocity::velocity 
-	Inlet::stream 
-	Outlet::streamPH 
-	WorkIn::power 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Mw::Array{molweight}
+	PumpEfficiency::positive
+	MechanicalEff::positive
+	NPSH_Options::DanaSwitcher
+	g::acceleration
+	SuctionArea::area
+	Fvol::flow_vol
+	Fw_in::flow_mass
+	Fw_out::flow_mass
+	rho_in::dens_mass
+	rho_out::dens_mass
+	Mwm::molweight
+	Pvapor::pressure
+	FluidPower::power
+	BrakePower::power
+	EletricPower::power
+	Pratio::positive
+	Pdrop::press_delta
+	Pincrease::press_delta
+	StaticHead::length
+	Head::energy_mass
+	HeadIsentropic::energy_mass
+	NPSH_available::length
+	VelocityHead::length
+	NozzleVelocity::velocity
+	Inlet::stream
+	Outlet::streamPH
+	WorkIn::power
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

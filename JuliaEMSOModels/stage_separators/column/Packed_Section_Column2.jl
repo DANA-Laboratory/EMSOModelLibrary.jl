@@ -70,8 +70,8 @@ type Packed_Section_Column2
 		)
 	end
 	_base_1::Packed_Section_ColumnBasic
-	FeedStageOne::stream 
-	FeedStageTwo::stream 
+	FeedStageOne::stream
+	FeedStageTwo::stream
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}

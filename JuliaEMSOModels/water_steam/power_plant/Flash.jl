@@ -41,10 +41,10 @@ type Flash
 		)
 	end
 	PP2::DanaPlugin
-	TIT::Fracao 
-	Fin::Corrente 
-	FoutL::Corrente 
-	FoutV::Corrente 
+	TIT::Fracao
+	Fin::Corrente
+	FoutL::Corrente
+	FoutV::Corrente
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

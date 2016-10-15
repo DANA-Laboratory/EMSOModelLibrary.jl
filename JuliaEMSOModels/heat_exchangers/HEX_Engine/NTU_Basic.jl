@@ -76,14 +76,14 @@ type NTU_Basic
 			[:Ch,:Cc,:Cr,:Cmin,:Cmax,:NTU,:Eft,:Eft1,]
 		)
 	end
-	Ch::positive 
-	Cc::positive 
-	Cr::positive 
-	Cmin::positive 
-	Cmax::positive 
-	NTU::positive 
-	Eft::positive 
-	Eft1::positive 
+	Ch::positive
+	Cc::positive
+	Cr::positive
+	Cmin::positive
+	Cmax::positive
+	NTU::positive
+	Eft::positive
+	Eft1::positive
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

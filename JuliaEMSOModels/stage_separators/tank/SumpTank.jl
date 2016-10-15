@@ -224,40 +224,40 @@ type SumpTank
 			[:InletLiquid,:OutletLiquid,:InletVapour,:OutletVapour,:InletQ,:Vtotal,:Vfilled,:TotalHoldup,:LiquidHoldup,:VapourHoldup,:E,:vL,:vV,:Level,:Across,:Peq,:Pstatic,:LI,:TI,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Mw::Array{molweight }
-	pi::positive 
-	g::acceleration 
-	Heads::DanaSwitcher 
-	Diameter::length 
-	Lenght::length 
-	Vhead_elliptical::volume 
-	Vhead_hemispherical::volume 
-	Vcylinder::volume 
-	radius::length 
-	Levelpercent_Initial::positive 
-	Temperature_Initial::temperature 
-	Composition_Initial::Array{fraction }
-	InletLiquid::stream 
-	OutletLiquid::liquid_stream 
-	InletVapour::stream 
-	OutletVapour::vapour_stream 
-	InletQ::power 
-	Vtotal::volume 
-	Vfilled::volume 
-	TotalHoldup::Array{mol }
-	LiquidHoldup::mol 
-	VapourHoldup::mol 
-	E::energy 
-	vL::volume_mol 
-	vV::volume_mol 
-	Level::length 
-	Across::area 
-	Peq::pressure 
-	Pstatic::pressure 
-	LI::control_signal 
-	TI::control_signal 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Mw::Array{molweight}
+	pi::positive
+	g::acceleration
+	Heads::DanaSwitcher
+	Diameter::length
+	Lenght::length
+	Vhead_elliptical::volume
+	Vhead_hemispherical::volume
+	Vcylinder::volume
+	radius::length
+	Levelpercent_Initial::positive
+	Temperature_Initial::temperature
+	Composition_Initial::Array{fraction}
+	InletLiquid::stream
+	OutletLiquid::liquid_stream
+	InletVapour::stream
+	OutletVapour::vapour_stream
+	InletQ::power
+	Vtotal::volume
+	Vfilled::volume
+	TotalHoldup::Array{mol}
+	LiquidHoldup::mol
+	VapourHoldup::mol
+	E::energy
+	vL::volume_mol
+	vV::volume_mol
+	Level::length
+	Across::area
+	Peq::pressure
+	Pstatic::pressure
+	LI::control_signal
+	TI::control_signal
 	initials::Array{Expr,1}
 	initialNames::Array{String,1}
 	equations::Array{Expr,1}

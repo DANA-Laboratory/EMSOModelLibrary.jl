@@ -118,21 +118,21 @@ type reboilerSteady
 			[:InletLiquid,:OutletVapour,:InletQ,:x,:y,:TI,:PI,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Flash_Calculation::DanaSwitcher 
-	Pdrop::press_delta 
-	FlowConstant::DanaReal 
-	Fake_Temperature::temperature 
-	Fake_Vfrac::fraction 
-	k::DanaReal 
-	InletLiquid::stream 
-	OutletVapour::stream 
-	InletQ::power 
-	x::Array{fraction }
-	y::Array{fraction }
-	TI::control_signal 
-	PI::control_signal 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Flash_Calculation::DanaSwitcher
+	Pdrop::press_delta
+	FlowConstant::DanaReal
+	Fake_Temperature::temperature
+	Fake_Vfrac::fraction
+	k::DanaReal
+	InletLiquid::stream
+	OutletVapour::stream
+	InletQ::power
+	x::Array{fraction}
+	y::Array{fraction}
+	TI::control_signal
+	PI::control_signal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

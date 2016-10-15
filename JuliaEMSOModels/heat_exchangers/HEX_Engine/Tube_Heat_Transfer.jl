@@ -57,13 +57,13 @@ type Tube_Heat_Transfer
 			[:Re,:Nu,:htube,:fi,:PR,:Phi,:Vtube,]
 		)
 	end
-	Re::positive 
-	Nu::positive 
-	htube::heat_trans_coeff 
-	fi::fricfactor 
-	PR::positive 
-	Phi::positive 
-	Vtube::velocity 
+	Re::positive
+	Nu::positive
+	htube::heat_trans_coeff
+	fi::fricfactor
+	PR::positive
+	Phi::positive
+	Vtube::velocity
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

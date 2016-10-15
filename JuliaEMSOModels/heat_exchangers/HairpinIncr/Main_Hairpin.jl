@@ -30,9 +30,9 @@ type Main_Hairpin
 			[:HeatTransfer,:PressureDrop,:Properties,]
 		)
 	end
-	HeatTransfer::Hairpin_HeatTransfer 
-	PressureDrop::Hairpin_PressureDrop 
-	Properties::Physical_Properties 
+	HeatTransfer::Hairpin_HeatTransfer
+	PressureDrop::Hairpin_PressureDrop
+	Properties::Physical_Properties
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

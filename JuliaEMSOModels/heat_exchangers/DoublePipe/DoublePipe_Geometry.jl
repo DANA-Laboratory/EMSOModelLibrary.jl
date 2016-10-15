@@ -75,17 +75,17 @@ type DoublePipe_Geometry
 			[:PP,:NComp,:M,:Pi,:DoInner,:DiInner,:DiOuter,:Lpipe,:Kwall,:Rfi,:Rfo,],
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	M::Array{molweight }
-	Pi::constant 
-	DoInner::length 
-	DiInner::length 
-	DiOuter::length 
-	Lpipe::length 
-	Kwall::conductivity 
-	Rfi::positive 
-	Rfo::positive 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	M::Array{molweight}
+	Pi::constant
+	DoInner::length
+	DiInner::length
+	DiOuter::length
+	Lpipe::length
+	Kwall::conductivity
+	Rfi::positive
+	Rfo::positive
 	parameters::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

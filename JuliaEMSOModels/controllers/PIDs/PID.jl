@@ -239,42 +239,42 @@ type PID
 			[:Input,:Output,:SetPoint,:PID_derivTerm,:PID_dFilt,:PID_error,:PID_errorD,:PID_errorI,:PID_inputFilt,:PID_intTerm,:PID_outp,:PID_outps,:PID_propTerm,:PID_setPointFilt,:PID_AWFactor,:PID_action,:PID_input,:PID_output,:PID_setPoint,]
 		)
 	end
-	PID_Select::DanaSwitcher 
-	Action::DanaSwitcher 
-	Mode::DanaSwitcher 
-	Clip::DanaSwitcher 
-	alpha::positive 
-	beta::positive 
-	bias::control_signal 
-	derivTime::time_sec 
-	intTime::time_sec 
-	gain::positive 
-	gamma::positive 
-	tau::time_sec 
-	tauSet::time_sec 
-	MinInput::control_signal 
-	MaxInput::control_signal 
-	MinOutput::control_signal 
-	MaxOutput::control_signal 
-	Input::control_signal 
-	Output::control_signal 
+	PID_Select::DanaSwitcher
+	Action::DanaSwitcher
+	Mode::DanaSwitcher
+	Clip::DanaSwitcher
+	alpha::positive
+	beta::positive
+	bias::control_signal
+	derivTime::time_sec
+	intTime::time_sec
+	gain::positive
+	gamma::positive
+	tau::time_sec
+	tauSet::time_sec
+	MinInput::control_signal
+	MaxInput::control_signal
+	MinOutput::control_signal
+	MaxOutput::control_signal
+	Input::control_signal
+	Output::control_signal
 	SetPoint::control_signal
-	PID_derivTerm::control_signal 
-	PID_dFilt::control_signal 
-	PID_error::control_signal 
-	PID_errorD::control_signal 
-	PID_errorI::control_signal 
-	PID_inputFilt::control_signal 
-	PID_intTerm::control_signal 
-	PID_outp::control_signal 
-	PID_outps::control_signal 
-	PID_propTerm::control_signal 
-	PID_setPointFilt::control_signal 
-	PID_AWFactor::DanaReal 
-	PID_action::DanaReal 
-	PID_input::control_signal 
-	PID_output::control_signal 
-	PID_setPoint::control_signal 
+	PID_derivTerm::control_signal
+	PID_dFilt::control_signal
+	PID_error::control_signal
+	PID_errorD::control_signal
+	PID_errorI::control_signal
+	PID_inputFilt::control_signal
+	PID_intTerm::control_signal
+	PID_outp::control_signal
+	PID_outps::control_signal
+	PID_propTerm::control_signal
+	PID_setPointFilt::control_signal
+	PID_AWFactor::DanaReal
+	PID_action::DanaReal
+	PID_input::control_signal
+	PID_output::control_signal
+	PID_setPoint::control_signal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	initials::Array{Expr,1}

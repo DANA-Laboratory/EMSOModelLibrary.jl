@@ -120,25 +120,25 @@ type PI
 			[:Input,:Output,:SetPoint,:propTerm,:intTerm,:input,:setPoint,:action,:outp,:error,:outps,]
 		)
 	end
-	Action::DanaSwitcher 
-	Mode::DanaSwitcher 
-	bias::positive 
-	beta::positive 
-	gain::positive 
-	intTime::DanaReal 
-	MinInput::control_signal 
-	MaxInput::control_signal 
-	Input::control_signal 
-	Output::control_signal 
-	SetPoint::DanaReal 
-	propTerm::DanaReal 
-	intTerm::DanaReal 
-	input::DanaReal 
-	setPoint::DanaReal 
-	action::DanaReal 
-	outp::control_signal 
-	error::DanaReal 
-	outps::DanaReal 
+	Action::DanaSwitcher
+	Mode::DanaSwitcher
+	bias::positive
+	beta::positive
+	gain::positive
+	intTime::DanaReal
+	MinInput::control_signal
+	MaxInput::control_signal
+	Input::control_signal
+	Output::control_signal
+	SetPoint::DanaReal
+	propTerm::DanaReal
+	intTerm::DanaReal
+	input::DanaReal
+	setPoint::DanaReal
+	action::DanaReal
+	outp::control_signal
+	error::DanaReal
+	outps::DanaReal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	initials::Array{Expr,1}

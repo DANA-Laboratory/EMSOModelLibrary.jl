@@ -61,12 +61,12 @@ type Tanque4perdas
 	PP2::DanaPlugin
 	y::Fracao
 	Fsalida::VazaoMassica
-	Fin1::Corrente 
-	Fin2::Corrente 
-	Fin3::Corrente 
-	Fin4::Corrente 
-	Fout::Corrente 
-	Fperda::Corrente 
+	Fin1::Corrente
+	Fin2::Corrente
+	Fin3::Corrente
+	Fin4::Corrente
+	Fout::Corrente
+	Fperda::Corrente
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

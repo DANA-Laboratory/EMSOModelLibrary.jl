@@ -59,10 +59,10 @@ type Splitter4
 		)
 	end
 	y::Array{Fracao}
-	Fin::Corrente 
-	Fout1::Corrente 
+	Fin::Corrente
+	Fout1::Corrente
 	Fout2::Corrente
-	Fout3::Corrente 
+	Fout3::Corrente
 	Fout4::Corrente
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}

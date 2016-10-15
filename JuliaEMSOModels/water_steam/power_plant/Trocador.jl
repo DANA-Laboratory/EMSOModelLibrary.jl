@@ -30,8 +30,8 @@ type Trocador
 	PP2::DanaPlugin
 	Q::Potencia
 	DP::Dif_Pres
-	Fin::Corrente 
-	Fout::Corrente 
+	Fin::Corrente
+	Fout::Corrente
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

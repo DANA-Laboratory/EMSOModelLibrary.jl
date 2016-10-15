@@ -96,18 +96,18 @@ type cooler
 			[:Duty,:Vfrac,:Lfrac,:Kvalue,:Pratio,:Pdrop,:Inlet,:Outlet,:Heat,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Kvalues::DanaSwitcher 
-	Duty::power 
-	Vfrac::fraction 
-	Lfrac::fraction 
-	Kvalue::Array{DanaReal }
-	Pratio::positive 
-	Pdrop::press_delta 
-	Inlet::stream 
-	Outlet::streamPH 
-	Heat::power 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Kvalues::DanaSwitcher
+	Duty::power
+	Vfrac::fraction
+	Lfrac::fraction
+	Kvalue::Array{DanaReal}
+	Pratio::positive
+	Pdrop::press_delta
+	Inlet::stream
+	Outlet::streamPH
+	Heat::power
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

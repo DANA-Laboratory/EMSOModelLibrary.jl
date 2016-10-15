@@ -183,32 +183,32 @@ type condenser
 			[:Geometry,:InletVapour,:OutletLiquid,:OutletVapour,:InletQ,:TI,:LI,:PI,:M,:ML,:MV,:E,:vL,:vV,:rho,:Pdrop,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Mw::Array{molweight }
-	low_flow::flow_mol 
-	zero_flow::flow_mol 
-	VapourFlow::DanaSwitcher 
-	Kfactor::positive 
-	Levelpercent_Initial::positive 
-	Initial_Temperature::temperature 
-	Initial_Composition::Array{positive }
-	Geometry::VesselVolume 
-	InletVapour::stream 
-	OutletLiquid::liquid_stream 
-	OutletVapour::vapour_stream 
-	InletQ::power 
-	TI::control_signal 
-	LI::control_signal 
-	PI::control_signal 
-	M::Array{mol }
-	ML::mol 
-	MV::mol 
-	E::energy 
-	vL::volume_mol 
-	vV::volume_mol 
-	rho::dens_mass 
-	Pdrop::press_delta 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Mw::Array{molweight}
+	low_flow::flow_mol
+	zero_flow::flow_mol
+	VapourFlow::DanaSwitcher
+	Kfactor::positive
+	Levelpercent_Initial::positive
+	Initial_Temperature::temperature
+	Initial_Composition::Array{positive}
+	Geometry::VesselVolume
+	InletVapour::stream
+	OutletLiquid::liquid_stream
+	OutletVapour::vapour_stream
+	InletQ::power
+	TI::control_signal
+	LI::control_signal
+	PI::control_signal
+	M::Array{mol}
+	ML::mol
+	MV::mol
+	E::energy
+	vL::volume_mol
+	vV::volume_mol
+	rho::dens_mass
+	Pdrop::press_delta
 	initials::Array{Expr,1}
 	initialNames::Array{String,1}
 	equations::Array{Expr,1}

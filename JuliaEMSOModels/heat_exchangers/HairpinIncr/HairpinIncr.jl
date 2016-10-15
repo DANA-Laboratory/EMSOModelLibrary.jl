@@ -150,29 +150,29 @@ type HairpinIncr
 			[:Summary,:UpperPipe,:LowerPipe,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Pi::constant 
-	N::DanaInteger 
-	Npoints::DanaInteger 
-	DoInner::length 
-	DiInner::length 
-	DiOuter::length 
-	Lpipe::length 
-	Kwall::conductivity 
-	Rfi::positive 
-	Rfo::positive 
-	Donozzle_Inner::length 
-	Dinozzle_Inner::length 
-	Donozzle_Outer::length 
-	Dinozzle_Outer::length 
-	InnerKinlet::positive 
-	InnerKoutlet::positive 
-	OuterKinlet::positive 
-	OuterKoutlet::positive 
-	Summary::Summary_Hairpin 
-	UpperPipe::UpperPipe_basic 
-	LowerPipe::LowerPipe_basic 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Pi::constant
+	N::DanaInteger
+	Npoints::DanaInteger
+	DoInner::length
+	DiInner::length
+	DiOuter::length
+	Lpipe::length
+	Kwall::conductivity
+	Rfi::positive
+	Rfo::positive
+	Donozzle_Inner::length
+	Dinozzle_Inner::length
+	Donozzle_Outer::length
+	Dinozzle_Outer::length
+	InnerKinlet::positive
+	InnerKoutlet::positive
+	OuterKinlet::positive
+	OuterKoutlet::positive
+	Summary::Summary_Hairpin
+	UpperPipe::UpperPipe_basic
+	LowerPipe::LowerPipe_basic
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

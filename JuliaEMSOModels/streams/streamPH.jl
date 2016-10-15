@@ -48,8 +48,8 @@ type streamPH
 	end
 	_base_1::stream
 	PP::DanaPlugin
-	x::Array{fraction }
-	y::Array{fraction }
+	x::Array{fraction}
+	y::Array{fraction}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

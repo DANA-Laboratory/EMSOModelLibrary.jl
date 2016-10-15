@@ -272,36 +272,36 @@ type HairpinIncr_basic
 			[:InletInner,:InletOuter,:OutletInner,:OutletOuter,:Details,:Inner,:Outer,:Lincr,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	N::DanaInteger 
-	Npoints::DanaInteger 
-	M::Array{molweight }
-	HotSide::DanaSwitcher 
-	innerFlowRegime::DanaSwitcher 
-	outerFlowRegime::DanaSwitcher 
-	InnerLaminarCorrelation::DanaSwitcher 
-	InnerTransitionCorrelation::DanaSwitcher 
-	InnerTurbulentCorrelation::DanaSwitcher 
-	OuterLaminarCorrelation::DanaSwitcher 
-	OuterTransitionCorrelation::DanaSwitcher 
-	OuterTurbulentCorrelation::DanaSwitcher 
-	Pi::constant 
-	DoInner::length 
-	DiInner::length 
-	DiOuter::length 
-	Lpipe::length 
-	Kwall::conductivity 
-	Rfi::positive 
-	Rfo::positive 
-	InletInner::stream 
-	InletOuter::stream 
-	OutletInner::streamPH 
-	OutletOuter::streamPH 
-	Details::Details_Main 
-	Inner::Main_Hairpin 
-	Outer::Main_Hairpin 
-	Lincr::Array{length }
+	PP::DanaPlugin
+	NComp::DanaInteger
+	N::DanaInteger
+	Npoints::DanaInteger
+	M::Array{molweight}
+	HotSide::DanaSwitcher
+	innerFlowRegime::DanaSwitcher
+	outerFlowRegime::DanaSwitcher
+	InnerLaminarCorrelation::DanaSwitcher
+	InnerTransitionCorrelation::DanaSwitcher
+	InnerTurbulentCorrelation::DanaSwitcher
+	OuterLaminarCorrelation::DanaSwitcher
+	OuterTransitionCorrelation::DanaSwitcher
+	OuterTurbulentCorrelation::DanaSwitcher
+	Pi::constant
+	DoInner::length
+	DiInner::length
+	DiOuter::length
+	Lpipe::length
+	Kwall::conductivity
+	Rfi::positive
+	Rfo::positive
+	InletInner::stream
+	InletOuter::stream
+	OutletInner::streamPH
+	OutletOuter::streamPH
+	Details::Details_Main
+	Inner::Main_Hairpin
+	Outer::Main_Hairpin
+	Lincr::Array{length}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

@@ -37,10 +37,10 @@ type Physical_Properties
 			[:Inlet,:Average,:Outlet,:Wall,]
 		)
 	end
-	Inlet::Properties_In_Out 
-	Average::Properties_Average 
-	Outlet::Properties_In_Out 
-	Wall::Properties_Wall 
+	Inlet::Properties_In_Out
+	Average::Properties_Average
+	Outlet::Properties_In_Out
+	Wall::Properties_Wall
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

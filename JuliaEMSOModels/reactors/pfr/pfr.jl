@@ -106,24 +106,24 @@ type pfr
 			[:Inlet,:Outlet,:str,:vol,:rho,:q,:M,:Mt,:C,:E,:r,:Hr,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	NReac::DanaInteger 
-	stoic::Array{DanaReal }
-	NDisc::DanaInteger 
-	Mw::Array{molweight }
-	L::length 
-	Across::area 
-	Inlet::stream 
-	Outlet::stream 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	NReac::DanaInteger
+	stoic::Array{DanaReal}
+	NDisc::DanaInteger
+	Mw::Array{molweight}
+	L::length
+	Across::area
+	Inlet::stream
+	Outlet::stream
 	str::Array{vapour_stream}
 	vol::Array{vol_mol}
 	rho::Array{dens_mass}
 	q::Array{heat_rate}
-	M::Array{mol }
-	Mt::Array{mol }
-	C::Array{conc_mol }
-	E::Array{energy }
+	M::Array{mol}
+	Mt::Array{mol}
+	C::Array{conc_mol}
+	E::Array{energy}
 	r::Array{reaction_mol}
 	Hr::Array{heat_reaction}
 	equations::Array{Expr,1}

@@ -170,37 +170,37 @@ type PHE_Geometry
 			[:PP,:NComp,:Pi,:N1,:N2,:Kp1,:Kp2,:Kc1,:Kc2,:M,:Lv,:Nplates,:NpassHot,:NpassCold,:Dports,:Lw,:pitch,:pt,:Kwall,:Rfh,:Rfc,:PhiFactor,:Atotal,:Aports,:Achannel,:Dh,:Depth,:Nchannels,:Lp,:Lpack,:Lh,],
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Pi::constant 
-	N1::DanaInteger 
-	N2::DanaInteger 
-	Kp1::Array{constant }
-	Kp2::Array{constant }
-	Kc1::Array{constant }
-	Kc2::Array{constant }
-	M::Array{molweight }
-	Lv::length 
-	Nplates::DanaInteger 
-	NpassHot::DanaInteger 
-	NpassCold::DanaInteger 
-	Dports::length 
-	Lw::length 
-	pitch::length 
-	pt::length 
-	Kwall::conductivity 
-	Rfh::positive 
-	Rfc::positive 
-	PhiFactor::DanaReal 
-	Atotal::area 
-	Aports::area 
-	Achannel::area 
-	Dh::length 
-	Depth::length 
-	Nchannels::DanaInteger 
-	Lp::length 
-	Lpack::length 
-	Lh::length 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Pi::constant
+	N1::DanaInteger
+	N2::DanaInteger
+	Kp1::Array{constant}
+	Kp2::Array{constant}
+	Kc1::Array{constant}
+	Kc2::Array{constant}
+	M::Array{molweight}
+	Lv::length
+	Nplates::DanaInteger
+	NpassHot::DanaInteger
+	NpassCold::DanaInteger
+	Dports::length
+	Lw::length
+	pitch::length
+	pt::length
+	Kwall::conductivity
+	Rfh::positive
+	Rfc::positive
+	PhiFactor::DanaReal
+	Atotal::area
+	Aports::area
+	Achannel::area
+	Dh::length
+	Depth::length
+	Nchannels::DanaInteger
+	Lp::length
+	Lpack::length
+	Lh::length
 	parameters::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

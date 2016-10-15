@@ -115,18 +115,18 @@ type gibbs_vap
 		)
 	end
 	_base_1::tank_vap
-	NElem::DanaInteger 
-	Rg::DanaReal 
-	na::Array{DanaReal }
-	fs::Array{pressure }
-	To::temperature 
+	NElem::DanaInteger
+	Rg::DanaReal
+	na::Array{DanaReal}
+	fs::Array{pressure}
+	To::temperature
 	Outlet::vapour_stream
-	G::Array{energy_mol }
-	lambda::Array{energy_mol }
-	activ::Array{DanaReal }
-	rate::Array{reaction_mol }
-	conv::Array{DanaReal }
-	Fi::Array{flow_mol }
+	G::Array{energy_mol}
+	lambda::Array{energy_mol}
+	activ::Array{DanaReal}
+	rate::Array{reaction_mol}
+	conv::Array{DanaReal}
+	Fi::Array{flow_mol}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

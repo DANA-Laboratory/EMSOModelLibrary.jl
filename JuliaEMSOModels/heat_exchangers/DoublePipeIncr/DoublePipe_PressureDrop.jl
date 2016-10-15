@@ -104,20 +104,20 @@ type DoublePipe_PressureDrop
 			[:Plocal,:Pdrop,:Pd_fric,:fi,:Re,:Pdnozzle_in,:Pdnozzle_out,:Vnozzle_in,:Vnozzle_out,:RVsquare_in,:RVsquare_out,]
 		)
 	end
-	Dh::length 
-	N::DanaInteger 
-	Npoints::DanaInteger 
-	Plocal::Array{pressure }
-	Pdrop::press_delta 
-	Pd_fric::Array{press_delta }
-	fi::Array{fricfactor }
-	Re::Array{positive }
-	Pdnozzle_in::press_delta 
-	Pdnozzle_out::press_delta 
-	Vnozzle_in::velocity 
-	Vnozzle_out::velocity 
-	RVsquare_in::positive 
-	RVsquare_out::positive 
+	Dh::length
+	N::DanaInteger
+	Npoints::DanaInteger
+	Plocal::Array{pressure}
+	Pdrop::press_delta
+	Pd_fric::Array{press_delta}
+	fi::Array{fricfactor}
+	Re::Array{positive}
+	Pdnozzle_in::press_delta
+	Pdnozzle_out::press_delta
+	Vnozzle_in::velocity
+	Vnozzle_out::velocity
+	RVsquare_in::positive
+	RVsquare_out::positive
 	parameters::Array{Symbol,1}
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}

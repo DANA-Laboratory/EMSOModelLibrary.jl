@@ -31,7 +31,7 @@ type simple_sink
 			[:Inlet,]
 		)
 	end
-	Inlet::stream 
+	Inlet::stream
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

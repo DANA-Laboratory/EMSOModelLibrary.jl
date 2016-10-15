@@ -229,18 +229,18 @@ type PHE
 			[:Geometry,:InletHot,:InletCold,:OutletHot,:OutletCold,:HotSide,:ColdSide,:Thermal,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	ChevronAngle::DanaSwitcher 
-	SideOne::DanaSwitcher 
-	Geometry::PHE_Geometry 
-	InletHot::stream 
-	InletCold::stream 
-	OutletHot::streamPH 
-	OutletCold::streamPH 
-	HotSide::Main_PHE 
-	ColdSide::Main_PHE 
-	Thermal::Thermal_PHE 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	ChevronAngle::DanaSwitcher
+	SideOne::DanaSwitcher
+	Geometry::PHE_Geometry
+	InletHot::stream
+	InletCold::stream
+	OutletHot::streamPH
+	OutletCold::streamPH
+	HotSide::Main_PHE
+	ColdSide::Main_PHE
+	Thermal::Thermal_PHE
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

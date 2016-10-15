@@ -225,44 +225,44 @@ type packedStage
 			[:Inlet,:InletLiquid,:InletVapour,:OutletLiquid,:OutletVapour,:M,:ML,:MV,:E,:vL,:vV,:miL,:rhoL,:rhoV,:uL,:uV,:Al,:hl,:deltaP,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	LiquidResistanceCoeff::positive 
-	AreaPerPackingVolume::DanaReal 
-	ColumnInternalDiameter::length 
-	PackingVoidFraction::DanaReal 
-	HeightOfPacking::length 
-	Number_Stages::DanaInteger 
-	HeatOnStage::heat_rate 
-	HETP::length 
-	ColumnArea::area 
-	V::volume 
-	Pi::constant 
-	Gconst::acceleration 
-	low_flow::flow_mol 
-	low_pressure::pressure 
-	zero_flow::flow_mol 
-	Mw::Array{molweight }
-	VapourFlow::DanaSwitcher 
-	Inlet::stream 
-	InletLiquid::stream 
-	InletVapour::stream 
-	OutletLiquid::liquid_stream 
-	OutletVapour::vapour_stream 
-	M::Array{mol }
-	ML::mol 
-	MV::mol 
-	E::energy 
-	vL::volume_mol 
-	vV::volume_mol 
-	miL::viscosity 
-	rhoL::dens_mass 
-	rhoV::dens_mass 
-	uL::velocity 
-	uV::velocity 
-	Al::area 
-	hl::positive 
-	deltaP::pressure 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	LiquidResistanceCoeff::positive
+	AreaPerPackingVolume::DanaReal
+	ColumnInternalDiameter::length
+	PackingVoidFraction::DanaReal
+	HeightOfPacking::length
+	Number_Stages::DanaInteger
+	HeatOnStage::heat_rate
+	HETP::length
+	ColumnArea::area
+	V::volume
+	Pi::constant
+	Gconst::acceleration
+	low_flow::flow_mol
+	low_pressure::pressure
+	zero_flow::flow_mol
+	Mw::Array{molweight}
+	VapourFlow::DanaSwitcher
+	Inlet::stream
+	InletLiquid::stream
+	InletVapour::stream
+	OutletLiquid::liquid_stream
+	OutletVapour::vapour_stream
+	M::Array{mol}
+	ML::mol
+	MV::mol
+	E::energy
+	vL::volume_mol
+	vV::volume_mol
+	miL::viscosity
+	rhoL::dens_mass
+	rhoV::dens_mass
+	uL::velocity
+	uV::velocity
+	Al::area
+	hl::positive
+	deltaP::pressure
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

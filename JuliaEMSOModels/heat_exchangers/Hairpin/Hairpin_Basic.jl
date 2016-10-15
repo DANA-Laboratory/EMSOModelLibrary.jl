@@ -283,35 +283,35 @@ type Hairpin_Basic
 			[:InletInner,:InletOuter,:OutletInner,:OutletOuter,:Details,:Inner,:Outer,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	M::Array{molweight }
-	HotSide::DanaSwitcher 
-	innerFlowRegime::DanaSwitcher 
-	outerFlowRegime::DanaSwitcher 
-	InnerLaminarCorrelation::DanaSwitcher 
-	InnerTransitionCorrelation::DanaSwitcher 
-	InnerTurbulentCorrelation::DanaSwitcher 
-	OuterLaminarCorrelation::DanaSwitcher 
-	OuterTransitionCorrelation::DanaSwitcher 
-	OuterTurbulentCorrelation::DanaSwitcher 
-	CalculationApproach::DanaSwitcher 
-	Qestimated::power 
-	Pi::constant 
-	DoInner::length 
-	DiInner::length 
-	DiOuter::length 
-	Lpipe::length 
-	Kwall::conductivity 
-	Rfi::positive 
-	Rfo::positive 
-	InletInner::stream 
-	InletOuter::stream 
-	OutletInner::streamPH 
-	OutletOuter::streamPH 
-	Details::Details_Main 
-	Inner::Main_DoublePipe 
-	Outer::Main_DoublePipe 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	M::Array{molweight}
+	HotSide::DanaSwitcher
+	innerFlowRegime::DanaSwitcher
+	outerFlowRegime::DanaSwitcher
+	InnerLaminarCorrelation::DanaSwitcher
+	InnerTransitionCorrelation::DanaSwitcher
+	InnerTurbulentCorrelation::DanaSwitcher
+	OuterLaminarCorrelation::DanaSwitcher
+	OuterTransitionCorrelation::DanaSwitcher
+	OuterTurbulentCorrelation::DanaSwitcher
+	CalculationApproach::DanaSwitcher
+	Qestimated::power
+	Pi::constant
+	DoInner::length
+	DiInner::length
+	DiOuter::length
+	Lpipe::length
+	Kwall::conductivity
+	Rfi::positive
+	Rfo::positive
+	InletInner::stream
+	InletOuter::stream
+	OutletInner::streamPH
+	OutletOuter::streamPH
+	Details::Details_Main
+	Inner::Main_DoublePipe
+	Outer::Main_DoublePipe
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

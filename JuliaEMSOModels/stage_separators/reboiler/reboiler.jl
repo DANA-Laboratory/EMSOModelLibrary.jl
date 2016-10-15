@@ -156,27 +156,27 @@ type reboiler
 			[:Geometry,:InletLiquid,:OutletLiquid,:OutletVapour,:InletQ,:TI,:LI,:PI,:M,:ML,:MV,:E,:vL,:vV,:rhoV,:Pdrop,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Levelpercent_Initial::positive 
-	Initial_Temperature::temperature 
-	Initial_Composition::Array{positive }
-	Geometry::VesselVolume 
-	InletLiquid::stream 
-	OutletLiquid::liquid_stream 
-	OutletVapour::vapour_stream 
-	InletQ::power 
-	TI::control_signal 
-	LI::control_signal 
-	PI::control_signal 
-	M::Array{mol }
-	ML::mol 
-	MV::mol 
-	E::energy 
-	vL::volume_mol 
-	vV::volume_mol 
-	rhoV::dens_mass 
-	Pdrop::press_delta 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Levelpercent_Initial::positive
+	Initial_Temperature::temperature
+	Initial_Composition::Array{positive}
+	Geometry::VesselVolume
+	InletLiquid::stream
+	OutletLiquid::liquid_stream
+	OutletVapour::vapour_stream
+	InletQ::power
+	TI::control_signal
+	LI::control_signal
+	PI::control_signal
+	M::Array{mol}
+	ML::mol
+	MV::mol
+	E::energy
+	vL::volume_mol
+	vV::volume_mol
+	rhoV::dens_mass
+	Pdrop::press_delta
 	initials::Array{Expr,1}
 	initialNames::Array{String,1}
 	equations::Array{Expr,1}

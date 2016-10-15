@@ -69,14 +69,14 @@ type Results_Hairpin
 			[:Pdnozzle_in,:Pdnozzle_out,:Pdrop,:Vnozzle_in,:Vnozzle_out,:RVsquare_in,:RVsquare_out,:hcoeff,]
 		)
 	end
-	Pdnozzle_in::press_delta 
-	Pdnozzle_out::press_delta 
-	Pdrop::press_delta 
-	Vnozzle_in::velocity 
-	Vnozzle_out::velocity 
-	RVsquare_in::positive 
-	RVsquare_out::positive 
-	hcoeff::heat_trans_coeff 
+	Pdnozzle_in::press_delta
+	Pdnozzle_out::press_delta
+	Pdrop::press_delta
+	Vnozzle_in::velocity
+	Vnozzle_out::velocity
+	RVsquare_in::positive
+	RVsquare_out::positive
+	hcoeff::heat_trans_coeff
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

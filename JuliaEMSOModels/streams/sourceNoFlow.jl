@@ -53,9 +53,9 @@ type sourceNoFlow
 			[:Outlet,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Outlet::stream 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Outlet::stream
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

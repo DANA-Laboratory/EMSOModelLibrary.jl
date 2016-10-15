@@ -177,30 +177,30 @@ type flash
 		)
 	end
 	_base_1::VesselVolume
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Mw::Array{molweight }
-	Levelpercent_Initial::positive 
-	Temperature_Initial::temperature 
-	Composition_Initial::Array{fraction }
-	Inlet::stream 
-	OutletLiquid::liquid_stream 
-	OutletVapour::vapour_stream 
-	InletQ::power 
-	TotalHoldup::Array{mol }
-	LiquidHoldup::mol 
-	VapourHoldup::mol 
-	E::energy 
-	vL::volume_mol 
-	vV::volume_mol 
-	vfrac::positive 
-	Pratio::positive 
-	Pdrop::press_delta 
-	Peq::pressure 
-	Pstatic::pressure 
-	TI::control_signal 
-	PI::control_signal 
-	LI::control_signal 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Mw::Array{molweight}
+	Levelpercent_Initial::positive
+	Temperature_Initial::temperature
+	Composition_Initial::Array{fraction}
+	Inlet::stream
+	OutletLiquid::liquid_stream
+	OutletVapour::vapour_stream
+	InletQ::power
+	TotalHoldup::Array{mol}
+	LiquidHoldup::mol
+	VapourHoldup::mol
+	E::energy
+	vL::volume_mol
+	vV::volume_mol
+	vfrac::positive
+	Pratio::positive
+	Pdrop::press_delta
+	Peq::pressure
+	Pstatic::pressure
+	TI::control_signal
+	PI::control_signal
+	LI::control_signal
 	initials::Array{Expr,1}
 	initialNames::Array{String,1}
 	equations::Array{Expr,1}

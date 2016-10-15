@@ -51,8 +51,8 @@ type tank_simplified
 			[:Level,:Fin,:Fout,]
 		)
 	end
-	k::DanaReal 
-	A::area 
+	k::DanaReal
+	A::area
 	Level::length
 	Fin::flow_vol
 	Fout::flow_vol

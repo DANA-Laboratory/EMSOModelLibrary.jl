@@ -111,20 +111,20 @@ type VesselVolume
 			[:Vtotal,:Vfilled,:Level,:Across,]
 		)
 	end
-	Pi::positive 
-	Gconst::acceleration 
-	Orientation::DanaSwitcher 
-	Heads::DanaSwitcher 
-	Diameter::length 
-	Lenght::length 
-	Vhead_elliptical::volume 
-	Vhead_hemispherical::volume 
-	Vcylinder::volume 
-	radius::length 
-	Vtotal::volume 
-	Vfilled::volume 
-	Level::length 
-	Across::area 
+	Pi::positive
+	Gconst::acceleration
+	Orientation::DanaSwitcher
+	Heads::DanaSwitcher
+	Diameter::length
+	Lenght::length
+	Vhead_elliptical::volume
+	Vhead_hemispherical::volume
+	Vcylinder::volume
+	radius::length
+	Vtotal::volume
+	Vfilled::volume
+	Level::length
+	Across::area
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

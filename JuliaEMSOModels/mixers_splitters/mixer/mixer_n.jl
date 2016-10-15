@@ -55,10 +55,10 @@ type mixer_n
 			[:Inlet,:Outlet,]
 		)
 	end
-	NComp::DanaInteger 
-	Ninlet::DanaInteger 
-	Inlet::Array{stream }
-	Outlet::streamPH 
+	NComp::DanaInteger
+	Ninlet::DanaInteger
+	Inlet::Array{stream}
+	Outlet::streamPH
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

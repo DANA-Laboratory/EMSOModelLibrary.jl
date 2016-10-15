@@ -182,28 +182,28 @@ type SectionColumnBasic
 			[:PP,:NComp,:NumberOfFeeds,:FeedTrayLocation,:NumberOfTrays,:LiqSideTrayIndex,:VapSideTrayIndex,:LiquidSideStreamLocation,:VapourSideStreamLocation,:VapourFlowModel,:LiquidFlowModel,:TrayDiameter,:TraySpacing,:Fraction_HoleArea,:Fraction_DowncomerArea,:WeirLength,:WeirHeight,:TrayLiquidPasses,:HeatSupply,:AerationFraction,:DryPdropCoeff,:MurphreeEff,],
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	NumberOfFeeds::DanaInteger 
-	FeedTrayLocation::Array{DanaInteger }
-	NumberOfTrays::DanaInteger 
-	LiqSideTrayIndex::Array{DanaInteger }
-	VapSideTrayIndex::Array{DanaInteger }
-	LiquidSideStreamLocation::DanaInteger 
-	VapourSideStreamLocation::DanaInteger 
-	VapourFlowModel::DanaSwitcher 
-	LiquidFlowModel::DanaSwitcher 
-	TrayDiameter::length 
-	TraySpacing::length 
-	Fraction_HoleArea::fraction 
-	Fraction_DowncomerArea::fraction 
-	WeirLength::length 
-	WeirHeight::length 
-	TrayLiquidPasses::positive 
-	HeatSupply::heat_rate 
-	AerationFraction::DanaReal 
-	DryPdropCoeff::DanaReal 
-	MurphreeEff::DanaReal 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	NumberOfFeeds::DanaInteger
+	FeedTrayLocation::Array{DanaInteger}
+	NumberOfTrays::DanaInteger
+	LiqSideTrayIndex::Array{DanaInteger}
+	VapSideTrayIndex::Array{DanaInteger}
+	LiquidSideStreamLocation::DanaInteger
+	VapourSideStreamLocation::DanaInteger
+	VapourFlowModel::DanaSwitcher
+	LiquidFlowModel::DanaSwitcher
+	TrayDiameter::length
+	TraySpacing::length
+	Fraction_HoleArea::fraction
+	Fraction_DowncomerArea::fraction
+	WeirLength::length
+	WeirHeight::length
+	TrayLiquidPasses::positive
+	HeatSupply::heat_rate
+	AerationFraction::DanaReal
+	DryPdropCoeff::DanaReal
+	MurphreeEff::DanaReal
 	initials::Array{Expr,1}
 	initialNames::Array{String,1}
 	equations::Array{Expr,1}

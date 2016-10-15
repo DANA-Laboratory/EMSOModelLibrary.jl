@@ -48,8 +48,8 @@ type Supply
 	end
 	V::voltage
 	V0::voltage
-	inlet::wire 
-	outlet::wire 
+	inlet::wire
+	outlet::wire
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

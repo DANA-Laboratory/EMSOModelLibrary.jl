@@ -87,16 +87,16 @@ type thermosyphon
 			[:InletLiquid,:OutletVapour,:InletQ,:TI,:PI,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Pdrop::press_delta 
-	FlowConstant::DanaReal 
-	k::DanaReal 
-	InletLiquid::stream 
-	OutletVapour::streamPH 
-	InletQ::power 
-	TI::control_signal 
-	PI::control_signal 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Pdrop::press_delta
+	FlowConstant::DanaReal
+	k::DanaReal
+	InletLiquid::stream
+	OutletVapour::streamPH
+	InletQ::power
+	TI::control_signal
+	PI::control_signal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

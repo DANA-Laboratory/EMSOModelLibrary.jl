@@ -78,14 +78,14 @@ type Heatex_NTU
 		)
 	end
 	_base_1::Heatex_Basic
-	ExchangerType::DanaSwitcher 
-	Method::NTU_Basic 
-	xh::Array{fraction }
-	yh::Array{fraction }
-	vh::fraction 
-	xc::Array{fraction }
-	yc::Array{fraction }
-	vc::fraction 
+	ExchangerType::DanaSwitcher
+	Method::NTU_Basic
+	xh::Array{fraction}
+	yh::Array{fraction}
+	vh::fraction
+	xc::Array{fraction}
+	yc::Array{fraction}
+	vc::fraction
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

@@ -91,15 +91,15 @@ type valve_simplified
 	end
 	PP::DanaPlugin
 	NComp::DanaInteger
-	Inlet::stream 
-	Outlet::streamPH 
-	x::fraction 
-	rho::dens_mass 
-	v::vol_mol 
-	Pdrop::press_delta 
-	Pratio::positive 
-	rho_ref::dens_mass 
-	k::DanaReal 
+	Inlet::stream
+	Outlet::streamPH
+	x::fraction
+	rho::dens_mass
+	v::vol_mol
+	Pdrop::press_delta
+	Pratio::positive
+	rho_ref::dens_mass
+	k::DanaReal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

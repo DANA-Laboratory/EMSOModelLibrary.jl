@@ -73,13 +73,13 @@ type tank_cost
 		)
 	end
 	_base_1::VesselVolume
-	Material::DanaSwitcher 
+	Material::DanaSwitcher
 	Cost::Array{DanaReal}
 	Height::length
-	Ce::currency 
-	Cb::currency 
-	Fm::positive 
-	V::volume 
+	Ce::currency
+	Cb::currency
+	Fm::positive
+	V::volume
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

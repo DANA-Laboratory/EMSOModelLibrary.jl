@@ -39,10 +39,10 @@ type Physical_Properties_Heatex
 			[:Mw,:Cp,:Inlet,:Outlet,]
 		)
 	end
-	Mw::molweight 
-	Cp::cp_mol 
-	Inlet::Properties_In_Out 
-	Outlet::Properties_In_Out 
+	Mw::molweight
+	Cp::cp_mol
+	Inlet::Properties_In_Out
+	Outlet::Properties_In_Out
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

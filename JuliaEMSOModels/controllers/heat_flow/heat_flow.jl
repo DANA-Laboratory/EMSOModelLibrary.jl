@@ -49,10 +49,10 @@ type heat_flow
 			[:HeatFlow,:HeatFlowFraction,]
 		)
 	end
-	MinHeatFlow::power 
-	MaxHeatFlow::power 
-	HeatFlow::power 
-	HeatFlowFraction::fraction 
+	MinHeatFlow::power
+	MaxHeatFlow::power
+	HeatFlow::power
+	HeatFlowFraction::fraction
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

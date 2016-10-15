@@ -88,13 +88,13 @@ type yield_vap
 		)
 	end
 	_base_1::tank_vap
-	NReac::DanaInteger 
-	KComp::DanaInteger 
+	NReac::DanaInteger
+	KComp::DanaInteger
 	Outlet::vapour_stream
-	rate::Array{reaction_mol }
-	conv::Array{DanaReal }
-	yield::Array{DanaReal }
-	yield_::Array{DanaReal }
+	rate::Array{reaction_mol}
+	conv::Array{DanaReal}
+	yield::Array{DanaReal}
+	yield_::Array{DanaReal}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

@@ -111,22 +111,22 @@ type User_trayBasic
 			[:Inlet,:LiquidSideStream,:VapourSideStream,:InletL,:InletV,:OutletL,:OutletV,:M,:ML,:MV,:E,:vL,:vV,:Level,:yideal,]
 		)
 	end
-	PP::DanaPlugin 
+	PP::DanaPlugin
 	NComp::DanaInteger
-	Inlet::stream 
-	LiquidSideStream::liquid_stream 
-	VapourSideStream::vapour_stream 
-	InletL::stream 
-	InletV::stream 
-	OutletL::liquid_stream 
-	OutletV::vapour_stream 
-	M::Array{mol }
-	ML::mol 
-	MV::mol 
-	E::energy 
-	vL::volume_mol 
-	vV::volume_mol 
-	Level::length 
+	Inlet::stream
+	LiquidSideStream::liquid_stream
+	VapourSideStream::vapour_stream
+	InletL::stream
+	InletV::stream
+	OutletL::liquid_stream
+	OutletV::vapour_stream
+	M::Array{mol}
+	ML::mol
+	MV::mol
+	E::energy
+	vL::volume_mol
+	vV::volume_mol
+	Level::length
 	yideal::Array{fraction}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}

@@ -33,9 +33,9 @@ type Main_PHE
 			[:HeatTransfer,:PressureDrop,:Properties,]
 		)
 	end
-	HeatTransfer::PHE_HeatTransfer 
-	PressureDrop::PHE_PressureDrop 
-	Properties::Physical_Properties 
+	HeatTransfer::PHE_HeatTransfer
+	PressureDrop::PHE_PressureDrop
+	Properties::Physical_Properties
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

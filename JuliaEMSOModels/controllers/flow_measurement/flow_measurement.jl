@@ -65,10 +65,10 @@ type flow_measurement
 	end
 	PP::DanaPlugin
 	NComp::DanaInteger
-	FlowConst::flow_mol 
-	Inlet::stream 
-	Outlet::stream 
-	FlowSignal::control_signal 
+	FlowConst::flow_mol
+	Inlet::stream
+	Outlet::stream
+	FlowSignal::control_signal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

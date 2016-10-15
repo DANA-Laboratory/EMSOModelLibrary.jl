@@ -33,9 +33,9 @@ type Main_DoublePipe
 			[:HeatTransfer,:PressureDrop,:Properties,]
 		)
 	end
-	HeatTransfer::DoublePipe_HeatTransfer 
-	PressureDrop::DoublePipe_PressureDrop 
-	Properties::Physical_Properties 
+	HeatTransfer::DoublePipe_HeatTransfer
+	PressureDrop::DoublePipe_PressureDrop
+	Properties::Physical_Properties
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

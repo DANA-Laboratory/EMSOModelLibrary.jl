@@ -92,21 +92,21 @@ type Equil_vap
 		)
 	end
 	PP::DanaPlugin
-	NReac::DanaInteger 
-	stoic::Array{DanaReal }
-	Rg::DanaReal 
-	fs::Array{Pressao }
-	To::Temperatura 
+	NReac::DanaInteger
+	stoic::Array{DanaReal}
+	Rg::DanaReal
+	fs::Array{Pressao}
+	To::Temperatura
 	V::Volume
 	Mw::Array{molweight}
-	Inlet::CorrenteZ 
-	Outlet::CorrenteVap 
-	G::Array{EntalpiaMol }
-	K::Array{DanaReal }
-	activ::Array{DanaReal }
-	rate::Array{Reacao_mol }
-	extent::Array{VazaoMolar }
-	conv::Array{DanaReal }
+	Inlet::CorrenteZ
+	Outlet::CorrenteVap
+	G::Array{EntalpiaMol}
+	K::Array{DanaReal}
+	activ::Array{DanaReal}
+	rate::Array{Reacao_mol}
+	extent::Array{VazaoMolar}
+	conv::Array{DanaReal}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

@@ -70,13 +70,13 @@ type condenserSubcooled
 			[:InletVapour,:OutletLiquid,:T_sub,:SubcoolingDegree,:CondenserDuty,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	InletVapour::stream 
-	OutletLiquid::stream 
-	T_sub::temperature 
-	SubcoolingDegree::temp_delta 
-	CondenserDuty::power 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	InletVapour::stream
+	OutletLiquid::stream
+	T_sub::temperature
+	SubcoolingDegree::temp_delta
+	CondenserDuty::power
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

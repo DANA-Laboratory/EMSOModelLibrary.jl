@@ -58,12 +58,12 @@ type DoublePipe_PressureDrop
 			[:Pdrop,:Pd_fric,:Pd_ret,:fi,:Re,]
 		)
 	end
-	Dh::length 
-	Pdrop::press_delta 
-	Pd_fric::press_delta 
-	Pd_ret::press_delta 
-	fi::fricfactor 
-	Re::positive 
+	Dh::length
+	Pdrop::press_delta
+	Pd_fric::press_delta
+	Pd_ret::press_delta
+	fi::fricfactor
+	Re::positive
 	parameters::Array{Symbol,1}
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}

@@ -64,9 +64,9 @@ type Hairpin_NTU
 		)
 	end
 	_base_1::Hairpin_Basic
-	FlowDirection::DanaSwitcher 
-	Eftestimated::positive 
-	Method::NTU_Basic 
+	FlowDirection::DanaSwitcher
+	Eftestimated::positive
+	Method::NTU_Basic
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

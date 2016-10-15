@@ -66,14 +66,14 @@ type PHE_HeatTransfer
 			[:Re,:PR,:NTU,:WCp,:hcoeff,:Gchannel,:Gports,:Phi,]
 		)
 	end
-	Re::positive 
-	PR::positive 
-	NTU::positive 
-	WCp::positive 
-	hcoeff::heat_trans_coeff 
-	Gchannel::flux_mass 
-	Gports::flux_mass 
-	Phi::positive 
+	Re::positive
+	PR::positive
+	NTU::positive
+	WCp::positive
+	hcoeff::heat_trans_coeff
+	Gchannel::flux_mass
+	Gports::flux_mass
+	Phi::positive
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

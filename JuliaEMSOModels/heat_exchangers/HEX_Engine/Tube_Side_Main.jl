@@ -77,19 +77,19 @@ type Tube_Side_Main
 			[:PressureDrop,:HeatTransfer,:Properties,]
 		)
 	end
-	NumberOfTubes::DanaInteger 
-	Tubepasses::DanaInteger 
-	TubeLength::length 
-	TubePitch::length 
-	Kwall::conductivity 
-	TubeOD::length 
-	TubeID::length 
-	Fouling::positive 
-	InletNozzleID::length 
-	OutletNozzleID::length 
-	PressureDrop::Tube_Pdrop 
-	HeatTransfer::Tube_Heat_Transfer 
-	Properties::Physical_Properties 
+	NumberOfTubes::DanaInteger
+	Tubepasses::DanaInteger
+	TubeLength::length
+	TubePitch::length
+	Kwall::conductivity
+	TubeOD::length
+	TubeID::length
+	Fouling::positive
+	InletNozzleID::length
+	OutletNozzleID::length
+	PressureDrop::Tube_Pdrop
+	HeatTransfer::Tube_Heat_Transfer
+	Properties::Physical_Properties
 	parameters::Array{Symbol,1}
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}

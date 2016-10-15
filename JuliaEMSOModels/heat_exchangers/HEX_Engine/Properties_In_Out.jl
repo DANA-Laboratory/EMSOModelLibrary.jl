@@ -31,8 +31,8 @@ type Properties_In_Out
 			[:Fw,:rho,]
 		)
 	end
-	Fw::flow_mass 
-	rho::dens_mass 
+	Fw::flow_mass
+	rho::dens_mass
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

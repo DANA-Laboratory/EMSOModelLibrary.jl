@@ -117,18 +117,18 @@ type equil_vap
 		)
 	end
 	_base_1::tank_vap
-	NReac::DanaInteger 
-	stoic::Array{DanaReal }
-	Rg::DanaReal 
-	fs::Array{pressure }
-	To::temperature 
+	NReac::DanaInteger
+	stoic::Array{DanaReal}
+	Rg::DanaReal
+	fs::Array{pressure}
+	To::temperature
 	Outlet::vapour_stream
-	G::Array{energy_mol }
-	K::Array{DanaReal }
-	activ::Array{DanaReal }
-	rate::Array{reaction_mol }
-	extent::Array{flow_mol }
-	conv::Array{DanaReal }
+	G::Array{energy_mol}
+	K::Array{DanaReal}
+	activ::Array{DanaReal}
+	rate::Array{reaction_mol}
+	extent::Array{flow_mol}
+	conv::Array{DanaReal}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

@@ -60,13 +60,13 @@ type Properties_Average
 			[:Mw,:T,:P,:rho,:Mu,:Cp,:K,]
 		)
 	end
-	Mw::molweight 
-	T::temperature 
-	P::pressure 
-	rho::dens_mass 
-	Mu::viscosity 
-	Cp::cp_mol 
-	K::conductivity 
+	Mw::molweight
+	T::temperature
+	P::pressure
+	rho::dens_mass
+	Mu::viscosity
+	Cp::cp_mol
+	K::conductivity
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

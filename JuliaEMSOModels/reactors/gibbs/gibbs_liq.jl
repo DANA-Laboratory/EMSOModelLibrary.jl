@@ -78,18 +78,18 @@ type gibbs_liq
 		)
 	end
 	_base_1::tank_liq
-	NElem::DanaInteger 
-	Rg::DanaReal 
-	na::Array{DanaReal }
-	Ps::pressure 
-	To::temperature 
+	NElem::DanaInteger
+	Rg::DanaReal
+	na::Array{DanaReal}
+	Ps::pressure
+	To::temperature
 	Outlet::liquid_stream
-	G::Array{energy_mol }
-	lambda::Array{energy_mol }
-	activ::Array{DanaReal }
-	rate::Array{reaction_mol }
-	conv::Array{DanaReal }
-	Fi::Array{flow_mol }
+	G::Array{energy_mol}
+	lambda::Array{energy_mol}
+	activ::Array{DanaReal}
+	rate::Array{reaction_mol}
+	conv::Array{DanaReal}
+	Fi::Array{flow_mol}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

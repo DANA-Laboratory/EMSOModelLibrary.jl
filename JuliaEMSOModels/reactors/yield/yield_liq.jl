@@ -54,13 +54,13 @@ type yield_liq
 		)
 	end
 	_base_1::tank_liq
-	NReac::DanaInteger 
-	KComp::DanaInteger 
+	NReac::DanaInteger
+	KComp::DanaInteger
 	Outlet::liquid_stream
-	rate::Array{reaction_mol }
-	conv::Array{DanaReal }
-	yield::Array{DanaReal }
-	yield_::Array{DanaReal }
+	rate::Array{reaction_mol}
+	conv::Array{DanaReal}
+	yield::Array{DanaReal}
+	yield_::Array{DanaReal}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

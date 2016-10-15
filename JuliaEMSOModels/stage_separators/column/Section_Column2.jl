@@ -70,8 +70,8 @@ type Section_Column2
 		)
 	end
 	_base_1::SectionColumnBasic
-	FeedTrayOne::stream 
-	FeedTrayTwo::stream 
+	FeedTrayOne::stream
+	FeedTrayTwo::stream
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}

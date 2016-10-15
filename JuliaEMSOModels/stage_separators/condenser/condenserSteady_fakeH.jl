@@ -85,15 +85,15 @@ type condenserSteady_fakeH
 			[:InletVapour,:OutletLiquid,:InletQ,:TI,:PI,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Pdrop::press_delta 
-	Fake_Temperature::temperature 
-	InletVapour::stream 
-	OutletLiquid::stream 
-	InletQ::power 
-	TI::control_signal 
-	PI::control_signal 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Pdrop::press_delta
+	Fake_Temperature::temperature
+	InletVapour::stream
+	OutletLiquid::stream
+	InletQ::power
+	TI::control_signal
+	PI::control_signal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

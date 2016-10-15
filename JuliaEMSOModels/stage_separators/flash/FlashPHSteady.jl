@@ -124,14 +124,14 @@ type FlashPHSteady
 	Inlet::stream
 	OutletL::liquid_stream
 	OutletV::vapour_stream
-	InletQ::power 
+	InletQ::power
 	vfrac::fraction
 	vsat::DanaReal
 	Tsat::temperature
 	xsat::Array{DanaReal}
 	ysat::Array{DanaReal}
-	Pratio::positive 
-	Pdrop::press_delta 
+	Pratio::positive
+	Pdrop::press_delta
 	zero_one::fraction
 	one_zero::fraction
 	equations::Array{Expr,1}

@@ -80,14 +80,14 @@ type tank_basic
 			[:Inlet,:Outletm,:Tank,:M,:Mt,:E,:Q,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Inlet::stream 
-	Outletm::stream 
-	Tank::vol_tank 
-	M::Array{mol }
-	Mt::mol 
-	E::energy 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Inlet::stream
+	Outletm::stream
+	Tank::vol_tank
+	M::Array{mol}
+	Mt::mol
+	E::energy
 	Q::heat_rate
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}

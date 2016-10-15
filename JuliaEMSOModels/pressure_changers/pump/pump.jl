@@ -48,11 +48,11 @@ type pump
 			[:Inlet,:Outlet,:Pincrease,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Inlet::stream 
-	Outlet::liquid_stream 
-	Pincrease::press_delta 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Inlet::stream
+	Outlet::liquid_stream
+	Pincrease::press_delta
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

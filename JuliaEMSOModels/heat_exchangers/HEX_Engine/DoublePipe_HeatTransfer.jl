@@ -67,15 +67,15 @@ type DoublePipe_HeatTransfer
 			[:Re,:hcoeff,:fi,:Nu,:PR,:Phi,:Vmean,]
 		)
 	end
-	As::area 
-	Dh::length 
-	Re::positive 
-	hcoeff::heat_trans_coeff 
-	fi::fricfactor 
-	Nu::positive 
-	PR::positive 
-	Phi::positive 
-	Vmean::velocity 
+	As::area
+	Dh::length
+	Re::positive
+	hcoeff::heat_trans_coeff
+	fi::fricfactor
+	Nu::positive
+	PR::positive
+	Phi::positive
+	Vmean::velocity
 	parameters::Array{Symbol,1}
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}

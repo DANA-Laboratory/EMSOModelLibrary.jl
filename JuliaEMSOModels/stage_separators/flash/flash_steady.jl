@@ -91,14 +91,14 @@ type flash_steady
 	end
 	PP::DanaPlugin
 	NComp::DanaInteger
-	Inlet::stream 
-	OutletLiquid::liquid_stream 
-	OutletVapour::vapour_stream 
-	InletQ::power 
-	vfrac::fraction 
-	h::enth_mol 
-	Pratio::positive 
-	Pdrop::press_delta 
+	Inlet::stream
+	OutletLiquid::liquid_stream
+	OutletVapour::vapour_stream
+	InletQ::power
+	vfrac::fraction
+	h::enth_mol
+	Pratio::positive
+	Pdrop::press_delta
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

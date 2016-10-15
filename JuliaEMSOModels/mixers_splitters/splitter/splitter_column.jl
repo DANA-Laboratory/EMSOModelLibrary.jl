@@ -72,12 +72,12 @@ type splitter_column
 			[:Inlet,:Reflux,:Distillate,:SplitFlow_RefluxStream,:SplitFlow_DistillateStream,:RefluxRatio,]
 		)
 	end
-	Inlet::stream 
-	Reflux::stream 
-	Distillate::stream 
-	SplitFlow_RefluxStream::fraction 
-	SplitFlow_DistillateStream::fraction 
-	RefluxRatio::positive 
+	Inlet::stream
+	Reflux::stream
+	Distillate::stream
+	SplitFlow_RefluxStream::fraction
+	SplitFlow_DistillateStream::fraction
+	RefluxRatio::positive
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}

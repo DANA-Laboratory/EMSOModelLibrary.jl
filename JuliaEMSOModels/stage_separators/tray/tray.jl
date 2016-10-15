@@ -265,51 +265,51 @@ type tray
 			[:Inlet,:LiquidSideStream,:VapourSideStream,:InletLiquid,:InletVapour,:OutletLiquid,:OutletVapour,:LFlowModel,:VFlowModel,:M,:ML,:MV,:E,:vL,:vV,:Level,:yideal,:rhoL,:rhoV,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Mw::Array{molweight }
-	Gconst::acceleration 
-	zero_flow::flow_mol 
-	low_flow::flow_mol 
-	Pi::constant 
-	TrayDiameter_::length 
-	TraySpacing_::length 
-	Fraction_HoleArea_::fraction 
-	Fraction_DowncomerArea_::fraction 
-	WeirLength_::length 
-	WeirHeight_::length 
-	TrayLiquidPasses_::positive 
-	HeatSupply_::heat_rate 
-	AerationFraction_::DanaReal 
-	DryPdropCoeff_::DanaReal 
-	MurphreeEff_::DanaReal 
-	PlateArea_::area 
-	TrayVolume_::volume 
-	HolesArea_::area 
-	FeeheryCoeff::DanaReal 
-	ElgueCoeff::DanaReal 
-	OlsenCoeff::DanaReal 
-	VapourFlow::DanaSwitcher 
-	LiquidFlow::DanaSwitcher 
-	Inlet::stream 
-	LiquidSideStream::liquid_stream 
-	VapourSideStream::vapour_stream 
-	InletLiquid::stream 
-	InletVapour::stream 
-	OutletLiquid::liquid_stream 
-	OutletVapour::vapour_stream 
-	LFlowModel::positive 
-	VFlowModel::positive 
-	M::Array{mol }
-	ML::mol 
-	MV::mol 
-	E::energy 
-	vL::volume_mol 
-	vV::volume_mol 
-	Level::length 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Mw::Array{molweight}
+	Gconst::acceleration
+	zero_flow::flow_mol
+	low_flow::flow_mol
+	Pi::constant
+	TrayDiameter_::length
+	TraySpacing_::length
+	Fraction_HoleArea_::fraction
+	Fraction_DowncomerArea_::fraction
+	WeirLength_::length
+	WeirHeight_::length
+	TrayLiquidPasses_::positive
+	HeatSupply_::heat_rate
+	AerationFraction_::DanaReal
+	DryPdropCoeff_::DanaReal
+	MurphreeEff_::DanaReal
+	PlateArea_::area
+	TrayVolume_::volume
+	HolesArea_::area
+	FeeheryCoeff::DanaReal
+	ElgueCoeff::DanaReal
+	OlsenCoeff::DanaReal
+	VapourFlow::DanaSwitcher
+	LiquidFlow::DanaSwitcher
+	Inlet::stream
+	LiquidSideStream::liquid_stream
+	VapourSideStream::vapour_stream
+	InletLiquid::stream
+	InletVapour::stream
+	OutletLiquid::liquid_stream
+	OutletVapour::vapour_stream
+	LFlowModel::positive
+	VFlowModel::positive
+	M::Array{mol}
+	ML::mol
+	MV::mol
+	E::energy
+	vL::volume_mol
+	vV::volume_mol
+	Level::length
 	yideal::Array{fraction}
-	rhoL::dens_mass 
-	rhoV::dens_mass 
+	rhoL::dens_mass
+	rhoV::dens_mass
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

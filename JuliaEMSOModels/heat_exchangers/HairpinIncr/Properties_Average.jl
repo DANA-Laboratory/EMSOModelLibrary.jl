@@ -66,14 +66,14 @@ type Properties_Average
 			[:Mw,:T,:P,:rho,:Mu,:Cp,:K,]
 		)
 	end
-	N::DanaInteger 
-	Mw::molweight 
-	T::Array{temperature }
-	P::Array{pressure }
-	rho::Array{dens_mass }
-	Mu::Array{viscosity }
-	Cp::Array{cp_mol }
-	K::Array{conductivity }
+	N::DanaInteger
+	Mw::molweight
+	T::Array{temperature}
+	P::Array{pressure}
+	rho::Array{dens_mass}
+	Mu::Array{viscosity}
+	Cp::Array{cp_mol}
+	K::Array{conductivity}
 	parameters::Array{Symbol,1}
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}

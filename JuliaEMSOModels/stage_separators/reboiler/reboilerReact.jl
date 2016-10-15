@@ -135,28 +135,28 @@ type reboilerReact
 	end
 	PP::DanaPlugin
 	NComp::DanaInteger
-	Across::area 
-	V::volume 
+	Across::area
+	V::volume
 	stoic::Array{DanaReal}
 	Hr::energy_mol
-	Initial_Level::length 
-	Initial_Temperature::temperature 
-	Initial_Composition::Array{fraction }
-	InletLiquid::stream 
-	OutletLiquid::liquid_stream 
-	OutletVapour::vapour_stream 
-	InletQ::power 
-	M::Array{mol }
-	ML::mol 
-	MV::mol 
-	E::energy 
-	vL::volume_mol 
-	vV::volume_mol 
-	Level::length 
+	Initial_Level::length
+	Initial_Temperature::temperature
+	Initial_Composition::Array{fraction}
+	InletLiquid::stream
+	OutletLiquid::liquid_stream
+	OutletVapour::vapour_stream
+	InletQ::power
+	M::Array{mol}
+	ML::mol
+	MV::mol
+	E::energy
+	vL::volume_mol
+	vV::volume_mol
+	Level::length
 	Vol::volume
 	rhoV::dens_mass
-	r3::reaction_mol 
-	C::Array{conc_mol }
+	r3::reaction_mol
+	C::Array{conc_mol}
 	initials::Array{Expr,1}
 	initialNames::Array{String,1}
 	equations::Array{Expr,1}

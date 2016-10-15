@@ -90,16 +90,16 @@ type condenserSteady
 			[:InletVapour,:OutletLiquid,:InletQ,:Tbubble,:Deg_Subcooled,:TI,:PI,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Pdrop::press_delta 
-	InletVapour::stream 
-	OutletLiquid::liquid_stream 
-	InletQ::power 
-	Tbubble::temperature 
-	Deg_Subcooled::temp_delta 
-	TI::control_signal 
-	PI::control_signal 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Pdrop::press_delta
+	InletVapour::stream
+	OutletLiquid::liquid_stream
+	InletQ::power
+	Tbubble::temperature
+	Deg_Subcooled::temp_delta
+	TI::control_signal
+	PI::control_signal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

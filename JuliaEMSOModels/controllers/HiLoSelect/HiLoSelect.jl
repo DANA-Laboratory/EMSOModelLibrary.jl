@@ -43,10 +43,10 @@ type HiLoSelect
 			[:input1,:input2,:output,]
 		)
 	end
-	Select::DanaSwitcher 
-	input1::DanaReal 
-	input2::DanaReal 
-	output::DanaReal 
+	Select::DanaSwitcher
+	input1::DanaReal
+	input2::DanaReal
+	output::DanaReal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

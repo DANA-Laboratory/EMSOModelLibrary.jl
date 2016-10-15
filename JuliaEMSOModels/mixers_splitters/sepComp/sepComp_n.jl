@@ -76,14 +76,14 @@ type sepComp_n
 			[:Inlet,:Outlet,:frac,:recovery,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	NOutlet::DanaInteger 
-	mainComp::DanaInteger 
-	Inlet::stream 
-	Outlet::Array{stream }
-	frac::Array{fraction }
-	recovery::Array{fraction }
+	PP::DanaPlugin
+	NComp::DanaInteger
+	NOutlet::DanaInteger
+	mainComp::DanaInteger
+	Inlet::stream
+	Outlet::Array{stream}
+	frac::Array{fraction}
+	recovery::Array{fraction}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

@@ -110,23 +110,23 @@ type HidraulicTurbine
 			[:Eff,:Meff,:Beta,:Head,:FPower,:BPower,:Pratio,:Pdrop,:Mwm,:rho,:Cp,:Inlet,:Outlet,:WorkOut,]
 		)
 	end
-	NComp::DanaInteger 
-	PP::DanaPlugin 
-	Mw::Array{molweight }
-	Eff::efficiency 
-	Meff::efficiency 
-	Beta::positive 
-	Head::head 
-	FPower::power 
-	BPower::power 
-	Pratio::positive 
-	Pdrop::press_delta 
-	Mwm::molweight 
-	rho::dens_mass 
-	Cp::cp_mol 
-	Inlet::stream 
-	Outlet::stream 
-	WorkOut::power 
+	NComp::DanaInteger
+	PP::DanaPlugin
+	Mw::Array{molweight}
+	Eff::efficiency
+	Meff::efficiency
+	Beta::positive
+	Head::head
+	FPower::power
+	BPower::power
+	Pratio::positive
+	Pdrop::press_delta
+	Mwm::molweight
+	rho::dens_mass
+	Cp::cp_mol
+	Inlet::stream
+	Outlet::stream
+	WorkOut::power
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

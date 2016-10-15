@@ -167,31 +167,31 @@ type expander
 			[:Pratio,:Pdrop,:Pdecrease,:PowerLoss,:Head,:HeadIsentropic,:FluidPower,:BrakePower,:IseCoeff,:Tisentropic,:hise,:Mwm,:rho_in,:rho_out,:Zfac_in,:Zfac_out,:Inlet,:Outlet,:WorkOut,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Rgas::positive 
-	Mw::Array{molweight }
-	MechanicalEff::positive 
-	IsentropicEff::positive 
-	Pratio::positive 
-	Pdrop::press_delta 
-	Pdecrease::press_delta 
-	PowerLoss::power 
-	Head::energy_mass 
-	HeadIsentropic::energy_mass 
-	FluidPower::power 
-	BrakePower::power 
-	IseCoeff::positive 
-	Tisentropic::temperature 
-	hise::enth_mol 
-	Mwm::molweight 
-	rho_in::dens_mass 
-	rho_out::dens_mass 
-	Zfac_in::fraction 
-	Zfac_out::fraction 
-	Inlet::stream 
-	Outlet::streamPH 
-	WorkOut::power 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Rgas::positive
+	Mw::Array{molweight}
+	MechanicalEff::positive
+	IsentropicEff::positive
+	Pratio::positive
+	Pdrop::press_delta
+	Pdecrease::press_delta
+	PowerLoss::power
+	Head::energy_mass
+	HeadIsentropic::energy_mass
+	FluidPower::power
+	BrakePower::power
+	IseCoeff::positive
+	Tisentropic::temperature
+	hise::enth_mol
+	Mwm::molweight
+	rho_in::dens_mass
+	rho_out::dens_mass
+	Zfac_in::fraction
+	Zfac_out::fraction
+	Inlet::stream
+	Outlet::streamPH
+	WorkOut::power
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

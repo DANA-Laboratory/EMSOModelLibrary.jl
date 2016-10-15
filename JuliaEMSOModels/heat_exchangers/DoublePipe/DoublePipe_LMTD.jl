@@ -49,8 +49,8 @@ type DoublePipe_LMTD
 		)
 	end
 	_base_1::DoublePipe_Basic
-	FlowDirection::DanaSwitcher 
-	Method::LMTD_Basic 
+	FlowDirection::DanaSwitcher
+	Method::LMTD_Basic
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

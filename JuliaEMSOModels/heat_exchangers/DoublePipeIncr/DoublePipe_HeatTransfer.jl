@@ -85,19 +85,19 @@ type DoublePipe_HeatTransfer
 			[:Tlocal,:Re,:hcoeff,:fi,:Nu,:PR,:Phi,:Vmean,:Enth,]
 		)
 	end
-	As::area 
-	Dh::length 
-	N::DanaInteger 
-	Npoints::DanaInteger 
-	Tlocal::Array{temperature }
-	Re::Array{positive }
-	hcoeff::Array{heat_trans_coeff }
-	fi::Array{fricfactor }
-	Nu::Array{positive }
-	PR::Array{positive }
-	Phi::Array{positive }
-	Vmean::Array{velocity }
-	Enth::Array{enth_mol }
+	As::area
+	Dh::length
+	N::DanaInteger
+	Npoints::DanaInteger
+	Tlocal::Array{temperature}
+	Re::Array{positive}
+	hcoeff::Array{heat_trans_coeff}
+	fi::Array{fricfactor}
+	Nu::Array{positive}
+	PR::Array{positive}
+	Phi::Array{positive}
+	Vmean::Array{velocity}
+	Enth::Array{enth_mol}
 	parameters::Array{Symbol,1}
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}

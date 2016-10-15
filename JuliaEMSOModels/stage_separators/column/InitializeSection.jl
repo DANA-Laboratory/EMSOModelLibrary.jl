@@ -59,12 +59,12 @@ type InitializeSection
 			[:NComp,:TopTemperature,:BottomTemperature,:LevelFraction,:TopComposition,:BottomComposition,],
 		)
 	end
-	NComp::DanaInteger 
-	TopTemperature::temperature 
-	BottomTemperature::temperature 
-	LevelFraction::fraction 
-	TopComposition::Array{fraction }
-	BottomComposition::Array{fraction }
+	NComp::DanaInteger
+	TopTemperature::temperature
+	BottomTemperature::temperature
+	LevelFraction::fraction
+	TopComposition::Array{fraction}
+	BottomComposition::Array{fraction}
 	parameters::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

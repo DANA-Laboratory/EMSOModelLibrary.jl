@@ -108,16 +108,16 @@ type ShellandTubes_LMTD
 		)
 	end
 	_base_1::ShellandTubesBasic
-	LMTDcorrection::DanaSwitcher 
-	FLMTDcorrection::fraction 
+	LMTDcorrection::DanaSwitcher
+	FLMTDcorrection::fraction
 	Method::LMTD_Basic
-	R::positive 
-	P::positive 
-	Pc::positive 
-	Rho::positive 
-	Phi::positive 
-	lambdaN::positive 
-	lambda1::positive 
+	R::positive
+	P::positive
+	Pc::positive
+	Rho::positive
+	Phi::positive
+	lambdaN::positive
+	lambda1::positive
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

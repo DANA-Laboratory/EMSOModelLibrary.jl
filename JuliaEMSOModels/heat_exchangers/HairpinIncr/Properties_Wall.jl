@@ -38,9 +38,9 @@ type Properties_Wall
 			[:Mu,:Twall,]
 		)
 	end
-	N::DanaInteger 
-	Mu::Array{viscosity }
-	Twall::Array{temperature }
+	N::DanaInteger
+	Mu::Array{viscosity}
+	Twall::Array{temperature}
 	parameters::Array{Symbol,1}
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}

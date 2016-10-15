@@ -40,8 +40,8 @@ type Splitter
 		)
 	end
 	y::Fracao
-	Fin::Corrente 
-	Fout::Corrente 
+	Fin::Corrente
+	Fout::Corrente
 	Fouts::Corrente
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}

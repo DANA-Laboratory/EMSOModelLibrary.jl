@@ -42,10 +42,10 @@ type Shell_Heat_Transfer
 			[:Re,:PR,:hshell,:Phi,]
 		)
 	end
-	Re::positive 
-	PR::positive 
-	hshell::heat_trans_coeff 
-	Phi::positive 
+	Re::positive
+	PR::positive
+	hshell::heat_trans_coeff
+	Phi::positive
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

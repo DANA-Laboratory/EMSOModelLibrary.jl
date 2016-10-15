@@ -29,8 +29,8 @@ type Gerador_Vapor_Simples
 	PP2::DanaPlugin
 	Q_GV::Potencia
 	EF_GV::Eficiencia
-	Fin::Corrente 
-	Fout::Corrente 
+	Fin::Corrente
+	Fout::Corrente
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

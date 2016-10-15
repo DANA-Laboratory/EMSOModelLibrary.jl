@@ -85,15 +85,15 @@ type vol_tank
 			[:V,:Vt,:L,:Level,:D,:Across,]
 		)
 	end
-	pi::positive 
-	Geometry::DanaSwitcher 
+	pi::positive
+	Geometry::DanaSwitcher
 	Orientation::DanaSwitcher
-	V::volume 
-	Vt::volume 
-	L::length 
-	Level::length 
-	D::length 
-	Across::area 
+	V::volume
+	Vt::volume
+	L::length
+	Level::length
+	D::length
+	Across::area
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

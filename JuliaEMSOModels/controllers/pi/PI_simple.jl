@@ -78,18 +78,18 @@ type PI_simple
 			[:Input,:Output,:input,:setPoint,:intTerm,:outps,:SetPoint,]
 		)
 	end
-	Kp::DanaReal 
-	Ki::DanaReal 
-	bias::DanaReal 
+	Kp::DanaReal
+	Ki::DanaReal
+	bias::DanaReal
 	MinInput::control_signal
 	MaxInput::control_signal
-	Input::control_signal 
-	Output::control_signal 
-	input::DanaReal 
-	setPoint::DanaReal 
-	intTerm::DanaReal 
-	outps::DanaReal 
-	SetPoint::DanaReal 
+	Input::control_signal
+	Output::control_signal
+	input::DanaReal
+	setPoint::DanaReal
+	intTerm::DanaReal
+	outps::DanaReal
+	SetPoint::DanaReal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	initials::Array{Expr,1}

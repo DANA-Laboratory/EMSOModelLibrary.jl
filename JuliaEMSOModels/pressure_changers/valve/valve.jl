@@ -139,25 +139,25 @@ type valve
 			[:W,:Pdrop,:Fvol,:fc,:Cv,:Cv1,:Cg,:C,:StemPosition,:a,:vm,:rho,:Inlet,:Outlet,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	ValveType::DanaSwitcher 
-	ValidPhases::DanaSwitcher 
-	rho60F::dens_mass 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	ValveType::DanaSwitcher
+	ValidPhases::DanaSwitcher
+	rho60F::dens_mass
 	W::flow_mass
-	Pdrop::press_delta 
-	Fvol::flow_vol 
-	fc::positive 
-	Cv::DanaReal 
-	Cv1::DanaReal 
-	Cg::DanaReal 
-	C::DanaReal 
-	StemPosition::fraction 
+	Pdrop::press_delta
+	Fvol::flow_vol
+	fc::positive
+	Cv::DanaReal
+	Cv1::DanaReal
+	Cg::DanaReal
+	C::DanaReal
+	StemPosition::fraction
 	a::DanaReal
-	vm::vol_mol 
-	rho::dens_mass 
-	Inlet::stream 
-	Outlet::streamPH 
+	vm::vol_mol
+	rho::dens_mass
+	Inlet::stream
+	Outlet::streamPH
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

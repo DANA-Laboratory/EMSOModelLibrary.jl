@@ -117,25 +117,25 @@ type Diff_Dist
 			[:Inlet,:InletLiquid,:OutletVapour,:InletQ,:M,:ML,:MV,:E,:volL,:volV,:Level,:T,:P,:x,:h,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Across::area 
-	V::volume 
-	Inlet::stream 
-	InletLiquid::stream 
-	OutletVapour::vapour_stream 
-	InletQ::power 
-	M::Array{mol }
-	ML::mol 
-	MV::mol 
-	E::energy 
-	volL::volume_mol 
-	volV::volume_mol 
-	Level::length 
-	T::temperature 
-	P::pressure 
-	x::Array{fraction }
-	h::enth_mol 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Across::area
+	V::volume
+	Inlet::stream
+	InletLiquid::stream
+	OutletVapour::vapour_stream
+	InletQ::power
+	M::Array{mol}
+	ML::mol
+	MV::mol
+	E::energy
+	volL::volume_mol
+	volV::volume_mol
+	Level::length
+	T::temperature
+	P::pressure
+	x::Array{fraction}
+	h::enth_mol
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

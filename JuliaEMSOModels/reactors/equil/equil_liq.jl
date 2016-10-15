@@ -77,18 +77,18 @@ type equil_liq
 		)
 	end
 	_base_1::tank_liq
-	NReac::DanaInteger 
-	stoic::Array{DanaReal }
-	Rg::DanaReal 
-	Ps::pressure 
-	To::temperature 
+	NReac::DanaInteger
+	stoic::Array{DanaReal}
+	Rg::DanaReal
+	Ps::pressure
+	To::temperature
 	Outlet::liquid_stream
-	G::Array{enth_mol }
-	K::Array{fraction }
-	activ::Array{DanaReal }
-	rate::Array{reaction_mol }
-	extent::Array{flow_mol }
-	conv::Array{DanaReal }
+	G::Array{enth_mol}
+	K::Array{fraction}
+	activ::Array{DanaReal}
+	rate::Array{reaction_mol}
+	extent::Array{flow_mol}
+	conv::Array{DanaReal}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

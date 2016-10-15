@@ -49,13 +49,13 @@ type stream
 			[:F,:T,:P,:h,:v,:z,]
 		)
 	end
-	NComp::DanaInteger 
-	F::flow_mol 
-	T::temperature 
-	P::pressure 
-	h::enth_mol 
-	v::fraction 
-	z::Array{fraction }
+	NComp::DanaInteger
+	F::flow_mol
+	T::temperature
+	P::pressure
+	h::enth_mol
+	v::fraction
+	z::Array{fraction}
 	parameters::Array{Symbol,1}
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}

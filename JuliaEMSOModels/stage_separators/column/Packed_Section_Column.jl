@@ -59,7 +59,7 @@ type Packed_Section_Column
 		)
 	end
 	_base_1::Packed_Section_ColumnBasic
-	FeedStage::stream 
+	FeedStage::stream
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}

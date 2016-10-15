@@ -63,14 +63,14 @@ type ShellandTubes_NTU_cost
 		)
 	end
 	_base_1::ShellandTubes_NTU
-	Material::DanaSwitcher 
+	Material::DanaSwitcher
 	Cost::Array{DanaReal}
-	Ce::currency 
-	Cb::currency 
-	Fd::positive 
-	Fp::positive 
-	Fm::positive 
-	Pmax::pressure 
+	Ce::currency
+	Cb::currency
+	Fd::positive
+	Fp::positive
+	Fm::positive
+	Pmax::pressure
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

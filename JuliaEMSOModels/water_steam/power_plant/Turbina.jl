@@ -41,10 +41,10 @@ type Turbina
 	end
 	PP2::DanaPlugin
 	H_IS::Entalpia
-	EF_T::Eficiencia 
-	Fin::Corrente 
-	POT_TURB::Potencia 
-	Fout::Corrente 
+	EF_T::Eficiencia
+	Fin::Corrente
+	POT_TURB::Potencia
+	Fout::Corrente
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

@@ -34,9 +34,9 @@ type Tanque2
 		)
 	end
 	PP2::DanaPlugin
-	Fin1::Corrente 
-	Fin2::Corrente 
-	Fout::Corrente 
+	Fin1::Corrente
+	Fin2::Corrente
+	Fout::Corrente
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

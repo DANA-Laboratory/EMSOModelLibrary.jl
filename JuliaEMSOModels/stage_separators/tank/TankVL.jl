@@ -201,35 +201,35 @@ type TankVL
 			[:Geometry,:Inlet,:OutletLiquid,:OutletVapour,:InletQ,:TotalHoldup,:LiquidHoldup,:VapourHoldup,:E,:vL,:vV,:Pdrop,:Peq,:Pstatic,:TI,:PI,:LI,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Mw::Array{molweight }
-	Gconst::acceleration 
-	low_flow::flow_mol 
-	zero_flow::flow_mol 
-	KfConst::DanaReal 
-	Kfactor::positive 
-	NormalFlow::DanaSwitcher 
-	Levelpercent_Initial::positive 
-	Temperature_Initial::temperature 
-	Composition_Initial::Array{fraction }
-	Geometry::VesselVolume 
-	Inlet::stream 
-	OutletLiquid::liquid_stream 
-	OutletVapour::vapour_stream 
-	InletQ::power 
-	TotalHoldup::Array{mol }
-	LiquidHoldup::mol 
-	VapourHoldup::mol 
-	E::energy 
-	vL::volume_mol 
-	vV::volume_mol 
-	Pdrop::press_delta 
-	Peq::pressure 
-	Pstatic::pressure 
-	TI::control_signal 
-	PI::control_signal 
-	LI::control_signal 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Mw::Array{molweight}
+	Gconst::acceleration
+	low_flow::flow_mol
+	zero_flow::flow_mol
+	KfConst::DanaReal
+	Kfactor::positive
+	NormalFlow::DanaSwitcher
+	Levelpercent_Initial::positive
+	Temperature_Initial::temperature
+	Composition_Initial::Array{fraction}
+	Geometry::VesselVolume
+	Inlet::stream
+	OutletLiquid::liquid_stream
+	OutletVapour::vapour_stream
+	InletQ::power
+	TotalHoldup::Array{mol}
+	LiquidHoldup::mol
+	VapourHoldup::mol
+	E::energy
+	vL::volume_mol
+	vV::volume_mol
+	Pdrop::press_delta
+	Peq::pressure
+	Pstatic::pressure
+	TI::control_signal
+	PI::control_signal
+	LI::control_signal
 	initials::Array{Expr,1}
 	initialNames::Array{String,1}
 	equations::Array{Expr,1}

@@ -56,10 +56,10 @@ type splitter_n
 			[:Inlet,:Outlet,:frac,]
 		)
 	end
-	NOutlet::DanaInteger 
-	Inlet::stream 
-	Outlet::Array{stream }
-	frac::Array{fraction }
+	NOutlet::DanaInteger
+	Inlet::stream
+	Outlet::Array{stream}
+	frac::Array{fraction}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

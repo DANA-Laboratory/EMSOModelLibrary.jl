@@ -42,9 +42,9 @@ type Multiply
 			[:input1,:input2,:output,]
 		)
 	end
-	input1::control_signal 
-	input2::control_signal 
-	output::control_signal 
+	input1::control_signal
+	input2::control_signal
+	output::control_signal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}

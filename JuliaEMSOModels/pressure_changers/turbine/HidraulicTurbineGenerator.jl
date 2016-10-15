@@ -35,7 +35,7 @@ type HidraulicTurbineGenerator
 		)
 	end
 	_base_1::HidraulicTurbine
-	EPower::power 
+	EPower::power
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}

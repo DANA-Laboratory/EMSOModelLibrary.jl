@@ -90,14 +90,14 @@ type reboiler_cost
 		)
 	end
 	_base_1::reboiler
-	Material::DanaSwitcher 
+	Material::DanaSwitcher
 	Cost::Array{DanaReal}
-	Ce::currency 
-	Cb::currency 
-	Fd::positive 
-	Fp::positive 
-	Fm::positive 
-	P::pressure 
+	Ce::currency
+	Cb::currency
+	Fd::positive
+	Fp::positive
+	Fm::positive
+	P::pressure
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

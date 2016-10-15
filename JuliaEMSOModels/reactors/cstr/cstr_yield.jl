@@ -36,7 +36,7 @@ type cstr_yield
 		)
 	end
 	_base_1::cstr_basic
-	yield::Array{fraction }
+	yield::Array{fraction}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

@@ -58,13 +58,13 @@ type batch_basic
 	end
 	NComp::DanaInteger
 	NReac::DanaInteger
-	stoic::Array{DanaReal }
-	Inlet::stream 
-	C::Array{conc_mol }
-	r::Array{reaction_mol }
-	T::temperature 
-	P::pressure 
-	Vr::volume 
+	stoic::Array{DanaReal}
+	Inlet::stream
+	C::Array{conc_mol}
+	r::Array{reaction_mol}
+	T::temperature
+	P::pressure
+	Vr::volume
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

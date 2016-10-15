@@ -53,13 +53,13 @@ type Shell_Side_Main
 			[:PressureDrop,:HeatTransfer,:Properties,]
 		)
 	end
-	ShellID::length 
-	Fouling::positive 
-	InletNozzleID::length 
-	OutletNozzleID::length 
-	PressureDrop::Shell_Pdrop 
-	HeatTransfer::Shell_Heat_Transfer 
-	Properties::Physical_Properties 
+	ShellID::length
+	Fouling::positive
+	InletNozzleID::length
+	OutletNozzleID::length
+	PressureDrop::Shell_Pdrop
+	HeatTransfer::Shell_Heat_Transfer
+	Properties::Physical_Properties
 	parameters::Array{Symbol,1}
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}

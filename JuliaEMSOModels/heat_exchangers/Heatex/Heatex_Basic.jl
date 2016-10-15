@@ -102,18 +102,18 @@ type Heatex_Basic
 			[:InletHot,:OutletHot,:InletCold,:OutletCold,:A,:Q,:U,:PdropHotSide,:PdropColdSide,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	M::Array{molweight }
-	InletHot::stream 
-	OutletHot::streamPH 
-	InletCold::stream 
-	OutletCold::streamPH 
-	A::area 
-	Q::power 
-	U::heat_trans_coeff 
-	PdropHotSide::press_delta 
-	PdropColdSide::press_delta 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	M::Array{molweight}
+	InletHot::stream
+	OutletHot::streamPH
+	InletCold::stream
+	OutletCold::streamPH
+	A::area
+	Q::power
+	U::heat_trans_coeff
+	PdropHotSide::press_delta
+	PdropColdSide::press_delta
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

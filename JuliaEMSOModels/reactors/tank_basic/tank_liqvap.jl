@@ -75,17 +75,17 @@ type tank_liqvap
 		)
 	end
 	PP::DanaPlugin
-	NComp::DanaInteger 
-	Inlet::stream 
-	OutletmL::liquid_stream 
-	OutletV::vapour_stream 
-	Tank::vol_tank 
-	M::Array{mol }
-	ML::mol 
-	MV::mol 
-	E::energy 
-	Q::heat_rate 
-	vL::volume_mol 
+	NComp::DanaInteger
+	Inlet::stream
+	OutletmL::liquid_stream
+	OutletV::vapour_stream
+	Tank::vol_tank
+	M::Array{mol}
+	ML::mol
+	MV::mol
+	E::energy
+	Q::heat_rate
+	vL::volume_mol
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

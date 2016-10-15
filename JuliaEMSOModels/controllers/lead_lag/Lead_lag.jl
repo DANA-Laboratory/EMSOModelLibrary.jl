@@ -55,12 +55,12 @@ type Lead_lag
 			[:input,:output,:aux,]
 		)
 	end
-	gain::positive 
-	beta::positive 
-	alpha::positive 
-	input::DanaReal 
-	output::DanaReal 
-	aux::DanaReal 
+	gain::positive
+	beta::positive
+	alpha::positive
+	input::DanaReal
+	output::DanaReal
+	aux::DanaReal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	initials::Array{Expr,1}

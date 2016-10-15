@@ -61,13 +61,13 @@ type Hairpin_PressureDrop
 			[:Plocal,:Pd_fric,:fi,:Re,]
 		)
 	end
-	Dh::length 
-	N::DanaInteger 
-	Npoints::DanaInteger 
-	Plocal::Array{pressure }
-	Pd_fric::Array{press_delta }
-	fi::Array{fricfactor }
-	Re::Array{positive }
+	Dh::length
+	N::DanaInteger
+	Npoints::DanaInteger
+	Plocal::Array{pressure}
+	Pd_fric::Array{press_delta}
+	fi::Array{fricfactor}
+	Re::Array{positive}
 	parameters::Array{Symbol,1}
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}

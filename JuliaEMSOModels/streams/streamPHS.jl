@@ -36,7 +36,7 @@ type streamPHS
 		)
 	end
 	_base_1::streamPH
-	s::entr_mol 
+	s::entr_mol
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}

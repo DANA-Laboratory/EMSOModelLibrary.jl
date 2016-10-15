@@ -105,23 +105,23 @@ type User_Distillation_kettle_cond
 		)
 	end
 	_base_1::User_Section_ColumnBasic
-	CondenserVapourFlow::DanaSwitcher 
-	VapourDrawOff::vapour_stream 
-	LiquidDrawOff::liquid_stream 
+	CondenserVapourFlow::DanaSwitcher
+	VapourDrawOff::vapour_stream
+	LiquidDrawOff::liquid_stream
 	CondenserUnity::condenser
 	ReboilerUnity::reboiler
 	SplitterTop::splitter
 	PumpUnity::pump
 	alfaTopo::DanaReal
-	HeatToReboiler::energy_stream 
-	HeatToCondenser::energy_stream 
-	RebNoFlow::sourceNoFlow 
-	VapourDistillate::vapour_stream 
-	ConnectorCondenserVout::stream 
-	LiquidDistillate::liquid_stream 
-	ConnectorSplitterOut::stream 
-	BottomProduct::liquid_stream 
-	ConnectorReboilerLout::stream 
+	HeatToReboiler::energy_stream
+	HeatToCondenser::energy_stream
+	RebNoFlow::sourceNoFlow
+	VapourDistillate::vapour_stream
+	ConnectorCondenserVout::stream
+	LiquidDistillate::liquid_stream
+	ConnectorSplitterOut::stream
+	BottomProduct::liquid_stream
+	ConnectorReboilerLout::stream
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

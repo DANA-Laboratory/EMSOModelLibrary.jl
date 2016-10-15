@@ -89,7 +89,7 @@ type User_Distillation_thermosyphon_cond
 		)
 	end
 	_base_1::User_Section_ColumnBasic
-	CondenserVapourFlow::DanaSwitcher 
+	CondenserVapourFlow::DanaSwitcher
 	CondenserUnity::condenser
 	SplitterTop::splitter
 	PumpUnity::pump
@@ -97,15 +97,15 @@ type User_Distillation_thermosyphon_cond
 	SplitterBottom::splitter
 	ReboilerUnity::reboilerSteady
 	alfaTopo::DanaReal
-	HeatToCondenser::energy_stream 
-	HeatToReboiler::energy_stream 
-	HeatToBottomVessel::energy_stream 
-	VapourDistillate::vapour_stream 
-	ConnectorCondenserVout::stream 
-	LiquidDistillate::liquid_stream 
-	ConnectorSplitterTop::stream 
-	BottomProduct::liquid_stream 
-	ConnectorSplitterBottom::stream 
+	HeatToCondenser::energy_stream
+	HeatToReboiler::energy_stream
+	HeatToBottomVessel::energy_stream
+	VapourDistillate::vapour_stream
+	ConnectorCondenserVout::stream
+	LiquidDistillate::liquid_stream
+	ConnectorSplitterTop::stream
+	BottomProduct::liquid_stream
+	ConnectorSplitterBottom::stream
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

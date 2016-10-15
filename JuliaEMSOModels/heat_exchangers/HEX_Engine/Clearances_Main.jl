@@ -48,12 +48,12 @@ type Clearances_Main
 			[:SealStrip,:Hinozzle_Shell,:Honozzle_Shell,:BundleToShell,:BaffleToShell,:TubeToBaffle,],
 		)
 	end
-	SealStrip::DanaInteger 
-	Hinozzle_Shell::length 
-	Honozzle_Shell::length 
-	BundleToShell::length 
-	BaffleToShell::length 
-	TubeToBaffle::length 
+	SealStrip::DanaInteger
+	Hinozzle_Shell::length
+	Honozzle_Shell::length
+	BundleToShell::length
+	BaffleToShell::length
+	TubeToBaffle::length
 	parameters::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

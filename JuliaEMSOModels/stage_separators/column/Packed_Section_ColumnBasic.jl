@@ -117,18 +117,18 @@ type Packed_Section_ColumnBasic
 			[:PP,:NComp,:NumberOfFeeds,:NumberOfStages,:FeedStageLocation,:PackingHeight,:HeatSupply,:ColumnDiameter,:VoidFraction,:ResistanceCoeff,:AreaPerPackingVol,:HETP,],
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	NumberOfFeeds::DanaInteger 
-	NumberOfStages::DanaInteger 
-	FeedStageLocation::Array{DanaInteger }
-	PackingHeight::length 
-	HeatSupply::heat_rate 
-	ColumnDiameter::length 
-	VoidFraction::DanaReal 
-	ResistanceCoeff::positive 
-	AreaPerPackingVol::DanaReal 
-	HETP::length 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	NumberOfFeeds::DanaInteger
+	NumberOfStages::DanaInteger
+	FeedStageLocation::Array{DanaInteger}
+	PackingHeight::length
+	HeatSupply::heat_rate
+	ColumnDiameter::length
+	VoidFraction::DanaReal
+	ResistanceCoeff::positive
+	AreaPerPackingVol::DanaReal
+	HETP::length
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	initials::Array{Expr,1}

@@ -143,27 +143,27 @@ type source
 			[:Outlet,:Composition,:SumOfComposition,:F,:Fw,:Fvol,:T,:T_Cdeg,:P,:x,:y,:Mw,:vm,:rho,:rhom,:zmass,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	M::Array{molweight }
-	ValidPhases::DanaSwitcher 
-	CompositionBasis::DanaSwitcher 
-	Outlet::stream 
-	Composition::Array{positive }
-	SumOfComposition::positive 
-	F::flow_mol 
-	Fw::flow_mass 
-	Fvol::flow_vol 
-	T::temperature 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	M::Array{molweight}
+	ValidPhases::DanaSwitcher
+	CompositionBasis::DanaSwitcher
+	Outlet::stream
+	Composition::Array{positive}
+	SumOfComposition::positive
+	F::flow_mol
+	Fw::flow_mass
+	Fvol::flow_vol
+	T::temperature
 	T_Cdeg::DanaReal
 	P::pressure
-	x::Array{fraction }
-	y::Array{fraction }
-	Mw::molweight 
-	vm::volume_mol 
-	rho::dens_mass 
-	rhom::dens_mol 
-	zmass::Array{fraction }
+	x::Array{fraction}
+	y::Array{fraction}
+	Mw::molweight
+	vm::volume_mol
+	rho::dens_mass
+	rhom::dens_mol
+	zmass::Array{fraction}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

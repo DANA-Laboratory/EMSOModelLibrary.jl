@@ -109,18 +109,18 @@ type Shell_Pdrop
 			[:Ideal,:CrossFlow,:EndZones,:Window,:InletNozzle,:OutletNozzle,:Total,:FricFactor,:Vnozzle_in,:Vnozzle_out,:RVsquare_out,:RVsquare_in,]
 		)
 	end
-	Ideal::press_delta 
-	CrossFlow::press_delta 
-	EndZones::press_delta 
-	Window::press_delta 
-	InletNozzle::press_delta 
-	OutletNozzle::press_delta 
-	Total::press_delta 
-	FricFactor::fricfactor 
-	Vnozzle_in::velocity 
-	Vnozzle_out::velocity 
-	RVsquare_out::positive 
-	RVsquare_in::positive 
+	Ideal::press_delta
+	CrossFlow::press_delta
+	EndZones::press_delta
+	Window::press_delta
+	InletNozzle::press_delta
+	OutletNozzle::press_delta
+	Total::press_delta
+	FricFactor::fricfactor
+	Vnozzle_in::velocity
+	Vnozzle_out::velocity
+	RVsquare_out::positive
+	RVsquare_in::positive
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}

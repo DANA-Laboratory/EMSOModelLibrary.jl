@@ -51,10 +51,10 @@ type LMTD_Basic
 			[:DT0,:DTL,:LMTD,:Fc,]
 		)
 	end
-	DT0::temp_delta 
-	DTL::temp_delta 
-	LMTD::temp_delta 
-	Fc::positive 
+	DT0::temp_delta
+	DTL::temp_delta
+	LMTD::temp_delta
+	Fc::positive
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}

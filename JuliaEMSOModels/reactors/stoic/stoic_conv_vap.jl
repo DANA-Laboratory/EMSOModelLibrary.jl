@@ -26,7 +26,7 @@ type stoic_conv_vap
 	end
 	_base_1::stoic_vap
 	KComp::DanaInteger
-	kconv::DanaReal 
+	kconv::DanaReal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

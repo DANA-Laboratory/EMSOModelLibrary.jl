@@ -155,28 +155,28 @@ type info_stream
 			[:Inlet,:Outlet,:v,:x,:y,:F,:FwTotal,:Fw,:FvolTotal,:T_Cdeg,:Mu,:Cp,:K,:Mw,:vm,:rho,:rhom,:s,:zmass,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	M::Array{molweight }
-	Inlet::stream 
-	Outlet::stream 
-	v::fraction 
-	x::Array{fraction }
-	y::Array{fraction }
-	F::Array{flow_mol }
-	FwTotal::flow_mass 
-	Fw::Array{flow_mass }
-	FvolTotal::flow_vol 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	M::Array{molweight}
+	Inlet::stream
+	Outlet::stream
+	v::fraction
+	x::Array{fraction}
+	y::Array{fraction}
+	F::Array{flow_mol}
+	FwTotal::flow_mass
+	Fw::Array{flow_mass}
+	FvolTotal::flow_vol
 	T_Cdeg::DanaReal
-	Mu::viscosity 
-	Cp::cp_mol 
-	K::conductivity 
-	Mw::molweight 
-	vm::volume_mol 
-	rho::dens_mass 
-	rhom::dens_mol 
-	s::entr_mol 
-	zmass::Array{fraction }
+	Mu::viscosity
+	Cp::cp_mol
+	K::conductivity
+	Mw::molweight
+	vm::volume_mol
+	rho::dens_mass
+	rhom::dens_mol
+	s::entr_mol
+	zmass::Array{fraction}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

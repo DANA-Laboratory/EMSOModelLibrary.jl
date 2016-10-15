@@ -59,7 +59,7 @@ type Section_Column
 		)
 	end
 	_base_1::SectionColumnBasic
-	FeedTray::stream 
+	FeedTray::stream
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}

@@ -101,19 +101,19 @@ type simple_source
 			[:Outlet,:MolarComposition,:SumOfComposition,:F,:T,:T_Cdeg,:P,:x,:y,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	M::Array{molweight }
-	ValidPhases::DanaSwitcher 
-	Outlet::stream 
-	MolarComposition::Array{positive }
-	SumOfComposition::positive 
-	F::flow_mol 
-	T::temperature 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	M::Array{molweight}
+	ValidPhases::DanaSwitcher
+	Outlet::stream
+	MolarComposition::Array{positive}
+	SumOfComposition::positive
+	F::flow_mol
+	T::temperature
 	T_Cdeg::DanaReal
-	P::pressure 
-	x::Array{fraction }
-	y::Array{fraction }
+	P::pressure
+	x::Array{fraction}
+	y::Array{fraction}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

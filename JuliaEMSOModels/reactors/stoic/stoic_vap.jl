@@ -78,11 +78,11 @@ type stoic_vap
 		)
 	end
 	_base_1::tank_vap
-	NReac::DanaInteger 
-	stoic::Array{DanaReal }
+	NReac::DanaInteger
+	stoic::Array{DanaReal}
 	Outlet::vapour_stream
-	rate::Array{reaction_mol }
-	conv::Array{DanaReal }
+	rate::Array{reaction_mol}
+	conv::Array{DanaReal}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

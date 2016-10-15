@@ -39,8 +39,8 @@ type cstr
 		)
 	end
 	_base_1::cstr_basic
-	r::Array{reaction_mol }
-	Hr::Array{heat_reaction }
+	r::Array{reaction_mol}
+	Hr::Array{heat_reaction}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}

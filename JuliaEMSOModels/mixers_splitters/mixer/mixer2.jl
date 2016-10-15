@@ -50,9 +50,9 @@ type mixer2
 			[:Inlet1,:Inlet2,:Outlet,]
 		)
 	end
-	Inlet1::stream 
-	Inlet2::stream 
-	Outlet::streamPH 
+	Inlet1::stream
+	Inlet2::stream
+	Outlet::streamPH
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}

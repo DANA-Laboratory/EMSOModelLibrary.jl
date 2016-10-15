@@ -32,8 +32,8 @@ type Properties_Wall
 			[:Mu,:Twall,]
 		)
 	end
-	Mu::viscosity 
-	Twall::temperature 
+	Mu::viscosity
+	Twall::temperature
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

@@ -75,11 +75,11 @@ type splitter3
 			[:Inlet,:Outlet1,:Outlet2,:Outlet3,:FlowRatios,]
 		)
 	end
-	Inlet::stream 
-	Outlet1::stream 
-	Outlet2::stream 
-	Outlet3::stream 
-	FlowRatios::Array{fraction }
+	Inlet::stream
+	Outlet1::stream
+	Outlet2::stream
+	Outlet3::stream
+	FlowRatios::Array{fraction}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}

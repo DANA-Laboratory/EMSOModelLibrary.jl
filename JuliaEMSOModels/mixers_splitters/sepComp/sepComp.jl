@@ -75,14 +75,14 @@ type sepComp
 			[:Inlet,:Overhead_Outlet,:Bottom_Outlet,:InletQ,:Overhead_Splits,:Bottom_Splits,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	Inlet::stream 
-	Overhead_Outlet::streamPH 
-	Bottom_Outlet::streamPH 
-	InletQ::power 
-	Overhead_Splits::Array{fraction }
-	Bottom_Splits::Array{fraction }
+	PP::DanaPlugin
+	NComp::DanaInteger
+	Inlet::stream
+	Overhead_Outlet::streamPH
+	Bottom_Outlet::streamPH
+	InletQ::power
+	Overhead_Splits::Array{fraction}
+	Bottom_Splits::Array{fraction}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

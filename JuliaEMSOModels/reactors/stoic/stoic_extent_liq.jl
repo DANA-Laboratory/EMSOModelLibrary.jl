@@ -19,7 +19,7 @@ type stoic_extent_liq
 		)
 	end
 	_base_1::stoic_liq
-	extent::Array{flow_mol }
+	extent::Array{flow_mol}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}

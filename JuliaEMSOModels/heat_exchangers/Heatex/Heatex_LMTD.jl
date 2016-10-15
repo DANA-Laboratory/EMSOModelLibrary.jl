@@ -94,13 +94,13 @@ type Heatex_LMTD
 		)
 	end
 	_base_1::Heatex_Basic
-	ExchangerType::DanaSwitcher 
-	LMTDcorrection::DanaSwitcher 
-	Method::LMTD_Basic 
-	R::positive 
-	P::positive 
-	Rho::positive 
-	Phi::positive 
+	ExchangerType::DanaSwitcher
+	LMTDcorrection::DanaSwitcher
+	Method::LMTD_Basic
+	R::positive
+	P::positive
+	Rho::positive
+	Phi::positive
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

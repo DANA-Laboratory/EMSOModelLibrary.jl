@@ -37,7 +37,7 @@ type sinkNoFlow
 			[:Inlet,]
 		)
 	end
-	Inlet::stream 
+	Inlet::stream
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}

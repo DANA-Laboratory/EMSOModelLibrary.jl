@@ -51,11 +51,11 @@ type ControlSection
 			[:NComp,:Tindicator_TrayNumber,:Pindicator_TrayNumber,:zindicator_TrayNumber,:zindicator_Component,],
 		)
 	end
-	NComp::DanaInteger 
-	Tindicator_TrayNumber::DanaInteger 
-	Pindicator_TrayNumber::DanaInteger 
-	zindicator_TrayNumber::DanaInteger 
-	zindicator_Component::DanaInteger 
+	NComp::DanaInteger
+	Tindicator_TrayNumber::DanaInteger
+	Pindicator_TrayNumber::DanaInteger
+	zindicator_TrayNumber::DanaInteger
+	zindicator_Component::DanaInteger
 	parameters::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

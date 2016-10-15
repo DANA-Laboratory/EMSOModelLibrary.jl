@@ -37,11 +37,11 @@ type Condensador_2alim
 		)
 	end
 	PP2::DanaPlugin
-	Q_COND::Potencia 
-	G_S::Dif_Temp 
-	Fin1::Corrente 
-	Fin2::Corrente 
-	Fout::Corrente 
+	Q_COND::Potencia
+	G_S::Dif_Temp
+	Fin1::Corrente
+	Fin2::Corrente
+	Fout::Corrente
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

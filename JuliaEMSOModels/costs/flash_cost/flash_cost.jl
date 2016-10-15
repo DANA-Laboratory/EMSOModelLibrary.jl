@@ -99,18 +99,18 @@ type flash_cost
 		)
 	end
 	_base_1::flash
-	Material::DanaSwitcher 
+	Material::DanaSwitcher
 	Cost::Array{DanaReal}
-	flash_length::length 
-	Div::length 
-	Dih::length 
-	Ts::length 
-	dens_mass_material::dens_mass 
-	Ce::currency 
-	Cb::currency 
-	Ca::currency 
-	Fm::positive 
-	Ws::mass 
+	flash_length::length
+	Div::length
+	Dih::length
+	Ts::length
+	dens_mass_material::dens_mass
+	Ce::currency
+	Cb::currency
+	Ca::currency
+	Fm::positive
+	Ws::mass
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

@@ -39,7 +39,7 @@ type User_tray
 	_base_1::User_trayBasic
 	rhoL::dens_mass
 	rhoV::dens_mass
-	btemp::DanaReal 
+	btemp::DanaReal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}

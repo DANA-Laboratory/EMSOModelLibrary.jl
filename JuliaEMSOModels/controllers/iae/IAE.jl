@@ -47,10 +47,10 @@ type IAE
 			[:input,:output,:setPoint,:absError,]
 		)
 	end
-	input::DanaReal 
-	output::DanaReal 
-	setPoint::DanaReal 
-	absError::DanaReal 
+	input::DanaReal
+	output::DanaReal
+	setPoint::DanaReal
+	absError::DanaReal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	initials::Array{Expr,1}

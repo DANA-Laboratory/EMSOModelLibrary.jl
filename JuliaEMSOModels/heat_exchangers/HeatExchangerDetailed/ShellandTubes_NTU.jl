@@ -45,7 +45,7 @@ type ShellandTubes_NTU
 		)
 	end
 	_base_1::ShellandTubesBasic
-	Method::NTU_Basic 
+	Method::NTU_Basic
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}

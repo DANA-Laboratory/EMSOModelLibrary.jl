@@ -122,14 +122,14 @@ type User_Section_Column
 		)
 	end
 	_base_1::User_Section_ColumnBasic
-	VapourDrawOff::vapour_stream 
-	LiquidDrawOff::liquid_stream 
-	LiquidInlet::stream 
-	VapourOutlet::vapour_stream 
-	VapourInlet::stream 
-	LiquidOutlet::liquid_stream 
-	LiquidConnector::stream 
-	VapourConnector::stream 
+	VapourDrawOff::vapour_stream
+	LiquidDrawOff::liquid_stream
+	LiquidInlet::stream
+	VapourOutlet::vapour_stream
+	VapourInlet::stream
+	LiquidOutlet::liquid_stream
+	LiquidConnector::stream
+	VapourConnector::stream
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}

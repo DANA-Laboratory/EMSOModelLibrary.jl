@@ -66,15 +66,15 @@ type cstr_basic
 			[:Inlet,:Outlet,:q,:Vr,:M,:C,]
 		)
 	end
-	NComp::DanaInteger 
-	NReac::DanaInteger 
-	stoic::Array{DanaReal }
-	Inlet::stream 
-	Outlet::streamPH 
-	q::heat_rate 
-	Vr::volume 
-	M::mol 
-	C::Array{conc_mol }
+	NComp::DanaInteger
+	NReac::DanaInteger
+	stoic::Array{DanaReal}
+	Inlet::stream
+	Outlet::streamPH
+	q::heat_rate
+	Vr::volume
+	M::mol
+	C::Array{conc_mol}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

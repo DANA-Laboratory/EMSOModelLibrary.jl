@@ -57,9 +57,9 @@ type Turbina_sangra
 	EF_T::Eficiencia
 	POT_TURB::Potencia
 	y::Fracao
-	Fin::Corrente 
-	Fout::Corrente 
-	Fouts::Corrente 
+	Fin::Corrente
+	Fout::Corrente
+	Fouts::Corrente
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

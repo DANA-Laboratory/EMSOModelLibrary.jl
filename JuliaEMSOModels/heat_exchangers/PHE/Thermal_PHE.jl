@@ -68,14 +68,14 @@ type Thermal_PHE
 			[:Cr,:Cmin,:Cmax,:NTU,:Eft,:Q,:Uc,:Ud,]
 		)
 	end
-	Cr::positive 
-	Cmin::positive 
-	Cmax::positive 
-	NTU::positive 
-	Eft::positive 
-	Q::power 
-	Uc::heat_trans_coeff 
-	Ud::heat_trans_coeff 
+	Cr::positive
+	Cmin::positive
+	Cmax::positive
+	NTU::positive
+	Eft::positive
+	Q::power
+	Uc::heat_trans_coeff
+	Ud::heat_trans_coeff
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

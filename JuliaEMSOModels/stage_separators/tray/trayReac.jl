@@ -113,26 +113,26 @@ type trayReac
 	end
 	PP::DanaPlugin
 	NComp::DanaInteger
-	Inlet::stream 
-	LiquidSideStream::liquid_stream 
-	VapourSideStream::vapour_stream 
-	InletLiquid::stream 
-	InletVapour::stream 
-	OutletLiquid::liquid_stream 
-	OutletVapour::vapour_stream 
+	Inlet::stream
+	LiquidSideStream::liquid_stream
+	VapourSideStream::vapour_stream
+	InletLiquid::stream
+	InletVapour::stream
+	OutletLiquid::liquid_stream
+	OutletVapour::vapour_stream
 	yideal::Array{fraction}
-	M::Array{mol }
-	ML::mol 
-	MV::mol 
-	E::energy 
-	vL::volume_mol 
-	vV::volume_mol 
-	Level::length 
+	M::Array{mol}
+	ML::mol
+	MV::mol
+	E::energy
+	vL::volume_mol
+	vV::volume_mol
+	Level::length
 	Vol::volume
 	rhoL::dens_mass
 	rhoV::dens_mass
-	r3::reaction_mol 
-	C::Array{conc_mol }
+	r3::reaction_mol
+	C::Array{conc_mol}
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

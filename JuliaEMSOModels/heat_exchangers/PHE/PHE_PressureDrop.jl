@@ -62,13 +62,13 @@ type PHE_PressureDrop
 			[:DPchannel,:DPports,:Pdrop,:fi,:Vchannel,:Vports,:Npassage,]
 		)
 	end
-	DPchannel::press_delta 
-	DPports::press_delta 
-	Pdrop::press_delta 
-	fi::fricfactor 
-	Vchannel::velocity 
-	Vports::velocity 
-	Npassage::positive 
+	DPchannel::press_delta
+	DPports::press_delta
+	Pdrop::press_delta
+	fi::fricfactor
+	Vchannel::velocity
+	Vports::velocity
+	Npassage::positive
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

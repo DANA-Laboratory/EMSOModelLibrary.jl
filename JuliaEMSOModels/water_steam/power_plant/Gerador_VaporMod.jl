@@ -63,16 +63,16 @@ type Gerador_VaporMod
 		)
 	end
 	PP2::DanaPlugin
-	Q_GV::Pot_sinal 
-	EF_GV::Eficiencia 
-	Qpre::Potencia 
-	Qsa::Potencia 
-	Qca::Potencia 
-	Qec::Potencia 
-	Fin_a::Corrente 
-	Fout_sa::Corrente 
-	Fvap::Corrente 
-	Feco::Corrente 
+	Q_GV::Pot_sinal
+	EF_GV::Eficiencia
+	Qpre::Potencia
+	Qsa::Potencia
+	Qca::Potencia
+	Qec::Potencia
+	Fin_a::Corrente
+	Fout_sa::Corrente
+	Fvap::Corrente
+	Feco::Corrente
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	parameters::Array{Symbol,1}

@@ -33,7 +33,7 @@ type Torre
 	end
 	cpa::CalorEspecifico
 	F::VazaoMassica
-	Qin::Potencia 
+	Qin::Potencia
 	DTh::Dif_Temp
 	DTc::Dif_Temp
 	DTar::Dif_Temp

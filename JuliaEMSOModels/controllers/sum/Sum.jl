@@ -36,9 +36,9 @@ type Sum
 			[:input1,:input2,:output,]
 		)
 	end
-	input1::DanaReal 
-	input2::DanaReal 
-	output::DanaReal 
+	input1::DanaReal
+	input2::DanaReal
+	output::DanaReal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	variables::Array{Symbol,1}

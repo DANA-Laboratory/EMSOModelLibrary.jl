@@ -50,11 +50,11 @@ type Baffles_Main
 			[:Inlet_Spacing,:Central_Spacing,:Outlet_Spacing,]
 		)
 	end
-	BaffleCut::DanaInteger 
-	NumberOfBaffles::DanaReal 
-	Inlet_Spacing::length 
-	Central_Spacing::length 
-	Outlet_Spacing::length 
+	BaffleCut::DanaInteger
+	NumberOfBaffles::DanaReal
+	Inlet_Spacing::length
+	Central_Spacing::length
+	Outlet_Spacing::length
 	parameters::Array{Symbol,1}
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}

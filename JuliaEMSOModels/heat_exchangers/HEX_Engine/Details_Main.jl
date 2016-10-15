@@ -42,10 +42,10 @@ type Details_Main
 			[:A,:Q,:Uc,:Ud,]
 		)
 	end
-	A::area 
-	Q::power 
-	Uc::heat_trans_coeff 
-	Ud::heat_trans_coeff 
+	A::area
+	Q::power
+	Uc::heat_trans_coeff
+	Ud::heat_trans_coeff
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}
 end

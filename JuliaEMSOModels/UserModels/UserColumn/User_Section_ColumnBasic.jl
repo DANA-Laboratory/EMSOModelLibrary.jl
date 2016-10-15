@@ -263,53 +263,53 @@ type User_Section_ColumnBasic
 			[:FeedTray,:VapourDrawOffFlow,:LiquidDrawOffFlow,:trays,:MurphreeEff,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	NumberOfTrays::DanaInteger 
-	FeedTrayIndex::Array{DanaInteger }
-	LiqSideTrayIndex::Array{DanaInteger }
-	VapSideTrayIndex::Array{DanaInteger }
-	FeedTrayLocation::DanaInteger 
-	LiquidSideStreamLocation::DanaInteger 
-	VapourSideStreamLocation::DanaInteger 
-	g::acceleration 
-	Mw::Array{molweight }
-	VapourFlowModel::DanaSwitcher 
-	LiquidFlowModel::DanaSwitcher 
-	VolumeOfTray::volume 
-	HeatSupply::heat_rate 
-	PlateArea::area 
-	HolesArea::area 
-	WeirLength::length 
-	WeirHeight::length 
-	FeeheryCoeff::DanaReal 
-	ElgueCoeff::DanaReal 
-	OlsenCoeff::DanaReal 
-	TrayLiquidPasses::DanaReal 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	NumberOfTrays::DanaInteger
+	FeedTrayIndex::Array{DanaInteger}
+	LiqSideTrayIndex::Array{DanaInteger}
+	VapSideTrayIndex::Array{DanaInteger}
+	FeedTrayLocation::DanaInteger
+	LiquidSideStreamLocation::DanaInteger
+	VapourSideStreamLocation::DanaInteger
+	g::acceleration
+	Mw::Array{molweight}
+	VapourFlowModel::DanaSwitcher
+	LiquidFlowModel::DanaSwitcher
+	VolumeOfTray::volume
+	HeatSupply::heat_rate
+	PlateArea::area
+	HolesArea::area
+	WeirLength::length
+	WeirHeight::length
+	FeeheryCoeff::DanaReal
+	ElgueCoeff::DanaReal
+	OlsenCoeff::DanaReal
+	TrayLiquidPasses::DanaReal
 	TopTemperature::temperature
 	TbottomTemperature::temperature
-	LevelFraction::fraction 
-	TopComposition::Array{fraction }
-	BottomComposition::Array{fraction }
-	V::volume 
-	Q::heat_rate 
-	Ap::area 
-	Ah::area 
-	lw::length 
-	hw::length 
-	beta::fraction 
-	alfa::fraction 
-	w::DanaReal 
-	btray::DanaReal 
-	fw::DanaReal 
-	Np::DanaReal 
-	VapourFlow::DanaSwitcher 
-	LiquidFlow::DanaSwitcher 
-	FeedTray::stream 
-	VapourDrawOffFlow::flow_mol 
-	LiquidDrawOffFlow::flow_mol 
-	trays::Array{User_tray }
-	MurphreeEff::DanaReal 
+	LevelFraction::fraction
+	TopComposition::Array{fraction}
+	BottomComposition::Array{fraction}
+	V::volume
+	Q::heat_rate
+	Ap::area
+	Ah::area
+	lw::length
+	hw::length
+	beta::fraction
+	alfa::fraction
+	w::DanaReal
+	btray::DanaReal
+	fw::DanaReal
+	Np::DanaReal
+	VapourFlow::DanaSwitcher
+	LiquidFlow::DanaSwitcher
+	FeedTray::stream
+	VapourDrawOffFlow::flow_mol
+	LiquidDrawOffFlow::flow_mol
+	trays::Array{User_tray}
+	MurphreeEff::DanaReal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
 	initials::Array{Expr,1}

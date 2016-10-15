@@ -54,12 +54,12 @@ type Details_Main
 			[:A,:Q,:Qtotal,:Uc,:Ud,]
 		)
 	end
-	N::DanaInteger 
-	A::area 
-	Q::Array{power }
-	Qtotal::power 
-	Uc::heat_trans_coeff 
-	Ud::Array{heat_trans_coeff }
+	N::DanaInteger
+	A::area
+	Q::Array{power}
+	Qtotal::power
+	Uc::heat_trans_coeff
+	Ud::Array{heat_trans_coeff}
 	parameters::Array{Symbol,1}
 	variables::Array{Symbol,1}
 	attributes::Dict{Symbol,Any}

@@ -48,8 +48,8 @@ type Bomba
 	POT_BMB::Pot_sinal
 	POT_EF::Potencia
 	EF_B::Eficiencia
-	Fin::Corrente 
-	Fout::Corrente 
+	Fin::Corrente
+	Fout::Corrente
 	v_esp::VolumeEspecifico
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}

@@ -98,20 +98,20 @@ type sink2
 			[:Inlet,:v,:x,:y,:zmass,:Mw,:vm,:rho,:rhom,:Fw,:Fvol,:T_Cdeg,]
 		)
 	end
-	PP::DanaPlugin 
-	NComp::DanaInteger 
-	M::Array{molweight }
-	Inlet::stream 
-	v::fraction 
-	x::Array{fraction }
-	y::Array{fraction }
-	zmass::Array{fraction }
-	Mw::molweight 
-	vm::volume_mol 
-	rho::dens_mass 
-	rhom::dens_mol 
-	Fw::flow_mass 
-	Fvol::flow_vol 
+	PP::DanaPlugin
+	NComp::DanaInteger
+	M::Array{molweight}
+	Inlet::stream
+	v::fraction
+	x::Array{fraction}
+	y::Array{fraction}
+	zmass::Array{fraction}
+	Mw::molweight
+	vm::volume_mol
+	rho::dens_mass
+	rhom::dens_mol
+	Fw::flow_mass
+	Fvol::flow_vol
 	T_Cdeg::DanaReal
 	equations::Array{Expr,1}
 	equationNames::Array{String,1}
