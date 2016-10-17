@@ -1,9 +1,9 @@
 module EMLheater
 	using DanaTypes
 	using DotPlusInheritance
-	require("EMSOModelLibrary/JuliaEMSOModels/streams.jl")
-	using EMLstreams
-	using EMLtypes
+	using Reexport
+	@reexport using ...streams.EMLstreams
+	import EMLtypes.length
 	include("heater/heater.jl")
 	include("heater/cooler.jl")
 end

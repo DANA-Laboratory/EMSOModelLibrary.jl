@@ -1,8 +1,9 @@
 module EMLstreams
 	using DanaTypes
 	using DotPlusInheritance
-	require("EMSOModelLibrary/JuliaEMSOModels/types.jl")
-	using EMLtypes
+	using Reexport
+	@reexport using ...types.EMLtypes
+	import EMLtypes.length
 	include("streams/stream.jl")
 	include("streams/liquid_stream.jl")
 	include("streams/vapour_stream.jl")

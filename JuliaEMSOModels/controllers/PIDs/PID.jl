@@ -12,7 +12,7 @@
 #* EMSO is distributed under the therms of the ALSOC LICENSE as
 #* available at http://www.enq.ufrgs.br/alsoc.
 #*--------------------------------------------------------------------
-#* Author: Tiago Os򱨯rio
+#* Author: Tiago Os��io
 #* $Id$
 #*-------------------------------------------------------------------
 type PID
@@ -176,11 +176,6 @@ type PID
 				:(PID_input*(MaxInput - MinInput) = Input - MinInput),
 				:(Output = PID_output*(MaxOutput - MinOutput) + MinOutput),
 				:(PID_setPoint*(MaxInput - MinInput) = SetPoint - MinInput),
-			],
-			[
-				"Input ","Output ","Set Point ",
-			],
-			[
 				:((tau + 1e-3*"s")*diff(PID_inputFilt)= PID_input - PID_inputFilt),
 				:(tau*diff(PID_inputFilt)= PID_input - PID_inputFilt),
 				:((tauSet + 1e-3*"s")*diff(PID_setPointFilt)= PID_setPoint - PID_setPointFilt),
@@ -233,7 +228,7 @@ type PID
 				:(PID_AWFactor=1),
 			],
 			[
-				"Input first order filter","Input first order filter","setPoint first order filter","setPoint first order filter","Error definition for proportional term","Error definition for derivative term","Error definition for integral term","Error definition for proportional term","Error definition for derivative term","Error definition for integral term","Calculate proportional term","Derivative term filter","Derivative term filter","Calculate derivative term","Scale outp","Calculate clipped output when saturated","Calculate clipped output when not saturated","Calculate unclipped output","","","Calculate integral term with anti-windup","Sum of proportional, integral and derivative terms","Calculate AWFactor","Calculate AWFactor","Calculate integral term with anti-windup","Sum of proportional, integral and derivative terms","Calculate AWFactor","Calculate AWFactor","Calculate integral term with anti-windup","Sum of proportional, integral and derivative terms","Calculate AWFactor","Calculate AWFactor","Calculate integral term","Sum of proportional, integral and derivative terms","Calculate AWFactor - Not in use in this mode","Calculate integral term","Sum of proportional, integral and derivative terms","Calculate AWFactor - Not in use in this mode","Calculate integral term","Sum of proportional, integral and derivative terms","Calculate AWFactor - Not in use in this mode","Calculate integral term with anti-windup and bumpless transfer","Sum of proportional, integral and derivative terms","Calculate AWFactor - Not in use in this mode","Calculate integral term with anti-windup and bumpless transfer","Sum of proportional, integral and derivative terms","Calculate AWFactor - Not in use in this mode","Calculate integral term with anti-windup and bumpless transfer","Sum of proportional, integral and derivative terms","Calculate AWFactor - Not in use in this mode",
+				"Input ","Output ","Set Point ","Input first order filter","Input first order filter","setPoint first order filter","setPoint first order filter","Error definition for proportional term","Error definition for derivative term","Error definition for integral term","Error definition for proportional term","Error definition for derivative term","Error definition for integral term","Calculate proportional term","Derivative term filter","Derivative term filter","Calculate derivative term","Scale outp","Calculate clipped output when saturated","Calculate clipped output when not saturated","Calculate unclipped output","","","Calculate integral term with anti-windup","Sum of proportional, integral and derivative terms","Calculate AWFactor","Calculate AWFactor","Calculate integral term with anti-windup","Sum of proportional, integral and derivative terms","Calculate AWFactor","Calculate AWFactor","Calculate integral term with anti-windup","Sum of proportional, integral and derivative terms","Calculate AWFactor","Calculate AWFactor","Calculate integral term","Sum of proportional, integral and derivative terms","Calculate AWFactor - Not in use in this mode","Calculate integral term","Sum of proportional, integral and derivative terms","Calculate AWFactor - Not in use in this mode","Calculate integral term","Sum of proportional, integral and derivative terms","Calculate AWFactor - Not in use in this mode","Calculate integral term with anti-windup and bumpless transfer","Sum of proportional, integral and derivative terms","Calculate AWFactor - Not in use in this mode","Calculate integral term with anti-windup and bumpless transfer","Sum of proportional, integral and derivative terms","Calculate AWFactor - Not in use in this mode","Calculate integral term with anti-windup and bumpless transfer","Sum of proportional, integral and derivative terms","Calculate AWFactor - Not in use in this mode",
 			],
 			[:PID_Select,:Action,:Mode,:Clip,:alpha,:beta,:bias,:derivTime,:intTime,:gain,:gamma,:tau,:tauSet,:MinInput,:MaxInput,:MinOutput,:MaxOutput,],
 			[:Input,:Output,:SetPoint,:PID_derivTerm,:PID_dFilt,:PID_error,:PID_errorD,:PID_errorI,:PID_inputFilt,:PID_intTerm,:PID_outp,:PID_outps,:PID_propTerm,:PID_setPointFilt,:PID_AWFactor,:PID_action,:PID_input,:PID_output,:PID_setPoint,]
@@ -275,8 +270,6 @@ type PID
 	PID_input::control_signal
 	PID_output::control_signal
 	PID_setPoint::control_signal
-	equations::Array{Expr,1}
-	equationNames::Array{String,1}
 	initials::Array{Expr,1}
 	initialNames::Array{String,1}
 	equations::Array{Expr,1}
@@ -286,11 +279,6 @@ type PID
 	attributes::Dict{Symbol,Any}
 end
 export PID
-function setEquationFlow(in::PID)
-	addEquation(1)
-	addEquation(2)
-	addEquation(3)
-end
 function initial(in::PID)
 	addEquation(1)
 	addEquation(2)
@@ -298,102 +286,105 @@ function initial(in::PID)
 	addEquation(4)
 end
 function setEquationFlow(in::PID)
+	addEquation(1)
+	addEquation(2)
+	addEquation(3)
 	if (tau < 1e-3*"s") 
-		addEquation(1)
+		addEquation(4)
 	else
-		addEquation(2)
+		addEquation(5)
 	end
 	if (tauSet < 1e-3*"s") 
-		addEquation(3)
+		addEquation(6)
 	else
-		addEquation(4)
+		addEquation(7)
 	end
 	let switch=Mode
 		if switch=="Manual"
-			addEquation(5)
-			addEquation(6)
-			addEquation(7)
-		elseif switch=="Automatic"
 			addEquation(8)
 			addEquation(9)
 			addEquation(10)
+		elseif switch=="Automatic"
+			addEquation(11)
+			addEquation(12)
+			addEquation(13)
 		end
 	end
-	addEquation(11)
-	if (derivTime < 1e-3*"s") 
-		addEquation(12)
-	else
-		addEquation(13)
-	end
 	addEquation(14)
-	addEquation(15)
+	if (derivTime < 1e-3*"s") 
+		addEquation(15)
+	else
+		addEquation(16)
+	end
+	addEquation(17)
+	addEquation(18)
 	let switch=Clip
 		if switch=="Clipped"
 			if abs(PID_outps)>1 
-				addEquation(16)
+				addEquation(19)
 			else
-				addEquation(17)
+				addEquation(20)
 			end
 		elseif switch=="Unclipped"
-			addEquation(18)
+			addEquation(21)
 		end
 	end
 	let switch=Action
 		if switch=="Direct"
-			addEquation(19)
+			addEquation(22)
 		elseif switch=="Reverse"
-			addEquation(20)
+			addEquation(23)
 		end
 	end
 	let switch=PID_Select
 		if switch=="Ideal_AW"
-			addEquation(21)
-			addEquation(22)
+			addEquation(24)
+			addEquation(25)
 			if abs(PID_outps)>1 && (PID_action*sign(PID_outps)*PID_errorI)>0 
-				addEquation(23)
+				addEquation(26)
 			else
-				addEquation(24)
+				addEquation(27)
 			end
 		elseif switch=="Parallel_AW"
-			addEquation(25)
-			addEquation(26)
+			addEquation(28)
+			addEquation(29)
 			if abs(PID_outps)>1 && (PID_action*sign(PID_outps)*PID_errorI)>0 
-				addEquation(27)
+				addEquation(30)
 			else
-				addEquation(28)
+				addEquation(31)
 			end
 		elseif switch=="Series_AW"
-			addEquation(29)
-			addEquation(30)
+			addEquation(32)
+			addEquation(33)
 			if abs(PID_outps)>1 && (PID_action*sign(PID_outps)*PID_errorI)>0 
-				addEquation(31)
+				addEquation(34)
 			else
-				addEquation(32)
+				addEquation(35)
 			end
 		elseif switch=="Ideal"
-			addEquation(33)
-			addEquation(34)
-			addEquation(35)
-		elseif switch=="Parallel"
 			addEquation(36)
 			addEquation(37)
 			addEquation(38)
-		elseif switch=="Series"
+		elseif switch=="Parallel"
 			addEquation(39)
 			addEquation(40)
 			addEquation(41)
-		elseif switch=="Ideal_AWBT"
+		elseif switch=="Series"
 			addEquation(42)
 			addEquation(43)
 			addEquation(44)
-		elseif switch=="Parallel_AWBT"
+		elseif switch=="Ideal_AWBT"
 			addEquation(45)
 			addEquation(46)
 			addEquation(47)
-		elseif switch=="Series_AWBT"
+		elseif switch=="Parallel_AWBT"
 			addEquation(48)
 			addEquation(49)
 			addEquation(50)
+		elseif switch=="Series_AWBT"
+			addEquation(51)
+			addEquation(52)
+			addEquation(53)
 		end
 	end
 end

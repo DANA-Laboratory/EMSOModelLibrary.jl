@@ -1,11 +1,11 @@
 module EMLtank_basic
 	using DanaTypes
 	using DotPlusInheritance
-	require("EMSOModelLibrary/JuliaEMSOModels/streams.jl")
-	using EMLstreams
-	using EMLtypes
-	require("EMSOModelLibrary/JuliaEMSOModels/reactors/vol_tank.jl")
-	using EMLvol_tank
+	using Reexport
+	@reexport using ...streams.EMLstreams
+	import EMLtypes.length
+	@reexport using ...reactors.EMLvol_tank
+	import EMLtypes.length
 	include("tank_basic/tank_basic.jl")
 	include("tank_basic/tank_vap.jl")
 	include("tank_basic/tank_liq.jl")

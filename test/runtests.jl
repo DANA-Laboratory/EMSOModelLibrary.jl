@@ -1,4 +1,4 @@
-using EMSOModelLibrary.jl
+using EMSOModelLibrary
 using Base.Test
 
 # write your own tests here

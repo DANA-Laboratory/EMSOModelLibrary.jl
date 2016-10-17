@@ -1,6 +1,7 @@
 module EMLtypes
 	using DanaTypes
 	using DotPlusInheritance
+	using Reexport
 	include("types/coefficient.jl")
 	include("types/constant.jl")
 	include("types/positive.jl")

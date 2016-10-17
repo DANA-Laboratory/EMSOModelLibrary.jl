@@ -1,8 +1,9 @@
 module EMLpi
 	using DanaTypes
 	using DotPlusInheritance
-	require("EMSOModelLibrary/JuliaEMSOModels/types.jl")
-	using EMLtypes
+	using Reexport
+	@reexport using ...types.EMLtypes
+	import EMLtypes.length
 	include("pi/PI_simple.jl")
 	include("pi/PI.jl")
 end

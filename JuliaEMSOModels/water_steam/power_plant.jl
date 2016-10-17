@@ -1,6 +1,7 @@
 module EMLpower_plant
 	using DanaTypes
 	using DotPlusInheritance
+	using Reexport
 	include("power_plant/CalorEspecifico.jl")
 	include("power_plant/CoefGlobal_area.jl")
 	include("power_plant/Dif_Pres.jl")

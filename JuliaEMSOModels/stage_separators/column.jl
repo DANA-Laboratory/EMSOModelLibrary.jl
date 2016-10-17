@@ -1,19 +1,17 @@
 module EMLcolumn
 	using DanaTypes
 	using DotPlusInheritance
-	require("EMSOModelLibrary/JuliaEMSOModels/stage_separators/tray.jl")
-	using EMLtray
-	using EMLstreams
-	using EMLtypes
-	require("EMSOModelLibrary/JuliaEMSOModels/stage_separators/reboiler.jl")
-	using EMLreboiler
-	using EMLtank
-	require("EMSOModelLibrary/JuliaEMSOModels/stage_separators/condenser.jl")
-	using EMLcondenser
-	require("EMSOModelLibrary/JuliaEMSOModels/mixers_splitters/splitter.jl")
-	using EMLsplitter
-	require("EMSOModelLibrary/JuliaEMSOModels/pressure_changers/pump.jl")
-	using EMLpump
+	using Reexport
+	@reexport using ...stage_separators.EMLtray
+	import EMLtypes.length
+	@reexport using ...stage_separators.EMLreboiler
+	import EMLtypes.length
+	@reexport using ...stage_separators.EMLcondenser
+	import EMLtypes.length
+	@reexport using ...mixers_splitters.EMLsplitter
+	import EMLtypes.length
+	@reexport using ...pressure_changers.EMLpump
+	import EMLtypes.length
 	include("column/ControlSection.jl")
 	include("column/InitializeSection.jl")
 	include("column/InitializeStage.jl")

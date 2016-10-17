@@ -12,7 +12,7 @@
 #* EMSO is distributed under the therms of the ALSOC LICENSE as
 #* available at http://www.enq.ufrgs.br/alsoc.
 #*--------------------------------------------------------------------
-#* Author: Tiago Os򱨯rio
+#* Author: Tiago Os��io
 #* $Id$
 #*-------------------------------------------------------------------
 type FirstOrder

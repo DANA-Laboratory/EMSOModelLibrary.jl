@@ -1,7 +1,8 @@
 module EMLComparator
 	using DanaTypes
 	using DotPlusInheritance
-	require("EMSOModelLibrary/JuliaEMSOModels/types.jl")
-	using EMLtypes
+	using Reexport
+	@reexport using ...types.EMLtypes
+	import EMLtypes.length
 	include("Comparator/comparator.jl")
 end

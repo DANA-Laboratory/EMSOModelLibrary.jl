@@ -1,9 +1,9 @@
 module EMLDoublePipeIncr
 	using DanaTypes
 	using DotPlusInheritance
-	require("EMSOModelLibrary/JuliaEMSOModels/streams.jl")
-	using EMLstreams
-	using EMLtypes
+	using Reexport
+	@reexport using ...streams.EMLstreams
+	import EMLtypes.length
 	include("DoublePipeIncr/Properties_Average.jl")
 	include("DoublePipeIncr/Properties_In_Out.jl")
 	include("DoublePipeIncr/Properties_Wall.jl")

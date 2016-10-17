@@ -1,8 +1,9 @@
 module EMLPIDs
 	using DanaTypes
 	using DotPlusInheritance
-	require("EMSOModelLibrary/JuliaEMSOModels/types.jl")
-	using EMLtypes
+	using Reexport
+	@reexport using ...types.EMLtypes
+	import EMLtypes.length
 	include("PIDs/PID.jl")
 	include("PIDs/FirstOrder.jl")
 	include("PIDs/StepSignal.jl")

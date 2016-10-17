@@ -1,9 +1,9 @@
 module EMLsplitter
 	using DanaTypes
 	using DotPlusInheritance
-	require("EMSOModelLibrary/JuliaEMSOModels/streams.jl")
-	using EMLstreams
-	using EMLtypes
+	using Reexport
+	@reexport using ...streams.EMLstreams
+	import EMLtypes.length
 	include("splitter/splitter_n.jl")
 	include("splitter/splitter2.jl")
 	include("splitter/splitter3.jl")

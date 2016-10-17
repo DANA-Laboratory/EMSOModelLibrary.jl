@@ -1,9 +1,8 @@
 module EMLtank_cost
 	using DanaTypes
 	using DotPlusInheritance
-	require("EMSOModelLibrary/JuliaEMSOModels/stage_separators/tank.jl")
-	using EMLtank
-	using EMLstreams
-	using EMLtypes
+	using Reexport
+	@reexport using ...stage_separators.EMLtank
+	import EMLtypes.length
 	include("tank_cost/tank_cost.jl")
 end

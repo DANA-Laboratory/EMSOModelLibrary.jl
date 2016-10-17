@@ -1,9 +1,9 @@
 module EMLsepComp
 	using DanaTypes
 	using DotPlusInheritance
-	require("EMSOModelLibrary/JuliaEMSOModels/streams.jl")
-	using EMLstreams
-	using EMLtypes
+	using Reexport
+	@reexport using ...streams.EMLstreams
+	import EMLtypes.length
 	include("sepComp/sepComp_n.jl")
 	include("sepComp/sepComp.jl")
 end

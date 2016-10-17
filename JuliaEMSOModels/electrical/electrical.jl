@@ -1,8 +1,9 @@
 module EMLelectrical
 	using DanaTypes
 	using DotPlusInheritance
-	require("EMSOModelLibrary/JuliaEMSOModels/types.jl")
-	using EMLtypes
+	using Reexport
+	@reexport using ...types.EMLtypes
+	import EMLtypes.length
 	include("electrical/wire.jl")
 	include("electrical/Resistor.jl")
 	include("electrical/Capacitor.jl")

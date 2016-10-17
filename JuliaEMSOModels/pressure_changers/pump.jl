@@ -1,9 +1,9 @@
 module EMLpump
 	using DanaTypes
 	using DotPlusInheritance
-	require("EMSOModelLibrary/JuliaEMSOModels/streams.jl")
-	using EMLstreams
-	using EMLtypes
+	using Reexport
+	@reexport using ...streams.EMLstreams
+	import EMLtypes.length
 	include("pump/centrifugal_pump.jl")
 	include("pump/pump.jl")
 	include("pump/pump2.jl")

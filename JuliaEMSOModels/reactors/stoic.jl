@@ -1,11 +1,9 @@
 module EMLstoic
 	using DanaTypes
 	using DotPlusInheritance
-	require("EMSOModelLibrary/JuliaEMSOModels/reactors/tank_basic.jl")
-	using EMLtank_basic
-	using EMLstreams
-	using EMLtypes
-	using EMLvol_tank
+	using Reexport
+	@reexport using ...reactors.EMLtank_basic
+	import EMLtypes.length
 	include("stoic/stoic_vap.jl")
 	include("stoic/stoic_liq.jl")
 	include("stoic/stoic_extent_vap.jl")
